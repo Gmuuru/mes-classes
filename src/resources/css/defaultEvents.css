@@ -1,0 +1,47 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.timetable .content .event0 .label {-fx-text-fill:white;}
+.timetable .content .event0 {-fx-background-color : #337ab7;-fx-border-color : #2e6da4;}
+.timetable .content .event0:hover {-fx-background-color : #286090;-fx-border-color : #204d74;}
+
+.timetable .content .event1 .label {-fx-text-fill:white;}
+.timetable .content .event1 {-fx-background-color: #b7337a;-fx-border-color: #a42e6d;}
+.timetable .content .event1:hover {-fx-background-color: #902860;-fx-border-color: #74204d;}
+
+.timetable .content .event2 .label {-fx-text-fill:white;}
+.timetable .content .event2 {-fx-background-color: #33b770;-fx-border-color: #2ea465;}
+.timetable .content .event2:hover {-fx-background-color: #289058;-fx-border-color: #207447;}
+
+.timetable .content .event3 .label {-fx-text-fill:white;}
+.timetable .content .event3 {-fx-background-color: #787275;-fx-border-color: #6b6769;}
+.timetable .content .event3:hover {-fx-background-color: #5e5a5c;-fx-border-color: #4c484a;}
+
+.timetable .content .event4 .label {-fx-text-fill:white;}
+.timetable .content .event4 {-fx-background-color: #d2a348;-fx-border-color: #be9342;}
+.timetable .content .event4:hover {-fx-background-color: #a9823b;-fx-border-color: #8b6b32;}
+
+.timetable .content .event5 {-fx-background-color: #eee;-fx-border-color: #aaa;}
+.timetable .content .event5:hover {-fx-background-color: #bbb;-fx-border-color: #999;}
+
+.timetable .content .event6 {-fx-background-color: #ffd991;-fx-border-color: #ffc87a;}
+.timetable .content .event6:hover {-fx-background-color: #ffc87a;-fx-border-color: #ffa77a;}
+
+.timetable .content .event7 {background-color: #d2b8e4;-fx-border-color: #c6a6dd;}
+.timetable .content .event7:hover {background-color: #c6a6dd;-fx-border-color: #aba6dd;}
+
+.timetable .content .event .label {
+    -fx-alignment : TOP_CENTER;
+    -fx-font-size : 14px;
+}
+.timetable .content .event .horaires .label.start {
+    -fx-alignment : CENTER-LEFT;
+}
+.timetable .content .event .horaires .label.end {
+    -fx-alignment : CENTER-RIGHT;
+}
+.timetable .content .event .label.event-classe {
+    -fx-font-size : 16px;
+    -fx-font-weight:bold;
+}

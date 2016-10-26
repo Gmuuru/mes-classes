@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchor" prefHeight="350.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.NewChangementController">
+    <stylesheets>
+        <URL value="@/resources/css/main.css" />
+    </stylesheets>
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="138.0" layoutY="57.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="titled-label" text="Choisissez une classe et un élève" />
+            <HBox alignment="CENTER">
+               <children>
+                  <ComboBox fx:id="classeBox">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="eleveBox">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <Label fx:id="eleveStatusTitle" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="titled-label" text="status de l'élève">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
+            <Label fx:id="eleveStatus" />
+            <Label fx:id="changementTitle" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="titled-label" text="Nouveau changement">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin></Label>
+            <HBox fx:id="changeBox" alignment="CENTER">
+                <Label fx:id="eleveName" />
+                <ComboBox fx:id="changes">
+                      <HBox.margin>
+                         <Insets left="10.0" />
+                      </HBox.margin>
+                </ComboBox>
+
+                <Label text="le">
+                   <HBox.margin>
+                      <Insets left="10.0" />
+                   </HBox.margin>
+                </Label>
+                <DatePicker fx:id="date">
+                   <HBox.margin>
+                      <Insets left="10.0" />
+                   </HBox.margin>
+                </DatePicker>
+                <Label fx:id="destination" text="pour rejoindre la">
+                   <HBox.margin>
+                      <Insets left="10.0" />
+                   </HBox.margin>
+                </Label>
+               <ComboBox fx:id="destinationBox">
+                  <HBox.margin>
+                     <Insets left="10.0" />
+                  </HBox.margin>
+               </ComboBox>
+            </HBox>
+            <Label fx:id="resume">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0">
+        <buttons>
+          <Button mnemonicParsing="false" text="OK" onAction="#handleOk" />
+            <Button mnemonicParsing="false" text="Annuler" onAction="#handleCancel" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

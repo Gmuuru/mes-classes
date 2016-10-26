@@ -1,0 +1,79 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.timetable .header {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #cccccc;
+    -fx-font-weight : bold;
+    -fx-background-color: 
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%);
+}
+.timetable .header .label {
+    -fx-text-fill : white;
+}
+
+.timetable .header .button {
+    -fx-min-width:40px;
+    -fx-pref-width:40px;
+    -fx-max-width:40px;
+    -fx-min-height:40px;
+    -fx-pref-height:40px;
+    -fx-max-height:40px;
+    
+}
+
+.timetable .content .event{
+    -fx-min-height:20px;
+    -fx-border-radius:5px;
+    -fx-background-radius:5px;
+}
+
+.timetable .content .left-container, .timetable .content .container {
+    -fx-min-height:60px;
+    -fx-pref-height:60px;
+    -fx-max-height:60px;
+}
+
+.timetable .content .left-container {
+    -fx-min-width:40px;
+    -fx-pref-width:40px;
+    -fx-max-width:40px;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: #cccccc;
+    -fx-border-style: dotted, solid, dotted, dotted;
+}
+.timetable .content .container {
+    -fx-min-width:180px;
+    -fx-pref-width:180px;
+    -fx-max-width:180px;
+    -fx-border-width: 0 1 1 0;
+    -fx-border-color: #cccccc;
+    -fx-border-style: dotted, solid, dotted, dotted;
+}
+
+.timetable .content .hourStack {
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #cccccc;
+}
+.timetable .content .hourStack .label {
+    -fx-font-size:14px;
+}
+
+.timetable .content .event .label {
+    -fx-alignment : TOP_CENTER;
+    -fx-font-size : 14px;
+}
+.timetable .content .event .horaires .label.start {
+    -fx-alignment : CENTER-LEFT;
+}
+.timetable .content .event .horaires .label.end {
+    -fx-alignment : CENTER-RIGHT;
+}
+.timetable .content .event .label.event-classe {
+    -fx-font-size : 16px;
+    -fx-font-weight:bold;
+}

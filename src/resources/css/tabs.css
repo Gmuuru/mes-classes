@@ -1,0 +1,52 @@
+
+
+/* TABS */
+
+.tab-pane .tab-header-background {
+    -fx-background-color : white;
+    -fx-border-width : 0 0 1px 0;
+    -fx-border-color : #cccccc;
+}
+
+.tab-pane {
+    -fx-tab-min-height: 30px; /* 22 */
+    -fx-tab-max-height: 30px; /* 22 */
+}
+
+.tab {
+    -fx-background-color :
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%);
+    -fx-focus-color: transparent;
+    -fx-background-insets: 0 1 1 0, 1 2 1 1, 2 3 1 2;
+    -fx-background-radius: 3 3 0 0, 2 2 0 0, 1 1 0 0;
+    -fx-padding: 0.083333em 0.5em 0.0769em 0.5em;
+    -fx-cursor:hand;
+}
+
+.tab:hover, .tab:pressed {
+    -fx-effect: innershadow( three-pass-box, rgba( 255, 255, 255, 0.5 ), 5, 0.5, 0, 0 );
+}
+.tab:selected {
+    -fx-focus-color: transparent;
+    -fx-text-fill : red;
+    -fx-background-color: -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 1 1 0, 1 2 0 1, 2 3 0 2;
+}
+
+.tab .tab-label {
+    -fx-text-fill : white;
+    -fx-font-weight:bold;
+    -fx-padding: 0px 20px 0px 20px;
+}
+
+.tab.tab-principale .tab-label {
+    -fx-text-fill : #FFbb33;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill : linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%);
+}
+
+.tab.tab-principale:selected .tab-label {
+    -fx-text-fill : #FFbb33;
+}

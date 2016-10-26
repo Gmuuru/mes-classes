@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchor" prefHeight="750.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.TimetableController">
+   <children>
+      <HBox alignment="CENTER" layoutY="20.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+            
+                  <BorderPane styleClass="timetable" HBox.hgrow="NEVER">
+                     <top>
+                        <HBox prefHeight="40.0" styleClass="header" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button fx:id="newCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleNewCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-arrow" text="" HBox.hgrow="ALWAYS" />
+                              <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Lundi" HBox.hgrow="ALWAYS" />
+                              <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Mardi" HBox.hgrow="ALWAYS" />
+                              <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Mercredi" HBox.hgrow="ALWAYS" />
+                              <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Jeudi" HBox.hgrow="ALWAYS" />
+                              <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Vendredi" HBox.hgrow="ALWAYS" />
+                              <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Samedi" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <ScrollPane fx:id="scroll" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+                           <content>
+                              <HBox styleClass="content">
+                                 <children>
+                                    <StackPane maxWidth="40.0" minWidth="40.0" prefWidth="40.0" styleClass="hourStack" HBox.hgrow="NEVER">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="8h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="9h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="10h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="11h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="12h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="13h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="14h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="15h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="16h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="17h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane styleClass="left-container" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <Label text="18h" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane minWidth="180.0" prefWidth="180.0" styleClass="stackred" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                             </children>
+                                          </VBox>
+                                          <Pane fx:id="mondayPane" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0" styleClass="stackred" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox prefHeight="180.0" prefWidth="100.0">
+                                             <children>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                             </children>
+                                          </VBox>
+                                          <Pane fx:id="tuesdayPane" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0" styleClass="stackred" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox prefHeight="180.0" prefWidth="100.0">
+                                             <children>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                             </children>
+                                          </VBox>
+                                          <Pane fx:id="wednesdayPane" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0" styleClass="stackred" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox prefHeight="180.0" prefWidth="100.0">
+                                             <children>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                             </children>
+                                          </VBox>
+                                          
+                                          <Pane fx:id="thursdayPane" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0" styleClass="stackred" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox prefHeight="180.0" prefWidth="100.0">
+                                             <children>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                             </children>
+                                          </VBox>
+                                          <Pane fx:id="fridayPane" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane prefHeight="180.0" prefWidth="180.0" styleClass="stackred" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox prefHeight="180.0" prefWidth="100.0">
+                                             <children>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                                <Pane styleClass="container" VBox.vgrow="NEVER">
+                        </Pane>
+                                             </children>
+                                          </VBox>
+                                          <Pane fx:id="saturdayPane" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </content>
+                        </ScrollPane>
+                     </center>
+                     <stylesheets>
+                        <URL value="@../../resources/css/main.css" />
+                        <URL value="@../../resources/css/timetable.css" />
+                     </stylesheets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+                  </BorderPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

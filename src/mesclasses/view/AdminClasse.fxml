@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.smartgrid.SmartGrid?>
+<?import org.smartgrid.elements.HeaderLabel?>
+
+<AnchorPane fx:id="anchor" prefHeight="750.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.AdminClasseController">
+    <stylesheets>
+        <URL value="@../../resources/css/main.css" />
+    </stylesheets>
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1280.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+               <content>
+                    <SmartGrid fx:id="grid" alignment="TOP_CENTER"  styleClass="smart-grid">
+                      <columnConstraints>
+                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
+                      </columnConstraints>
+                       <rowConstraints>
+                          <RowConstraints minHeight="25.0" prefHeight="25.0" />
+                       </rowConstraints>
+                       <children>
+                          <HeaderLabel fixedHeight="25" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" styleClass="smart-grid-header" GridPane.columnIndex="0" />
+                          <HeaderLabel alignment="CENTER_LEFT" fixedHeight="25" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
+                              <padding>
+                              <Insets left="4.0" />
+                            </padding>
+                          </HeaderLabel>
+                          <HeaderLabel fixedHeight="25" styleClass="smart-grid-header" text="Principale" GridPane.columnIndex="2" />
+                          <HeaderLabel fixedHeight="25" styleClass="smart-grid-header" text="Trier" GridPane.columnIndex="3" />
+                          <HeaderLabel fixedHeight="25" styleClass="smart-grid-header" text="Supprimer" GridPane.columnIndex="4" />
+                          <HeaderLabel fixedHeight="25" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" styleClass="smart-grid-header" GridPane.columnIndex="5" />
+                       </children>
+                       <padding>
+                          <Insets bottom="5.0" />
+                       </padding>
+                    </SmartGrid>
+               </content>
+            </ScrollPane>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </BorderPane.margin>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#openEleves" text="Ajouter des élèves" HBox.hgrow="SOMETIMES">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openCours" text="Ajouter des cours" HBox.hgrow="SOMETIMES">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </bottom>
+         <top>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  
+                    <HBox styleClass="titlebox">
+                       <children>
+                          <Pane styleClass="strap" minWidth="500.0" HBox.hgrow="ALWAYS">
+                             <children>
+                                <Label styleClass="label-title" text="Gestion des classes">
+                                </Label>
+                             </children>
+                          </Pane>
+                          <Pane styleClass="pointy" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="35.0" HBox.hgrow="NEVER" />
+                          <Pane HBox.hgrow="ALWAYS" />
+                       </children>
+                    </HBox>
+                   <ToolBar prefHeight="40.0">
+                    <items>
+                        <Button fx:id="addClasseBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNewClasse" text="Ajouter classe" />
+                        <Pane HBox.hgrow="ALWAYS" />
+                        <Label fx:id="errorMessagesLabel" alignment="CENTER_RIGHT" minWidth="130.0" styleClass="text-red" text="Chargement des classes" />
+                    </items>
+                  </ToolBar>
+               </children>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="0.0" right="0.0" top="5.0" />
+   </padding>
+</AnchorPane>

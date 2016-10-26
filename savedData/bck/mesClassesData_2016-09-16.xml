@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmldata>
+    <classes>
+        <classe name="6°1">
+            <eleves>
+                <eleve actif="true" classe="6°1" firstName="Lyes" lastName="ABDELLI">
+                    <changementsClasse>
+						<changementClasse>
+							<debut/>
+							<fin>2016-09-10</fin>
+						</changementClasse>
+						<changementClasse>
+							<debut>2016-09-14</debut>
+							<fin>2016-09-20</fin>
+						</changementClasse>
+						<changementClasse>
+							<debut>2016-09-23</debut>
+							<fin/>
+						</changementClasse>
+                    </changementsClasse>
+                    <data>
+                        <eleveData eleve="vaQcC" id="BFJ6Y">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>vaQcC</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Cassandra" lastName="BENHAMOU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>91cGa</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Maëlle" lastName="BERTRAND">
+                    <changementsClasse/>
+                    <data/>
+                    <id>LGP3q</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Simon" lastName="BLANC-LAPIERRE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>1bLOh</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Sarah" lastName="BOROGOVAC">
+                    <changementsClasse/>
+                    <data/>
+                    <id>68Bfp</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Sarah" lastName="BOUKHALFA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>sVx8m</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Juliette" lastName="BOYER">
+                    <changementsClasse/>
+                    <data/>
+                    <id>T54KR</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Tony" lastName="CAPRARA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>UFcP8</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Chiara" lastName="CARRY">
+                    <changementsClasse/>
+                    <data/>
+                    <id>iOHFM</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Bilal" lastName="CHAABA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>nXToH</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Jeanne" lastName="CHAUVIERE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>x25jO</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Vamoro" lastName="CISSE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>u8xCz</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Clara" lastName="COTTE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>LonRQ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Malo" lastName="EMERY">
+                    <changementsClasse/>
+                    <data/>
+                    <id>gJpBk</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Umit" lastName="ERDOGAN">
+                    <changementsClasse/>
+                    <data/>
+                    <id>m6go2</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Akram" lastName="FEGHOUL">
+                    <changementsClasse/>
+                    <data/>
+                    <id>GWQCm</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Yan" lastName="GMIRA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>odXSL</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Andréas" lastName="GOUCHON">
+                    <changementsClasse/>
+                    <data/>
+                    <id>ZuffE</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Léo" lastName="JASARI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>euIfi</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Badis" lastName="KERNOU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>sr107</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Ludivine" lastName="LIMA-DAUTREY">
+                    <changementsClasse/>
+                    <data/>
+                    <id>4FRjU</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Lou-Ann" lastName="LOPEZ-RICORDEAU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>FszdY</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Julie" lastName="LORTHIOIR">
+                    <changementsClasse/>
+                    <data/>
+                    <id>VHVHp</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Cloé" lastName="MAGNERON">
+                    <changementsClasse/>
+                    <data/>
+                    <id>rZPdc</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Nell" lastName="MERLE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>dRYfV</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Lucas" lastName="MOCKERS">
+                    <changementsClasse/>
+                    <data/>
+                    <id>ZIg5S</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Adam" lastName="NOHUTCU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>42CY7</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Ismaël" lastName="PERRON">
+                    <changementsClasse/>
+                    <data/>
+                    <id>27R6q</id>
+                    <punitions/>
+                </eleve>
+            </eleves>
+            <principale>false</principale>
+        </classe>
+        <classe name="6°3">
+            <eleves>
+                <eleve actif="true" classe="6°1" firstName="Lyes" lastName="ABDELLI">
+					<changementsClasse>
+						<changementClasse>
+							<debut/>
+							<fin>2016-09-14</fin>
+						</changementClasse>
+						<changementClasse>
+							<debut>2016-09-20</debut>
+							<fin/>
+						</changementClasse>
+                    </changementsClasse>
+                    <data/>
+                    <id>vaQcC</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Safwane" lastName="BABA-AHMED">
+                    <changementsClasse/>
+                    <data/>
+                    <id>KzVHH</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Amir" lastName="BEGAG">
+                    <changementsClasse/>
+                    <data/>
+                    <id>eNqBJ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Jonathan" lastName="BERE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>ww3Cx</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Walid" lastName="BOUHOUHOU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>KyjkC</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Justine" lastName="CAULIER">
+                    <changementsClasse/>
+                    <data/>
+                    <id>MVSTF</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Evangeline" lastName="CELLE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Zlc0q</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Léa" lastName="CHEVILLOTTE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>hYRPw</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Rani" lastName="CHIHEB">
+                    <changementsClasse/>
+                    <data/>
+                    <id>50nfL</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Quentin" lastName="DIAGNE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>M4Tyi</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Kenza" lastName="DOMINGUEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>vgPfj</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Leyna" lastName="EL ALAOUI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>U3pXH</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Sara" lastName="EL ALLOUCHE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>NtPzz</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Adam" lastName="FEUILLET">
+                    <changementsClasse/>
+                    <data/>
+                    <id>xhYUI</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Talissa" lastName="GARCIA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>y6z2M</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Nour" lastName="HABLANI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>zMQ37</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Lou-Anne" lastName="HASCOET">
+                    <changementsClasse/>
+                    <data/>
+                    <id>25Ix1</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Amine" lastName="JEMILI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>i2HkO</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Eymeric" lastName="LOPEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>l9ln3</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Loann" lastName="MASSARD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>X6mlT</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Malik" lastName="MEGUEDMI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>OLxvJ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Léane" lastName="NGUYEN">
+                    <changementsClasse/>
+                    <data/>
+                    <id>dQ2iJ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Andrew" lastName="RAKOTONIRINA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>EbImL</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Jade" lastName="RAYNAUD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>oG2lX</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Inès" lastName="RECHAK">
+                    <changementsClasse/>
+                    <data/>
+                    <id>qll5b</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Ilan" lastName="RODRIGUES">
+                    <changementsClasse/>
+                    <data/>
+                    <id>2rznj</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Anis" lastName="TOUIOUAR">
+                    <changementsClasse/>
+                    <data/>
+                    <id>TZySI</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Emma" lastName="TOURNIGAUD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>S7nIy</id>
+                    <punitions/>
+                </eleve>
+            </eleves>
+            <principale>false</principale>
+        </classe>
+        <classe name="6°4">
+            <eleves>
+                <eleve actif="true" classe="6°4" firstName="Kevin" lastName="BAROSO">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Lz2nK</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Rayan" lastName="BEAUJARD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>8DERJ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Iman" lastName="BENKADDOUR">
+                    <changementsClasse/>
+                    <data/>
+                    <id>1k0Gg</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Nazim" lastName="BENZAÏD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>xJLng</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Lina" lastName="BOULTIF">
+                    <changementsClasse/>
+                    <data/>
+                    <id>k0X0R</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Maxime" lastName="CALABRO">
+                    <changementsClasse/>
+                    <data/>
+                    <id>5QV4X</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Lilia" lastName="CARRON">
+                    <changementsClasse/>
+                    <data/>
+                    <id>h4Lmm</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Anaïs" lastName="CASCIOLO">
+                    <changementsClasse/>
+                    <data/>
+                    <id>BM9qA</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Sarah" lastName="CHAHBANI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>OWtLt</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Cheryne" lastName="CHENAFI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>4yYk3</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Clovis" lastName="CHEVILLOTTE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>kaGWU</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Maëva" lastName="CHORIER">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Zbu3o</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Eva" lastName="DECOCK">
+                    <changementsClasse/>
+                    <data/>
+                    <id>99z1O</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Feriel" lastName="DIABI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>QUn6J</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Pablo" lastName="GONZALEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>UOY5K</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Léa-Clara" lastName="JOUANNEAU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>I887k</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Khalil" lastName="KAINANE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>ySLOe</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Shyrenne" lastName="KASSIMI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>zbyqD</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Benjamin" lastName="LIVRIERI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>BP9R7</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Timothé" lastName="MARTINEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>BjPNc</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Célia" lastName="MAURINO">
+                    <changementsClasse/>
+                    <data/>
+                    <id>aPzkF</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Julien" lastName="MIRANDE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>d9QGC</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Marion" lastName="MONTEIRO">
+                    <changementsClasse/>
+                    <data/>
+                    <id>LFrlV</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Sarah" lastName="OMIR">
+                    <changementsClasse/>
+                    <data/>
+                    <id>bkNrc</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Zoran" lastName="RAKIPOVSKI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>7dIlw</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Ibraïm" lastName="SAIAH">
+                    <changementsClasse/>
+                    <data/>
+                    <id>eyowQ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Jade" lastName="TARDY">
+                    <changementsClasse/>
+                    <data/>
+                    <id>ngrtn</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Eva" lastName="VIDAL">
+                    <changementsClasse/>
+                    <data/>
+                    <id>lK7Fd</id>
+                    <punitions/>
+                </eleve>
+            </eleves>
+            <principale>true</principale>
+        </classe>
+        <classe name="5°1">
+            <eleves>
+                <eleve actif="true" classe="5°1" firstName="Flavie" lastName="ADUMEAU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>fu78d</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Melina" lastName="ASLAN">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Lin1Y</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lina" lastName="BELHADDAD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Bd4Nl</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Délia" lastName="BEN BELGACEM">
+                    <changementsClasse/>
+                    <data/>
+                    <id>9ZUT8</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ugo" lastName="BOFFA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>4YwS5</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Matthys" lastName="BOREL">
+                    <changementsClasse/>
+                    <data/>
+                    <id>SPr8K</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Kenza" lastName="BOUDOUAIA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>2AxLK</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Eva" lastName="CANTERO">
+                    <changementsClasse/>
+                    <data/>
+                    <id>N8g60</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Fatma" lastName="CEVIK">
+                    <changementsClasse/>
+                    <data/>
+                    <id>LGsvK</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Aymen" lastName="CHENNAK">
+                    <changementsClasse/>
+                    <data/>
+                    <id>nySPw</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lola" lastName="CREUX">
+                    <changementsClasse/>
+                    <data/>
+                    <id>hrWsy</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lucas" lastName="DOAN">
+                    <changementsClasse/>
+                    <data/>
+                    <id>7HjBz</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Thomas" lastName="DUSSART">
+                    <changementsClasse/>
+                    <data/>
+                    <id>QTGe3</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lucas" lastName="FERNANDEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>CKDsl</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Simon" lastName="GIURI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>pYp46</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Clément" lastName="GRENNERAT">
+                    <changementsClasse/>
+                    <data/>
+                    <id>54I5P</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Icham" lastName="GUERRAICHE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>jgrFr</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ilan" lastName="ITURZAETA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>FHG1L</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Milan" lastName="KAPETANOVIK">
+                    <changementsClasse/>
+                    <data/>
+                    <id>PbRrS</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Roselene" lastName="KARAOUI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>5UIci</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ilyes" lastName="MAANANE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>ySqFa</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Anissa" lastName="RECHAK">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Xc1Qa</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Salome" lastName="REYMOND">
+                    <changementsClasse/>
+                    <data/>
+                    <id>FWslO</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Coline" lastName="ROCA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>3oO2Q</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ludovic" lastName="SANCHEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>iHyDZ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Amine" lastName="SID">
+                    <changementsClasse/>
+                    <data/>
+                    <id>uSn65</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Farah" lastName="YAHIA BEY">
+                    <changementsClasse/>
+                    <data/>
+                    <id>c9SVF</id>
+                    <punitions/>
+                </eleve>
+            </eleves>
+            <principale>false</principale>
+        </classe>
+    </classes>
+    <cours>
+        <cours classe="6°4">
+            <day>Lundi</day>
+            <endHour>10</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>9</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Lundi</day>
+            <endHour>11</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>10</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Lundi</day>
+            <endHour>15</endHour>
+            <endMin>30</endMin>
+            <room></room>
+            <startHour>14</startHour>
+            <startMin>30</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°4">
+            <day>Mardi</day>
+            <endHour>9</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Mardi</day>
+            <endHour>10</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>9</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Mardi</day>
+            <endHour>11</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>10</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Mardi</day>
+            <endHour>14</endHour>
+            <endMin>30</endMin>
+            <room></room>
+            <startHour>13</startHour>
+            <startMin>30</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Mercredi</day>
+            <endHour>9</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>Q1</week>
+        </cours>
+        <cours classe="6°4">
+            <day>Mercredi</day>
+            <endHour>9</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>Q2</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Mercredi</day>
+            <endHour>9</endHour>
+            <endMin>55</endMin>
+            <room></room>
+            <startHour>9</startHour>
+            <startMin>1</startMin>
+            <week>Q2</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Mercredi</day>
+            <endHour>10</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>9</startHour>
+            <startMin>0</startMin>
+            <week>Q1</week>
+        </cours>
+        <cours classe="6°4">
+            <day>Mercredi</day>
+            <endHour>12</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>11</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Jeudi</day>
+            <endHour>8</endHour>
+            <endMin>55</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Jeudi</day>
+            <endHour>9</endHour>
+            <endMin>50</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>55</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Jeudi</day>
+            <endHour>11</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>10</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°4">
+            <day>Jeudi</day>
+            <endHour>15</endHour>
+            <endMin>30</endMin>
+            <room></room>
+            <startHour>14</startHour>
+            <startMin>30</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Vendredi</day>
+            <endHour>9</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Vendredi</day>
+            <endHour>10</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>9</startHour>
+            <startMin>0</startMin>
+            <week>Q2</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Vendredi</day>
+            <endHour>11</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>10</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Mercredi</day>
+            <endHour>15</endHour>
+            <endMin>1</endMin>
+            <room></room>
+            <startHour>14</startHour>
+            <startMin>1</startMin>
+            <week>Q1</week>
+        </cours>
+    </cours>
+    <trimestres>
+        <trimestre name="T1">
+            <end>2016-12-09</end>
+            <start>2016-09-01</start>
+        </trimestre>
+        <trimestre name="T2">
+            <end>2017-03-10</end>
+            <start>2016-12-10</start>
+        </trimestre>
+        <trimestre name="T3">
+            <end>2017-07-08</end>
+            <start>2017-03-11</start>
+        </trimestre>
+    </trimestres>
+</xmldata>

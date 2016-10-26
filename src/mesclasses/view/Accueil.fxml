@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1280.0" styleClass="mainFxmlClass, accueil" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.AccueilController">
+    <stylesheets>
+        <URL value="@../../resources/css/main.css" />
+    </stylesheets>
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox>
+               <children>
+                  <HBox styleClass="titlebox">
+                     <children>
+                        <Pane minWidth="500.0" styleClass="strap" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="label-title" text="Classes">
+                        </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="35.0" styleClass="pointy" HBox.hgrow="NEVER" />
+                        <Pane HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <TextFlow styleClass="text-flow" VBox.vgrow="NEVER">
+                     <children>
+                        <Label fx:id="classesLabel" />
+                        <Hyperlink fx:id="classesLinkToData" onAction="#openClasses" text="Accédez aux séances d'aujourd'hui" />
+                        <Label fx:id="classesOu" text="ou">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </Label>
+                        <Hyperlink fx:id="classesLinkToAdmin" onAction="#openClasseAdmin" text="Ajoutez des classes" />
+                     </children>
+                  </TextFlow>
+                  <VBox fx:id="classesBox" minWidth="0.0" prefWidth="100.0" />
+                  <HBox styleClass="titlebox">
+                     <children>
+                        <Pane minWidth="500.0" styleClass="strap" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="label-title" text="Elèves">
+                        </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="35.0" styleClass="pointy" HBox.hgrow="NEVER" />
+                        <Pane HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <TextFlow styleClass="text-flow" VBox.vgrow="NEVER">
+                     <children>
+                        <Label fx:id="elevesLabel" />
+                        <Hyperlink fx:id="elevesLinkToRapports" onAction="#openRapports" text="Accédez aux rapports par élève" />
+                        <Label fx:id="elevesOu" text="ou">
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </Label>
+                        <Hyperlink fx:id="elevesLinkToAdmin" onAction="#openEleveAdmin" text="Ajoutez des élèves" />
+                     </children>
+                  </TextFlow>
+                  <TextFlow styleClass="text-flow" VBox.vgrow="NEVER">
+                     <children>
+                        <Label fx:id="punitionsLabel" />
+                     </children>
+                  </TextFlow>
+                  <HBox styleClass="titlebox">
+                     <children>
+                        <Pane minWidth="500.0" styleClass="strap" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="label-title" text="Cours">
+                        </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="35.0" styleClass="pointy" HBox.hgrow="NEVER" />
+                        <Pane HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <TextFlow styleClass="text-flow" VBox.vgrow="NEVER">
+                     <children>
+                        <Label fx:id="timetableLabel" />
+                        <Hyperlink onAction="#openTimetable" text="Voir l'emploi du temps" />
+                     </children>
+                  </TextFlow>
+                  <VBox fx:id="coursBox" minWidth="0.0" prefWidth="100.0" />
+                  <HBox styleClass="titlebox">
+                     <children>
+                        <Pane minWidth="500.0" styleClass="strap" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="label-title" text="Trimestres">
+                        </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="35.0" styleClass="pointy" HBox.hgrow="NEVER" />
+                        <Pane HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <TextFlow styleClass="text-flow" VBox.vgrow="NEVER">
+                     <children>
+                        <Label fx:id="trimestresLabel" />
+                        <Hyperlink onAction="#openTrimestres" text="Voir les trimestres" />
+                     </children>
+                  </TextFlow>
+                  <VBox fx:id="trimestresBox" minWidth="0.0" prefWidth="100.0" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
