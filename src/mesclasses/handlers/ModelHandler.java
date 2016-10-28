@@ -11,12 +11,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import mesclasses.model.Classe;
 import mesclasses.model.Constants;
 import mesclasses.model.Cours;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
+import mesclasses.model.Journee;
 import mesclasses.model.Punition;
+import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
 import mesclasses.model.datamodel.ObservableData;
 import mesclasses.util.EleveFileUtil;
@@ -57,6 +60,10 @@ public class ModelHandler {
     
     public ObservableList<Cours> getCours(){
         return data.getCours();
+    }
+    
+    public ObservableMap<LocalDate, Journee> getJournees(){
+        return data.getJournees();
     }
     
     /* TRIMESTRES */
@@ -248,6 +255,7 @@ public class ModelHandler {
         return newData;
     }
     
+    
     public EleveData getDataForCoursAndDate(Eleve eleve, int cours, LocalDate date){
         if(eleve == null || eleve.getData() == null){
             return null;
@@ -305,4 +313,17 @@ public class ModelHandler {
         punition.getEleve().getPunitions().remove(punition);
     }
     
+    // JOURNEES
+    
+    public void createJournee(Journee journee){
+        data.getJournees().put(journee.getDateAsDate(), journee);
+    }
+    // SEANCES
+    
+    public Seance createSeance(Classe classe, LocalDate date, Cours cours){
+        Seance seance = new Seance();
+        seance.setCours(cours);
+        seance.setDate(date);
+        return seance;
+    }
 }

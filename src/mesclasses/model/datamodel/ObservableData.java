@@ -5,10 +5,13 @@
  */
 package mesclasses.model.datamodel;
 
+import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import mesclasses.model.Classe;
 import mesclasses.model.Cours;
+import mesclasses.model.Journee;
 import mesclasses.model.MonitoredObject;
 import mesclasses.model.Trimestre;
 
@@ -24,6 +27,7 @@ public class ObservableData extends MonitoredObject {
 
     private ObservableList<Cours> cours = FXCollections.observableArrayList();
     
+    private ObservableMap<LocalDate, Journee> journees = FXCollections.observableHashMap();
 
     @Override
     public void startChangeDetection() {
@@ -31,12 +35,17 @@ public class ObservableData extends MonitoredObject {
         trimestres.addListener(listAddRemoveListener);
         cours.addListener(listAddRemoveListener);
         classes.forEach(c -> c.startChangeDetection());
+        trimestres.forEach(c -> c.startChangeDetection());
+        cours.forEach(c -> c.startChangeDetection());
+        journees.values().forEach(j -> j.startChangeDetection());
     }
     
     @Override
     public void resetChange(){
         super.resetChange();
         classes.forEach(c -> c.resetChange());
+        trimestres.forEach(c -> c.resetChange());
+        cours.forEach(c -> c.resetChange());
         
     }
     
@@ -62,6 +71,14 @@ public class ObservableData extends MonitoredObject {
 
     public void setCours(ObservableList<Cours> cours) {
         this.cours = cours;
+    }
+
+    public ObservableMap<LocalDate, Journee> getJournees() {
+        return journees;
+    }
+
+    public void setJournees(ObservableMap<LocalDate, Journee> journees) {
+        this.journees = journees;
     }
     
 }

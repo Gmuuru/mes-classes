@@ -82,6 +82,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         changementsClasse.forEach(c -> c.resetChange());
     }
     
+    @XmlAttribute
     @XmlID
     public String getId() {
         return id;

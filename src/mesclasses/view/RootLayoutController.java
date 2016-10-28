@@ -13,8 +13,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -193,6 +191,7 @@ public class RootLayoutController extends PageController implements Initializabl
         xmlData.getTrimestres().addAll(trimestres);
         xmlData.getClasses().addAll(classes);
         xmlData.getCours().addAll(cours);
+        xmlData.getJournees().putAll(journees);
         DataLoadUtil.writeData(xmlData, FileSaveUtil.getSaveFile());
     }
     
@@ -325,24 +324,18 @@ public class RootLayoutController extends PageController implements Initializabl
         });
         FileSaveUtil.createBackupFile();
         screenMap = new HashMap<>();
-        try {
-            ObservableData data = DataLoadUtil.initializeData(FileSaveUtil.getSaveFile());
-            log("Loading data with classes "+data.getClasses());
-            loadData(data);
-        } catch (Exception e) { // catches ANY exception
-            Logger.getLogger(DataLoadUtil.class.getName()).log(Level.SEVERE, null, e);
-            ModalUtil.alert("Impossible de charger les données", 
-                    "Le fichier "+FileSaveUtil.getSaveFile().getPath()+" n'est pas lisible");
-            return;
-        }
+        loadData(null);
+        
         
         super.initialize(location, resources);
     }
     
     
     private void loadData(ObservableData data){
-        ModelHandler.getInstance().injectData(data);
-        data.startChangeDetection();
+        if(data != null){
+            ModelHandler.getInstance().injectData(data);
+            data.startChangeDetection();
+        }
         screenMap.values().forEach(screen -> {
             screen.stop();
         });

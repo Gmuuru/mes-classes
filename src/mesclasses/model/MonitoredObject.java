@@ -12,6 +12,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
+import javafx.collections.MapChangeListener;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
@@ -68,6 +69,13 @@ public abstract class MonitoredObject {
                     changed.set(true);
                 }
             }
+        }
+    };
+    
+    protected MapChangeListener<Object, Object> mapListener = new MapChangeListener<Object, Object>() {
+        @Override
+        public void onChanged(MapChangeListener.Change<? extends Object, ? extends Object> c) {
+            changed.set(true);
         }
     };
     

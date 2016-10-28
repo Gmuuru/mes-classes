@@ -32,6 +32,7 @@ public class DataLoadUtil {
         data.getTrimestres().addAll(xmlData.getTrimestres());
         data.getClasses().addAll(xmlData.getClasses());
         data.getCours().addAll(xmlData.getCours());
+        data.getJournees().putAll(xmlData.getJournees());
         return data;
     }
     

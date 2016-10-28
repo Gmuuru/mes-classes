@@ -16,6 +16,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import mesclasses.model.Constants;
+import mesclasses.objects.LoadWindow;
+import mesclasses.objects.tasks.ComputeTask;
+import mesclasses.objects.tasks.FetchDataTask;
 import mesclasses.view.RootLayoutController;
 
 /**
@@ -29,7 +32,7 @@ public class MainApp extends Application {
      
     @Override
     
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws InterruptedException {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle(Constants.APPLICATION_TITLE);
         this.primaryStage.getIcons().add(new Image(
@@ -37,12 +40,15 @@ public class MainApp extends Application {
         MainApp.class.getResourceAsStream("/resources/fonts/fontawesome-webfont.ttf");
         
         Platform.setImplicitExit(false);
+        LoadWindow loading = new LoadWindow(this.primaryStage, new FetchDataTask(), new ComputeTask());
+        loading.startAndWait();
         initRootLayout();
     }
     
     /**
      * initialise le root layout, qui contient uniquement la barre de menus
      */
+    
     public void initRootLayout() {
         try {
             // Load root layout from fxml file.

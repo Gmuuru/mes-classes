@@ -6,8 +6,10 @@
 package mesclasses.controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -16,6 +18,7 @@ import javafx.stage.Stage;
 import mesclasses.handlers.ModelHandler;
 import mesclasses.model.Classe;
 import mesclasses.model.Cours;
+import mesclasses.model.Journee;
 import mesclasses.model.Trimestre;
 import mesclasses.util.ModalUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +35,7 @@ public abstract class PageController extends BasicController {
     protected ObservableList<Trimestre> trimestres;
     protected ObservableList<Classe> classes;
     protected ObservableList<Cours> cours;
+    protected ObservableMap<LocalDate, Journee> journees;
     
     protected String previousPage;
     
@@ -44,6 +48,7 @@ public abstract class PageController extends BasicController {
         trimestres = modelHandler.getTrimestres();
         classes = modelHandler.getClasses();
         cours = modelHandler.getCours();
+        journees = modelHandler.getJournees();
     }    
     
     public final void markAsMandatory(TextField field){
