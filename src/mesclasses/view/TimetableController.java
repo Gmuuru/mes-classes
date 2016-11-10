@@ -114,7 +114,7 @@ public class TimetableController extends PageController implements Initializable
         VBox event = new VBox();
         CssUtil.addClass(event, "event");
         CssUtil.addClass(event, getCSS(theCours));
-        String periodicite = theCours.getWeek().equals(Constants.COURS_NORMAL) ? "" : theCours.getWeek();
+        String periodicite = theCours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_DEFAULT)) ? "" : theCours.getWeek();
         String salle = StringUtils.isNotBlank(theCours.getRoom()) ? "salle "+theCours.getRoom() : "";
         Label periodiciteAndSalle = new Label((periodicite+" "+salle).trim());
         bindWidth(periodiciteAndSalle, event, 1);
@@ -184,11 +184,11 @@ public class TimetableController extends PageController implements Initializable
         List<Cours> liste = getSimultaneousCours(cours);
         Pane pane = getPane(cours);
         if(liste.size() == 1){
-            if(cours.getWeek().equals(Constants.COURS_PERIODIQUE_1) || 
-                    cours.getWeek().equals(Constants.COURS_PERIODIQUE_2)){
+            if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P1)) || 
+                    cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2))){
                 bindWidth(cours.getEvent(), pane, 2);
             }
-            if(cours.getWeek().equals(Constants.COURS_PERIODIQUE_2)){
+            if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2))){
                 cours.getEvent().layoutXProperty().bind(pane.layoutXProperty().add(pane.widthProperty().divide(2)));
             }
             return;
@@ -206,11 +206,10 @@ public class TimetableController extends PageController implements Initializable
             return c.getDay().equals(theCours.getDay()) && Math.max(start(c),start(theCours)) < Math.min(end(c),end(theCours));
         }).collect(Collectors.toList());
         liste.sort((Cours t, Cours t1) -> {
-            int period = Constants.PERIODICITE.indexOf(t.getWeek()) -Constants.PERIODICITE.indexOf(t1.getWeek());
-            if(period != 0){
-                return period;
+            if(t.getWeek().equals(t1.getWeek())){
+                return classes.indexOf(t.getClasse()) - classes.indexOf(t1.getClasse());
             }
-            return classes.indexOf(t.getClasse()) - classes.indexOf(t1.getClasse());
+            return t.getWeek().compareTo(t1.getWeek());
         });
         return liste;
     }
@@ -226,7 +225,7 @@ public class TimetableController extends PageController implements Initializable
     public void handleNewCours(){Cours newCours = new Cours();
         newCours.setClasse(classes.get(0));
         newCours.setDay(Constants.DAYS.get(0));
-        newCours.setWeek(Constants.COURS_NORMAL);
+        newCours.setWeek(config.getProperty(Constants.CONF_WEEK_DEFAULT));
         
         createNewCours(newCours);
     }
@@ -249,7 +248,7 @@ public class TimetableController extends PageController implements Initializable
             Cours newCours = new Cours();
             newCours.setClasse(classes.get(0));
             newCours.setDay(Constants.DAYS.get(0));
-            newCours.setWeek(Constants.COURS_NORMAL);
+            newCours.setWeek(config.getProperty(Constants.CONF_WEEK_DEFAULT));
             createNewCours(newCours);
         }
     }
@@ -277,7 +276,7 @@ public class TimetableController extends PageController implements Initializable
                     Cours newCours = new Cours();
                     newCours.setClasse(classes.get(0));
                     newCours.setDay(paneMap.inverse().get(pane));
-                    newCours.setWeek(Constants.COURS_NORMAL);
+                    newCours.setWeek(config.getProperty(Constants.CONF_WEEK_DEFAULT));
                     newCours.setStartHour((int)(mouseEvent.getY())/60 + 7);
                     newCours.setEndHour(newCours.getStartHour()+1);
                     createNewCours(newCours);

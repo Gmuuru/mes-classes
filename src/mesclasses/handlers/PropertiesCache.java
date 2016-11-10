@@ -11,33 +11,40 @@ package mesclasses.handlers;
  */
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
 import mesclasses.util.AppLogger;
 import mesclasses.util.FileSaveUtil;
+import org.apache.commons.io.IOUtils;
 
 public class PropertiesCache
 {
    private final Properties configProp = new Properties();
-   
    public static final String LAST_UPLOAD_DIR = "last.upload.dir";
    
    private static final String PROPERTIES_FILE = FileSaveUtil.PROPERTIES_DIR+File.separator+"mesclasses.properties";
+   
    private PropertiesCache()
    {
-      //Private constructor to restrict new instances
       
    }
 
-   private void load(){
-      AppLogger.log("Read all properties from file");
+   public void load(){
+      AppLogger.log("Read all properties from file "+PROPERTIES_FILE);
+      File pfile = new File(PROPERTIES_FILE);
+      if(!pfile.exists()){
+          AppLogger.notif("Fichier de configuration", pfile.getAbsolutePath()+" n'existe pas");
+      }
+      FileReader reader = null;
       try {
-        InputStream in = this.getClass().getClassLoader().getResourceAsStream(PROPERTIES_FILE);
-          configProp.load(in);
+          reader = new FileReader(pfile);
+          configProp.load(reader);
       } catch (IOException e) {
           AppLogger.notif("Fichier de configuration", e);
+      } finally {
+          IOUtils.closeQuietly(reader);
       }
       
    }

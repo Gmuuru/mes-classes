@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
@@ -16,6 +17,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import mesclasses.model.Constants;
 import mesclasses.model.datamodel.ObservableData;
 import mesclasses.model.datamodel.XMLData;
 
@@ -32,7 +34,9 @@ public class DataLoadUtil {
         data.getTrimestres().addAll(xmlData.getTrimestres());
         data.getClasses().addAll(xmlData.getClasses());
         data.getCours().addAll(xmlData.getCours());
-        data.getJournees().putAll(xmlData.getJournees());
+        xmlData.getJournees().keySet().forEach(dateStr -> {
+            data.getJournees().put(LocalDate.parse(dateStr, Constants.DATE_FORMATTER), xmlData.getJournees().get(dateStr));
+        });
         return data;
     }
     

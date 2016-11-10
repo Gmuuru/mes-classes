@@ -101,7 +101,7 @@ public class AccueilController extends PageController implements Initializable {
             if(!seanceMap.containsKey(classe)){
                 seanceMap.put(classe, 0.0);
             }
-            if(seance.getWeek().equals(Constants.COURS_NORMAL)){
+            if(seance.getWeek().equals(config.getProperty(Constants.CONF_WEEK_DEFAULT))){
                 seanceMap.put(classe, seanceMap.get(classe)+1);
                 total++;
             } else {

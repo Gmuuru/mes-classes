@@ -5,7 +5,6 @@
  */
 package mesclasses.model.datamodel;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +32,7 @@ public class XMLData {
 
     private List<Cours> cours = new ArrayList<>();
     
-    private Map<LocalDate, Journee> journees = new HashMap<>();
+    private Map<String, Journee> journees = new HashMap<>();
     
     @XmlElement(name = "trimestre")
     @XmlElementWrapper(name="trimestres")
@@ -68,11 +67,11 @@ public class XMLData {
 
     @XmlElement(name = "journees")
     @XmlElementWrapper(name="journees")
-    public Map<LocalDate, Journee> getJournees() {
+    public Map<String, Journee> getJournees() {
         return journees;
     }
 
-    public void setJournees(Map<LocalDate, Journee> journees) {
+    public void setJournees(Map<String, Journee> journees) {
         this.journees = journees;
     }
     

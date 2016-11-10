@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import mesclasses.handlers.EventBusHandler;
+import mesclasses.handlers.PropertiesCache;
 import mesclasses.objects.events.Event;
 import mesclasses.objects.events.IsAliveEvent;
 import mesclasses.util.AppLogger;
@@ -40,6 +41,8 @@ public abstract class BasicController implements Initializable {
     protected BooleanBinding hasErrors = Bindings.or(
             Bindings.size(fieldsMissing).isNotEqualTo(0),
             Bindings.size(fieldsNotUnique).isNotEqualTo(0));
+    
+    protected PropertiesCache config = PropertiesCache.getInstance();
     
     public void initialize(URL url, ResourceBundle rb) {
         resetErrors();

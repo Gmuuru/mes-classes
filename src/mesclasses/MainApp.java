@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import mesclasses.model.Constants;
 import mesclasses.objects.LoadWindow;
 import mesclasses.objects.tasks.ComputeTask;
+import mesclasses.objects.tasks.FetchConfigTask;
 import mesclasses.objects.tasks.FetchDataTask;
 import mesclasses.view.RootLayoutController;
 
@@ -40,7 +41,7 @@ public class MainApp extends Application {
         MainApp.class.getResourceAsStream("/resources/fonts/fontawesome-webfont.ttf");
         
         Platform.setImplicitExit(false);
-        LoadWindow loading = new LoadWindow(this.primaryStage, new FetchDataTask(), new ComputeTask());
+        LoadWindow loading = new LoadWindow(this.primaryStage, new FetchDataTask(), new FetchConfigTask(), new ComputeTask());
         loading.startAndWait();
         initRootLayout();
     }

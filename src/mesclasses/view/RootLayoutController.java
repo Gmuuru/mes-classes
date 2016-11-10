@@ -31,7 +31,6 @@ import javafx.util.Duration;
 import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.handlers.ModelHandler;
-import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
 import mesclasses.model.datamodel.ObservableData;
 import mesclasses.model.datamodel.XMLData;
@@ -105,6 +104,11 @@ public class RootLayoutController extends PageController implements Initializabl
     @FXML
     public void openHistorique(ActionEvent event){
         loadView(Constants.HISTORIQUE_VIEW, true);
+    }
+    
+    @FXML
+    public void openConfiguration(ActionEvent event){
+        loadView(Constants.CONFIGURATION_VIEW, true);
     }
     
     @Subscribe
@@ -191,7 +195,9 @@ public class RootLayoutController extends PageController implements Initializabl
         xmlData.getTrimestres().addAll(trimestres);
         xmlData.getClasses().addAll(classes);
         xmlData.getCours().addAll(cours);
-        xmlData.getJournees().putAll(journees);
+        journees.keySet().forEach(date -> {
+            xmlData.getJournees().put(date.format(Constants.DATE_FORMATTER), journees.get(date));
+        });
         DataLoadUtil.writeData(xmlData, FileSaveUtil.getSaveFile());
     }
     
@@ -288,7 +294,6 @@ public class RootLayoutController extends PageController implements Initializabl
     @FXML
     private void handleExit() {
         if(canExit()){
-            PropertiesCache.getInstance().save();
             System.exit(0);
         }
     }

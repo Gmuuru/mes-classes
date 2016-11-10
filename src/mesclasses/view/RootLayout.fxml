@@ -53,6 +53,8 @@
                      <items>
                        <MenuItem mnemonicParsing="false" onAction="#openHistorique" text="Changements de classe" />
                        <MenuItem mnemonicParsing="false" onAction="#onReset" text="Réinitialiser" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                       <MenuItem mnemonicParsing="false" onAction="#openConfiguration" text="Configuration" />
                      </items>
                    </Menu>
                </menus>

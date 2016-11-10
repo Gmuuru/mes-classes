@@ -107,7 +107,7 @@ public class ComputeTask extends AppTask<Object> {
             Cours coursPonctuel = new Cours();
             coursPonctuel.setClasse(classe);
             coursPonctuel.setDay(jour);
-            coursPonctuel.setWeek(Constants.COURS_NORMAL);
+            coursPonctuel.setWeek("ponctuel");
             coursPonctuel.setStartHour(16);
             coursPonctuel.setStartMin(00);
             coursPonctuel.setEndHour(17);

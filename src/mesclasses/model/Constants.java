@@ -28,12 +28,6 @@ public class Constants {
     public static final List<String> DAYS = Arrays.asList(new String[]{"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"});
     public static final List<String> OBSERVABLE_DAYS = FXCollections.observableArrayList(DAYS);
     
-    public static final String COURS_NORMAL = "normale";
-    public static final String COURS_PERIODIQUE_1 = "Q1";
-    public static final String COURS_PERIODIQUE_2 = "Q2";
-    public static final List<String> PERIODICITE = Arrays.asList(new String[]{COURS_NORMAL, COURS_PERIODIQUE_1, COURS_PERIODIQUE_2});
-    public static final List<String> OBSERVABLE_PERIODICITE = FXCollections.observableArrayList(PERIODICITE);
-    
     public static final Map<DayOfWeek, String> DAYMAP = new HashMap<>();
     
     static {
@@ -64,7 +58,11 @@ public class Constants {
     public static final String HISTORIQUE_VIEW = "view/Historique.fxml";
     public static final String NEW_CHANGEMENT_VIEW = "view/NewChangementDialog.fxml";
     public static final String POSTIT_DIALOG = "view/PostItDialog.fxml";
+    public static final String CONFIGURATION_VIEW = "view/Configuration.fxml";
     
+    public static final String CONF_WEEK_DEFAULT = "semaines.normal";
+    public static final String CONF_WEEK_P1 = "semaines.periodique1";
+    public static final String CONF_WEEK_P2 = "semaines.periodique2";
     
     public static final String FILE_TYPE_BULLETIN = "Bulletin";
     public static final String FILE_TYPE_VIE_SCOLAIRE = "Vie scolaire";
