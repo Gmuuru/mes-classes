@@ -49,6 +49,7 @@ public class Constants {
     public static final String CLASSE_TABS_VIEW = "view/ClasseTabs.fxml";
     public static final String CLASSE_CONTENT_TABS_VIEW = "view/ClasseContentTabs.fxml";
     public static final String CLASSE_CONTENT_VIEW = "view/ClasseContent.fxml";
+    public static final String JOURNEE_VIEW = "view/Journee.fxml";
     public static final String CLASSE_RAPPORT_TABS_VIEW = "view/RapportClasseTabs.fxml";
     public static final String CLASSE_RAPPORT_VIEW = "view/RapportClasse.fxml";
     public static final String COURS_EDIT_DIALOG = "view/CoursEditDialog.fxml";
@@ -60,9 +61,11 @@ public class Constants {
     public static final String POSTIT_DIALOG = "view/PostItDialog.fxml";
     public static final String CONFIGURATION_VIEW = "view/Configuration.fxml";
     
-    public static final String CONF_WEEK_DEFAULT = "semaines.normal";
-    public static final String CONF_WEEK_P1 = "semaines.periodique1";
-    public static final String CONF_WEEK_P2 = "semaines.periodique2";
+    public static final String CONF_WEEK_DEFAULT = "semaines.normal.nom";
+    public static final String CONF_WEEK_P1_NAME = "semaines.periodique1.nom";
+    public static final String CONF_WEEK_P1_VAL = "semaines.periodique1.valeur";
+    public static final String CONF_WEEK_P2_NAME = "semaines.periodique2.nom";
+    public static final String CONF_WEEK_P2_VAL = "semaines.periodique2.valeur";
     
     public static final String FILE_TYPE_BULLETIN = "Bulletin";
     public static final String FILE_TYPE_VIE_SCOLAIRE = "Vie scolaire";

@@ -19,8 +19,6 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,12 +33,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import mesclasses.MainApp;
-import mesclasses.controller.TabContentController;
+import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
-import mesclasses.model.Classe;
 import mesclasses.model.Constants;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
+import mesclasses.model.Journee;
+import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
 import mesclasses.objects.IntegerOnlyConverter;
 import mesclasses.objects.TunedDayCellFactory;
@@ -61,7 +60,7 @@ import org.smartgrid.SmartGrid;
  *
  * @author rrrt3491
  */
-public class ClasseContentController extends TabContentController implements Initializable {
+public class JourneeController extends PageController implements Initializable {
 
     // FXML elements
     
@@ -86,11 +85,11 @@ public class ClasseContentController extends TabContentController implements Ini
     @FXML Button switchNonActifsBtn;
     
     // fields
-    private Classe classe;
     private Trimestre trimestre;
-    private IntegerProperty currentCours;
-    private IntegerProperty nbCours;
-    private static final StringProperty COURS_PREFIX = new SimpleStringProperty("Cours ");
+    
+    private Journee journee;
+    
+    private Seance currentSeance;
     
     private Map<Eleve, IntegerProperty> cumulTravailMap;
     private Map<Eleve, IntegerProperty> cumulRetardMap;
@@ -107,6 +106,7 @@ public class ClasseContentController extends TabContentController implements Ini
     public void initialize(URL url, ResourceBundle rb) {
         name = "Classe Content Ctrl";
         super.initialize(url ,rb);
+        setCurrentDate(LocalDate.now());
         
         cumulTravailMap = new HashMap<>();
         cumulRetardMap = new HashMap<>();
@@ -115,7 +115,6 @@ public class ClasseContentController extends TabContentController implements Ini
         currentDate.setConverter(NodeUtil.DATE_WITH_DAY_NAME);
         currentDate.valueProperty().addListener((observable, oldValue, newValue) -> {
             EventBusHandler.post(new SelectDateEvent(newValue));
-            computeNbOfCoursForTheDay(newValue, classe);
             refreshGrid();
         });
         displayNonActifs = new SimpleBooleanProperty(false);
@@ -124,45 +123,27 @@ public class ClasseContentController extends TabContentController implements Ini
             switchNonActifsBtn.setText(displayNonActifs.get()? "Masquer inactifs" : "Afficher inactifs");
             refreshGrid();
         });
-        currentCours = new SimpleIntegerProperty();
-        nbCours = new SimpleIntegerProperty();
         
-        isFirstCours = Bindings.or(
-            currentCours.isEqualTo(0),
-            currentCours.isEqualTo(1)
-        );
-        isLastCours = Bindings.or(
-            currentCours.isEqualTo(0),
-            currentCours.isEqualTo(nbCours)
-        );  
-        currentCoursLabel.textProperty().bind(COURS_PREFIX.concat(currentCours.asString()));
-        previousCoursBtn.disableProperty().bind(isFirstCours);
-        nextCoursBtn.disableProperty().bind(isLastCours);
+        
+        currentCoursLabel.textProperty().bind(currentSeance.getClasse().nameProperty());
+        previousCoursBtn.disableProperty().bind(currentSeance.isFirst());
+        nextCoursBtn.disableProperty().bind(currentSeance.isLast());
         Btns.makeLeft(previousCoursBtn);
         Btns.makeLeft(previousDayBtn);
         Btns.makeRight(nextCoursBtn);
         Btns.makeRight(nextDayBtn);
     }    
-    
-    public Classe getClasse() {
-        return classe;
-    }
 
-    @Override
-    public void setClasse(Classe classe) {
-        this.classe = classe;
-        name +=" for classe "+classe;
-    }
-    
-    @Override
     public void setCurrentDate(LocalDate date){
-        log("Setting the content date at "+date+". classe is "+classe);
+        log("Setting the content date at "+date+". current seance is "+currentSeance);
         this.currentDate.setValue(date);
+        journee = modelHandler.getJournee(date);
+        currentSeance = journee.getSeances().get(0);
     }
     
     private void refreshGrid(){
-        if(classe.getEleves().isEmpty()){
-            grid.drawNoEleveAlert(classe.getName(), (event) ->{
+        if(currentSeance.getClasse().getEleves().isEmpty()){
+            grid.drawNoEleveAlert(currentSeance.getClasse().getName(), (event) ->{
                 EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_ELEVE_VIEW));
                 }
             );
@@ -179,17 +160,17 @@ public class ClasseContentController extends TabContentController implements Ini
             return;
         }
         addCours.setDisable(false);
-        trimestreName.setText(trimestre.getName()+" - "+classe.getName());
+        trimestreName.setText(trimestre.getName());
         computeAllCumuls(trimestre);
         
-        if(currentCours.get() != 0){
+        if(currentSeance != null){
             drawGrid();
         } else {
             String day = Constants.DAYMAP.get(currentDate.getValue().getDayOfWeek());
-            grid.drawNoCoursAlert(day, classe.getName(), 
+            grid.drawNoCoursAlert(day, currentSeance.getClasse().getName(), 
                     (event) -> {
                         EventBusHandler.post(new OpenMenuEvent(Constants.EMPLOI_DU_TEMPS_VIEW));
-                        EventBusHandler.post(new CreateCoursEvent(day, classe));
+                        EventBusHandler.post(new CreateCoursEvent(day, null));
                     }
             );
         }
@@ -213,37 +194,20 @@ public class ClasseContentController extends TabContentController implements Ini
         }
     }
     
-    private void computeNbOfCoursForTheDay(LocalDate date, Classe classe){
-        if(date == null){
-            nbCours.set(0);
-            currentCours.set(0);
-            return;
-        }
-        nbCours.set(modelHandler.getNbCoursForDay(date, classe));
-        if(nbCours.get() == 0){
-            currentCours.set(0);
-        } else {
-            currentCours.set(1);
-        }
-    }
-    
     @FXML
-    public void previousCours(){
-        currentCours.setValue(currentCours.getValue()-1);
+    public void previousSeance(){
+        currentSeance = currentSeance.previous();
         refreshGrid();
     }
     
     @FXML
-    public void nextCours(){
-        currentCours.set(currentCours.get()+1);
+    public void nextSeance(){
+        currentSeance = currentSeance.next();
         refreshGrid();
     }
     
     @FXML
     public void ajouterCours(){
-       nbCours.set(nbCours.get()+1);
-       currentCours.set(nbCours.get());
-       drawGrid();
     }
     
     /* BOTTOM BUTTONS */
@@ -256,14 +220,13 @@ public class ClasseContentController extends TabContentController implements Ini
     @FXML
     public void openRapport(){
         EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_RAPPORT_TABS_VIEW));
-        EventBusHandler.post(new SelectClasseEvent(classe));
+        EventBusHandler.post(new SelectClasseEvent(currentSeance.getClasse()));
     }
     
     @FXML
     public void openPunitions(){
         EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_PUNITIONS_VIEW));
-        log(classe.toString());
-        EventBusHandler.post(new SelectClasseEvent(classe));
+        EventBusHandler.post(new SelectClasseEvent(currentSeance.getClasse()));
         
     }
     @FXML
@@ -285,7 +248,7 @@ public class ClasseContentController extends TabContentController implements Ini
             // Set the person into the controller.
             PostItDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setClasse(classe);
+            controller.setClasse(currentSeance.getClasse());
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
@@ -313,7 +276,7 @@ public class ClasseContentController extends TabContentController implements Ini
             // Set the person into the controller.
             CumulMotDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setClasse(classe);
+            controller.setClasse(currentSeance.getClasse());
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
@@ -326,8 +289,7 @@ public class ClasseContentController extends TabContentController implements Ini
     public void openPunitionDialog(Eleve eleve){
         String texte = ModalUtil.prompt("Punition pour "+eleve.getFirstName()+" "+eleve.getLastName(), "");
         if(!StringUtils.isEmpty(texte)){
-            //TODO
-            modelHandler.createPunition(eleve, currentDate.getValue(), null, texte);
+            modelHandler.createPunition(eleve, currentDate.getValue(), currentSeance.getCours(), texte);
             EventBusHandler.post(MessageEvent.success("Punition créée"));
         }
     }
@@ -335,7 +297,7 @@ public class ClasseContentController extends TabContentController implements Ini
     /* GRID */
     private void drawGrid(){
         grid.clear();
-        List<Eleve> elevesToDisplay = classe.getEleves();
+        List<Eleve> elevesToDisplay = currentSeance.getClasse().getEleves();
         if(!displayNonActifs.get()){
             elevesToDisplay = modelHandler.getOnlyActive(elevesToDisplay);
         }
@@ -346,7 +308,7 @@ public class ClasseContentController extends TabContentController implements Ini
     
     private void drawRow(Eleve eleve, int rowIndex){
         
-        EleveData eleveData = modelHandler.getDataForCoursAndDate(eleve, currentCours.get(), currentDate.getValue());
+        EleveData eleveData = currentSeance.getDonneesForEleve(eleve);
         
         //index debute à 1, le slot 0,X est réservé pour un separator dans le header
         grid.add(NodeUtil.buildEleveLink(eleve, eleve.lastNameProperty(), Constants.CLASSE_CONTENT_TABS_VIEW), 1, rowIndex, HPos.LEFT);
@@ -434,7 +396,7 @@ public class ClasseContentController extends TabContentController implements Ini
          
     /* CALCUL CUMULS */
     private void computeAllCumuls(Trimestre trimestre){
-        classe.getEleves().stream().forEach((eleve) -> {
+        currentSeance.getClasse().getEleves().stream().forEach((eleve) -> {
             computeCumulTravail(eleve, trimestre);
             computeCumulRetard(eleve, trimestre);
             computeCumulOubli(eleve, trimestre);

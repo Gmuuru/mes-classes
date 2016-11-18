@@ -39,6 +39,9 @@ public class AppLogger {
         Logger.getLogger(RootLayoutController.class.getName()).log(Level.SEVERE, null, e);
     }
     
+    public static void log(Object o){
+        log(o.toString());
+    }
     
     public static void log(String e){
         System.out.println(e);

@@ -10,6 +10,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlID;
 
 /**
  *
@@ -30,6 +34,8 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         coursPonctuels.forEach(c -> c.startChangeDetection());
     }
 
+    @XmlID
+    @XmlAttribute
     public String getDate() {
         return date.format(Constants.DATE_FORMATTER);
     }
@@ -42,6 +48,8 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         this.date = date;
     }
 
+    @XmlElement(name="coursPonctuels")
+    @XmlElementWrapper(name="coursPonctuel")
     public ObservableList<Cours> getCoursPonctuels() {
         return coursPonctuels;
     }
@@ -50,6 +58,8 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         this.coursPonctuels = coursPonctuels;
     }
 
+    @XmlElement(name="seances")
+    @XmlElementWrapper(name="seance")
     public ObservableList<Seance> getSeances() {
         return seances;
     }
@@ -57,7 +67,7 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
     public void setSeances(ObservableList<Seance> seances) {
         this.seances = seances;
     }
-
+    
     @Override
     public int compareTo(Journee t) {
         return date.compareTo(t.getDateAsDate());

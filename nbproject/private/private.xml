@@ -4,12 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/Configuration.fxml</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/controller/AbstractClasseTabsController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/handlers/PropertiesCache.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/objects/tasks/ComputeTask.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/Journee.fxml</file>
             <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/ConfigSemainesController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/ConfigSemaines.fxml</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/handlers/ModelHandler.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/model/Seance.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/util/NodeUtil.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/objects/tasks/FetchConfigTask.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/handlers/PropertiesCache.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/model/Constants.java</file>
             <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/ConfigurationController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/RootLayoutController.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/model/datamodel/ObservableData.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/util/AppLogger.java</file>
         </group>
     </open-files>
 </project-private>

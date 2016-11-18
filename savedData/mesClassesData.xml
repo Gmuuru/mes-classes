@@ -5,149 +5,42 @@
             <eleves>
                 <eleve actif="true" classe="6°1" firstName="Lyes" id="XCD6Z" lastName="ABDELLI">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="QAeSa">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-16</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                        <eleveData id="dWJLa">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Cassandra" id="pjudm" lastName="BENHAMOU">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="eHf5Q">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Maëlle" id="JDLE9" lastName="BERTRAND">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="uGT67">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Simon" id="A2Ej8" lastName="BLANC-LAPIERRE">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="iYyX7">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>true</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Sarah" id="j13us" lastName="BOROGOVAC">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="ZQbep">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>true</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Sarah" id="cG1VO" lastName="BOUKHALFA">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="BFh9o">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>true</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Juliette" id="3woWA" lastName="BOYER">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="Z2pBf">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>5</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Tony" id="lEJzl" lastName="CAPRARA">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="SfOiV">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>5</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Chiara" id="2zd6W" lastName="CARRY">
@@ -258,200 +151,57 @@
             <eleves>
                 <eleve actif="true" classe="6°3" firstName="Safwane" id="zAj0H" lastName="BABA-AHMED">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="mB0x0">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Amir" id="krsw7" lastName="BEGAG">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="wa4d2">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Jonathan" id="3xQls" lastName="BERE">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="ghbdx">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Walid" id="IRgPL" lastName="BOUHOUHOU">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="3xt1O">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Justine" id="W5hxR" lastName="CAULIER">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="ra32j">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>true</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Evangeline" id="y7qok" lastName="CELLE">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="MPzNT">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>true</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Léa" id="smeZ1" lastName="CHEVILLOTTE">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="10QpC">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>true</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Rani" id="9gGTg" lastName="CHIHEB">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="O97VU">
-                            <absent>false</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>true</travailPasFait>
-                        </eleveData>
-                        <eleveData eleve="9gGTg" id="uuzwk">
-                            <absent>true</absent>
-                            <cours>2</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Quentin" id="2RKmd" lastName="DIAGNE">
                     <changementsClasse/>
-                    <data>
-                        <eleveData eleve="2RKmd" id="P1tW2">
-                            <absent>true</absent>
-                            <cours>2</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Kenza" id="M9hTI" lastName="DOMINGUEZ">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="yQZjC">
-                            <absent>false</absent>
-                            <cours>2</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>5</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Leyna" id="fhFXs" lastName="EL ALAOUI">
                     <changementsClasse/>
-                    <data>
-                        <eleveData id="YUV1B">
-                            <absent>false</absent>
-                            <cours>2</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>5</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°3" firstName="Sara" id="78Xoe" lastName="EL ALLOUCHE">
@@ -686,19 +436,7 @@
             <eleves>
                 <eleve actif="true" classe="5°1" firstName="Flavie" id="uD5rh" lastName="ADUMEAU">
                     <changementsClasse/>
-                    <data>
-                        <eleveData eleve="uD5rh" id="pTrmf">
-                            <absent>true</absent>
-                            <cours>2</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="5°1" firstName="Melina" id="a4sev" lastName="ASLAN">
@@ -708,19 +446,7 @@
                 </eleve>
                 <eleve actif="true" classe="5°1" firstName="Lina" id="c30F5" lastName="BELHADDAD">
                     <changementsClasse/>
-                    <data>
-                        <eleveData eleve="c30F5" id="O4gO4">
-                            <absent>true</absent>
-                            <cours>1</cours>
-                            <date>2016-09-01</date>
-                            <devoir>false</devoir>
-                            <exclus>false</exclus>
-                            <motCarnet>false</motCarnet>
-                            <motSigne>false</motSigne>
-                            <retard>0</retard>
-                            <travailPasFait>false</travailPasFait>
-                        </eleveData>
-                    </data>
+                    <data/>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="5°1" firstName="Délia" id="ag8K3" lastName="BEN BELGACEM">
@@ -1028,60 +754,37 @@
             <startMin>1</startMin>
             <week>Q1</week>
         </cours>
+        <cours classe="6°1">
+            <day>Lundi</day>
+            <endHour>9</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>Q1</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Lundi</day>
+            <endHour>9</endHour>
+            <endMin>0</endMin>
+            <room></room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>Q2</week>
+        </cours>
     </cours>
     <journees>
         <entry>
+            <key>2016-11-07</key>
+            <value/>
+        </entry>
+        <entry>
             <key>2016-09-06</key>
-            <value>
-                <seances date="2016-09-06">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-06">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-06">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-06">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-08</key>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-07</key>
@@ -1099,18 +802,6 @@
                     <donnees/>
                 </seances>
                 <seances date="2016-09-07">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-07">
                     <cours classe="6°3">
                         <day>Mercredi</day>
                         <endHour>10</endHour>
@@ -1119,30 +810,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-07">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-07">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1162,93 +829,44 @@
         </entry>
         <entry>
             <key>2016-09-08</key>
-            <value>
-                <seances date="2016-09-08">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-08">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-08">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-08">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-05</key>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-09</key>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-06</key>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-09</key>
             <value>
-                <seances date="2016-09-09">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
+                <seances date="2016-11-09">
+                    <cours classe="6°4">
+                        <day>Mercredi</day>
                         <endHour>9</endHour>
                         <endMin>0</endMin>
                         <room></room>
                         <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-09">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
                     </cours>
                     <donnees/>
                 </seances>
-                <seances date="2016-09-09">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
+                <seances date="2016-11-09">
+                    <cours classe="5°1">
+                        <day>Mercredi</day>
+                        <endHour>9</endHour>
+                        <endMin>55</endMin>
                         <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
+                        <startHour>9</startHour>
+                        <startMin>1</startMin>
+                        <week>Q2</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1258,38 +876,14 @@
             <key>2016-10-31</key>
             <value>
                 <seances date="2016-10-31">
-                    <cours classe="6°4">
+                    <cours classe="6°1">
                         <day>Lundi</day>
-                        <endHour>10</endHour>
+                        <endHour>9</endHour>
                         <endMin>0</endMin>
                         <room></room>
-                        <startHour>9</startHour>
+                        <startHour>8</startHour>
                         <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-31">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-31">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
+                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1300,53 +894,53 @@
             <value/>
         </entry>
         <entry>
+            <key>2016-11-03</key>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-04</key>
+            <value/>
+        </entry>
+        <entry>
             <key>2016-11-01</key>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-02</key>
             <value>
-                <seances date="2016-11-01">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
+                <seances date="2016-11-02">
+                    <cours classe="6°1">
+                        <day>Mercredi</day>
                         <endHour>9</endHour>
                         <endMin>0</endMin>
                         <room></room>
                         <startHour>8</startHour>
                         <startMin>0</startMin>
-                        <week>normale</week>
+                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
-                <seances date="2016-11-01">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
+                <seances date="2016-11-02">
+                    <cours classe="6°3">
+                        <day>Mercredi</day>
                         <endHour>10</endHour>
                         <endMin>0</endMin>
                         <room></room>
                         <startHour>9</startHour>
                         <startMin>0</startMin>
-                        <week>normale</week>
+                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
-                <seances date="2016-11-01">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
+                <seances date="2016-11-02">
+                    <cours classe="6°1">
+                        <day>Mercredi</day>
+                        <endHour>15</endHour>
+                        <endMin>1</endMin>
                         <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-11-01">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
+                        <startHour>14</startHour>
+                        <startMin>1</startMin>
+                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1362,113 +956,15 @@
         </entry>
         <entry>
             <key>2016-09-12</key>
-            <value>
-                <seances date="2016-09-12">
-                    <cours classe="6°4">
-                        <day>Lundi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-12">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-12">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-13</key>
-            <value>
-                <seances date="2016-09-13">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-13">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-13">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-13">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-14</key>
             <value>
-                <seances date="2016-09-14">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
                 <seances date="2016-09-14">
                     <cours classe="6°4">
                         <day>Mercredi</day>
@@ -1478,18 +974,6 @@
                         <startHour>8</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-14">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1502,30 +986,6 @@
                         <startHour>9</startHour>
                         <startMin>1</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-14">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-14">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1533,86 +993,11 @@
         </entry>
         <entry>
             <key>2016-09-15</key>
-            <value>
-                <seances date="2016-09-15">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-15">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-15">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-15">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-16</key>
             <value>
-                <seances date="2016-09-16">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees>
-                        <entry>
-                            <value id="QAeSa">
-<absent>true</absent>
-<cours>1</cours>
-<date>2016-09-16</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>0</retard>
-<travailPasFait>false</travailPasFait>
-                            </value>
-                        </entry>
-                    </donnees>
-                </seances>
                 <seances date="2016-09-16">
                     <cours classe="5°1">
                         <day>Vendredi</day>
@@ -1622,18 +1007,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-16">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1643,18 +1016,6 @@
             <key>2016-10-28</key>
             <value>
                 <seances date="2016-10-28">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-28">
                     <cours classe="5°1">
                         <day>Vendredi</day>
                         <endHour>10</endHour>
@@ -1663,18 +1024,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-28">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1688,18 +1037,6 @@
             <key>2016-10-26</key>
             <value>
                 <seances date="2016-10-26">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-26">
                     <cours classe="6°4">
                         <day>Mercredi</day>
                         <endHour>9</endHour>
@@ -1708,18 +1045,6 @@
                         <startHour>8</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-26">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1732,30 +1057,6 @@
                         <startHour>9</startHour>
                         <startMin>1</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-26">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-26">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -1763,244 +1064,23 @@
         </entry>
         <entry>
             <key>2016-10-27</key>
-            <value>
-                <seances date="2016-10-27">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-27">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-27">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-27">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-20</key>
-            <value>
-                <seances date="2016-10-20">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-20">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-20">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-20">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-21</key>
-            <value>
-                <seances date="2016-10-21">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-21">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-21">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-24</key>
-            <value>
-                <seances date="2016-10-24">
-                    <cours classe="6°4">
-                        <day>Lundi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-24">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-24">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-25</key>
-            <value>
-                <seances date="2016-10-25">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-25">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-25">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-25">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-22</key>
@@ -2012,289 +1092,11 @@
         </entry>
         <entry>
             <key>2016-09-01</key>
-            <value>
-                <coursPonctuels classe="6°3">
-                    <day>Jeudi</day>
-                    <endHour>17</endHour>
-                    <endMin>0</endMin>
-                    <room></room>
-                    <startHour>16</startHour>
-                    <startMin>0</startMin>
-                    <week>normale</week>
-                </coursPonctuels>
-                <coursPonctuels classe="5°1">
-                    <day>Jeudi</day>
-                    <endHour>17</endHour>
-                    <endMin>0</endMin>
-                    <room></room>
-                    <startHour>16</startHour>
-                    <startMin>0</startMin>
-                    <week>normale</week>
-                </coursPonctuels>
-                <seances date="2016-09-01">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees>
-                        <entry>
-                            <value id="O97VU">
-<absent>false</absent>
-<cours>1</cours>
-<date>2016-09-01</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>0</retard>
-<travailPasFait>true</travailPasFait>
-                            </value>
-                        </entry>
-                    </donnees>
-                </seances>
-                <seances date="2016-09-01">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees>
-                        <entry>
-                            <key actif="true" classe="5°1" firstName="Lina" id="c30F5" lastName="BELHADDAD">
-<changementsClasse/>
-<data>
-    <eleveData eleve="c30F5" id="O4gO4">
-        <absent>true</absent>
-        <cours>1</cours>
-        <date>2016-09-01</date>
-        <devoir>false</devoir>
-        <exclus>false</exclus>
-        <motCarnet>false</motCarnet>
-        <motSigne>false</motSigne>
-        <retard>0</retard>
-        <travailPasFait>false</travailPasFait>
-    </eleveData>
-</data>
-<punitions/>
-                            </key>
-                            <value eleve="c30F5" id="O4gO4">
-<absent>true</absent>
-<cours>1</cours>
-<date>2016-09-01</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>0</retard>
-<travailPasFait>false</travailPasFait>
-                            </value>
-                        </entry>
-                    </donnees>
-                </seances>
-                <seances date="2016-09-01">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees>
-                        <entry>
-                            <value id="SfOiV">
-<absent>false</absent>
-<cours>1</cours>
-<date>2016-09-01</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>5</retard>
-<travailPasFait>false</travailPasFait>
-                            </value>
-                        </entry>
-                    </donnees>
-                </seances>
-                <seances date="2016-09-01">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-01">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>17</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>16</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees>
-                        <entry>
-                            <value id="YUV1B">
-<absent>false</absent>
-<cours>2</cours>
-<date>2016-09-01</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>5</retard>
-<travailPasFait>false</travailPasFait>
-                            </value>
-                        </entry>
-                        <entry>
-                            <key actif="true" classe="6°3" firstName="Quentin" id="2RKmd" lastName="DIAGNE">
-<changementsClasse/>
-<data>
-    <eleveData eleve="2RKmd" id="P1tW2">
-        <absent>true</absent>
-        <cours>2</cours>
-        <date>2016-09-01</date>
-        <devoir>false</devoir>
-        <exclus>false</exclus>
-        <motCarnet>false</motCarnet>
-        <motSigne>false</motSigne>
-        <retard>0</retard>
-        <travailPasFait>false</travailPasFait>
-    </eleveData>
-</data>
-<punitions/>
-                            </key>
-                            <value eleve="2RKmd" id="P1tW2">
-<absent>true</absent>
-<cours>2</cours>
-<date>2016-09-01</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>0</retard>
-<travailPasFait>false</travailPasFait>
-                            </value>
-                        </entry>
-                        <entry>
-                            <key actif="true" classe="6°3" firstName="Rani" id="9gGTg" lastName="CHIHEB">
-<changementsClasse/>
-<data>
-    <eleveData id="O97VU">
-        <absent>false</absent>
-        <cours>1</cours>
-        <date>2016-09-01</date>
-        <devoir>false</devoir>
-        <exclus>false</exclus>
-        <motCarnet>false</motCarnet>
-        <motSigne>false</motSigne>
-        <retard>0</retard>
-        <travailPasFait>true</travailPasFait>
-    </eleveData>
-    <eleveData eleve="9gGTg" id="uuzwk">
-        <absent>true</absent>
-        <cours>2</cours>
-        <date>2016-09-01</date>
-        <devoir>false</devoir>
-        <exclus>false</exclus>
-        <motCarnet>false</motCarnet>
-        <motSigne>false</motSigne>
-        <retard>0</retard>
-        <travailPasFait>false</travailPasFait>
-    </eleveData>
-</data>
-<punitions/>
-                            </key>
-                            <value eleve="9gGTg" id="uuzwk">
-<absent>true</absent>
-<cours>2</cours>
-<date>2016-09-01</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>0</retard>
-<travailPasFait>false</travailPasFait>
-                            </value>
-                        </entry>
-                    </donnees>
-                </seances>
-                <seances date="2016-09-01">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>17</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>16</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees>
-                        <entry>
-                            <key actif="true" classe="5°1" firstName="Flavie" id="uD5rh" lastName="ADUMEAU">
-<changementsClasse/>
-<data>
-    <eleveData eleve="uD5rh" id="pTrmf">
-        <absent>true</absent>
-        <cours>2</cours>
-        <date>2016-09-01</date>
-        <devoir>false</devoir>
-        <exclus>false</exclus>
-        <motCarnet>false</motCarnet>
-        <motSigne>false</motSigne>
-        <retard>0</retard>
-        <travailPasFait>false</travailPasFait>
-    </eleveData>
-</data>
-<punitions/>
-                            </key>
-                            <value eleve="uD5rh" id="pTrmf">
-<absent>true</absent>
-<cours>2</cours>
-<date>2016-09-01</date>
-<devoir>false</devoir>
-<exclus>false</exclus>
-<motCarnet>false</motCarnet>
-<motSigne>false</motSigne>
-<retard>0</retard>
-<travailPasFait>false</travailPasFait>
-                            </value>
-                        </entry>
-                    </donnees>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-02</key>
             <value>
-                <seances date="2016-09-02">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
                 <seances date="2016-09-02">
                     <cours classe="5°1">
                         <day>Vendredi</day>
@@ -2304,18 +1106,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-02">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2333,38 +1123,14 @@
             <key>2016-09-05</key>
             <value>
                 <seances date="2016-09-05">
-                    <cours classe="6°4">
+                    <cours classe="6°1">
                         <day>Lundi</day>
-                        <endHour>10</endHour>
+                        <endHour>9</endHour>
                         <endMin>0</endMin>
                         <room></room>
-                        <startHour>9</startHour>
+                        <startHour>8</startHour>
                         <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-05">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-05">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
+                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2374,38 +1140,14 @@
             <key>2016-10-17</key>
             <value>
                 <seances date="2016-10-17">
-                    <cours classe="6°4">
+                    <cours classe="6°1">
                         <day>Lundi</day>
-                        <endHour>10</endHour>
+                        <endHour>9</endHour>
                         <endMin>0</endMin>
                         <room></room>
-                        <startHour>9</startHour>
+                        <startHour>8</startHour>
                         <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-17">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-17">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
+                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2415,18 +1157,6 @@
             <key>2016-09-28</key>
             <value>
                 <seances date="2016-09-28">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-28">
                     <cours classe="6°4">
                         <day>Mercredi</day>
                         <endHour>9</endHour>
@@ -2435,18 +1165,6 @@
                         <startHour>8</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-28">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2459,30 +1177,6 @@
                         <startHour>9</startHour>
                         <startMin>1</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-28">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-28">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2490,109 +1184,11 @@
         </entry>
         <entry>
             <key>2016-10-18</key>
-            <value>
-                <seances date="2016-10-18">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-18">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-18">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-18">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-29</key>
-            <value>
-                <seances date="2016-09-29">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-29">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-29">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-29">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-15</key>
@@ -2618,18 +1214,6 @@
                     <donnees/>
                 </seances>
                 <seances date="2016-10-19">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-19">
                     <cours classe="6°3">
                         <day>Mercredi</day>
                         <endHour>10</endHour>
@@ -2638,30 +1222,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-19">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-19">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2681,113 +1241,15 @@
         </entry>
         <entry>
             <key>2016-10-10</key>
-            <value>
-                <seances date="2016-10-10">
-                    <cours classe="6°4">
-                        <day>Lundi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-10">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-10">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-13</key>
-            <value>
-                <seances date="2016-10-13">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-13">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-13">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-13">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-14</key>
             <value>
-                <seances date="2016-10-14">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
                 <seances date="2016-10-14">
                     <cours classe="5°1">
                         <day>Vendredi</day>
@@ -2797,18 +1259,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-14">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2816,72 +1266,11 @@
         </entry>
         <entry>
             <key>2016-10-11</key>
-            <value>
-                <seances date="2016-10-11">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-11">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-11">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-11">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-12</key>
             <value>
-                <seances date="2016-10-12">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
                 <seances date="2016-10-12">
                     <cours classe="6°4">
                         <day>Mercredi</day>
@@ -2891,18 +1280,6 @@
                         <startHour>8</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-12">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2915,30 +1292,6 @@
                         <startHour>9</startHour>
                         <startMin>1</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-12">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-12">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2948,18 +1301,6 @@
             <key>2016-09-30</key>
             <value>
                 <seances date="2016-09-30">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-30">
                     <cours classe="5°1">
                         <day>Vendredi</day>
                         <endHour>10</endHour>
@@ -2968,18 +1309,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-30">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -2987,56 +1316,7 @@
         </entry>
         <entry>
             <key>2016-10-06</key>
-            <value>
-                <seances date="2016-10-06">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-06">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-06">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-06">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-17</key>
@@ -3044,44 +1324,7 @@
         </entry>
         <entry>
             <key>2016-10-07</key>
-            <value>
-                <seances date="2016-10-07">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-07">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-07">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-18</key>
@@ -3089,93 +1332,20 @@
         </entry>
         <entry>
             <key>2016-10-04</key>
-            <value>
-                <seances date="2016-10-04">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-04">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-04">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-04">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-19</key>
             <value>
                 <seances date="2016-09-19">
-                    <cours classe="6°4">
+                    <cours classe="6°1">
                         <day>Lundi</day>
-                        <endHour>10</endHour>
+                        <endHour>9</endHour>
                         <endMin>0</endMin>
                         <room></room>
-                        <startHour>9</startHour>
+                        <startHour>8</startHour>
                         <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-19">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-19">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
+                        <week>Q1</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -3197,18 +1367,6 @@
                     <donnees/>
                 </seances>
                 <seances date="2016-10-05">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-05">
                     <cours classe="6°3">
                         <day>Mercredi</day>
                         <endHour>10</endHour>
@@ -3217,30 +1375,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-05">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-05">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -3267,106 +1401,83 @@
             <value/>
         </entry>
         <entry>
-            <key>2016-10-02</key>
+            <key>2016-11-10</key>
             <value/>
         </entry>
         <entry>
-            <key>2016-10-03</key>
+            <key>2016-11-11</key>
             <value>
-                <seances date="2016-10-03">
-                    <cours classe="6°4">
-                        <day>Lundi</day>
+                <seances date="2016-11-11">
+                    <cours classe="5°1">
+                        <day>Vendredi</day>
                         <endHour>10</endHour>
                         <endMin>0</endMin>
                         <room></room>
                         <startHour>9</startHour>
                         <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-03">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-03">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
+                        <week>Q2</week>
                     </cours>
                     <donnees/>
                 </seances>
             </value>
+        </entry>
+        <entry>
+            <key>2016-10-02</key>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-14</key>
+            <value>
+                <seances date="2016-11-14">
+                    <cours classe="6°1">
+                        <day>Lundi</day>
+                        <endHour>9</endHour>
+                        <endMin>0</endMin>
+                        <room></room>
+                        <startHour>8</startHour>
+                        <startMin>0</startMin>
+                        <week>Q1</week>
+                    </cours>
+                    <donnees/>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-03</key>
+            <value>
+                <seances date="2016-10-03">
+                    <cours classe="6°1">
+                        <day>Lundi</day>
+                        <endHour>9</endHour>
+                        <endMin>0</endMin>
+                        <room></room>
+                        <startHour>8</startHour>
+                        <startMin>0</startMin>
+                        <week>Q1</week>
+                    </cours>
+                    <donnees/>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-15</key>
+            <value/>
+        </entry>
+        <entry>
+            <key>2016-11-12</key>
+            <value/>
         </entry>
         <entry>
             <key>2016-10-01</key>
             <value/>
         </entry>
         <entry>
+            <key>2016-11-13</key>
+            <value/>
+        </entry>
+        <entry>
             <key>2016-09-20</key>
-            <value>
-                <seances date="2016-09-20">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-20">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-20">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-20">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-21</key>
@@ -3384,18 +1495,6 @@
                     <donnees/>
                 </seances>
                 <seances date="2016-09-21">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-21">
                     <cours classe="6°3">
                         <day>Mercredi</day>
                         <endHour>10</endHour>
@@ -3404,30 +1503,6 @@
                         <startHour>9</startHour>
                         <startMin>0</startMin>
                         <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-21">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-21">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>12</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>11</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
                     </cours>
                     <donnees/>
                 </seances>
@@ -3447,97 +1522,11 @@
         </entry>
         <entry>
             <key>2016-09-22</key>
-            <value>
-                <seances date="2016-09-22">
-                    <cours classe="6°3">
-                        <day>Jeudi</day>
-                        <endHour>8</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-22">
-                    <cours classe="5°1">
-                        <day>Jeudi</day>
-                        <endHour>9</endHour>
-                        <endMin>50</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>55</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-22">
-                    <cours classe="6°1">
-                        <day>Jeudi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-22">
-                    <cours classe="6°4">
-                        <day>Jeudi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-23</key>
-            <value>
-                <seances date="2016-09-23">
-                    <cours classe="6°1">
-                        <day>Vendredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-23">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-23">
-                    <cours classe="6°3">
-                        <day>Vendredi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-24</key>
@@ -3549,103 +1538,17 @@
         </entry>
         <entry>
             <key>2016-09-26</key>
-            <value>
-                <seances date="2016-09-26">
-                    <cours classe="6°4">
-                        <day>Lundi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-26">
-                    <cours classe="6°3">
-                        <day>Lundi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-26">
-                    <cours classe="5°1">
-                        <day>Lundi</day>
-                        <endHour>15</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
         <entry>
             <key>2016-09-27</key>
-            <value>
-                <seances date="2016-09-27">
-                    <cours classe="6°4">
-                        <day>Mardi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-27">
-                    <cours classe="6°1">
-                        <day>Mardi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-27">
-                    <cours classe="5°1">
-                        <day>Mardi</day>
-                        <endHour>11</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>10</startHour>
-                        <startMin>0</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-27">
-                    <cours classe="6°3">
-                        <day>Mardi</day>
-                        <endHour>14</endHour>
-                        <endMin>30</endMin>
-                        <room></room>
-                        <startHour>13</startHour>
-                        <startMin>30</startMin>
-                        <week>normale</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-            </value>
+            <value/>
         </entry>
     </journees>
     <trimestres>
         <trimestre name="T1">
             <end>2016-12-09</end>
-            <start>2016-09-01</start>
+            <start>2016-09-05</start>
         </trimestre>
         <trimestre name="T2">
             <end>2017-03-10</end>

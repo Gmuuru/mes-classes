@@ -38,12 +38,12 @@
                   <TextField fx:id="standardNameField" promptText="nom" GridPane.columnIndex="1" />
                   <TextField fx:id="p1NameField" promptText="nom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="p2NameField" promptText="nom" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <ComboBox fx:id="p1ComboBox" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <ComboBox fx:id="p1ComboBox" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="20.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <ComboBox fx:id="p2ComboBox" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <ComboBox fx:id="p2ComboBox" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="20.0" />
                      </GridPane.margin>

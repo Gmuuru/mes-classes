@@ -6,11 +6,15 @@
 package mesclasses.util;
 
 import java.time.LocalDate;
+import java.time.temporal.WeekFields;
+import java.util.Locale;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Hyperlink;
 import javafx.util.StringConverter;
 import mesclasses.handlers.EventBusHandler;
+import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
+import mesclasses.model.Cours;
 import mesclasses.model.Eleve;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectEleveEvent;
@@ -90,6 +94,51 @@ public class NodeUtil {
             return "0"+min;
         }
         return ""+min;
+    }
+    
+    public static String getJour(LocalDate date){
+        
+        return Constants.DAYMAP.get(date.getDayOfWeek());
+    }
+    
+    public static int getWeekNumber(LocalDate date){
+        WeekFields wf = WeekFields.of(Locale.FRANCE);
+        return date.get(wf.weekOfWeekBasedYear());
+    }
+    
+    public static boolean coursHappensThisDay(Cours cours, LocalDate date){
+        
+        PropertiesCache config = PropertiesCache.getInstance();
+        if(cours.getWeek() == null){
+            AppLogger.log("Erreur - cours sans semaine");
+            return false;
+        }
+        if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_DEFAULT))){
+            return true;
+        }
+        
+        int weekInt = getWeekNumber(date);
+        
+        if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P1_NAME))){
+            // le cours est de type périodique 1
+            return coursHappensThisDay(weekInt, config.getIntegerProperty(Constants.CONF_WEEK_P1_VAL));
+        }
+        if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2_NAME))){
+            // le cours est de type périodique 1
+            return coursHappensThisDay(weekInt, config.getIntegerProperty(Constants.CONF_WEEK_P2_VAL));
+        }
+        return false;
+    }
+    
+    private static boolean coursHappensThisDay(int dateWeekNumber, int weekConfigValue){
+        switch (weekConfigValue) {
+            case 0:
+                return dateWeekNumber % 2 == 0;
+            case 1:
+                return dateWeekNumber % 2 == 1;
+            default:
+                return false;
+        }
     }
     
     public static boolean isBetween(LocalDate date, LocalDate start, LocalDate end){

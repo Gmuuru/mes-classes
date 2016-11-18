@@ -38,6 +38,7 @@
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#openAccueil" text="Accueil" />
                         <MenuItem mnemonicParsing="false" onAction="#openClasses" text="Séances" />
+                        <MenuItem mnemonicParsing="false" onAction="#openJournees" text="Journées" />
                         <MenuItem mnemonicParsing="false" onAction="#openRapports" text="Rapports" />
                      </items>
                   </Menu>

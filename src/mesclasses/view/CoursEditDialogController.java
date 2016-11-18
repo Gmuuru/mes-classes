@@ -72,8 +72,8 @@ public class CoursEditDialogController extends PageController implements Initial
         // TODO
         day.getItems().addAll(Constants.DAYS);
         semaine.getItems().add(config.getProperty(Constants.CONF_WEEK_DEFAULT));
-        semaine.getItems().add(config.getProperty(Constants.CONF_WEEK_P1));
-        semaine.getItems().add(config.getProperty(Constants.CONF_WEEK_P2));
+        semaine.getItems().add(config.getProperty(Constants.CONF_WEEK_P1_NAME));
+        semaine.getItems().add(config.getProperty(Constants.CONF_WEEK_P2_NAME));
         classe.getItems().addAll(classes);
         okBtn.disableProperty().bind(this.hasErrors);
         handleKeys();

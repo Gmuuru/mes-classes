@@ -184,6 +184,24 @@ public class ModelHandler {
         ).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
     
+    public ObservableList<Cours> getCoursForDate(LocalDate date){
+        
+        String day = NodeUtil.getJour(date);
+        return data.getCours().stream().filter(c -> 
+                c.getDay().equals(day) && NodeUtil.coursHappensThisDay(c, date)
+        ).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    
+    public ObservableList<Cours> getCoursForDateAndClasse(LocalDate date, Classe classe){
+        
+        String day = NodeUtil.getJour(date);
+        return data.getCours().stream().filter(c -> 
+                c.getDay().equals(day) 
+                && c.getClasse().getName().equals(classe.getName())
+                && NodeUtil.coursHappensThisDay(c, date)
+        ).collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+    
     public ObservableList<Cours> getCoursForDayAndClasse(String day, Classe classe){
         return data.getCours().stream().filter(c -> 
                 c.getDay().equals(day) && c.getClasse().getName().equals(classe.getName())
@@ -255,6 +273,16 @@ public class ModelHandler {
         return newData;
     }
     
+    public EleveData createEleveData(Eleve eleve, Seance seance){
+        EleveData newData = new EleveData();
+        newData.setEleve(eleve);
+        newData.setCours(0);
+        newData.setDate(seance.getDate());
+        seance.addDonnee(newData);
+        newData.startChangeDetection();
+        return newData;
+    }
+    
     
     public EleveData getDataForCoursAndDate(Eleve eleve, int cours, LocalDate date){
         if(eleve == null || eleve.getData() == null){
@@ -302,8 +330,9 @@ public class ModelHandler {
     }
     // PUNITIONS
     
-    public Punition createPunition(Eleve eleve, LocalDate date, int cours, String texte) {
-        Punition punition = new Punition(eleve, date, cours, texte);
+    public Punition createPunition(Eleve eleve, LocalDate date, Cours cours, String texte) {
+        //TODO
+        Punition punition = new Punition(eleve, date, 0, texte);
         eleve.getPunitions().add(punition);
         punition.startChangeDetection();
         return punition;
@@ -314,6 +343,36 @@ public class ModelHandler {
     }
     
     // JOURNEES
+    
+    public Journee getJournee(LocalDate date){
+        if(getJournees().containsKey(date)){
+            return getJournees().get(date);
+        }
+        return buildJournee(date);
+    }
+    
+    public Journee buildJournee(LocalDate date){
+        Journee journee = new Journee();
+        List<Cours> cours = getCoursForDate(date);
+        cours.forEach(c -> {
+            journee.getSeances().add(createSeance(c.getClasse(), date, c));
+        });
+        journee.setDate(date);
+        return journee;
+    } 
+    
+    public void addCoursPonctuel(Journee journee, Classe classe){
+        Cours coursPonctuel = new Cours();
+        coursPonctuel.setClasse(classe);
+        coursPonctuel.setDay(NodeUtil.getJour(journee.getDateAsDate()));
+        coursPonctuel.setWeek("ponctuel");
+        coursPonctuel.setStartHour(16);
+        coursPonctuel.setStartMin(00);
+        coursPonctuel.setEndHour(17);
+        coursPonctuel.setEndMin(00);
+        journee.getCoursPonctuels().add(coursPonctuel);
+        journee.getSeances().add(createSeance(classe, journee.getDateAsDate(), coursPonctuel));
+    }
     
     public void createJournee(Journee journee){
         data.getJournees().put(journee.getDateAsDate(), journee);

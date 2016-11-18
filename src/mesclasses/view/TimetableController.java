@@ -184,11 +184,11 @@ public class TimetableController extends PageController implements Initializable
         List<Cours> liste = getSimultaneousCours(cours);
         Pane pane = getPane(cours);
         if(liste.size() == 1){
-            if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P1)) || 
-                    cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2))){
+            if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P1_NAME)) || 
+                    cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2_NAME))){
                 bindWidth(cours.getEvent(), pane, 2);
             }
-            if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2))){
+            if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2_NAME))){
                 cours.getEvent().layoutXProperty().bind(pane.layoutXProperty().add(pane.widthProperty().divide(2)));
             }
             return;

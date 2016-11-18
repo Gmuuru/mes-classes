@@ -43,13 +43,12 @@ public class ComputeTask extends AppTask<Object> {
     @Override
     protected Object call() throws Exception {
         handler = ModelHandler.getInstance();
-        if(handler.getJournees().isEmpty() && ! handler.getTrimestres().isEmpty()){
-            process();
-        }
+        process();
         return null;
     }
 
     private void process() {
+        
         try {
             LocalDate day = handler.getTrimestres().get(0).getStartAsDate();
             long nbDays = ChronoUnit.DAYS.between(day, LocalDate.now());
@@ -85,11 +84,9 @@ public class ComputeTask extends AppTask<Object> {
     private ObservableList<Seance> buildSeancesForClasse(Journee journee, Classe classe, LocalDate date) {
         
         ObservableList<Seance> res = FXCollections.observableArrayList();
-        String jour = Constants.DAYMAP.get(date.getDayOfWeek());
-        List<Cours> listeCours = handler.getCoursForDayAndClasse(jour, classe);
-        Map<Integer, List<EleveData>> donneesParCours = getDataParCoursForDate(classe, date);
+        List<Cours> listeCours = handler.getCoursForDateAndClasse(date, classe);
         
-        log("Classe "+classe+", cours prévus = "+listeCours.size()+", cours totaux = "+donneesParCours.size());
+        Map<Integer, List<EleveData>> donneesParCours = getDataParCoursForDate(classe, date);
         //cours normaux
         int index;
         for(index = 0; index < listeCours.size(); index++){
@@ -100,6 +97,7 @@ public class ComputeTask extends AppTask<Object> {
             }
             res.add(seance);
         }
+        String jour = Constants.DAYMAP.get(date.getDayOfWeek());
         // cours ponctuels
         while(index < donneesParCours.size()){
             index++;

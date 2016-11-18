@@ -8,6 +8,7 @@ package mesclasses.objects;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -23,6 +24,7 @@ import javafx.stage.Stage;
 import mesclasses.objects.tasks.AppTask;
 import mesclasses.objects.tasks.WaitTask;
 import mesclasses.util.AppLogger;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -56,11 +58,17 @@ public class LoadWindow {
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(stage);
         dialogStage.setScene(createloadingScene());
+        AppLogger.log("LOAD WINDOW REQUESTED. tasks = "+StringUtils.join(getTaskNames(), ","));
         
+    }
+    
+    private List<String> getTaskNames(){
+        return services.stream().map(LoadingService::getTaskName).collect(Collectors.toList());
     }
     
     private void next(){
         currentService++;
+        AppLogger.log(currentService+" / "+services.size());
         if(currentService >= services.size()){
             close();
             return;
@@ -81,7 +89,6 @@ public class LoadWindow {
     public void startAndWait() {  
         start = System.currentTimeMillis();
         next();
-        AppLogger.log("Loading window, waiting for close");
         dialogStage.showAndWait();
         
     }
@@ -97,6 +104,7 @@ public class LoadWindow {
     }
     
     private void temporize(long millis){
+        AppLogger.log("Loading tempo of "+millis+"ms");
         Service<Object> service = new Service(){
             @Override
             protected Task createTask() {
@@ -137,6 +145,7 @@ public class LoadWindow {
         
         @Override
         public void start(){
+            AppLogger.log("#####  --> Task '"+task.getName()+"' started #####");
             bar.progressProperty().bind(task.progressProperty());
             Label label = new Label(task.getName());
             label.setAlignment(Pos.TOP_CENTER);
@@ -149,13 +158,12 @@ public class LoadWindow {
             this.task = task;
             this.stateProperty().addListener(
                 (ObservableValue<? extends Worker.State> o, Worker.State oldValue, Worker.State newValue) -> {
-                AppLogger.log("state = "+newValue);
                 switch (newValue) {
                     case FAILED:
                     case CANCELLED:
                     case SUCCEEDED:
-                        AppLogger.log("Task '"+task.getName()+"' closing");
-                        close();
+                        AppLogger.log("#####  --> Task '"+task.getName()+"' finished #####");
+                        next();
                         break;
                 }
             });
@@ -164,6 +172,10 @@ public class LoadWindow {
         @Override
         protected Task<Object> createTask() {
             return task;
+        }
+        
+        public String getTaskName(){
+            return task.getName();
         }
     }
 }

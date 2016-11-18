@@ -32,8 +32,8 @@ public class ConfigSemainesController extends PageController implements Initiali
      * 1 = semaines paires
      * 2 = semaines impaires
      */
-    @FXML ComboBox<Integer> p1ComboBox;
-    @FXML ComboBox<Integer> p2ComboBox;
+    @FXML ComboBox<String> p1ComboBox;
+    @FXML ComboBox<String> p2ComboBox;
     
     @FXML TextField standardNameField;
     @FXML TextField p1NameField;
@@ -48,6 +48,7 @@ public class ConfigSemainesController extends PageController implements Initiali
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         name = "Config Semaine Ctrl";
         // TODO
         standardNameField.textProperty().set(config.getProperty(Constants.CONF_WEEK_DEFAULT));
@@ -56,21 +57,39 @@ public class ConfigSemainesController extends PageController implements Initiali
         });
         markAsMandatory(standardNameField);
         checkMandatory(standardNameField);
-        p1NameField.textProperty().set(config.getProperty(Constants.CONF_WEEK_P1));
+        
+        p1NameField.textProperty().set(config.getProperty(Constants.CONF_WEEK_P1_NAME));
         p1NameField.textProperty().addListener((observable, oldValue, newValue) -> {
             pristine.set(false);
         });
         markAsMandatory(p1NameField);
         checkMandatory(p1NameField);
-        p2NameField.textProperty().set(config.getProperty(Constants.CONF_WEEK_P2));
+        p1ComboBox.getItems().add("Semaines paires");
+        p1ComboBox.getItems().add("Semaines impaires");
+        p1ComboBox.getSelectionModel().select(config.getIntegerProperty(Constants.CONF_WEEK_P1_VAL, 0));
+        
+        p2NameField.textProperty().set(config.getProperty(Constants.CONF_WEEK_P2_NAME));
         markAsMandatory(p2NameField);
         checkMandatory(p2NameField);
         p2NameField.textProperty().addListener((observable, oldValue, newValue) -> {
             pristine.set(false);
         });
+        p2ComboBox.getItems().add("Semaines paires");
+        p2ComboBox.getItems().add("Semaines impaires");
+        p2ComboBox.getSelectionModel().select(config.getIntegerProperty(Constants.CONF_WEEK_P2_VAL, 1));
         
         saveBtn.disableProperty().bind(Bindings.or(pristine, hasErrors));
         super.initialize(url, rb);
+        
+        p1ComboBox.getSelectionModel().selectedIndexProperty().addListener((ob, o, n) -> {
+            p2ComboBox.getSelectionModel().clearAndSelect(1-n.intValue());
+            pristine.set(false);
+        });
+        
+        p2ComboBox.getSelectionModel().selectedIndexProperty().addListener((ob, o, n) -> {
+            p1ComboBox.getSelectionModel().clearAndSelect(1-n.intValue());
+            pristine.set(false);
+        });
     }    
     
     @FXML void onSave(){
@@ -78,16 +97,18 @@ public class ConfigSemainesController extends PageController implements Initiali
         log("nb de cours : "+modelHandler.getCours());
         modelHandler.getCours().forEach(c -> updateWeek(c));
         config.setProperty(Constants.CONF_WEEK_DEFAULT, standardNameField.getText());
-        config.setProperty(Constants.CONF_WEEK_P1, p1NameField.getText());
-        config.setProperty(Constants.CONF_WEEK_P2, p2NameField.getText());
+        config.setProperty(Constants.CONF_WEEK_P1_NAME, p1NameField.getText());
+        config.setProperty(Constants.CONF_WEEK_P2_NAME, p2NameField.getText());
+        config.setProperty(Constants.CONF_WEEK_P1_VAL, ""+p1ComboBox.getSelectionModel().getSelectedIndex());
+        config.setProperty(Constants.CONF_WEEK_P2_VAL, ""+p2ComboBox.getSelectionModel().getSelectedIndex());
         config.save();
         pristine.set(true);
     }
     
     private void updateWeek(Cours c){
-        if(c.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P1))){
+        if(c.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P1_NAME))){
             c.setWeek(p1NameField.getText());
-        } else if(c.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2))){
+        } else if(c.getWeek().equals(config.getProperty(Constants.CONF_WEEK_P2_NAME))){
             c.setWeek(p2NameField.getText());
         } else {
             c.setWeek(standardNameField.getText());

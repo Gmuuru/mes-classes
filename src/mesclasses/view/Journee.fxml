@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.smartgrid.SmartGrid?>
+<?import org.smartgrid.elements.HeaderLabel?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.JourneeController">
+    <stylesheets>
+        <URL value="@../../resources/css/main.css" />
+    </stylesheets>
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <Button fx:id="switchNonActifsBtn" mnemonicParsing="false" onAction="#switchNonActifs" text="Button" />
+                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#openRapport" text="Rapport Classe" />
+                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#openMotDialog" styleClass="warning" text="Mots" />
+                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#openPunitions" styleClass="warning" text="Punitions" />
+                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#openPostIt" styleClass="warning" text="Post-It" />
+              </items>
+            </ToolBar>
+         </bottom>
+         <center>
+             
+            <ScrollPane fitToHeight="true" fitToWidth="true" vbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+                <content>
+             <VBox>
+                 <children>
+                     <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="1000.0" styleClass="smart-grid">
+                    <columnConstraints>
+                      <ColumnConstraints minWidth="5" percentWidth="0.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" percentWidth="11.0" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" percentWidth="11.0" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" percentWidth="17.0" />
+                      <ColumnConstraints minWidth="5" percentWidth="0.5" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
+                        <HeaderLabel alignment="CENTER_LEFT" fixedHeight="50" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
+                           <padding>
+                              <Insets left="4.0" />
+                           </padding></HeaderLabel>
+                        <HeaderLabel alignment="CENTER_LEFT" fixedHeight="50" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
+                           <padding>
+                              <Insets left="4.0" />
+                           </padding></HeaderLabel>
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Absent" GridPane.columnIndex="3" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Retard" GridPane.columnIndex="4" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Cumul Retard" GridPane.columnIndex="5" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Travail non fait" GridPane.columnIndex="6" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Cumul Travail" GridPane.columnIndex="7" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Devoir non rendu" GridPane.columnIndex="8" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Punition" GridPane.columnIndex="9" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Mot carnet" GridPane.columnIndex="10" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Mot signé" GridPane.columnIndex="11" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Oubli matériel" GridPane.columnIndex="12" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Cumul matériel" GridPane.columnIndex="13" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Exclus" GridPane.columnIndex="14" />
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Remarques" GridPane.columnIndex="15" />               
+                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="" GridPane.columnIndex="16" />
+                     </children>
+                  </SmartGrid>
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+               <content>
+                  <SmartGrid fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="1450.0" styleClass="smart-grid">
+                    <columnConstraints>
+                      <ColumnConstraints minWidth="5" percentWidth="0.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" percentWidth="11.0" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="100.0" percentWidth="11.0" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="50.0" percentWidth="5.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="40.0" percentWidth="4.5" />
+                      <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" percentWidth="17.0" />
+                      <ColumnConstraints minWidth="5" percentWidth="0.5" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints fillHeight="false" maxHeight="0.0" minHeight="0.0" prefHeight="0.0" valignment="TOP" vgrow="ALWAYS" />
+                    </rowConstraints>
+                     <children>
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="0" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="1" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="2" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="3" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="4" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="5" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="6" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="7" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="8" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="9" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="10" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="11" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="12" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="13" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="14" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="15" />
+                        <HeaderLabel fixedHeight="1" GridPane.columnIndex="16" />
+                     </children>
+                  </SmartGrid>
+               </content>
+            </ScrollPane>
+            </children>
+             </VBox>
+             </content>
+             </ScrollPane>
+         </center>
+         <top>
+            <ToolBar prefHeight="50.0" BorderPane.alignment="CENTER">
+               <items>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="previousDayBtn" mnemonicParsing="false" onAction="#previousDay" text="&lt;" />
+                        <DatePicker fx:id="currentDate" prefHeight="25.0" prefWidth="267.0" styleClass="datepicker" HBox.hgrow="SOMETIMES" />
+                        <Button fx:id="nextDayBtn" mnemonicParsing="false" onAction="#nextDay" text="&gt;" />
+                     </children>
+                  </HBox>
+                  <Pane minWidth="50.0" />
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="previousCoursBtn" mnemonicParsing="false" onAction="#previousCours" text="&lt;" />
+                        <Label fx:id="currentCoursLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="80.0" text="Label" HBox.hgrow="ALWAYS">
+                        </Label>
+                        <Button fx:id="nextCoursBtn" mnemonicParsing="false" onAction="#nextCours" text="&gt;" />
+                     </children>
+                  </HBox>
+                  <Pane maxWidth="20.0" minWidth="20.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="addCours" mnemonicParsing="false" onAction="#ajouterCours" text="Ajouter cours" />
+                  <Pane HBox.hgrow="ALWAYS" />
+               </items>
+            </ToolBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

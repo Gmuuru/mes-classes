@@ -11,12 +11,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import mesclasses.controller.PageController;
-import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * FXML Controller class
@@ -40,19 +38,24 @@ public class ConfigurationController extends PageController implements Initializ
     public void initialize(URL url, ResourceBundle rb) {
         name = "Configuration ctrl";
         super.initialize(url, rb);
+        initTab(semainesTab, configSemainesController);
         tabPane.getSelectionModel().select(semainesTab);
         selectedController = configSemainesController;
         selectionListener = new ChangeListener<Tab>() {
             @Override
             public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
-                
+                if(selectedController.notifyExit()){
+                    selectedController = (PageController)newValue.getUserData();
+                } else {
+                    //TODO
+                }
             }
         };
         tabPane.getSelectionModel().selectedItemProperty().addListener(selectionListener);
     }
 
-    private void initTab(Tab tab, Node root, PageController controller){
-        tab.setUserData(Pair.of(root, controller));
+    private void initTab(Tab tab, PageController controller){
+        tab.setUserData(controller);
     }    
     
     @Override
@@ -63,6 +66,6 @@ public class ConfigurationController extends PageController implements Initializ
     @Override
     public boolean notifyExit(){
         
-        return configSemainesController.notifyExit();
+        return selectedController.notifyExit();
     }
 }

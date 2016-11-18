@@ -95,6 +95,10 @@ public class RootLayoutController extends PageController implements Initializabl
     public void openClasses(ActionEvent event){
         loadView(Constants.CLASSE_CONTENT_TABS_VIEW, true);
     }
+    @FXML
+    public void openJournees(ActionEvent event){
+        loadView(Constants.JOURNEE_VIEW, true);
+    }
     
     @FXML
     public void openRapports(ActionEvent event){

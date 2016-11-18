@@ -72,6 +72,24 @@ public class PropertiesCache
       return configProp.getProperty(key);
    }
    
+   public int getIntegerProperty(String key){
+        try {
+            return Integer.parseInt(configProp.getProperty(key));
+        } catch(Exception e){
+            AppLogger.log(e);
+            return 0;
+        }
+   }
+   
+   public int getIntegerProperty(String key, int defaultValue){
+        try {
+            return Integer.parseInt(configProp.getProperty(key));
+        } catch(Exception e){
+            AppLogger.log(e);
+            return defaultValue;
+        }
+   }
+   
    public Set<String> getAllPropertyNames(){
       return configProp.stringPropertyNames();
    }
