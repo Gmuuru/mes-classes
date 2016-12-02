@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import mesclasses.objects.tasks.AppTask;
 import mesclasses.objects.tasks.WaitTask;
 import mesclasses.util.AppLogger;
+import mesclasses.util.ModalUtil;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -39,6 +40,7 @@ public class LoadWindow {
     int currentService = -1;
     long minExecTime = 2000;
     long start;
+    boolean successful = true;
  
     
     public LoadWindow(Stage stage, AppTask task){
@@ -68,7 +70,6 @@ public class LoadWindow {
     
     private void next(){
         currentService++;
-        AppLogger.log(currentService+" / "+services.size());
         if(currentService >= services.size()){
             close();
             return;
@@ -95,7 +96,6 @@ public class LoadWindow {
     
     public void close(){
         long end = System.currentTimeMillis();
-        AppLogger.log("Closing after "+(end - start)+"ms");
         if(end - start < minExecTime){
            temporize(minExecTime+start-end);
         } else {
@@ -104,7 +104,6 @@ public class LoadWindow {
     }
     
     private void temporize(long millis){
-        AppLogger.log("Loading tempo of "+millis+"ms");
         Service<Object> service = new Service(){
             @Override
             protected Task createTask() {
@@ -116,6 +115,7 @@ public class LoadWindow {
             switch (newValue) {
                 case FAILED:
                 case CANCELLED:
+                    successful = false;
                     dialogStage.close();
                     break;
                     
@@ -158,9 +158,15 @@ public class LoadWindow {
             this.task = task;
             this.stateProperty().addListener(
                 (ObservableValue<? extends Worker.State> o, Worker.State oldValue, Worker.State newValue) -> {
+                    AppLogger.log("service changed status : "+newValue.name());
                 switch (newValue) {
                     case FAILED:
                     case CANCELLED:
+                        successful = false;
+                        
+                        ModalUtil.alert("Erreur...", task.getMsg());
+                        dialogStage.close();
+                        break;
                     case SUCCEEDED:
                         AppLogger.log("#####  --> Task '"+task.getName()+"' finished #####");
                         next();
@@ -178,5 +184,15 @@ public class LoadWindow {
             return task.getName();
         }
     }
+
+    public boolean isSuccessful() {
+        return successful;
+    }
+
+    public void setSuccessful(boolean successful) {
+        this.successful = successful;
+    }
+    
+    
 }
 

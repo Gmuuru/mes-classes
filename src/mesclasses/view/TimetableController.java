@@ -303,7 +303,7 @@ public class TimetableController extends PageController implements Initializable
             // Set the person into the controller.
             CoursEditDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setCours(coursToEdit);
+            controller.setCours(coursToEdit, false);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();

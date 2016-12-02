@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import mesclasses.handlers.DonneesHandler;
 import mesclasses.handlers.ModelHandler;
 import mesclasses.model.Classe;
 import mesclasses.model.Constants;
@@ -47,27 +48,28 @@ public class ComputeTask extends AppTask<Object> {
         return null;
     }
 
-    private void process() {
+    private void process() throws Exception {
         
         try {
             LocalDate day = handler.getTrimestres().get(0).getStartAsDate();
             long nbDays = ChronoUnit.DAYS.between(day, LocalDate.now());
             while(day.isBefore(LocalDate.now())){
-                Journee journee = createJournee(day);
-                handler.getJournees().put(day, journee);
+                    // pas de journée créée pour ce jour
+                    Journee journee = createJournee(day);
+                    handler.declareJournee(journee);
+                nbJournees++;
                 day = day.plusDays(1);
                 updateProgress(nbJournees, nbDays);
-                handler.createJournee(journee);
             }
-            log("journées ajoutées : "+handler.getJournees().size());
         } catch(Exception e){
             log(e);
+            setMsg("Impossible d'effectuer la conversion en séances : "+e.getMessage());
+            throw e;
         }
         log("journees : "+nbJournees+", seances "+nbSeances+", cours additionnels : "+nbCoursPonctuels+", donnees : "+nbDonnees);
     }
     
     public Journee createJournee(LocalDate date){
-        log("Journee pour le "+date);
         if(date == null){
             return null;
         }
@@ -82,43 +84,61 @@ public class ComputeTask extends AppTask<Object> {
     }
 
     private ObservableList<Seance> buildSeancesForClasse(Journee journee, Classe classe, LocalDate date) {
-        
         ObservableList<Seance> res = FXCollections.observableArrayList();
-        List<Cours> listeCours = handler.getCoursForDateAndClasse(date, classe);
-        
-        Map<Integer, List<EleveData>> donneesParCours = getDataParCoursForDate(classe, date);
-        //cours normaux
-        int index;
-        for(index = 0; index < listeCours.size(); index++){
-            Seance seance = handler.createSeance(classe, date, listeCours.get(index));
-            if(donneesParCours.containsKey(index+1)){
-                nbDonnees+=donneesParCours.get(index+1).size();
-                seance.addDonnees(donneesParCours.get(index+1));
+        try {
+            List<Cours> listeCours = handler.getCoursForDateAndClasse(date, classe);
+
+            Map<Integer, List<EleveData>> donneesParCours = getDataParCoursForDate(classe, date);
+            //cours normaux
+            int index;
+            for(index = 0; index < listeCours.size(); index++){
+                Seance seance = handler.createSeance(journee, listeCours.get(index));
+                if(donneesParCours.containsKey(index+1)){
+                    nbDonnees+=donneesParCours.get(index+1).size();
+                    donneesParCours.values().forEach(listeData -> {
+                        listeData.forEach(data -> {
+                            data.getEleve().getData().remove(data);
+                            data.setSeance(seance);
+                            DonneesHandler.getInstance().persistEleveData(data);
+                        });
+                    });
+                }
+                res.add(seance);
             }
-            res.add(seance);
+            String jour = Constants.DAYMAP.get(date.getDayOfWeek());
+            // cours ponctuels
+            while(index < donneesParCours.size()){
+                index++;
+                assert donneesParCours.containsKey(index);
+                Cours coursPonctuel = new Cours();
+                coursPonctuel.setClasse(classe);
+                coursPonctuel.setDay(jour);
+                coursPonctuel.setWeek("ponctuel");
+                coursPonctuel.setStartHour(16);
+                coursPonctuel.setStartMin(00);
+                coursPonctuel.setEndHour(17);
+                coursPonctuel.setEndMin(00);
+                journee.getCoursPonctuels().add(coursPonctuel);
+                Seance seance = handler.createSeance(journee, coursPonctuel);
+                seance.setCours(coursPonctuel);
+                donneesParCours.values().forEach(liste -> {
+                    liste.forEach(data -> {
+                        data.setSeance(seance);
+                        data.getEleve().getData().remove(data);
+                        DonneesHandler.getInstance().persistEleveData(data);
+                    });
+                });
+                nbDonnees+=seance.getDonnees().size();
+                res.add(seance);
+                nbCoursPonctuels++;
+            }
+            nbSeances += res.size();
+        } catch(Exception e){
+            log("erreur ici : ");
+            log(e);
+            setMsg(e.getMessage());
         }
-        String jour = Constants.DAYMAP.get(date.getDayOfWeek());
-        // cours ponctuels
-        while(index < donneesParCours.size()){
-            index++;
-            assert donneesParCours.containsKey(index);
-            Cours coursPonctuel = new Cours();
-            coursPonctuel.setClasse(classe);
-            coursPonctuel.setDay(jour);
-            coursPonctuel.setWeek("ponctuel");
-            coursPonctuel.setStartHour(16);
-            coursPonctuel.setStartMin(00);
-            coursPonctuel.setEndHour(17);
-            coursPonctuel.setEndMin(00);
-            journee.getCoursPonctuels().add(coursPonctuel);
-            Seance seance = handler.createSeance(classe, date, coursPonctuel);
-            seance.setCours(coursPonctuel);
-            seance.addDonnees(donneesParCours.get(index));
-            nbDonnees+=seance.getDonnees().size();
-            res.add(seance);
-            nbCoursPonctuels++;
-        }
-        nbSeances += res.size();
+        
         return res;
     }
     

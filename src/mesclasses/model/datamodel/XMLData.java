@@ -65,7 +65,7 @@ public class XMLData {
         this.cours = cours;
     }
 
-    @XmlElement(name = "journees")
+    @XmlElement(name = "journee")
     @XmlElementWrapper(name="journees")
     public Map<String, Journee> getJournees() {
         return journees;

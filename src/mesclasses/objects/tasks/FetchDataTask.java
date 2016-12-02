@@ -12,7 +12,6 @@ import mesclasses.model.datamodel.ObservableData;
 import mesclasses.util.AppLogger;
 import mesclasses.util.DataLoadUtil;
 import mesclasses.util.FileSaveUtil;
-import mesclasses.util.ModalUtil;
 
 /**
  *
@@ -41,13 +40,15 @@ public class FetchDataTask extends AppTask<ObservableData> {
             }
             updateProgress(33.0, 100.0);
             loadData(data);
-            AppLogger.log("data fetch done");
+            AppLogger.log("data fetch done OK, backup ongoing");
+            FileSaveUtil.createBackupFile();
+            AppLogger.log("backup done");
             return data;
         } catch (Exception e) { // catches ANY exception
             Logger.getLogger(DataLoadUtil.class.getName()).log(Level.SEVERE, null, e);
-            ModalUtil.alert("Impossible de charger les données", 
-                    "Le fichier "+FileSaveUtil.getSaveFile().getPath()+" n'est pas lisible");
-            return null;
+            String message = "Impossible de charger les données";
+            setMsg(message);
+            throw new Exception(message+" : "+e.getCause());
         }
     }
     

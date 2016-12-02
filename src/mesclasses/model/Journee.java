@@ -6,6 +6,7 @@
 package mesclasses.model;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -31,13 +32,16 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         coursPonctuels.addListener(listAddRemoveListener);
         coursPonctuels.forEach(c -> c.startChangeDetection());
         seances.addListener(listAddRemoveListener);
-        coursPonctuels.forEach(c -> c.startChangeDetection());
+        seances.forEach(c -> c.startChangeDetection());
     }
 
     @XmlID
     @XmlAttribute
     public String getDate() {
-        return date.format(Constants.DATE_FORMATTER);
+        if(date != null){
+            return date.format(Constants.DATE_FORMATTER);
+        }
+        return "";
     }
     
     public LocalDate getDateAsDate() {
@@ -48,8 +52,8 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         this.date = date;
     }
 
-    @XmlElement(name="coursPonctuels")
-    @XmlElementWrapper(name="coursPonctuel")
+    @XmlElement(name="coursPonctuel")
+    @XmlElementWrapper(name="coursPonctuels")
     public ObservableList<Cours> getCoursPonctuels() {
         return coursPonctuels;
     }
@@ -58,14 +62,17 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         this.coursPonctuels = coursPonctuels;
     }
 
-    @XmlElement(name="seances")
-    @XmlElementWrapper(name="seance")
+    @XmlElement(name="seance")
+    @XmlElementWrapper(name="seances")
     public ObservableList<Seance> getSeances() {
         return seances;
     }
 
     public void setSeances(ObservableList<Seance> seances) {
         this.seances = seances;
+        if(seances != null){
+            Collections.sort(seances);
+        }
     }
     
     @Override

@@ -19,6 +19,17 @@ public class Btns {
         btn.setMaxHeight(30);
     }
     
+    public static Button addBtn(){
+        return makeDelete(new Button());
+    }
+    
+    public static Button makeAdd(Button btn){
+        setHeight(btn);
+        btn.setText("\uf067");
+        CssUtil.addClass(btn, "button-arrow");
+        return btn;
+    }
+    
     public static Button deleteBtn(){
         return makeDelete(new Button());
     }

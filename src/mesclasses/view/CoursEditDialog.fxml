@@ -62,11 +62,16 @@
                   <Insets right="10.0" />
                </GridPane.margin>
             </Label>
-            <ComboBox fx:id="day" prefWidth="150.0" GridPane.columnIndex="1">
+            <ComboBox fx:id="day" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
             </ComboBox>
+            <Label fx:id="jourPrecis" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
             <ComboBox fx:id="classe" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -112,13 +117,18 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </ComboBox>
+            <Label fx:id="semainePrecise" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
-      <ButtonBar prefHeight="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0">
+      <ButtonBar prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
           <Button fx:id="okBtn" mnemonicParsing="false" onAction="#handleOk" text="OK" />
-          <Button styleClass="cancel" mnemonicParsing="false" onAction="#handleCancel" text="Annuler" />
-          <Button fx:id="deleteBtn" styleClass="button-delete-large" mnemonicParsing="false" onAction="#handleDelete" text="Supprimer" />
+          <Button mnemonicParsing="false" onAction="#handleCancel" styleClass="cancel" text="Annuler" />
+          <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#handleDelete" styleClass="button-delete-large" text="Supprimer" />
         </buttons>
       </ButtonBar>
    </children>

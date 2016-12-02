@@ -5,7 +5,19 @@
             <eleves>
                 <eleve actif="true" classe="6°1" firstName="Lyes" id="XCD6Z" lastName="ABDELLI">
                     <changementsClasse/>
-                    <data/>
+                    <data>
+                        <eleveData eleve="XCD6Z" id="donnee_K9owmNLXJc" seance="seance_bpY6O">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-01</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
                     <punitions/>
                 </eleve>
                 <eleve actif="true" classe="6°1" firstName="Cassandra" id="pjudm" lastName="BENHAMOU">
@@ -574,199 +586,221 @@
         </classe>
     </classes>
     <cours>
-        <cours classe="6°4">
+        <cours classe="6°4" id="inYFY">
             <day>Lundi</day>
             <endHour>10</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>9</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°3">
+        <cours classe="6°3" id="1elNm">
             <day>Lundi</day>
             <endHour>11</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>10</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="5°1">
+        <cours classe="5°1" id="U41bI">
             <day>Lundi</day>
             <endHour>15</endHour>
             <endMin>30</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>14</startHour>
             <startMin>30</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°4">
+        <cours classe="6°4" id="HKJqn">
             <day>Mardi</day>
             <endHour>9</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°1">
+        <cours classe="6°1" id="YME4X">
             <day>Mardi</day>
             <endHour>10</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>9</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="5°1">
+        <cours classe="5°1" id="NXiCo">
             <day>Mardi</day>
             <endHour>11</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>10</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°3">
+        <cours classe="6°3" id="egclc">
             <day>Mardi</day>
             <endHour>14</endHour>
             <endMin>30</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>13</startHour>
             <startMin>30</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°1">
+        <cours classe="6°1" id="XBqF4">
             <day>Mercredi</day>
             <endHour>9</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>0</startMin>
             <week>Q1</week>
         </cours>
-        <cours classe="6°4">
+        <cours classe="6°4" id="sAjnB">
             <day>Mercredi</day>
             <endHour>9</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>0</startMin>
             <week>Q2</week>
         </cours>
-        <cours classe="5°1">
+        <cours classe="5°1" id="L929N">
             <day>Mercredi</day>
             <endHour>9</endHour>
             <endMin>55</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>9</startHour>
             <startMin>1</startMin>
             <week>Q2</week>
         </cours>
-        <cours classe="6°3">
+        <cours classe="6°3" id="fcMYW">
             <day>Mercredi</day>
             <endHour>10</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>9</startHour>
             <startMin>0</startMin>
             <week>Q1</week>
         </cours>
-        <cours classe="6°4">
+        <cours classe="6°4" id="frPnl">
             <day>Mercredi</day>
             <endHour>12</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>11</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°3">
+        <cours classe="6°3" id="sw9q0">
             <day>Jeudi</day>
             <endHour>8</endHour>
             <endMin>55</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="5°1">
+        <cours classe="5°1" id="IcetY">
             <day>Jeudi</day>
             <endHour>9</endHour>
             <endMin>50</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>55</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°1">
+        <cours classe="6°1" id="2nYgt">
             <day>Jeudi</day>
             <endHour>11</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>10</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°4">
+        <cours classe="6°4" id="ZCBUX">
             <day>Jeudi</day>
             <endHour>15</endHour>
             <endMin>30</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>14</startHour>
             <startMin>30</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°1">
+        <cours classe="6°1" id="AmbWY">
             <day>Vendredi</day>
             <endHour>9</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="5°1">
+        <cours classe="5°1" id="9G7Io">
             <day>Vendredi</day>
             <endHour>10</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>9</startHour>
             <startMin>0</startMin>
             <week>Q2</week>
         </cours>
-        <cours classe="6°3">
+        <cours classe="6°3" id="GgpNF">
             <day>Vendredi</day>
             <endHour>11</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>10</startHour>
             <startMin>0</startMin>
             <week>normale</week>
         </cours>
-        <cours classe="6°1">
+        <cours classe="6°1" id="ZSYI6">
             <day>Mercredi</day>
             <endHour>15</endHour>
             <endMin>1</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>14</startHour>
             <startMin>1</startMin>
             <week>Q1</week>
         </cours>
-        <cours classe="6°1">
+        <cours classe="6°1" id="z1bCV">
             <day>Lundi</day>
             <endHour>9</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>0</startMin>
             <week>Q1</week>
         </cours>
-        <cours classe="6°3">
+        <cours classe="6°3" id="xNrct">
             <day>Lundi</day>
             <endHour>9</endHour>
             <endMin>0</endMin>
+            <ponctuel>false</ponctuel>
             <room></room>
             <startHour>8</startHour>
             <startMin>0</startMin>
@@ -776,773 +810,1409 @@
     <journees>
         <entry>
             <key>2016-11-07</key>
-            <value/>
+            <value date="2016-11-07">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="xNrct" id="seance_C2LXH" journee="2016-11-07">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_gGfwp" journee="2016-11-07">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_8bfMu" journee="2016-11-07">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_Ah1Zb" journee="2016-11-07">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-06</key>
-            <value/>
+            <value date="2016-09-06">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_W0pnG" journee="2016-09-06">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_Qb2g5" journee="2016-09-06">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_oVDC1" journee="2016-09-06">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_qKGK4" journee="2016-09-06">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-08</key>
-            <value/>
+            <value date="2016-11-08">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_mRmMz" journee="2016-11-08">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_J9o0M" journee="2016-11-08">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_lpyah" journee="2016-11-08">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_xILWK" journee="2016-11-08">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-07</key>
-            <value>
-                <seances date="2016-09-07">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-07">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-07">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-07">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="XBqF4" id="seance_cGLg0" journee="2016-09-07">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="fcMYW" id="seance_j9l80" journee="2016-09-07">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_4yQ20" journee="2016-09-07">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="ZSYI6" id="seance_qJoXy" journee="2016-09-07">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-09-08</key>
-            <value/>
+            <value date="2016-09-08">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_ayKpY" journee="2016-09-08">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_opmUq" journee="2016-09-08">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_GTYfh" journee="2016-09-08">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_hdt9r" journee="2016-09-08">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-05</key>
-            <value/>
+            <value date="2016-11-05">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-09</key>
-            <value/>
+            <value date="2016-09-09">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_W075F" journee="2016-09-09">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_J6OEo" journee="2016-09-09">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-06</key>
-            <value/>
+            <value date="2016-11-06">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-11-09</key>
-            <value>
-                <seances date="2016-11-09">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-11-09">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-11-09">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="sAjnB" id="seance_hOjIu" journee="2016-11-09">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="L929N" id="seance_KvQOJ" journee="2016-11-09">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_DSrAi" journee="2016-11-09">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-31</key>
-            <value>
-                <seances date="2016-10-31">
-                    <cours classe="6°1">
-                        <day>Lundi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-31">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="z1bCV" id="seance_O9wxR" journee="2016-10-31">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_6EeTY" journee="2016-10-31">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_iyQbf" journee="2016-10-31">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_rWkKC" journee="2016-10-31">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-30</key>
-            <value/>
+            <value date="2016-10-30">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-11-03</key>
-            <value/>
+            <value date="2016-11-03">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_Co9mz" journee="2016-11-03">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_z2YnM" journee="2016-11-03">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_T71Yu" journee="2016-11-03">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_iMYOo" journee="2016-11-03">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-04</key>
-            <value/>
+            <value date="2016-11-04">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_d7vYv" journee="2016-11-04">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_yhBzu" journee="2016-11-04">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-01</key>
-            <value/>
+            <value date="2016-11-01">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_l4MDb" journee="2016-11-01">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_xSP2H" journee="2016-11-01">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_uEhdp" journee="2016-11-01">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_cF8Ci" journee="2016-11-01">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-02</key>
-            <value>
-                <seances date="2016-11-02">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-11-02">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-11-02">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-11-02">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="XBqF4" id="seance_kfHIx" journee="2016-11-02">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="fcMYW" id="seance_KfpMw" journee="2016-11-02">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_nrOhs" journee="2016-11-02">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="ZSYI6" id="seance_SR47s" journee="2016-11-02">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-09-10</key>
-            <value/>
+            <value date="2016-09-10">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-11</key>
-            <value/>
+            <value date="2016-09-11">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-12</key>
-            <value/>
+            <value date="2016-09-12">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="xNrct" id="seance_6vo6J" journee="2016-09-12">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_6rhGL" journee="2016-09-12">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_ozmVV" journee="2016-09-12">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_PV6T6" journee="2016-09-12">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-13</key>
-            <value/>
+            <value date="2016-09-13">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_9nC2T" journee="2016-09-13">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_a0Qhz" journee="2016-09-13">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_6zXme" journee="2016-09-13">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_0Xsj8" journee="2016-09-13">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-14</key>
-            <value>
-                <seances date="2016-09-14">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-14">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-14">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="sAjnB" id="seance_x0O39" journee="2016-09-14">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="L929N" id="seance_jRygp" journee="2016-09-14">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_kWtE2" journee="2016-09-14">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-09-15</key>
-            <value/>
+            <value date="2016-09-15">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_IXXiW" journee="2016-09-15">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_U26rj" journee="2016-09-15">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_qbvVp" journee="2016-09-15">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_skKz2" journee="2016-09-15">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-16</key>
-            <value>
-                <seances date="2016-09-16">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-16">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_vGtBo" journee="2016-09-16">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="9G7Io" id="seance_naTr4" journee="2016-09-16">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_UDBut" journee="2016-09-16">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-28</key>
-            <value>
-                <seances date="2016-10-28">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-28">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_uO60I" journee="2016-10-28">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="9G7Io" id="seance_cRqdD" journee="2016-10-28">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_zRrV7" journee="2016-10-28">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-29</key>
-            <value/>
+            <value date="2016-10-29">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-10-26</key>
-            <value>
-                <seances date="2016-10-26">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-26">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-26">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="sAjnB" id="seance_o4Tbh" journee="2016-10-26">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="L929N" id="seance_YekUz" journee="2016-10-26">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_nNNb0" journee="2016-10-26">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-27</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-20</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-21</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-24</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-25</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-22</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-23</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-09-01</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-09-02</key>
-            <value>
-                <seances date="2016-09-02">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-27">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_nXkqC" journee="2016-10-27">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_OM2Ii" journee="2016-10-27">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_pw4rH" journee="2016-10-27">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_8kkNp" journee="2016-10-27">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
+            <key>2016-10-20</key>
+            <value date="2016-10-20">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_F6Jmx" journee="2016-10-20">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_WH97D" journee="2016-10-20">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_WmvPu" journee="2016-10-20">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_HjO2I" journee="2016-10-20">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-21</key>
+            <value date="2016-10-21">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_c9O23" journee="2016-10-21">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_agPFR" journee="2016-10-21">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-12-01</key>
+            <value date="2016-12-01">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_qN54h" journee="2016-12-01">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_1lL8B" journee="2016-12-01">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_bpY6O" journee="2016-12-01">
+                        <donnees>
+                            <donnee>donnee_K9owmNLXJc</donnee>
+                        </donnees>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_0s6Df" journee="2016-12-01">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-30</key>
+            <value date="2016-11-30">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="XBqF4" id="seance_F86mI" journee="2016-11-30">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="fcMYW" id="seance_3jsWQ" journee="2016-11-30">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_nov3d" journee="2016-11-30">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="ZSYI6" id="seance_RXpjr" journee="2016-11-30">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-24</key>
+            <value date="2016-10-24">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="xNrct" id="seance_c8c4Z" journee="2016-10-24">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_1m4hl" journee="2016-10-24">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_4O1wg" journee="2016-10-24">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_6TDST" journee="2016-10-24">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-25</key>
+            <value date="2016-10-25">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_bXB3s" journee="2016-10-25">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_SSC5n" journee="2016-10-25">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_ogp4N" journee="2016-10-25">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_Vogo0" journee="2016-10-25">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-22</key>
+            <value date="2016-10-22">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-23</key>
+            <value date="2016-10-23">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-09-01</key>
+            <value date="">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-09-02</key>
+            <value date="">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
             <key>2016-09-03</key>
-            <value/>
+            <value date="">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-04</key>
-            <value/>
+            <value date="">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-05</key>
-            <value>
-                <seances date="2016-09-05">
-                    <cours classe="6°1">
-                        <day>Lundi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-05">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="z1bCV" id="seance_PZ97n" journee="2016-09-05">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_Meu38" journee="2016-09-05">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_6kYxR" journee="2016-09-05">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_tRwtq" journee="2016-09-05">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-17</key>
-            <value>
-                <seances date="2016-10-17">
-                    <cours classe="6°1">
-                        <day>Lundi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-17">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="z1bCV" id="seance_AqsOy" journee="2016-10-17">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_B1g9s" journee="2016-10-17">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_GCBcG" journee="2016-10-17">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_wi9aF" journee="2016-10-17">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-29</key>
+            <value date="2016-11-29">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_NX3Ns" journee="2016-11-29">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_3NHHR" journee="2016-11-29">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_WLyv1" journee="2016-11-29">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_EVGG7" journee="2016-11-29">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-09-28</key>
-            <value>
-                <seances date="2016-09-28">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-28">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-28">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="sAjnB" id="seance_Ejw2v" journee="2016-09-28">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="L929N" id="seance_BY7dV" journee="2016-09-28">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_a1mu7" journee="2016-09-28">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-18</key>
-            <value/>
+            <value date="2016-10-18">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_LWHnI" journee="2016-10-18">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_VizJX" journee="2016-10-18">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_LJPgV" journee="2016-10-18">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_RQuHo" journee="2016-10-18">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-29</key>
-            <value/>
+            <value date="2016-09-29">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_tynAc" journee="2016-09-29">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_IPIFC" journee="2016-09-29">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_Tgbgz" journee="2016-09-29">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_yXsuQ" journee="2016-09-29">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-10-15</key>
-            <value/>
+            <value date="2016-10-15">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-27</key>
+            <value date="2016-11-27">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-10-16</key>
-            <value/>
+            <value date="2016-10-16">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-28</key>
+            <value date="2016-11-28">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="z1bCV" id="seance_JG3Dg" journee="2016-11-28">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_nwS5v" journee="2016-11-28">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_igw2f" journee="2016-11-28">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_8Q6Jo" journee="2016-11-28">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-10-19</key>
-            <value>
-                <seances date="2016-10-19">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-19">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="XBqF4" id="seance_J0jFg" journee="2016-10-19">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="fcMYW" id="seance_SX3mY" journee="2016-10-19">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_frAQP" journee="2016-10-19">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="ZSYI6" id="seance_YAuYT" journee="2016-10-19">
+                        <donnees/>
+                    </seance>
                 </seances>
-                <seances date="2016-10-19">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-19">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-21</key>
+            <value date="2016-11-21">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="xNrct" id="seance_n2Kve" journee="2016-11-21">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_cLWhv" journee="2016-11-21">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_qiJa9" journee="2016-11-21">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_059n5" journee="2016-11-21">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-10</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-13</key>
-            <value/>
-        </entry>
-        <entry>
-            <key>2016-10-14</key>
-            <value>
-                <seances date="2016-10-14">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-10">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="xNrct" id="seance_s4ssX" journee="2016-10-10">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_wDgCQ" journee="2016-10-10">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_wQUSL" journee="2016-10-10">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_qz7Ft" journee="2016-10-10">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
+            <key>2016-11-22</key>
+            <value date="2016-11-22">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_wKVBQ" journee="2016-11-22">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_NHjKJ" journee="2016-11-22">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_kQjCA" journee="2016-11-22">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_kWG5f" journee="2016-11-22">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-20</key>
+            <value date="2016-11-20">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-13</key>
+            <value date="2016-10-13">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_tzDzr" journee="2016-10-13">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_Y22cC" journee="2016-10-13">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_SOuxu" journee="2016-10-13">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_MIBIR" journee="2016-10-13">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-25</key>
+            <value date="2016-11-25">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_4EMRY" journee="2016-11-25">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="9G7Io" id="seance_qwHJ8" journee="2016-11-25">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_UnVlD" journee="2016-11-25">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-10-14</key>
+            <value date="2016-10-14">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_L625H" journee="2016-10-14">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="9G7Io" id="seance_0pWRk" journee="2016-10-14">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_2RInQ" journee="2016-10-14">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-26</key>
+            <value date="2016-11-26">
+                <coursPonctuels/>
+                <seances/>
+            </value>
+        </entry>
+        <entry>
             <key>2016-10-11</key>
-            <value/>
+            <value date="2016-10-11">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_i0dfl" journee="2016-10-11">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_MciAk" journee="2016-10-11">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_Zt6pC" journee="2016-10-11">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_4fcLv" journee="2016-10-11">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-23</key>
+            <value date="2016-11-23">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="sAjnB" id="seance_OxW77" journee="2016-11-23">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="L929N" id="seance_KcONz" journee="2016-11-23">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_ZipHq" journee="2016-11-23">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-10-12</key>
-            <value>
-                <seances date="2016-10-12">
-                    <cours classe="6°4">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-12">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="sAjnB" id="seance_VP0uu" journee="2016-10-12">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="L929N" id="seance_n1jej" journee="2016-10-12">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_L1co9" journee="2016-10-12">
+                        <donnees/>
+                    </seance>
                 </seances>
-                <seances date="2016-10-12">
-                    <cours classe="5°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>55</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>1</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-24</key>
+            <value date="2016-11-24">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_5Qc4n" journee="2016-11-24">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_ybhPr" journee="2016-11-24">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_2xxUo" journee="2016-11-24">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_GfoR5" journee="2016-11-24">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-09-30</key>
-            <value>
-                <seances date="2016-09-30">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-30">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_qFwdA" journee="2016-09-30">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="9G7Io" id="seance_khAWK" journee="2016-09-30">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_I1T3G" journee="2016-09-30">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-06</key>
-            <value/>
+            <value date="2016-10-06">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_zHIKZ" journee="2016-10-06">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_mbNRu" journee="2016-10-06">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_L8bub" journee="2016-10-06">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_VTJkK" journee="2016-10-06">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-18</key>
+            <value date="2016-11-18">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_PN5Rw" journee="2016-11-18">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_RYuYb" journee="2016-11-18">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-17</key>
-            <value/>
+            <value date="2016-09-17">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-10-07</key>
-            <value/>
+            <value date="2016-10-07">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_hXykT" journee="2016-10-07">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_fWLyR" journee="2016-10-07">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-19</key>
+            <value date="2016-11-19">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-18</key>
-            <value/>
+            <value date="2016-09-18">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-10-04</key>
-            <value/>
+            <value date="2016-10-04">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_UCKZp" journee="2016-10-04">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_Zqg6b" journee="2016-10-04">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_8ZN7d" journee="2016-10-04">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_ANINy" journee="2016-10-04">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-19</key>
-            <value>
-                <seances date="2016-09-19">
-                    <cours classe="6°1">
-                        <day>Lundi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-19">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="z1bCV" id="seance_CrDuH" journee="2016-09-19">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_K1UHs" journee="2016-09-19">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_rlpwz" journee="2016-09-19">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_Uo7fT" journee="2016-09-19">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-16</key>
+            <value date="2016-11-16">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="XBqF4" id="seance_R2Wf1" journee="2016-11-16">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="fcMYW" id="seance_Z6GRG" journee="2016-11-16">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_gmnJg" journee="2016-11-16">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="ZSYI6" id="seance_fqrCD" journee="2016-11-16">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-05</key>
-            <value>
-                <seances date="2016-10-05">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-05">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="XBqF4" id="seance_u1WtE" journee="2016-10-05">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="fcMYW" id="seance_gUZT1" journee="2016-10-05">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_km1Km" journee="2016-10-05">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="ZSYI6" id="seance_fR5Re" journee="2016-10-05">
+                        <donnees/>
+                    </seance>
                 </seances>
-                <seances date="2016-10-05">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-10-05">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            </value>
+        </entry>
+        <entry>
+            <key>2016-11-17</key>
+            <value date="2016-11-17">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_IF70y" journee="2016-11-17">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_2VnRY" journee="2016-11-17">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_1CWCi" journee="2016-11-17">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_eEAjc" journee="2016-11-17">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-08</key>
-            <value/>
+            <value date="2016-10-08">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-10-09</key>
-            <value/>
+            <value date="2016-10-09">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-11-10</key>
-            <value/>
+            <value date="2016-11-10">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_CEYt1" journee="2016-11-10">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_mtxGp" journee="2016-11-10">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_NEZlV" journee="2016-11-10">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_kUknj" journee="2016-11-10">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-11</key>
-            <value>
-                <seances date="2016-11-11">
-                    <cours classe="5°1">
-                        <day>Vendredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q2</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-11-11">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_MbBt4" journee="2016-11-11">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="9G7Io" id="seance_Pziyh" journee="2016-11-11">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_PhJIf" journee="2016-11-11">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-02</key>
-            <value/>
+            <value date="2016-10-02">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-11-14</key>
-            <value>
-                <seances date="2016-11-14">
-                    <cours classe="6°1">
-                        <day>Lundi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-11-14">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="z1bCV" id="seance_ClaC8" journee="2016-11-14">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_nrVFT" journee="2016-11-14">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_tZ2Hk" journee="2016-11-14">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_QQKSS" journee="2016-11-14">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-10-03</key>
-            <value>
-                <seances date="2016-10-03">
-                    <cours classe="6°1">
-                        <day>Lundi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-10-03">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="z1bCV" id="seance_4qVwl" journee="2016-10-03">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_lfJjJ" journee="2016-10-03">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_0GCo3" journee="2016-10-03">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_TUBCM" journee="2016-10-03">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-11-15</key>
-            <value/>
+            <value date="2016-11-15">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_mE1hZ" journee="2016-11-15">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_dkleZ" journee="2016-11-15">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_4Mg2b" journee="2016-11-15">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_Me8lE" journee="2016-11-15">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-11-12</key>
-            <value/>
+            <value date="2016-11-12">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-10-01</key>
-            <value/>
+            <value date="2016-10-01">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-11-13</key>
-            <value/>
+            <value date="2016-11-13">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-20</key>
-            <value/>
+            <value date="2016-09-20">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_kHsfH" journee="2016-09-20">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_OW8bk" journee="2016-09-20">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_tdjyO" journee="2016-09-20">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_bhe69" journee="2016-09-20">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-21</key>
-            <value>
-                <seances date="2016-09-21">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>9</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>8</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-21">
-                    <cours classe="6°3">
-                        <day>Mercredi</day>
-                        <endHour>10</endHour>
-                        <endMin>0</endMin>
-                        <room></room>
-                        <startHour>9</startHour>
-                        <startMin>0</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
-                </seances>
-                <seances date="2016-09-21">
-                    <cours classe="6°1">
-                        <day>Mercredi</day>
-                        <endHour>15</endHour>
-                        <endMin>1</endMin>
-                        <room></room>
-                        <startHour>14</startHour>
-                        <startMin>1</startMin>
-                        <week>Q1</week>
-                    </cours>
-                    <donnees/>
+            <value date="2016-09-21">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="XBqF4" id="seance_dqhWY" journee="2016-09-21">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="fcMYW" id="seance_z1iBk" journee="2016-09-21">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="frPnl" id="seance_R6PmY" journee="2016-09-21">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="ZSYI6" id="seance_ZtORZ" journee="2016-09-21">
+                        <donnees/>
+                    </seance>
                 </seances>
             </value>
         </entry>
         <entry>
             <key>2016-09-22</key>
-            <value/>
+            <value date="2016-09-22">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="sw9q0" id="seance_aRCxn" journee="2016-09-22">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="IcetY" id="seance_YB6Pe" journee="2016-09-22">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="2nYgt" id="seance_MC1R8" journee="2016-09-22">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="ZCBUX" id="seance_lcn84" journee="2016-09-22">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-23</key>
-            <value/>
+            <value date="2016-09-23">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°1" cours="AmbWY" id="seance_MA5ZR" journee="2016-09-23">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="GgpNF" id="seance_wNzyT" journee="2016-09-23">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-24</key>
-            <value/>
+            <value date="2016-09-24">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-25</key>
-            <value/>
+            <value date="2016-09-25">
+                <coursPonctuels/>
+                <seances/>
+            </value>
         </entry>
         <entry>
             <key>2016-09-26</key>
-            <value/>
+            <value date="2016-09-26">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°3" cours="xNrct" id="seance_oTfti" journee="2016-09-26">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°4" cours="inYFY" id="seance_CcNLa" journee="2016-09-26">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="1elNm" id="seance_XMw7O" journee="2016-09-26">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="U41bI" id="seance_T3h3t" journee="2016-09-26">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
         <entry>
             <key>2016-09-27</key>
-            <value/>
+            <value date="2016-09-27">
+                <coursPonctuels/>
+                <seances>
+                    <seance classe="6°4" cours="HKJqn" id="seance_zsMAB" journee="2016-09-27">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°1" cours="YME4X" id="seance_KRG5z" journee="2016-09-27">
+                        <donnees/>
+                    </seance>
+                    <seance classe="5°1" cours="NXiCo" id="seance_lPKZF" journee="2016-09-27">
+                        <donnees/>
+                    </seance>
+                    <seance classe="6°3" cours="egclc" id="seance_0JUce" journee="2016-09-27">
+                        <donnees/>
+                    </seance>
+                </seances>
+            </value>
         </entry>
     </journees>
     <trimestres>

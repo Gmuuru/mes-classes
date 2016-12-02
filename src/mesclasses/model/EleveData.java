@@ -35,6 +35,8 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
     
     private Eleve eleve;
     
+    private Seance seance;
+    
     private final ObjectProperty<LocalDate> date;
     
     private final IntegerProperty cours;
@@ -59,7 +61,7 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
 
     public EleveData(){
         super();
-        this.id = RandomStringUtils.randomAlphanumeric(5);
+        this.id = "donnee_"+RandomStringUtils.randomAlphanumeric(10);
         date = new SimpleObjectProperty<>();
         cours = new SimpleIntegerProperty();
         retard = new SimpleIntegerProperty();
@@ -148,9 +150,22 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
         this.eleve = eleve;
     }
 
+    @XmlAttribute
+    @XmlIDREF
+    public Seance getSeance() {
+        return seance;
+    }
+
+    public void setSeance(Seance seance) {
+        this.seance = seance;
+    }
+    
     @XmlElement
     public String getDate() {
-        return date.get().format(Constants.DATE_FORMATTER);
+        if(date.get() != null){
+            return date.get().format(Constants.DATE_FORMATTER);
+        }
+        return "";
     }
     
     public LocalDate getDateAsDate() {

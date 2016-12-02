@@ -140,7 +140,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
 
     @XmlElement(name="eleveData")
     @XmlElementWrapper(name="data")
-    public List<EleveData> getData() {
+    public ObservableList<EleveData> getData() {
         return data;
     }
 

@@ -11,8 +11,11 @@ import mesclasses.util.AppLogger;
 /**
  *
  * @author rrrt3491
+ * @param <T>
  */
 public abstract class AppTask<T> extends Task<T> {
+    
+    protected String msg;
     
     public abstract String getName();
     
@@ -21,5 +24,13 @@ public abstract class AppTask<T> extends Task<T> {
     }
     public void log(Exception e){
         AppLogger.log(e);
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

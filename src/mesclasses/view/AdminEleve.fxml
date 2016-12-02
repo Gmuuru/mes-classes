@@ -45,7 +45,7 @@
                        <HBox alignment="CENTER">
                           <children>
                              <Button fx:id="previousClasseBtn" mnemonicParsing="false" onAction="#previousClasse" text="&lt;" />
-                             <Label fx:id="currentClasseLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="80.0" text="" HBox.hgrow="ALWAYS">
+                             <Label fx:id="currentClasseLabel" styleClass="list-element" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="80.0" text="" HBox.hgrow="ALWAYS">
                                 <HBox.margin>
                                    <Insets />
                                 </HBox.margin>
@@ -63,7 +63,7 @@
          <center>
              <VBox>
                  <children>
-                     <SmartGrid alignment="TOP_CENTER" styleClass="smart-grid">
+                     <SmartGrid alignment="TOP_CENTER" nbHeaderRows="1" styleClass="smart-grid">
                         <columnConstraints>
                            <ColumnConstraints hgrow="ALWAYS" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
                            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -74,24 +74,24 @@
                            <ColumnConstraints hgrow="ALWAYS" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
                         </columnConstraints>
                          <rowConstraints>
-                             <RowConstraints minHeight="25.0" prefHeight="25.0" />
+                             <RowConstraints minHeight="30.0" prefHeight="30.0" />
                           </rowConstraints>
                          <children>
-                            <HeaderLabel fixedHeight="25" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" styleClass="smart-grid-header" GridPane.columnIndex="0" />
-                            <HeaderLabel alignment="CENTER_LEFT" fixedHeight="25" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
+                            <HeaderLabel fixedHeight="30" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" styleClass="smart-grid-header" GridPane.columnIndex="0" />
+                            <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
                                  <padding>
                                    <Insets left="4.0" />
                                  </padding>
                             </HeaderLabel>
-                            <HeaderLabel alignment="CENTER_LEFT" fixedHeight="25" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
+                            <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
                                 <padding>
                                    <Insets left="4.0" />
                                  </padding>
                             </HeaderLabel>
-                            <HeaderLabel fixedHeight="25" styleClass="smart-grid-header" text="Actif" GridPane.columnIndex="3" />
-                            <HeaderLabel fixedHeight="25" styleClass="smart-grid-header" text="Rapport" GridPane.columnIndex="4" />
-                            <HeaderLabel fixedHeight="25" styleClass="smart-grid-header" text="Supprimer" GridPane.columnIndex="5" />
-                            <HeaderLabel fixedHeight="25" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" styleClass="smart-grid-header" GridPane.columnIndex="6" />
+                            <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Actif" GridPane.columnIndex="3" />
+                            <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Rapport" GridPane.columnIndex="4" />
+                            <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Supprimer" GridPane.columnIndex="5" />
+                            <HeaderLabel fixedHeight="30" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" styleClass="smart-grid-header" GridPane.columnIndex="6" />
                          </children>
                           <padding>
                              <Insets bottom="5.0" />
@@ -99,7 +99,7 @@
                       </SmartGrid>
                         <ScrollPane fx:id="scroll" fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                        <content>
-                         <SmartGrid fx:id="grid" alignment="TOP_CENTER" styleClass="smart-grid">
+                         <SmartGrid fx:id="grid" alignment="TOP_CENTER" nbHeaderRows="0" styleClass="smart-grid">
                            <columnConstraints>
                               <ColumnConstraints hgrow="ALWAYS" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
                               <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -109,18 +109,6 @@
                               <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="20.0" />
                               <ColumnConstraints hgrow="ALWAYS" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints minHeight="0.0" prefHeight="0.0" />
-                             </rowConstraints>
-                            <children>
-                               <HeaderLabel fixedHeight="1" GridPane.columnIndex="0" />
-                                <HeaderLabel fixedHeight="1" GridPane.columnIndex="1" />
-                                <HeaderLabel fixedHeight="1" GridPane.columnIndex="2" />
-                                <HeaderLabel fixedHeight="1" GridPane.columnIndex="3" />
-                                <HeaderLabel fixedHeight="1" GridPane.columnIndex="4" />
-                                <HeaderLabel fixedHeight="1" GridPane.columnIndex="5" />
-                                <HeaderLabel fixedHeight="1" GridPane.columnIndex="6" />
-                            </children>
                              <padding>
                                 <Insets bottom="5.0" />
                              </padding>

@@ -331,7 +331,6 @@ public class RootLayoutController extends PageController implements Initializabl
                 closeNotif();
             }
         });
-        FileSaveUtil.createBackupFile();
         screenMap = new HashMap<>();
         loadData(null);
         

@@ -32,7 +32,7 @@ public class PropertiesCache
    }
 
    public void load(){
-      AppLogger.log("Read all properties from file "+PROPERTIES_FILE);
+      AppLogger.log("Lecture du fichier de configuration "+PROPERTIES_FILE);
       File pfile = new File(PROPERTIES_FILE);
       if(!pfile.exists()){
           AppLogger.notif("Fichier de configuration", pfile.getAbsolutePath()+" n'existe pas");
@@ -50,7 +50,7 @@ public class PropertiesCache
    }
    
    public void save(){
-      AppLogger.log("Saving properties into file");
+      AppLogger.log("Sauvegarde de la configuration");
       try (FileOutputStream out = new FileOutputStream(PROPERTIES_FILE)) {
         configProp.store(out, null);
         } catch (IOException e) {

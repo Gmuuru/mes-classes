@@ -74,9 +74,9 @@ public class FileSaveUtil {
         }
     }
 
-    public static void createBackupFile() {
+    public static File createBackupFile() {
         if(!saveFileExists()){
-            return;
+            return null;
         }
         File bckFile = new File(BCK_DIR+File.separator+SAVE_FILE+"_"+LocalDate.now().format(Constants.DATE_FORMATTER)+".xml");
         try {
@@ -92,6 +92,7 @@ public class FileSaveUtil {
         if(bckFiles.length >=8){
             bckFiles[0].delete();
         }
+        return bckFile;
     }
     
     public static void restoreBackupFile(File file){

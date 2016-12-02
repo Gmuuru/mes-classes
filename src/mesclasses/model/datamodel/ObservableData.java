@@ -28,7 +28,7 @@ public class ObservableData extends MonitoredObject {
     private ObservableList<Cours> cours = FXCollections.observableArrayList();
     
     private ObservableMap<LocalDate, Journee> journees = FXCollections.observableHashMap();
-
+    
     @Override
     public void startChangeDetection() {
         classes.addListener(listAddRemoveSortListener);
@@ -46,6 +46,7 @@ public class ObservableData extends MonitoredObject {
         classes.forEach(c -> c.resetChange());
         trimestres.forEach(c -> c.resetChange());
         cours.forEach(c -> c.resetChange());
+        journees.values().forEach(j -> j.resetChange());
         
     }
     

@@ -9,33 +9,36 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import mesclasses.MainApp;
 import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.model.Constants;
+import mesclasses.model.Cours;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
@@ -64,18 +67,26 @@ public class JourneeController extends PageController implements Initializable {
 
     // FXML elements
     
-    @FXML SmartGrid grid; 
+    @FXML TabPane tabPane;
+    @FXML Tab vieScolaireTab;
+    @FXML Tab travailTab;
+    @FXML Tab sanctionsTab;
+    
+    @FXML SmartGrid vieScolaireGrid; 
+    @FXML SmartGrid travailGrid; 
+    @FXML SmartGrid sanctionsGrid; 
     
     @FXML Label trimestreName; 
     
     @FXML DatePicker currentDate; 
     
-    @FXML Label currentCoursLabel;
+    @FXML Label currentSeanceLabel;
     
-    @FXML Button previousCoursBtn;
+    @FXML Button previousSeanceBtn;
     
-    @FXML Button nextCoursBtn;
+    @FXML Button nextSeanceBtn;
     
+    @FXML Button remCours;
     @FXML Button addCours;
     
     @FXML Button previousDayBtn;
@@ -91,9 +102,9 @@ public class JourneeController extends PageController implements Initializable {
     
     private Seance currentSeance;
     
-    private Map<Eleve, IntegerProperty> cumulTravailMap;
-    private Map<Eleve, IntegerProperty> cumulRetardMap;
-    private Map<Eleve, IntegerProperty> cumulOubliMap;
+    private ScrollPane selectedScroll;
+    private SmartGrid selectedGrid;
+    
     // bindings
     BooleanBinding isFirstCours;
     BooleanBinding isLastCours;  
@@ -104,13 +115,16 @@ public class JourneeController extends PageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        name = "Classe Content Ctrl";
+        name = "Journee Ctrl";
         super.initialize(url ,rb);
-        setCurrentDate(LocalDate.now());
+        initTabs();
+        Btns.makeLeft(previousSeanceBtn);
+        Btns.makeLeft(previousDayBtn);
+        Btns.makeRight(nextSeanceBtn);
+        Btns.makeRight(nextDayBtn);
+        Btns.makeAdd(addCours);
+        Btns.makeDelete(remCours);
         
-        cumulTravailMap = new HashMap<>();
-        cumulRetardMap = new HashMap<>();
-        cumulOubliMap = new HashMap<>();
         currentDate.setDayCellFactory(new TunedDayCellFactory().setAllowSundays(false));
         currentDate.setConverter(NodeUtil.DATE_WITH_DAY_NAME);
         currentDate.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -125,49 +139,116 @@ public class JourneeController extends PageController implements Initializable {
         });
         
         
-        currentCoursLabel.textProperty().bind(currentSeance.getClasse().nameProperty());
-        previousCoursBtn.disableProperty().bind(currentSeance.isFirst());
-        nextCoursBtn.disableProperty().bind(currentSeance.isLast());
-        Btns.makeLeft(previousCoursBtn);
-        Btns.makeLeft(previousDayBtn);
-        Btns.makeRight(nextCoursBtn);
-        Btns.makeRight(nextDayBtn);
+        setCurrentDate(LocalDate.now());
+        
     }    
 
+    private void initTabs(){
+        initTab(vieScolaireTab, vieScolaireGrid );
+        initTab(travailTab, travailGrid );
+        initTab(sanctionsTab, sanctionsGrid );
+        tabPane.getSelectionModel().clearAndSelect(0);
+        selectTab(vieScolaireTab, vieScolaireGrid);
+    }
+    private void initTab( Tab tab , SmartGrid grid ){
+        tab.getContent().setManaged(false);
+        tab.getContent().setVisible(false);
+       
+        tab.selectedProperty().addListener((ob, o, n) -> {
+            if(n){
+                selectTab(tab, grid);
+            } else {
+                unselectTab(tab);
+            }
+        });
+    }
+    
+    private void selectTab(Tab tab, SmartGrid grid){
+        tab.getContent().setManaged(true);
+        tab.getContent().setVisible(true);
+        double vvalue = 0;
+        if(selectedScroll != null){
+            vvalue = selectedScroll.getVvalue();
+        }
+        selectedGrid = grid;
+        selectedScroll = getScrollPane(tab);
+        selectedScroll.setVvalue(vvalue);
+    }
+    
+    private ScrollPane getScrollPane(Tab tab){
+        for(Node child : ((VBox)tab.getContent()).getChildren()){
+            if(child instanceof ScrollPane){
+                return (ScrollPane)child;
+            }
+        }
+        return null;
+    }
+    
+    private void unselectTab(Tab tab){
+        tab.getContent().setManaged(false);
+        tab.getContent().setVisible(false);
+    }
+    
     public void setCurrentDate(LocalDate date){
+        journee = modelHandler.getJournee(date);
+        if(journee.getSeances().isEmpty()){
+            setCurrentSeance(null);
+        } else {
+            setCurrentSeance(journee.getSeances().get(0));
+        }
         log("Setting the content date at "+date+". current seance is "+currentSeance);
         this.currentDate.setValue(date);
-        journee = modelHandler.getJournee(date);
-        currentSeance = journee.getSeances().get(0);
+    }
+    
+    public void setCurrentSeance(Seance seance){
+        currentSeance = seance;
+        if(seance == null){
+            return;
+        }
+        if(currentSeance.isFirst()){
+            previousSeanceBtn.setDisable(true);
+        } else {
+            previousSeanceBtn.setDisable(false);
+        }
+        if(currentSeance.isLast()){
+            nextSeanceBtn.setDisable(true);
+        } else {
+            nextSeanceBtn.setDisable(false);
+        }
+        currentSeanceLabel.setText(currentSeance.toString());
+        
+        // activation du bouton remCours si besoin
+        remCours.disableProperty().bind(Bindings.not(currentSeance.getCours().ponctuelProperty()));
+        // reinitialisation du scroll vertical
+        getScrollPane(tabPane.getSelectionModel().getSelectedItem()).setVvalue(0.0);
     }
     
     private void refreshGrid(){
-        if(currentSeance.getClasse().getEleves().isEmpty()){
-            grid.drawNoEleveAlert(currentSeance.getClasse().getName(), (event) ->{
-                EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_ELEVE_VIEW));
-                }
-            );
-            addCours.setDisable(true);
-            return;
-        }
-        trimestre = modelHandler.getForDate(currentDate.getValue());
-        if(trimestre == null){
-            grid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
-                    EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_TRIMESTRE_VIEW));
-                }
-            );
-            addCours.setDisable(true);
-            return;
-        }
-        addCours.setDisable(false);
-        trimestreName.setText(trimestre.getName());
-        computeAllCumuls(trimestre);
-        
         if(currentSeance != null){
+            if(currentSeance.getClasse().getEleves().isEmpty()){
+                selectedGrid.drawNoEleveAlert(currentSeance.getClasse().getName(), (event) ->{
+                    EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_ELEVE_VIEW));
+                    }
+                );
+                addCours.setDisable(true);
+                return;
+            }
+            trimestre = modelHandler.getForDate(currentDate.getValue());
+            if(trimestre == null){
+                selectedGrid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
+                        EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_TRIMESTRE_VIEW));
+                    }
+                );
+                addCours.setDisable(true);
+                return;
+            }
+            addCours.setDisable(false);
+            trimestreName.setText(trimestre.getName());
+        
             drawGrid();
         } else {
             String day = Constants.DAYMAP.get(currentDate.getValue().getDayOfWeek());
-            grid.drawNoCoursAlert(day, currentSeance.getClasse().getName(), 
+            selectedGrid.drawNoSeanceAlert(day,
                     (event) -> {
                         EventBusHandler.post(new OpenMenuEvent(Constants.EMPLOI_DU_TEMPS_VIEW));
                         EventBusHandler.post(new CreateCoursEvent(day, null));
@@ -179,35 +260,99 @@ public class JourneeController extends PageController implements Initializable {
     @FXML
     public void previousDay(){
         if(currentDate.getValue().getDayOfWeek() == DayOfWeek.MONDAY){
-            currentDate.setValue(currentDate.getValue().minusDays(2));
+            setCurrentDate(currentDate.getValue().minusDays(2));
         } else {
-            currentDate.setValue(currentDate.getValue().minusDays(1));
+            setCurrentDate(currentDate.getValue().minusDays(1));
         }
     }
     
     @FXML
     public void nextDay(){
         if(currentDate.getValue().getDayOfWeek() == DayOfWeek.SATURDAY){
-            currentDate.setValue(currentDate.getValue().plusDays(2));
+            setCurrentDate(currentDate.getValue().plusDays(2));
         } else {
-            currentDate.setValue(currentDate.getValue().plusDays(1));
+            setCurrentDate(currentDate.getValue().plusDays(1));
         }
     }
     
     @FXML
     public void previousSeance(){
-        currentSeance = currentSeance.previous();
+        setCurrentSeance(currentSeance.previous());
         refreshGrid();
     }
     
     @FXML
     public void nextSeance(){
-        currentSeance = currentSeance.next();
+        setCurrentSeance(currentSeance.next());
         refreshGrid();
     }
     
     @FXML
-    public void ajouterCours(){
+    public void ajouterCours() throws IOException {
+        
+        //creation d'un cours ponctuel
+        Cours coursPonctuel = new Cours();
+        coursPonctuel.setPonctuel(true);
+        coursPonctuel.setDay(NodeUtil.getJour(currentDate.getValue()));
+        coursPonctuel.setWeek("ponctuel ("+currentDate.getValue().format(Constants.DATE_FORMATTER_FR)+")");
+        coursPonctuel.setStartHour(16);
+        coursPonctuel.setStartMin(00);
+        coursPonctuel.setEndHour(17);
+        coursPonctuel.setEndMin(00);
+        
+        coursPonctuel = openCoursDialog(coursPonctuel);
+        
+        if(coursPonctuel == null){
+            return;
+        }
+        Seance newSeance = modelHandler.addSeanceWithCours(journee, coursPonctuel);
+        setCurrentSeance(newSeance);
+        refreshGrid();
+    }
+    
+    @FXML
+    public void supprimerCours() throws IOException {
+        StringBuilder confirmMsg = new StringBuilder("Supprimer la séance ponctuelle de ")
+        .append(NodeUtil.formatTime(currentSeance.getCours().getStartHour(), currentSeance.getCours().getStartMin()))
+        .append(" avec la ")
+        .append(currentSeance.getClasse().getName());
+        if(ModalUtil.confirm("Suppression de séance", confirmMsg.toString())){
+            Seance seanceToDisplay = currentSeance.previous() == null ? currentSeance.next() : currentSeance.previous();
+            journee.getCoursPonctuels().remove(currentSeance.getCours());
+            journee.getSeances().remove(currentSeance);
+            setCurrentSeance(seanceToDisplay);
+            refreshGrid();
+        }
+    }
+    private Cours openCoursDialog(Cours cours){
+        
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(Constants.COURS_EDIT_DIALOG));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Création d'un cours ponctuel");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            // Set the person into the controller.
+            CoursEditDialogController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setCours(cours, true);
+
+            dialogStage.showAndWait();
+            int status = controller.getStatus();
+            if(status >= 0){
+                //update/cancel
+                return controller.getCours();
+            }
+        } catch(IOException e){
+            ModalUtil.alert("Erreur I/O", e.getMessage());
+        }
+        return null;
     }
     
     /* BOTTOM BUTTONS */
@@ -296,111 +441,150 @@ public class JourneeController extends PageController implements Initializable {
     
     /* GRID */
     private void drawGrid(){
-        grid.clear();
+        vieScolaireGrid.clear();
+        travailGrid.clear();
+        sanctionsGrid.clear();
         List<Eleve> elevesToDisplay = currentSeance.getClasse().getEleves();
         if(!displayNonActifs.get()){
             elevesToDisplay = modelHandler.getOnlyActive(elevesToDisplay);
         }
         for(int i = 0; i < elevesToDisplay.size(); i++){
-            drawRow(elevesToDisplay.get(i), i+1);
+            drawRow(elevesToDisplay.get(i), i);
         }
     }
     
-    private void drawRow(Eleve eleve, int rowIndex){
-        
-        EleveData eleveData = currentSeance.getDonneesForEleve(eleve);
-        
+    private void drawEleveName(SmartGrid grid, Eleve eleve, int rowIndex){
         //index debute à 1, le slot 0,X est réservé pour un separator dans le header
-        grid.add(NodeUtil.buildEleveLink(eleve, eleve.lastNameProperty(), Constants.CLASSE_CONTENT_TABS_VIEW), 1, rowIndex, HPos.LEFT);
+        grid.add(NodeUtil.buildEleveLink(eleve, eleve.lastNameProperty(), Constants.JOURNEE_VIEW), 1, rowIndex, HPos.LEFT);
         
-        grid.add(NodeUtil.buildEleveLink(eleve, eleve.firstNameProperty(), Constants.CLASSE_CONTENT_TABS_VIEW), 2, rowIndex, HPos.LEFT);
-        
+        grid.add(NodeUtil.buildEleveLink(eleve, eleve.firstNameProperty(), Constants.JOURNEE_VIEW), 2, rowIndex, HPos.LEFT);
+        RowConstraints rc = new RowConstraints();
+        rc.setMinHeight(35.0);
+        rc.setPrefHeight(35.0);
+        rc.setMaxHeight(35.0);
+        grid.getRowConstraints().add(rc);
         if(!eleve.isInClasse(currentDate.getValue())){
-            grid.add(new Label("ne faisait pas partie de la classe à cette date"), 3, rowIndex, grid.getGridWidth()-3, 1);
+            grid.add(new Label("ne faisait pas partie de la classe à cette date"), 3, rowIndex, vieScolaireGrid.getGridWidth()-3, 1);
+        }
+    }
+    
+    /**
+     * dessine la grid vie scolaire
+     * @param eleve
+     * @param rowIndex 
+     */
+    private void drawVieScolaire(Eleve eleve, int rowIndex){
+        
+        EleveData eleveData = donneesHandler.getOrCreateDonneeForEleve(currentSeance, eleve);
+        
+        drawEleveName(vieScolaireGrid, eleve, rowIndex);
+        if(!eleve.isInClasse(currentDate.getValue())){
             return;
         }
-        
         CheckBox box = new CheckBox();
         Bindings.bindBidirectional(box.selectedProperty(), eleveData.absentProperty());
-        grid.add(box, 3, rowIndex, null);
+        vieScolaireGrid.add(box, 3, rowIndex, null);
         
         TextField retardField = new TextField();
         Bindings.bindBidirectional(retardField.textProperty(), eleveData.retardProperty(), new IntegerOnlyConverter());
         markAsInteger(retardField);
         
         
-        grid.add(retardField, 4, rowIndex, HPos.LEFT);
+        vieScolaireGrid.add(retardField, 4, rowIndex, HPos.LEFT);
         
         Label cumulRetard = new Label();
         retardField.textProperty().addListener((observable, oldValue, newValue) -> {
-            computeCumulRetard(eleve, trimestre);
-            markInRed(cumulRetard, cumulRetardMap.get(eleve).get(), 3);
+            stats.computeSeancesWithRetard(eleve, trimestre);
+            markInRed(cumulRetard, stats.getCumulRetard(eleve, trimestre), 3);
         });
         
-        cumulRetard.textProperty().bind(cumulRetardMap.get(eleve).asString());
-        markInRed(cumulRetard, cumulRetardMap.get(eleve).get(), 3);
-        grid.add(cumulRetard, 5, rowIndex, null);
+        cumulRetard.textProperty().bind(Bindings.size(stats.getSeancesWithRetard(eleve, trimestre)).asString());
+        markInRed(cumulRetard, stats.getCumulRetard(eleve, trimestre), 3);
+        vieScolaireGrid.add(cumulRetard, 5, rowIndex, null);
+    }
+    
+    /**
+     * dessine la grid travail
+     * @param eleve
+     * @param rowIndex 
+     */
+    private void drawTravail(Eleve eleve, int rowIndex){
         
+        EleveData eleveData = currentSeance.getDonneesAsMap().get(eleve);
+        
+        drawEleveName(travailGrid, eleve, rowIndex);
+        if(!eleve.isInClasse(currentDate.getValue())){
+            return;
+        }
         CheckBox travailBox = new CheckBox();
         Bindings.bindBidirectional(travailBox.selectedProperty(), eleveData.travailPasFaitProperty());
-        grid.add(travailBox, 6, rowIndex, null);
+        travailGrid.add(travailBox, 3, rowIndex, null);
         Label cumulTravail = new Label();
         travailBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            computeCumulTravail(eleve, trimestre);
-            markInRed(cumulTravail, cumulTravailMap.get(eleve).get(), 3);
+            //computeCumulTravail(eleve, trimestre);
+            //markInRed(cumulTravail, cumulTravailMap.get(eleve).get(), 3);
         });
         
-        cumulTravail.textProperty().bind(cumulTravailMap.get(eleve).asString());
-        markInRed(cumulTravail, cumulTravailMap.get(eleve).get(), 3);
-        grid.add(cumulTravail, 7, rowIndex, null);
+        //cumulTravail.textProperty().bind(cumulTravailMap.get(eleve).asString());
+        //markInRed(cumulTravail, cumulTravailMap.get(eleve).get(), 3);
+        travailGrid.add(cumulTravail, 4, rowIndex, null);
         
-        CheckBox box3 = new CheckBox();
-        Bindings.bindBidirectional(box3.selectedProperty(), eleveData.devoirProperty());
-        grid.add(box3, 8, rowIndex, null);
+        CheckBox devoir = new CheckBox();
+        Bindings.bindBidirectional(devoir.selectedProperty(), eleveData.devoirProperty());
+        travailGrid.add(devoir, 5, rowIndex, null);
         
+        TextField oubliMaterielField = new TextField();
+        Bindings.bindBidirectional(oubliMaterielField.textProperty(), eleveData.oubliMaterielProperty());
+        travailGrid.add(oubliMaterielField, 6, rowIndex, HPos.LEFT);
+        Label cumulOubli = new Label();
+        oubliMaterielField.textProperty().addListener((observable, oldValue, newValue) -> {
+            //computeCumulOubli(eleve, trimestre);
+            //markInRed(cumulOubli, cumulOubliMap.get(eleve).get(), 3);
+        });
+        
+        //cumulOubli.textProperty().bind(cumulOubliMap.get(eleve).asString());
+        //markInRed(cumulOubli, cumulOubliMap.get(eleve).get(), 3);
+        travailGrid.add(cumulOubli, 7, rowIndex, null);
+    
+    }
+    
+    /**
+     * dessine la grid sanctions
+     * @param eleve
+     * @param rowIndex 
+     */
+    private void drawSanctions(Eleve eleve, int rowIndex){
+        
+        EleveData eleveData = currentSeance.getDonneesAsMap().get(eleve);
+        
+        drawEleveName(sanctionsGrid, eleve, rowIndex);
+        if(!eleve.isInClasse(currentDate.getValue())){
+            return;
+        }
         Button punition = Btns.punitionBtn();
         punition.setOnAction((event) -> {
             openPunitionDialog(eleve);
         });
-        grid.add(punition, 9, rowIndex, null);
+        sanctionsGrid.add(punition, 3, rowIndex, null);
         
-        CheckBox box4 = new CheckBox();
-        Bindings.bindBidirectional(box4.selectedProperty(), eleveData.motCarnetProperty());
-        grid.add(box4, 10, rowIndex, null);
+        CheckBox motCarnet = new CheckBox();
+        Bindings.bindBidirectional(motCarnet.selectedProperty(), eleveData.motCarnetProperty());
+        sanctionsGrid.add(motCarnet, 4, rowIndex, null);
         
-        CheckBox box5 = new CheckBox();
-        Bindings.bindBidirectional(box5.selectedProperty(), eleveData.motSigneProperty());
-        grid.add(box5, 11, rowIndex, null);
+        CheckBox motSigne = new CheckBox();
+        Bindings.bindBidirectional(motSigne.selectedProperty(), eleveData.motSigneProperty());
+        sanctionsGrid.add(motSigne, 5, rowIndex, null);
         
-        TextField oubliMaterielField = new TextField();
-        Bindings.bindBidirectional(oubliMaterielField.textProperty(), eleveData.oubliMaterielProperty());
-        grid.add(oubliMaterielField, 12, rowIndex, HPos.LEFT);
-        Label cumulOubli = new Label();
-        oubliMaterielField.textProperty().addListener((observable, oldValue, newValue) -> {
-            computeCumulOubli(eleve, trimestre);
-            markInRed(cumulOubli, cumulOubliMap.get(eleve).get(), 3);
-        });
         
-        cumulOubli.textProperty().bind(cumulOubliMap.get(eleve).asString());
-        markInRed(cumulOubli, cumulOubliMap.get(eleve).get(), 3);
-        grid.add(cumulOubli, 13, rowIndex, null);
-        
-        CheckBox box6 = new CheckBox();
-        Bindings.bindBidirectional(box6.selectedProperty(), eleveData.exclusProperty());
-        grid.add(box6, 14, rowIndex, null);
-        
-        TextField remarquesField = new TextField();
-        Bindings.bindBidirectional(remarquesField.textProperty(), eleveData.RemarquesProperty());
-        grid.add(remarquesField, 15, rowIndex, HPos.LEFT);
+        CheckBox exclus = new CheckBox();
+        Bindings.bindBidirectional(exclus.selectedProperty(), eleveData.exclusProperty());
+        sanctionsGrid.add(exclus, 6, rowIndex, null);
     }
-         
-    /* CALCUL CUMULS */
-    private void computeAllCumuls(Trimestre trimestre){
-        currentSeance.getClasse().getEleves().stream().forEach((eleve) -> {
-            computeCumulTravail(eleve, trimestre);
-            computeCumulRetard(eleve, trimestre);
-            computeCumulOubli(eleve, trimestre);
-        });
+        
+    private void drawRow(Eleve eleve, int rowIndex){
+        drawVieScolaire(eleve, rowIndex);
+        drawTravail(eleve, rowIndex);
+        drawSanctions(eleve, rowIndex);
     }
     
     private void markInRed(Label label, int value, int threshold){
@@ -410,30 +594,6 @@ public class JourneeController extends PageController implements Initializable {
             } else {
                 CssUtil.removeClass(label, "text-red");
             }
-    }
-    
-    private void computeCumulTravail(Eleve eleve, Trimestre trimestre){
-        List<EleveData> data = modelHandler.filterByTrimestre(eleve.getData(), trimestre, currentDate.getValue());
-        if(!cumulTravailMap.containsKey(eleve)){
-            cumulTravailMap.put(eleve, new SimpleIntegerProperty());
-        }
-        cumulTravailMap.get(eleve).set(modelHandler.countCumulTravail(data));
-    }
-    
-    private void computeCumulRetard(Eleve eleve, Trimestre trimestre){
-        List<EleveData> data = modelHandler.filterByTrimestre(eleve.getData(), trimestre, currentDate.getValue());
-        if(!cumulRetardMap.containsKey(eleve)){
-            cumulRetardMap.put(eleve, new SimpleIntegerProperty());
-        }
-        cumulRetardMap.get(eleve).set(modelHandler.countCumulRetard(data));
-    }
-    
-    private void computeCumulOubli(Eleve eleve, Trimestre trimestre){
-        List<EleveData> data = modelHandler.filterByTrimestre(eleve.getData(), trimestre, currentDate.getValue());
-        if(!cumulOubliMap.containsKey(eleve)){
-            cumulOubliMap.put(eleve, new SimpleIntegerProperty());
-        }
-        cumulOubliMap.get(eleve).set(modelHandler.countCumulOubli(data));
     }
     
     

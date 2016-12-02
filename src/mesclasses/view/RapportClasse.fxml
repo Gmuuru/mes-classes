@@ -22,11 +22,11 @@
         <URL value="@../../resources/css/main.css" />
     </stylesheets>
    <children>
-      <BorderPane layoutX="219.0" layoutY="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
              <VBox>
                  <children>
-                    <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="800.0" styleClass="smart-grid">
+                    <SmartGrid alignment="CENTER" nbHeaderRows="1" styleClass="smart-grid">
                     <columnConstraints>
                       <ColumnConstraints minWidth="5" percentWidth="0.5" />
                       <ColumnConstraints hgrow="ALWAYS" percentWidth="10.0" />
@@ -42,33 +42,33 @@
                       <ColumnConstraints minWidth="5" percentWidth="0.5" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" valignment="TOP" vgrow="ALWAYS" />
+                      <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
                     </rowConstraints>
                      <children>
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
-                        <HeaderLabel alignment="CENTER_LEFT" fixedHeight="50" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
+                        <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
                            <padding>
                               <Insets left="4.0" />
                            </padding></HeaderLabel>
-                        <HeaderLabel alignment="CENTER_LEFT" fixedHeight="50" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
+                        <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
                            <padding>
                               <Insets left="4.0" />
                            </padding>
                         </HeaderLabel>
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Absences" GridPane.columnIndex="3" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Retards" GridPane.columnIndex="4" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Travaux non fait" GridPane.columnIndex="5" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Devoirs non rendu" GridPane.columnIndex="6" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Punitions" GridPane.columnIndex="7" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Mots carnet" GridPane.columnIndex="8" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Oublis matériel" GridPane.columnIndex="9" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="Exclusions" GridPane.columnIndex="10" />
-                        <HeaderLabel fixedHeight="50" styleClass="smart-grid-header" text="" GridPane.columnIndex="11" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Absences" GridPane.columnIndex="3" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Retards" GridPane.columnIndex="4" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Travaux non fait" GridPane.columnIndex="5" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Devoirs non rendu" GridPane.columnIndex="6" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Punitions" GridPane.columnIndex="7" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Mots carnet" GridPane.columnIndex="8" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Oublis matériel" GridPane.columnIndex="9" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Exclusions" GridPane.columnIndex="10" />
+                        <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="11" />
                      </children>
                   </SmartGrid>
                   <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                     <content>
-                       <SmartGrid fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="800.0" styleClass="smart-grid">
+                       <SmartGrid fx:id="grid" nbHeaderRows="0" alignment="CENTER" styleClass="smart-grid">
                          <columnConstraints>
                            <ColumnConstraints minWidth="5" percentWidth="0.5" />
                            <ColumnConstraints hgrow="ALWAYS" percentWidth="10.0" />
@@ -83,23 +83,6 @@
                            <ColumnConstraints hgrow="ALWAYS" percentWidth="8.0" />
                            <ColumnConstraints minWidth="5" percentWidth="0.5" />
                          </columnConstraints>
-                         <rowConstraints>
-                           <RowConstraints fillHeight="false" maxHeight="0.0" minHeight="0.0" prefHeight="0.0" valignment="TOP" vgrow="ALWAYS" />
-                         </rowConstraints>
-                          <children>
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="0" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="1" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="2" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="3" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="4" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="5" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="6" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="7" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="8" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="9" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="10" />
-                            <HeaderLabel fixedHeight="1" GridPane.columnIndex="11" />
-                          </children>
                        </SmartGrid>
                     </content>
                  </ScrollPane>
@@ -125,7 +108,7 @@
                   <HBox alignment="CENTER">
                      <children>
                         <Button fx:id="previousBtn" mnemonicParsing="false" onAction="#previous" text="&lt;" />
-                        <Label fx:id="trimestreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="80.0" text="Label" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="trimestreLabel" styleClass="list-element" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="80.0" text="Label" HBox.hgrow="ALWAYS" />
                         <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#next" text="&gt;" />
                      </children>
                   </HBox>
@@ -134,7 +117,7 @@
             </ToolBar>
          </top>
          <bottom>
-            <Button mnemonicParsing="false" onAction="#openClasse" text="Ouvrir la classe pour aujourd'hui" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#openJournee" text="Journées" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="5.0" top="5.0" />
                </BorderPane.margin>

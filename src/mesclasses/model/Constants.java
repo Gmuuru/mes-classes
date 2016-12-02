@@ -21,8 +21,10 @@ public class Constants {
     
     public static final String APPLICATION_TITLE = "Mes Classes";
     public static final String DATE_FORMAT = "yyyy-MM-dd";
+    public static final String DATE_FORMAT_FR = "dd-MM-yyyy";
     public static final String LONG_DATE_FORMAT = "EEEE dd MMMM yyyy";
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(Constants.DATE_FORMAT);
+    public static final DateTimeFormatter DATE_FORMATTER_FR = DateTimeFormatter.ofPattern(Constants.DATE_FORMAT_FR);
     public static final DateTimeFormatter LONG_DATE_FORMATTER = DateTimeFormatter.ofPattern(LONG_DATE_FORMAT);
     
     public static final List<String> DAYS = Arrays.asList(new String[]{"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"});

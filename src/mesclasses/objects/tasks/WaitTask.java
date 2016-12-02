@@ -5,8 +5,6 @@
  */
 package mesclasses.objects.tasks;
 
-import mesclasses.util.AppLogger;
-
 /**
  *
  * @author rrrt3491
@@ -21,7 +19,6 @@ public class WaitTask extends AppTask<Object> {
     @Override
     protected Object call() throws Exception {
         Thread.sleep(millis);
-        AppLogger.log("WaitTask closing after "+millis+"ms");
         return null;
     }
 

@@ -6,8 +6,10 @@
 package mesclasses.model;
 
 import java.io.Serializable;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,8 +19,10 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlTransient;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
@@ -26,6 +30,8 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Cours extends MonitoredObject implements Serializable, Comparable<Cours> {
+    
+    private String id;
     
     private final StringProperty day;
     
@@ -43,9 +49,12 @@ public class Cours extends MonitoredObject implements Serializable, Comparable<C
     
     private final IntegerProperty endMin;
     
+    private final BooleanProperty ponctuel;
+    
     private VBox event;
 
     public Cours(){
+        this.id = RandomStringUtils.randomAlphanumeric(5);
         day = new SimpleStringProperty();
         classe = new SimpleObjectProperty<>();
         room = new SimpleStringProperty("");
@@ -54,6 +63,7 @@ public class Cours extends MonitoredObject implements Serializable, Comparable<C
         startMin = new SimpleIntegerProperty(0);
         endHour = new SimpleIntegerProperty(9);
         endMin = new SimpleIntegerProperty(0);
+        ponctuel = new SimpleBooleanProperty(false);
     }
     
     @Override
@@ -95,6 +105,20 @@ public class Cours extends MonitoredObject implements Serializable, Comparable<C
     
     public IntegerProperty endMinProperty(){
         return endMin;
+    }
+
+    public BooleanProperty ponctuelProperty(){
+        return ponctuel;
+    }
+    
+    @XmlAttribute
+    @XmlID
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
     @XmlElement(name="day")
@@ -174,6 +198,15 @@ public class Cours extends MonitoredObject implements Serializable, Comparable<C
         this.endMin.set(endMin);
     }
 
+    @XmlElement(name="ponctuel")
+    public Boolean isPonctuel() {
+        return ponctuel.get();
+    }
+
+    public void setPonctuel(Boolean ponctuel) {
+        this.ponctuel.set(ponctuel);
+    }
+    
     @XmlTransient
     public VBox getEvent() {
         return event;

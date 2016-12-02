@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
 import mesclasses.util.DataLoadUtil;
-import mesclasses.util.ModalUtil;
 
 /**
  *
@@ -36,14 +35,14 @@ public class FetchConfigTask extends AppTask<Void> {
             
         } catch (Exception e) { // catches ANY exception
             Logger.getLogger(DataLoadUtil.class.getName()).log(Level.SEVERE, null, e);
-            ModalUtil.alert("Impossible de charger la configuration", 
-                    "Le fichier de properties n'est pas lisible");
+            setMsg("Impossible de charger la configuration");
+            throw e;
         }
         return null;
     }
     
     private void initConfig(){
-        log("Initialisation de la configuration");
+        log("Initialisation de la configuration par défaut si besoin");
         PropertiesCache config = PropertiesCache.getInstance();
         if(!config.containsKey(Constants.CONF_WEEK_DEFAULT)){
             config.setProperty(Constants.CONF_WEEK_DEFAULT, "normale");

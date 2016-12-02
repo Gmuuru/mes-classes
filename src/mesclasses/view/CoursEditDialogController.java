@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -37,9 +38,13 @@ public class CoursEditDialogController extends PageController implements Initial
     @FXML
     private ComboBox<String> day;
     @FXML
+    private Label jourPrecis;
+    @FXML
     private ComboBox<Classe> classe;
     @FXML
     private ComboBox<String> semaine;
+    @FXML
+    private Label semainePrecise;
     @FXML
     private TextField room;
     @FXML
@@ -120,7 +125,7 @@ public class CoursEditDialogController extends PageController implements Initial
         }
     }
     
-    public void setCours(Cours newCours){
+    public void setCours(Cours newCours, boolean ponctuel){
         this.newCours = newCours;
         if(newCours == null){
             dialogStage.close();
@@ -128,9 +133,8 @@ public class CoursEditDialogController extends PageController implements Initial
         if(newCours.getEvent() == null){
             deleteBtn.setDisable(true);
         }
-        day.valueProperty().bindBidirectional(this.newCours.dayProperty());
+        setPonctuel(ponctuel);
         room.textProperty().bindBidirectional(this.newCours.roomProperty());
-        semaine.valueProperty().bindBidirectional(this.newCours.weekProperty());
         classe.valueProperty().bindBidirectional(this.newCours.classeProperty());
         startHour.textProperty().bindBidirectional(this.newCours.startHourProperty(), new IntegerOnlyConverter());
         startMin.textProperty().bindBidirectional(this.newCours.startMinProperty(), new IntegerOnlyConverter());
@@ -156,5 +160,26 @@ public class CoursEditDialogController extends PageController implements Initial
     public int getStatus() {
         return status;
     }
+
+    public void setPonctuel(boolean ponctuel) {
+        if(ponctuel){
+            jourPrecis.textProperty().bind(this.newCours.dayProperty());
+            semainePrecise.textProperty().bind(this.newCours.weekProperty());
+        } else {
+            day.valueProperty().bindBidirectional(this.newCours.dayProperty());
+            semaine.valueProperty().bindBidirectional(this.newCours.weekProperty());
+        }
+        jourPrecis.setVisible(ponctuel);
+        jourPrecis.setManaged(ponctuel);
+        semainePrecise.setVisible(ponctuel);
+        semainePrecise.setManaged(ponctuel);
+        
+        day.setVisible(!ponctuel);
+        day.setManaged(!ponctuel);
+        semaine.setVisible(!ponctuel);
+        semaine.setManaged(!ponctuel);
+    }
+
+    
     
 }

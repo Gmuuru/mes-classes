@@ -6,19 +6,22 @@
 package mesclasses.model;
 
 import java.time.LocalDate;
-import java.util.List;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import java.util.ArrayList;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlTransient;
+import mesclasses.handlers.PropertiesCache;
+import mesclasses.util.NodeUtil;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -27,42 +30,43 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Seance extends MonitoredObject implements Comparable<Seance>{
     
-    private Journee journee;
+    private String id;
     
-    private LocalDate date;
+    private Journee journee;
     
     private Cours cours;
     
     private Classe classe;
     
-    private final StringProperty remarques;
-    
-    private BooleanProperty isFirst;
-    
-    private BooleanProperty isLast;
-    
     private ObservableMap<Eleve, EleveData> donnees;
     
-    
     public Seance(){
-        remarques = new SimpleStringProperty();
-        donnees  = FXCollections.observableHashMap();
+        id = "seance_"+RandomStringUtils.randomAlphanumeric(5);
+        donnees = FXCollections.observableHashMap();
     }
     
     @Override
     public void startChangeDetection() {
-        remarques.addListener(stringListener);
         donnees.addListener(mapListener);
-        donnees.values().forEach(d -> d.startChangeDetection());
     }
     
     @Override
     public void resetChange(){
         super.resetChange();
-        donnees.values().forEach(c -> c.resetChange());
     }
 
-    @XmlElement
+    @XmlAttribute
+    @XmlID
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @XmlAttribute
+    @XmlIDREF
     public Cours getCours() {
         return cours;
     }
@@ -71,75 +75,38 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
         this.cours = cours;
     }
 
-    @XmlElement
-    public ObservableMap<Eleve, EleveData> getDonnees() {
-        return donnees;
+    @XmlIDREF
+    @XmlElement(name="donnee")
+    @XmlElementWrapper(name="donnees")
+    public ObservableList<EleveData> getDonnees() {
+        return FXCollections.observableList(new ArrayList<>(donnees.values()));
     }
 
-    public void setDonnees(ObservableMap<Eleve, EleveData> donnees) {
-        this.donnees = donnees;
-    }
-    
-    public EleveData getDonneesForEleve(Eleve eleve) {
-        if(donnees.containsKey(eleve)){
-            return donnees.get(eleve);
-        }
-        return addNewDonnee(eleve);
-    }
-    
-    public void addDonnee(EleveData donnee){
-        donnees.put(donnee.getEleve(), donnee);
-    }
-    
-    public EleveData addNewDonnee(Eleve eleve){
-        EleveData newData = new EleveData();
-        newData.setEleve(eleve);
-        newData.setCours(0);
-        newData.setDate(getDate());
-        addDonnee(newData);
-        newData.startChangeDetection();
-        return newData;
-    }
-
-    public void addDonnees(List<EleveData> donnees){
+    public void setDonnees(ObservableList<EleveData> donnees) {
         donnees.forEach(d -> this.donnees.put(d.getEleve(), d));
     }
     
-    @XmlAttribute
-    public String getDate() {
-        if(date != null){
-            return date.format(Constants.DATE_FORMATTER);
-        }
-        return "";
+    public ObservableMap<Eleve, EleveData> getDonneesAsMap() {
+        return donnees;
     }
+    
+    public void setDonneesFromMap(ObservableMap<Eleve, EleveData> donnees) {
+        this.donnees = donnees;
+    }
+    
+    @XmlTransient
     public LocalDate getDateAsDate() {
-        return date;
+        return journee.getDateAsDate();
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    @XmlElement
+    @XmlAttribute
+    @XmlIDREF
     public Classe getClasse() {
         return classe;
     }
 
     public void setClasse(Classe classe) {
         this.classe = classe;
-    }
-
-    public StringProperty remarquesProperty() {
-        return remarques;
-    }
-
-    @XmlElement
-    public String getRemarques() {
-        return remarques.get();
-    }
-    
-    public void setRemarques(String remarques) {
-        this.remarques.set(remarques);
     }
     
     @XmlAttribute
@@ -151,38 +118,29 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
     public void setJournee(Journee journee) {
         this.journee = journee;
     }
-    @XmlTransient
     public int index(){
         return journee.getSeances().indexOf(this);
     }
     
     @XmlTransient
-    public BooleanProperty isFirst(){
-        if(isFirst == null){
-            isFirst = new SimpleBooleanProperty(journee.getSeances().indexOf(this) == 0);
-        }
-        return isFirst;
+    public boolean isFirst(){
+        return (journee.getSeances().indexOf(this) == 0);
     }
     
     @XmlTransient
-    public BooleanProperty isLast(){
-        if(isLast == null){
-            isLast = new SimpleBooleanProperty(journee.getSeances().indexOf(this) == journee.getSeances().size() -1);
-        }
-        return isLast;
+    public boolean isLast(){
+        return (journee.getSeances().indexOf(this) == journee.getSeances().size() -1);
     }
     
-    @XmlTransient
     public Seance next(){
-        if(isLast.get() || index() < 0){
+        if(isLast() || index() < 0){
             return null;
         }
         return journee.getSeances().get(index() + 1);
     }
     
-    @XmlTransient
     public Seance previous(){
-        if(isFirst.get() || index() < 0){
+        if(isFirst() || index() < 0){
             return null;
         }
         return journee.getSeances().get(index() - 1);
@@ -190,6 +148,24 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
     @Override
     public int compareTo(Seance t) {
         return cours.compareTo(t.getCours());
+    }
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(NodeUtil.formatTime(getCours().getStartHour(), getCours().getStartMin()))
+        .append("   ")
+        .append(getClasse().getName());
+        if(StringUtils.isNotBlank(getCours().getRoom())){
+            sb.append(" en ").append(getCours().getRoom());
+        }
+        PropertiesCache config = PropertiesCache.getInstance();
+        if(!getCours().getWeek().equals(config.getProperty(Constants.CONF_WEEK_DEFAULT))){
+            sb.append(" (").append(getCours().getWeek()).append(")");
+        }
+        sb.append("   ")
+        .append(NodeUtil.formatTime(getCours().getEndHour(), getCours().getEndMin()));
+        return sb.toString();
     }
 
     

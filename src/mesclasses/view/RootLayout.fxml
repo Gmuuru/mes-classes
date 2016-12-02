@@ -46,7 +46,7 @@
                    <items>
                      <MenuItem mnemonicParsing="false" onAction="#openAdminTrimestre" text="Trimestres" />
                          <MenuItem mnemonicParsing="false" onAction="#openAdminClasse" text="Classes" />
-                         <MenuItem mnemonicParsing="false" onAction="#openAdminEleve" text="Eleves" />
+                         <MenuItem mnemonicParsing="false" onAction="#openAdminEleve" text="Elèves" />
                          <MenuItem mnemonicParsing="false" onAction="#openTimetable" text="Emploi du temps" />
                    </items>
                  </Menu>
@@ -64,14 +64,8 @@
        </BorderPane>
       <StackPane fx:id="notificationPane" alignment="TOP_LEFT" maxHeight="150.0" maxWidth="1.7976931348623157E308" minHeight="75.0" prefHeight="75.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label fx:id="notificationTitleLabel" alignment="CENTER" text="TITLE" textFill="WHITE" StackPane.alignment="TOP_LEFT">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font></Label>
+            <Label fx:id="notificationTitleLabel" alignment="CENTER" text="TITLE" textFill="WHITE" StackPane.alignment="TOP_LEFT"></Label>
             <Label fx:id="notificationMessageLabel" alignment="BOTTOM_CENTER" text="text" textFill="WHITE" wrapText="true" StackPane.alignment="BOTTOM_CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
             </Label>
             <Button fx:id="deleteNotifBtn" mnemonicParsing="false" onAction="#closeNotif" text="x" StackPane.alignment="TOP_RIGHT" />
          </children>

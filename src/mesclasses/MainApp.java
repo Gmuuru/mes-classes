@@ -43,7 +43,11 @@ public class MainApp extends Application {
         Platform.setImplicitExit(false);
         LoadWindow loading = new LoadWindow(this.primaryStage, new FetchDataTask(), new FetchConfigTask(), new ComputeTask());
         loading.startAndWait();
-        initRootLayout();
+        if(loading.isSuccessful()){
+            initRootLayout();
+        } else {
+            System.exit(0);
+        }
     }
     
     /**

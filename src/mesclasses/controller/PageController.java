@@ -15,7 +15,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import mesclasses.handlers.DonneesHandler;
 import mesclasses.handlers.ModelHandler;
+import mesclasses.handlers.StatsHandler;
 import mesclasses.model.Classe;
 import mesclasses.model.Cours;
 import mesclasses.model.Journee;
@@ -32,6 +34,8 @@ public abstract class PageController extends BasicController {
     protected Stage primaryStage;
     
     protected ModelHandler modelHandler;
+    protected DonneesHandler donneesHandler;
+    protected StatsHandler stats;
     protected ObservableList<Trimestre> trimestres;
     protected ObservableList<Classe> classes;
     protected ObservableList<Cours> cours;
@@ -45,6 +49,8 @@ public abstract class PageController extends BasicController {
         name = name == null ? "Page Ctrl" : name;
         super.initialize(url ,rb);
         modelHandler = ModelHandler.getInstance();
+        donneesHandler = DonneesHandler.getInstance();
+        stats = StatsHandler.getInstance();
         trimestres = modelHandler.getTrimestres();
         classes = modelHandler.getClasses();
         cours = modelHandler.getCours();

@@ -65,7 +65,6 @@ public class ModelHandler {
     public ObservableMap<LocalDate, Journee> getJournees(){
         return data.getJournees();
     }
-    
     /* TRIMESTRES */
     
     public Trimestre createTrimestre(){
@@ -276,9 +275,8 @@ public class ModelHandler {
     public EleveData createEleveData(Eleve eleve, Seance seance){
         EleveData newData = new EleveData();
         newData.setEleve(eleve);
-        newData.setCours(0);
-        newData.setDate(seance.getDate());
-        seance.addDonnee(newData);
+        newData.setSeance(seance);
+        seance.getDonneesAsMap().put(eleve, newData);
         newData.startChangeDetection();
         return newData;
     }
@@ -355,14 +353,17 @@ public class ModelHandler {
         Journee journee = new Journee();
         List<Cours> cours = getCoursForDate(date);
         cours.forEach(c -> {
-            journee.getSeances().add(createSeance(c.getClasse(), date, c));
+            journee.getSeances().add(createSeance(journee, c));
         });
         journee.setDate(date);
+        Collections.sort(journee.getSeances());
+        declareJournee(journee);
         return journee;
     } 
     
-    public void addCoursPonctuel(Journee journee, Classe classe){
+    public Seance addSeanceWithCoursPonctuel(Journee journee, Classe classe){
         Cours coursPonctuel = new Cours();
+        coursPonctuel.setPonctuel(true);
         coursPonctuel.setClasse(classe);
         coursPonctuel.setDay(NodeUtil.getJour(journee.getDateAsDate()));
         coursPonctuel.setWeek("ponctuel");
@@ -370,19 +371,27 @@ public class ModelHandler {
         coursPonctuel.setStartMin(00);
         coursPonctuel.setEndHour(17);
         coursPonctuel.setEndMin(00);
-        journee.getCoursPonctuels().add(coursPonctuel);
-        journee.getSeances().add(createSeance(classe, journee.getDateAsDate(), coursPonctuel));
+        return addSeanceWithCours(journee, coursPonctuel);
     }
     
-    public void createJournee(Journee journee){
+    public Seance addSeanceWithCours(Journee journee, Cours cours){
+        journee.getCoursPonctuels().add(cours);
+        Seance seance = createSeance(journee, cours);
+        journee.getSeances().add(seance);
+        return seance;
+    }
+    
+    public void declareJournee(Journee journee){
         data.getJournees().put(journee.getDateAsDate(), journee);
     }
+    
     // SEANCES
     
-    public Seance createSeance(Classe classe, LocalDate date, Cours cours){
+    public Seance createSeance(Journee journee, Cours cours){
         Seance seance = new Seance();
         seance.setCours(cours);
-        seance.setDate(date);
+        seance.setJournee(journee);
+        seance.setClasse(cours.getClasse());
         return seance;
     }
 }

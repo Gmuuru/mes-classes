@@ -177,8 +177,8 @@ public class RapportClasseController extends TabContentController implements Ini
         grid.add(exclus, 10, rowIndex, null);
     }
     
-    @FXML public void openClasse(){
-        EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_CONTENT_TABS_VIEW));
+    @FXML public void openJournee(){
+        EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW));
     }
     
     @Override
