@@ -18,9 +18,13 @@ import java.util.Set;
 import mesclasses.util.AppLogger;
 import mesclasses.util.FileSaveUtil;
 import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PropertiesCache
 {
+    private static final Logger LOG = LogManager.getLogger(PropertiesCache.class);
+    
    private final Properties configProp = new Properties();
    public static final String LAST_UPLOAD_DIR = "last.upload.dir";
    
@@ -31,18 +35,21 @@ public class PropertiesCache
       
    }
 
-   public void load(){
-      AppLogger.log("Lecture du fichier de configuration "+PROPERTIES_FILE);
+   public void load() throws Exception {
+      LOG.info("Lecture du fichier de configuration "+PROPERTIES_FILE);
       File pfile = new File(PROPERTIES_FILE);
       if(!pfile.exists()){
-          AppLogger.notif("Fichier de configuration", pfile.getAbsolutePath()+" n'existe pas");
+          LOG.error("Le fichier de configuration "+ pfile.getAbsolutePath()+" n'existe pas");
+          throw new Exception ("Le fichier de configuration "+ pfile.getAbsolutePath()+" n'existe pas");
       }
       FileReader reader = null;
       try {
           reader = new FileReader(pfile);
+          LOG.info("Chargement de la configuration");
           configProp.load(reader);
-      } catch (IOException e) {
-          AppLogger.notif("Fichier de configuration", e);
+          LOG.info("Chargement de la configuration effectué");
+      } catch (Exception e) {
+          throw new Exception (e);
       } finally {
           IOUtils.closeQuietly(reader);
       }
@@ -50,7 +57,7 @@ public class PropertiesCache
    }
    
    public void save(){
-      AppLogger.log("Sauvegarde de la configuration");
+      LOG.info("Sauvegarde de la configuration");
       try (FileOutputStream out = new FileOutputStream(PROPERTIES_FILE)) {
         configProp.store(out, null);
         } catch (IOException e) {
@@ -76,7 +83,7 @@ public class PropertiesCache
         try {
             return Integer.parseInt(configProp.getProperty(key));
         } catch(Exception e){
-            AppLogger.log(e);
+            LOG.error(e);
             return 0;
         }
    }
@@ -85,7 +92,7 @@ public class PropertiesCache
         try {
             return Integer.parseInt(configProp.getProperty(key));
         } catch(Exception e){
-            AppLogger.log(e);
+            LOG.error(e);
             return defaultValue;
         }
    }

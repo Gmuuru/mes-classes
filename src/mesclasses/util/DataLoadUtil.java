@@ -20,12 +20,16 @@ import javax.xml.bind.Unmarshaller;
 import mesclasses.model.Constants;
 import mesclasses.model.datamodel.ObservableData;
 import mesclasses.model.datamodel.XMLData;
+import org.apache.logging.log4j.LogManager;
+import org.zeroturnaround.zip.commons.FileUtils;
 
 /**
  *
  * @author rrrt3491
  */
 public class DataLoadUtil {
+    
+    private static final org.apache.logging.log4j.Logger LOG = LogManager.getLogger(DataLoadUtil.class);
     
     public static ObservableData initializeData(File saveFile) throws Exception {
         
@@ -77,30 +81,49 @@ public class DataLoadUtil {
         return false;
     }
     
-    public static void writeData(XMLData data, File file){
+    public static boolean writeData(XMLData data, File file){
         
         Marshaller m;
+        String error = null;
+        File tmpFile = new File("tmpSave_"+LocalDate.now().format(Constants.DATE_FORMATTER));
         try {
+            FileUtils.deleteQuietly(tmpFile);
+            tmpFile.createNewFile();
             JAXBContext context = JAXBContext.newInstance(XMLData.class);
             m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        } catch (JAXBException e) {
-            AppLogger.log(e);
-            return;
+        } catch (JAXBException | IOException e) {
+            LOG.error("writeData error :", e);
+            return false;
         }
         try {
             // Marshalling and saving XML to the file.
-            m.marshal(data, file);
+            m.marshal(data, tmpFile);
+            FileUtils.copyFile(tmpFile, file);
         
-        } catch (Exception e) { // catches ANY exception
-            AppLogger.log(e);
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Could not save data");
-            alert.setContentText("Could not save data to file:\n" + file.getPath());
-
-            alert.showAndWait();
+        } catch (JAXBException e) {
+            error = "Erreur de formattage des données";
+                return false;
+        } catch (IOException e) {
+            LOG.error("writeData error :", e);
+            error = "Erreur d'accès au fichier "+file.getPath();
+                return false;
+        } catch (Exception e) {
+            LOG.error("writeData error :", e);
+            error = "Erreur interne de l'application";
+                return false;
+        } finally {
+            if(error != null){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Sauvegarde impossible");
+                alert.setContentText(error);
+                alert.showAndWait();
+            } else {
+                FileUtils.deleteQuietly(tmpFile);
+            }
         }
+        return true;
     }
 
    
@@ -116,7 +139,7 @@ public class DataLoadUtil {
         // Reading XML from the file and unmarshalling.
         XMLData data = (XMLData)um.unmarshal(file);
         if(data.getTrimestres() == null){
-            AppLogger.log("erreur fichier xml !");
+            LOG.error("erreur fichier xml !");
         }
         return data;
     }

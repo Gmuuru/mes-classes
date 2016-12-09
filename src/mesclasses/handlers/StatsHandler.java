@@ -5,16 +5,15 @@
  */
 package mesclasses.handlers;
 
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.util.stream.Stream;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
+import mesclasses.util.NodeUtil;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -28,13 +27,8 @@ public class StatsHandler {
     
     private static StatsHandler handler;
     
-    private Table<String, Trimestre, ObservableList<Seance>> cumulTravail;
-    private Table<String, Trimestre, ObservableList<Seance>> cumulRetard;
-    private Table<String, Trimestre, ObservableList<Seance>> cumulOubli;
-    
     public static void init(){
             handler = new StatsHandler();
-            handler.initializeCumuls();
     }
     
     public static StatsHandler getInstance(){
@@ -46,121 +40,197 @@ public class StatsHandler {
     
     private StatsHandler(){
         model = ModelHandler.getInstance();
-        cumulTravail = HashBasedTable.create();
-        cumulRetard = HashBasedTable.create();
-        cumulOubli = HashBasedTable.create();
     }
     
+    /**
+     * retourne les données d'un élèves sur la période donnée
+     * @param eleve
+     * @param start
+     * @param end
+     * @return 
+     */
+    public Stream<EleveData> getDonneesForPeriode(Eleve eleve, LocalDate start, LocalDate end){
+        return eleve.getData().stream()
+                .filter(d -> NodeUtil.isBetween(d.getDateAsDate(), start, end));
+    }
+    
+    /****************************   RAPPORTS    ********************************/
     
     /**
-     * retourne le nombre de séances avec travail non fait pour un élève, sur un trimestre
+     * retourne toutes les seances d'un élève avec absence, sur un trimestre
      * @param eleve
      * @param trimestre
      * @return 
      */
-    /*public int getCumulTravail(Eleve eleve, Trimestre trimestre){
-        return getSeancesWithTravailNonFait(eleve, trimestre).size();
-    }*/
+    public List<Seance> getSeancesWithAbsenceOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
+                .filter(d -> d.isAbsent())
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
+    }
     
     /**
-     * recalcule toutes les seances d'un élève avec oubli de matériel, sur un trimestre
+     * retourne toutes les seances d'un élève avec retard, sur un trimestre
      * @param eleve
      * @param trimestre
      * @return 
      */
-    public ObservableList<Seance> computeSeancesWithRetard(Eleve eleve, Trimestre trimestre){
-        List<Seance> seances =  eleve.getData().stream()
+    public List<Seance> getSeancesWithRetardOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
                 .filter(d -> d.getRetard() > 0)
                 .map(d -> d.getSeance())
                 .collect(Collectors.toList());
-        cumulOubli.get(eleve, trimestre).clear();
-        cumulOubli.get(eleve, trimestre).addAll(seances);
-        
-        return getSeancesWithOubli(eleve, trimestre);
-    }
-    /**
-     * retourne toutes les seances d'un élève où il a été en retard, sur un trimestre
-     * @param eleve
-     * @param trimestre
-     * @return 
-     */
-    public ObservableList<Seance> getSeancesWithRetard(Eleve eleve, Trimestre trimestre){
-       return cumulRetard.get(eleve, trimestre);
     }
     
     /**
-     * retourne le nombre de séances avec retard pour un élève, sur un trimestre
+     * retourne toutes les seances d'un élève avec travail non fait, sur un trimestre
      * @param eleve
      * @param trimestre
      * @return 
      */
-    public int getCumulRetard(Eleve eleve, Trimestre trimestre){
-        return getSeancesWithRetard(eleve, trimestre).size();
+    public List<Seance> getSeancesWithTravailOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
+                .filter(d -> d.isTravailPasFait())
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
     }
     
     /**
-     * recalcule toutes les seances d'un élève avec oubli de matériel, sur un trimestre
+     * retourne toutes les seances d'un élève avec devoir non rendu, sur un trimestre
      * @param eleve
      * @param trimestre
      * @return 
      */
-    public ObservableList<Seance> computeSeancesWithOubli(Eleve eleve, Trimestre trimestre){
-        List<Seance> seances =  eleve.getData().stream()
+    public List<Seance> getSeancesWithDevoirOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
+                .filter(d -> d.isDevoir())
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
+    }
+    
+    /**
+     * retourne toutes les seances d'un élève avec mot carnet, sur un trimestre
+     * @param eleve
+     * @param trimestre
+     * @return 
+     */
+    public List<Seance> getSeancesWithMotOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
+                .filter(d -> d.isMotCarnet())
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
+    }
+    
+    /**
+     * retourne toutes les seances d'un élève avec mot signé, sur un trimestre
+     * @param eleve
+     * @param trimestre
+     * @return 
+     */
+    public List<Seance> getSeancesWithMotSigneOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
+                .filter(d -> d.isMotSigne())
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
+    }
+    
+    /**
+     * retourne toutes les seances d'un élève avec oubli de matériel d'un élève, sur un trimestre
+     * @param eleve
+     * @param trimestre
+     * @return 
+     */
+    public List<Seance> getSeancesWithOubliOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
                 .filter(d -> StringUtils.isNotBlank(d.getOubliMateriel()))
                 .map(d -> d.getSeance())
                 .collect(Collectors.toList());
-        cumulOubli.get(eleve, trimestre).clear();
-        cumulOubli.get(eleve, trimestre).addAll(seances);
-        
-        return getSeancesWithOubli(eleve, trimestre);
     }
     
     /**
-     * retourne toutes les seances d'un élève avec oubli de matériel, sur un trimestre
+     * retourne toutes les seances d'un élève avec exclusion, sur un trimestre
      * @param eleve
      * @param trimestre
      * @return 
      */
-    public ObservableList<Seance> getSeancesWithOubli(Eleve eleve, Trimestre trimestre){
-        return cumulOubli.get(eleve, trimestre);
+    public List<Seance> getSeancesWithExclusionOnTrimestre(Eleve eleve, Trimestre trimestre){
+        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
+                .filter(d -> d.isExclus())
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
+    }
+    
+    /****************************   SEANCES     ********************************/
+    /**
+     * retourne toutes les seances d'un élève avec travail non fait, du debut du trimestre à la date fournie
+     * @param eleve
+     * @param date
+     * @return 
+     */
+    public List<Seance> getSeancesWithTravailUntil(Eleve eleve, LocalDate date){
+        Trimestre trim = model.getForDate(date);
+        return getDonneesForPeriode(eleve, trim.getStartAsDate(), date)
+                .filter(d -> d.isTravailPasFait())
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
+    }
+    
+    
+    /**
+     * retourne toutes les seances d'un élève avec retard, du debut du trimestre à la date fournie
+     * @param eleve
+     * @param date
+     * @return 
+     */
+    public List<Seance> getSeancesWithRetardUntil(Eleve eleve, LocalDate date){
+        Trimestre trim = model.getForDate(date);
+        return getDonneesForPeriode(eleve, trim.getStartAsDate(), date)
+                .filter(d -> d.getRetard() > 0)
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
     }
     
     /**
-     * retourne le nombre de séances avec oubli de matériel pour un élève, sur un trimestre
+     * retourne toutes les seances d'un élève avec oubli de matériel d'un élève, du debut du trimestre à la date fournie
      * @param eleve
-     * @param trimestre
+     * @param date
      * @return 
      */
-    public int getCumulOubli(Eleve eleve, Trimestre trimestre){
-        return getSeancesWithOubli(eleve, trimestre).size();
-    }
-
-    private void initializeCumuls() {
-        
-        model.getClasses().forEach(c -> {
-            c.getEleves().forEach(e -> {
-                e.getData().forEach(d -> {
-                    if(d.isTravailPasFait()){
-                        addOrCreateCumulList(cumulTravail, d);
-                    }
-                    if(d.getRetard() > 0){
-                        addOrCreateCumulList(cumulRetard, d);
-                    }
-                    if(StringUtils.isNotBlank(d.getOubliMateriel())){
-                        addOrCreateCumulList(cumulOubli, d);
-                    }
-                });
-            });
-        });
+    public List<Seance> getSeancesWithOubliUntil(Eleve eleve, LocalDate date){
+        Trimestre trim = model.getForDate(date);
+        return getDonneesForPeriode(eleve, trim.getStartAsDate(), date)
+                .filter(d -> StringUtils.isNotBlank(d.getOubliMateriel()))
+                .map(d -> d.getSeance())
+                .collect(Collectors.toList());
     }
     
-    private void addOrCreateCumulList(Table<String, Trimestre, ObservableList<Seance>> table, EleveData data){
-        Eleve e = data.getEleve();
-        Seance s = data.getSeance();
-        Trimestre t = model.getForDate(s.getDateAsDate());
-        if(table.get(e.getId(), t) == null){
-            table.put(e.getId(), t, FXCollections.observableArrayList());
-        }
-        table.get(e.getId(), t).add(s);
+    /**
+     * retourne le nombre de séances avec travail non fait d'un élève, du début du trimestre à la date fournie
+     * @param eleve
+     * @param date
+     * @return 
+     */
+    public int getNbTravailUntil(Eleve eleve, LocalDate date){
+        return getSeancesWithTravailUntil(eleve, date).size();
+    }
+    
+    /**
+     * retourne le nombre de séances avec retard d'un élève, du début du trimestre à la date fournie
+     * @param eleve
+     * @param date
+     * @return 
+     */
+    public int getNbRetardsUntil(Eleve eleve, LocalDate date){
+        return getSeancesWithRetardUntil(eleve, date).size();
+    }
+    
+    /**
+     * retourne le nombre de séances avec oubli de matériel d'un élève, du début du trimestre à la date fournie
+     * @param eleve
+     * @param date
+     * @return 
+     */
+    public int getNbOublisUntil(Eleve eleve, LocalDate date){
+        return getSeancesWithOubliUntil(eleve, date).size();
     }
 }

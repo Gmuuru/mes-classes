@@ -27,6 +27,8 @@ import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.util.AppLogger;
 import mesclasses.util.Btns;
 import mesclasses.util.ModalUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
 
 /**
@@ -36,9 +38,9 @@ import org.smartgrid.SmartGrid;
  */
 public class AdminTrimestreController extends PageController implements Initializable {
     
+    private static final Logger LOG = LogManager.getLogger(AdminTrimestreController.class);
+    
     @FXML SmartGrid grid;
-    
-    
     
     /**
      * Initializes the controller class.
@@ -48,7 +50,7 @@ public class AdminTrimestreController extends PageController implements Initiali
     public void initialize(URL url, ResourceBundle rb) {
         name = "Admin Trimestre Ctrl";
         super.initialize(url, rb);
-        log("Loading AdminTrimestreController with "+ trimestres.size() +" trimestres");
+        LOG.info("Loading AdminTrimestreController with "+ trimestres.size() +" trimestres");
         
         init();
     }  
@@ -129,7 +131,7 @@ public class AdminTrimestreController extends PageController implements Initiali
             if (!super.notifyExit()) {
                 return false;
             }
-            log("Unload in AdminTrimestreController");
+            LOG.info("Unload in AdminTrimestreController");
             this.modelHandler.cleanupTrimestres();
             return true;
         } catch (Exception e) {

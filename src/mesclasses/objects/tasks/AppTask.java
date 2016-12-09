@@ -6,7 +6,6 @@
 package mesclasses.objects.tasks;
 
 import javafx.concurrent.Task;
-import mesclasses.util.AppLogger;
 
 /**
  *
@@ -18,13 +17,6 @@ public abstract class AppTask<T> extends Task<T> {
     protected String msg;
     
     public abstract String getName();
-    
-    public void log(String e){
-        AppLogger.log(e);
-    }
-    public void log(Exception e){
-        AppLogger.log(e);
-    }
 
     public String getMsg() {
         return msg;

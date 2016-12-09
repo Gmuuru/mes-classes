@@ -5,11 +5,16 @@
  */
 package mesclasses.util;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableMap;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Map;
 import mesclasses.model.Constants;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.zeroturnaround.zip.ZipUtil;
 
 /**
@@ -18,19 +23,64 @@ import org.zeroturnaround.zip.ZipUtil;
  */
 public class FileSaveUtil {
     
-    public static final String SAVEDIR = "savedData";
-    public static final String BCK_DIR = SAVEDIR+File.separator+"bck";
-    public static final String ARCHIVE_DIR = "archives";
-    public static final String PROPERTIES_DIR = SAVEDIR+File.separator+"properties";
-    public static final String FILE_DIR = SAVEDIR+File.separator+"uploadedFiles";
-    public static final String SAVE_FILE = "mesClassesData";
+    private static final Logger LOG = LogManager.getLogger(FileSaveUtil.class);
+    
+    public static String SAVE_DIR = "savedData";
+    public static String BCK_DIR = SAVE_DIR+File.separator+"bck";
+    public static String ARCHIVE_DIR = "archives";
+    public static String PROPERTIES_DIR = SAVE_DIR+File.separator+"properties";
+    public static String FILE_DIR = SAVE_DIR+File.separator+"uploadedFiles";
+    public static String SAVE_FILE = "mesClassesData";
     
     static {
-        new File(SAVEDIR).mkdirs();
+        reset();
+        new File(SAVE_DIR).mkdirs();
         new File(ARCHIVE_DIR).mkdirs();
         new File(FILE_DIR).mkdirs();
         new File(BCK_DIR).mkdirs();
         new File(PROPERTIES_DIR).mkdirs();
+    }
+    
+    public static void reset(){
+        SAVE_DIR = "savedData";
+        SAVE_FILE = "mesClassesData";
+        BCK_DIR = SAVE_DIR+File.separator+"bck";
+        ARCHIVE_DIR = "archives";
+        PROPERTIES_DIR = SAVE_DIR+File.separator+"properties";
+        FILE_DIR = SAVE_DIR+File.separator+"uploadedFiles";
+    }
+    
+    public static void set(String saveDir, String saveFile){
+        try {
+            SAVE_DIR = saveDir;
+            SAVE_FILE = saveFile;
+            BCK_DIR = SAVE_DIR+File.separator+"bck";
+            ARCHIVE_DIR = "archives";
+            PROPERTIES_DIR = SAVE_DIR+File.separator+"properties";
+            FILE_DIR = SAVE_DIR+File.separator+"uploadedFiles";
+            new File(SAVE_DIR).mkdirs();
+            new File(ARCHIVE_DIR).mkdirs();
+            new File(FILE_DIR).mkdirs();
+            new File(BCK_DIR).mkdirs();
+            new File(PROPERTIES_DIR).mkdirs();
+        } catch(Exception e){
+            LOG.error("Impossible de charger la configuration demandée : ",e);
+        }
+    }
+    
+    public static Map<String, String> getConf(){
+        return ImmutableMap.<String, String>builder()
+            .put("SAVE_DIR", SAVE_DIR) 
+            .put("SAVE_FILE", SAVE_FILE) 
+            .put("BCK_DIR", BCK_DIR) 
+            .put("ARCHIVE_DIR", ARCHIVE_DIR) 
+            .put("PROPERTIES_DIR", PROPERTIES_DIR) 
+            .put("FILE_DIR", FILE_DIR) 
+            .build();
+    }
+    
+    public static String displayConf(){
+        return Joiner.on("\n").withKeyValueSeparator("=").join(getConf());
     }
     
     public static File archive() throws IOException {
@@ -43,8 +93,8 @@ public class FileSaveUtil {
         if(archiveFile.exists()){
             archiveFile.delete();
         }
-        ZipUtil.pack(new File(SAVEDIR), archiveFile);
-        AppLogger.log("Archive créée : "+archiveFile.getPath());
+        ZipUtil.pack(new File(SAVE_DIR), archiveFile);
+        LOG.info("Archive créée : "+archiveFile.getPath());
         return archiveFile;
     }
     
@@ -53,12 +103,12 @@ public class FileSaveUtil {
             AppLogger.notif("Archivage : ", "Le fichier "+archiveFile.getName()+" n'est pas une archive valide");
             return;
         }
-        FileUtils.cleanDirectory(new File(SAVEDIR));
-        ZipUtil.unpack(archiveFile, new File(SAVEDIR));
+        FileUtils.cleanDirectory(new File(SAVE_DIR));
+        ZipUtil.unpack(archiveFile, new File(SAVE_DIR));
     }
     
     public static File getSaveFile(){
-        return new File(SAVEDIR+File.separator+SAVE_FILE+".xml");
+        return new File(SAVE_DIR+File.separator+SAVE_FILE+".xml");
     }
     public static boolean saveFileExists(){
         return getSaveFile().exists();
@@ -69,7 +119,7 @@ public class FileSaveUtil {
             file.createNewFile();
             return file;
         } catch (IOException ex) {
-            AppLogger.log("Le fichier "+file.getPath()+" ne peut pas être créé");
+            LOG.error("Le fichier "+file.getPath()+" ne peut pas être créé");
             return null;
         }
     }
@@ -84,7 +134,7 @@ public class FileSaveUtil {
                 bckFile.delete();
             }
             FileUtils.copyFile(getSaveFile(), bckFile);
-            AppLogger.log("Fichier de sauvegarde "+bckFile.getName()+" créé");
+            LOG.info("Fichier de sauvegarde "+bckFile.getName()+" créé");
         } catch(Exception e){
             AppLogger.notif("Impossible de créer le fichier de sauvegarde", e);
         }
@@ -101,7 +151,7 @@ public class FileSaveUtil {
             return;
         }
         File currentFile = getSaveFile();
-        File tmpFile = new File(SAVEDIR+File.separator+SAVE_FILE+"tmp.xml");
+        File tmpFile = new File(SAVE_DIR+File.separator+SAVE_FILE+"tmp.xml");
         try {
             FileUtils.copyFile(currentFile, tmpFile);
         } catch (IOException ex) {
@@ -110,12 +160,12 @@ public class FileSaveUtil {
         }
         try {
             if(currentFile.exists()){
-                AppLogger.log("deleting "+currentFile.getName());
+                LOG.info("deleting "+currentFile.getName());
                 currentFile.delete();
             }
-            AppLogger.log("copying "+file.getName()+" to "+currentFile.getName());
+            LOG.info("copying "+file.getName()+" to "+currentFile.getName());
             FileUtils.copyFile(file, currentFile);
-            AppLogger.log("Fichier de sauvegarde "+file.getName()+" chargé");
+            LOG.info("Fichier de sauvegarde "+file.getName()+" chargé");
         } catch(Exception e){
             AppLogger.notif("Impossible de charger le fichier de sauvegarde", e);
             if(currentFile.exists()){

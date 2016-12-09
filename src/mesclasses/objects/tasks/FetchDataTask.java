@@ -5,19 +5,20 @@
  */
 package mesclasses.objects.tasks;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mesclasses.handlers.ModelHandler;
 import mesclasses.model.datamodel.ObservableData;
-import mesclasses.util.AppLogger;
 import mesclasses.util.DataLoadUtil;
 import mesclasses.util.FileSaveUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class FetchDataTask extends AppTask<ObservableData> {
+    
+    private static final Logger LOG = LogManager.getLogger(FetchDataTask.class);
     
     public FetchDataTask(){
         super();
@@ -40,12 +41,12 @@ public class FetchDataTask extends AppTask<ObservableData> {
             }
             updateProgress(33.0, 100.0);
             loadData(data);
-            AppLogger.log("data fetch done OK, backup ongoing");
+            LOG.info("data fetch done OK, backup ongoing");
             FileSaveUtil.createBackupFile();
-            AppLogger.log("backup done");
+            LOG.info("backup done");
             return data;
         } catch (Exception e) { // catches ANY exception
-            Logger.getLogger(DataLoadUtil.class.getName()).log(Level.SEVERE, null, e);
+            LOG.error(e);
             String message = "Impossible de charger les données";
             setMsg(message);
             throw new Exception(message+" : "+e.getCause());

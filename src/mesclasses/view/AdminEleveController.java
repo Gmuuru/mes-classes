@@ -9,8 +9,6 @@ import com.google.common.eventbus.Subscribe;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
@@ -42,6 +40,8 @@ import mesclasses.objects.events.SelectClasseEvent;
 import mesclasses.objects.events.SelectEleveEvent;
 import mesclasses.util.Btns;
 import mesclasses.util.ModalUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
 
 /**
@@ -50,6 +50,8 @@ import org.smartgrid.SmartGrid;
  * @author rrrt3491
  */
 public class AdminEleveController extends PageController implements Initializable {
+    
+    private static final Logger LOG = LogManager.getLogger(AdminEleveController.class);
     
     @FXML AnchorPane anchor;
             
@@ -93,7 +95,7 @@ public class AdminEleveController extends PageController implements Initializabl
     public void initialize(URL url, ResourceBundle rb) {
         name = "Admin Eleve Ctrl";
         super.initialize(url, rb);
-        log("Loading AdminEleveController with "+classes.size()+" classes");
+        LOG.info("Loading AdminEleveController with "+classes.size()+" classes");
         addEleveBtn.disableProperty().bind(Bindings.size(classes).isEqualTo(0));
         previousClasseBtn.disableProperty().bind(Bindings.size(classes).lessThanOrEqualTo(1));
         nextClasseBtn.disableProperty().bind(Bindings.size(classes).lessThanOrEqualTo(1));
@@ -171,7 +173,7 @@ public class AdminEleveController extends PageController implements Initializabl
         }
         this.currentClasse = classe;
         this.currentClasseLabel.setText(classe.getName());
-        log("Loading classe "+currentClasse.getName()+" avec "+currentClasse.getEleves().size()+" élèves");
+        LOG.info("Loading classe "+currentClasse.getName()+" avec "+currentClasse.getEleves().size()+" élèves");
         
         if(classe.getEleves().isEmpty()){
             grid.drawNoDataInGrid("Aucun élève dans cette classe");
@@ -222,7 +224,7 @@ public class AdminEleveController extends PageController implements Initializabl
                 loadClasse(currentClasse);
             }
         } catch (IOException e) {
-            Logger.getLogger(RootLayoutController.class.getName()).log(Level.SEVERE, null, e);
+            LOG.error(e);
         }
     }
     
@@ -299,7 +301,7 @@ public class AdminEleveController extends PageController implements Initializabl
         if(!super.notifyExit()){
             return false;
         }
-        log("Unload/ClasseLoad in AdminEleveController");
+        LOG.info("Unload/ClasseLoad in AdminEleveController");
         this.modelHandler.cleanupElevesForClasse(currentClasse);
         resetErrors();
         return true;

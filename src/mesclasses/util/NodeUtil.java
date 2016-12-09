@@ -18,12 +18,16 @@ import mesclasses.model.Cours;
 import mesclasses.model.Eleve;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectEleveEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class NodeUtil {
+    
+    private static final Logger LOG = LogManager.getLogger(EleveFileUtil.class);
     
     public static final StringConverter<LocalDate> DATE_WITH_DAY_NAME = new StringConverter<LocalDate>() {
 
@@ -110,7 +114,7 @@ public class NodeUtil {
         
         PropertiesCache config = PropertiesCache.getInstance();
         if(cours.getWeek() == null){
-            AppLogger.log("Erreur - cours sans semaine");
+            LOG.error("Erreur - cours sans semaine : "+cours.getId());
             return false;
         }
         if(cours.getWeek().equals(config.getProperty(Constants.CONF_WEEK_DEFAULT))){
@@ -141,6 +145,13 @@ public class NodeUtil {
         }
     }
     
+    /**
+     * vérifie si une date est entre les dates fournies (incluses)
+     * @param date
+     * @param start
+     * @param end
+     * @return 
+     */
     public static boolean isBetween(LocalDate date, LocalDate start, LocalDate end){
         return (date.isAfter(start) || date.isEqual(start))
             && (date.isBefore(end) || date.isEqual(end));

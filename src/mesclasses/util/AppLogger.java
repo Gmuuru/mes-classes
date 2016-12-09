@@ -5,11 +5,10 @@
  */
 package mesclasses.util;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.objects.events.MessageEvent;
-import mesclasses.view.RootLayoutController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
@@ -17,8 +16,22 @@ import mesclasses.view.RootLayoutController;
  */
 public class AppLogger {
     
-    public static void notif(String controller, Throwable e){
-            log(e);
+    public static void logStart(Class clazz){
+        Logger LOG = LogManager.getLogger(clazz);
+        LOG.info("*******************************************************************************************");
+        LOG.info("******************************  Démarrage de l'application  *******************************");
+        LOG.info("*******************************************************************************************");
+    }
+    
+    public static void logExit(Class clazz){
+        Logger LOG = LogManager.getLogger(clazz);
+        LOG.info("*******************************************************************************************");
+        LOG.info("******************************  Clôture de l'application    *******************************");
+        LOG.info("*******************************************************************************************");
+        
+    }
+    
+    public static void notif(String name, Throwable e){
             Throwable error = e;
             while(error != null && error.getCause() != null){
                 error = error.getCause();
@@ -27,23 +40,10 @@ public class AppLogger {
             if(message == null){
                 message = error.getClass().toString();
             }
-            EventBusHandler.post(new MessageEvent(MessageEvent.ERROR, controller+" : "+message));
+            EventBusHandler.post(new MessageEvent(MessageEvent.ERROR, name+" : "+message));
     }
     
-    public static void notif(String controller, String error){
-            log(error);
-            EventBusHandler.post(new MessageEvent(MessageEvent.ERROR, controller+" : "+error));
-    }
-    
-    public static void log(Throwable e){
-        Logger.getLogger(RootLayoutController.class.getName()).log(Level.SEVERE, null, e);
-    }
-    
-    public static void log(Object o){
-        log(o.toString());
-    }
-    
-    public static void log(String e){
-        System.out.println(e);
+    public static void notif(String name, String error){
+            EventBusHandler.post(new MessageEvent(MessageEvent.ERROR, name+" : "+error));
     }
 }

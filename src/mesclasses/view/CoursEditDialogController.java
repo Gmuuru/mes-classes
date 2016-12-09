@@ -119,7 +119,7 @@ public class CoursEditDialogController extends PageController implements Initial
        
     @FXML public void handleDelete(){
     
-        if(ModalUtil.confirm("Supprimer ce cours", "Etes-vous sûr(e) ?")){
+        if(ModalUtil.confirm("Supprimer ce cours", "Les séances existantes pour ce cours seront mise à jour avec un cours ponctuel. Etes-vous sûr(e) ?")){
             status = -1;
             dialogStage.close();
         }

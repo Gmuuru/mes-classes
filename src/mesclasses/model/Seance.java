@@ -149,9 +149,12 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
     public int compareTo(Seance t) {
         return cours.compareTo(t.getCours());
     }
-    
     @Override
     public String toString(){
+        return "seance "+id+" : "+display();
+    }
+    
+    public String display(){
         StringBuilder sb = new StringBuilder();
         sb.append(NodeUtil.formatTime(getCours().getStartHour(), getCours().getStartMin()))
         .append("   ")

@@ -117,7 +117,7 @@
             </ToolBar>
          </top>
          <bottom>
-            <Button mnemonicParsing="false" onAction="#openJournee" text="Journées" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#openJournee" text="Séances" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="5.0" top="5.0" />
                </BorderPane.margin>

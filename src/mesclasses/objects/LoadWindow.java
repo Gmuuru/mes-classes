@@ -23,15 +23,18 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import mesclasses.objects.tasks.AppTask;
 import mesclasses.objects.tasks.WaitTask;
-import mesclasses.util.AppLogger;
 import mesclasses.util.ModalUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class LoadWindow {
+    
+    private static final Logger LOG = LogManager.getLogger(LoadWindow.class);
     
     ProgressBar bar;
     VBox vbox;
@@ -60,7 +63,7 @@ public class LoadWindow {
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(stage);
         dialogStage.setScene(createloadingScene());
-        AppLogger.log("LOAD WINDOW REQUESTED. tasks = "+StringUtils.join(getTaskNames(), ","));
+        LOG.info("LOAD WINDOW REQUESTED. tasks = "+StringUtils.join(getTaskNames(), ","));
         
     }
     
@@ -145,7 +148,7 @@ public class LoadWindow {
         
         @Override
         public void start(){
-            AppLogger.log("#####  --> Task '"+task.getName()+"' started #####");
+            LOG.info("#####  --> Task '"+task.getName()+"' started #####");
             bar.progressProperty().bind(task.progressProperty());
             Label label = new Label(task.getName());
             label.setAlignment(Pos.TOP_CENTER);
@@ -158,7 +161,7 @@ public class LoadWindow {
             this.task = task;
             this.stateProperty().addListener(
                 (ObservableValue<? extends Worker.State> o, Worker.State oldValue, Worker.State newValue) -> {
-                    AppLogger.log("service changed status : "+newValue.name());
+                    LOG.info("service "+task.getName()+" changed status : "+newValue.name());
                 switch (newValue) {
                     case FAILED:
                     case CANCELLED:
@@ -168,7 +171,7 @@ public class LoadWindow {
                         dialogStage.close();
                         break;
                     case SUCCEEDED:
-                        AppLogger.log("#####  --> Task '"+task.getName()+"' finished #####");
+                        LOG.info("#####  --> Task '"+task.getName()+"' finished #####");
                         next();
                         break;
                 }

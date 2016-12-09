@@ -39,6 +39,7 @@ import mesclasses.objects.events.ChangeEvent;
 import mesclasses.objects.events.IsAliveEvent;
 import mesclasses.objects.events.MessageEvent;
 import mesclasses.objects.events.OpenMenuEvent;
+import mesclasses.util.AppLogger;
 import mesclasses.util.CssUtil;
 import mesclasses.util.DataLoadUtil;
 import mesclasses.util.EleveFileUtil;
@@ -46,12 +47,16 @@ import mesclasses.util.FileSaveUtil;
 import mesclasses.util.ModalUtil;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class RootLayoutController extends PageController implements Initializable {
+    
+    private static final Logger LOG = LogManager.getLogger(RootLayoutController.class);
     
     @FXML private BorderPane mainPane;
     
@@ -146,11 +151,11 @@ public class RootLayoutController extends PageController implements Initializabl
                     return false;
                 }
             }
-            log("Loading view "+view);
+            LOG.debug("Loading view "+view);
             Screen screen = getScreen(view);
             if(screen == null || screen.getCtrl() == null){
 
-                log("screen is null");
+                LOG.error("screen is null");
                 return false;
             }
             mainPane.setCenter(screen.getRoot());
@@ -182,27 +187,29 @@ public class RootLayoutController extends PageController implements Initializabl
         if(currentController != null && !currentController.notifySave()){
             return;
         }
-        save();
-        EventBusHandler.post(MessageEvent.success("Données sauvegardées"));
-        modelHandler.getData().resetChange();
-        primaryStage.setTitle(Constants.APPLICATION_TITLE);
-        saveNeeded = false;
-        if(currentController != null){
-            currentController.reload();
+        if(save()){
+            EventBusHandler.post(MessageEvent.success("Données sauvegardées"));
+            modelHandler.getData().resetChange();
+            primaryStage.setTitle(Constants.APPLICATION_TITLE);
+            saveNeeded = false;
+            if(currentController != null){
+                currentController.reload();
+            }
         }
     }
     
-    private void save(){
+    private boolean save(){
         XMLData xmlData = new XMLData();
         Collections.sort(trimestres);
         modelHandler.cleanupClasses();
+        modelHandler.cleanUpJournees();
         xmlData.getTrimestres().addAll(trimestres);
         xmlData.getClasses().addAll(classes);
         xmlData.getCours().addAll(cours);
         journees.keySet().forEach(date -> {
             xmlData.getJournees().put(date.format(Constants.DATE_FORMATTER), journees.get(date));
         });
-        DataLoadUtil.writeData(xmlData, FileSaveUtil.getSaveFile());
+        return DataLoadUtil.writeData(xmlData, FileSaveUtil.getSaveFile());
     }
     
     @FXML
@@ -298,6 +305,8 @@ public class RootLayoutController extends PageController implements Initializabl
     @FXML
     private void handleExit() {
         if(canExit()){
+            
+            AppLogger.logExit(RootLayoutController.class);
             System.exit(0);
         }
     }
@@ -381,7 +390,7 @@ public class RootLayoutController extends PageController implements Initializabl
         chooser.setTitle("Sauvegardez les données");
             chooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Archive MesClasses", "*.zip"));
-        log(archive.getPath());
+        LOG.info("archiving in "+archive.getPath());
         chooser.setInitialFileName(FilenameUtils.getName(archive.getPath()));
         File file = chooser.showSaveDialog(primaryStage);
         if (file != null) {

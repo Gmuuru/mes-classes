@@ -5,6 +5,7 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -20,6 +21,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlTransient;
 import mesclasses.objects.ClasseTab;
+import mesclasses.util.Validators;
+import mesclasses.util.validation.FError;
 
 /**
  *
@@ -61,6 +64,13 @@ public class Classe extends MonitoredObject implements Comparable<Classe> {
     public void resetChange(){
         super.resetChange();
         eleves.forEach(c -> c.resetChange());
+    }
+    
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        return err;
     }
     
     public Classe(String name){

@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
@@ -54,6 +55,8 @@ import mesclasses.util.CssUtil;
 import mesclasses.util.ModalUtil;
 import mesclasses.util.NodeUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
 
 /**
@@ -63,6 +66,8 @@ import org.smartgrid.SmartGrid;
  */
 public class ClasseContentController extends TabContentController implements Initializable {
 
+    private static final Logger LOG = LogManager.getLogger(ClasseContentController.class);
+    
     // FXML elements
     
     @FXML SmartGrid grid; 
@@ -156,7 +161,7 @@ public class ClasseContentController extends TabContentController implements Ini
     
     @Override
     public void setCurrentDate(LocalDate date){
-        log("Setting the content date at "+date+". classe is "+classe);
+        LOG.info("Setting the content date at "+date+". classe is "+classe);
         this.currentDate.setValue(date);
     }
     
@@ -262,7 +267,6 @@ public class ClasseContentController extends TabContentController implements Ini
     @FXML
     public void openPunitions(){
         EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_PUNITIONS_VIEW));
-        log(classe.toString());
         EventBusHandler.post(new SelectClasseEvent(classe));
         
     }
@@ -291,7 +295,7 @@ public class ClasseContentController extends TabContentController implements Ini
             dialogStage.showAndWait();
 
         } catch (IOException e) {
-            log(e);
+            LOG.error(e);
         }
     }
     @FXML
@@ -319,7 +323,7 @@ public class ClasseContentController extends TabContentController implements Ini
             dialogStage.showAndWait();
 
         } catch (IOException e) {
-            log(e);
+            LOG.error(e);
         }
     }
     
@@ -327,7 +331,7 @@ public class ClasseContentController extends TabContentController implements Ini
         String texte = ModalUtil.prompt("Punition pour "+eleve.getFirstName()+" "+eleve.getLastName(), "");
         if(!StringUtils.isEmpty(texte)){
             //TODO
-            modelHandler.createPunition(eleve, currentDate.getValue(), null, texte);
+            modelHandler.createPunition(eleve, currentDate.getValue(), 0, texte);
             EventBusHandler.post(MessageEvent.success("Punition créée"));
         }
     }
@@ -455,7 +459,8 @@ public class ClasseContentController extends TabContentController implements Ini
         if(!cumulTravailMap.containsKey(eleve)){
             cumulTravailMap.put(eleve, new SimpleIntegerProperty());
         }
-        cumulTravailMap.get(eleve).set(modelHandler.countCumulTravail(data));
+        cumulTravailMap.get(eleve).set(data.stream().filter(d -> 
+                d.isTravailPasFait()).collect(Collectors.toList()).size());
     }
     
     private void computeCumulRetard(Eleve eleve, Trimestre trimestre){
@@ -463,7 +468,8 @@ public class ClasseContentController extends TabContentController implements Ini
         if(!cumulRetardMap.containsKey(eleve)){
             cumulRetardMap.put(eleve, new SimpleIntegerProperty());
         }
-        cumulRetardMap.get(eleve).set(modelHandler.countCumulRetard(data));
+        cumulRetardMap.get(eleve).set(data.stream().filter(d -> 
+                d.getRetard() > 0).collect(Collectors.toList()).size());
     }
     
     private void computeCumulOubli(Eleve eleve, Trimestre trimestre){
@@ -471,7 +477,8 @@ public class ClasseContentController extends TabContentController implements Ini
         if(!cumulOubliMap.containsKey(eleve)){
             cumulOubliMap.put(eleve, new SimpleIntegerProperty());
         }
-        cumulOubliMap.get(eleve).set(modelHandler.countCumulOubli(data));
+        cumulOubliMap.get(eleve).set(data.stream().filter(d -> 
+                StringUtils.isNotBlank(d.getOubliMateriel())).collect(Collectors.toList()).size());
     }
     
     

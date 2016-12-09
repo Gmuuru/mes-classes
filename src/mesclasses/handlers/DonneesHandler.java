@@ -60,6 +60,7 @@ public class DonneesHandler {
     public EleveData buildEleveData(Seance seance, Eleve eleve){
         EleveData newData = new EleveData();
         newData.setEleve(eleve);
+        newData.setSeance(seance);
         newData.setDate(seance.getDateAsDate());
         return newData;
     }

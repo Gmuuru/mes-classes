@@ -19,6 +19,8 @@ import mesclasses.controller.PageController;
 import mesclasses.model.Constants;
 import mesclasses.model.Cours;
 import mesclasses.util.ModalUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -27,6 +29,7 @@ import mesclasses.util.ModalUtil;
  */
 public class ConfigSemainesController extends PageController implements Initializable {
 
+    private static final Logger LOG = LogManager.getLogger(ConfigSemainesController.class);
     /**
      * ComboBoxes
      * 1 = semaines paires
@@ -94,7 +97,6 @@ public class ConfigSemainesController extends PageController implements Initiali
     
     @FXML void onSave(){
         //update des cours
-        log("nb de cours : "+modelHandler.getCours());
         modelHandler.getCours().forEach(c -> updateWeek(c));
         config.setProperty(Constants.CONF_WEEK_DEFAULT, standardNameField.getText());
         config.setProperty(Constants.CONF_WEEK_P1_NAME, p1NameField.getText());

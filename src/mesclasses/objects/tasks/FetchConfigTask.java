@@ -5,17 +5,19 @@
  */
 package mesclasses.objects.tasks;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
-import mesclasses.util.DataLoadUtil;
+import mesclasses.objects.LoadWindow;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class FetchConfigTask extends AppTask<Void> {
+    
+    private static final Logger LOG = LogManager.getLogger(LoadWindow.class);
     
     public FetchConfigTask(){
         super();
@@ -31,10 +33,12 @@ public class FetchConfigTask extends AppTask<Void> {
     protected Void call() throws Exception {
         try {
             PropertiesCache.getInstance().load();
+            
+            LOG.info("Initialisation de la configuration par défaut si besoin");
             initConfig();
             
         } catch (Exception e) { // catches ANY exception
-            Logger.getLogger(DataLoadUtil.class.getName()).log(Level.SEVERE, null, e);
+            LOG.error(e);
             setMsg("Impossible de charger la configuration");
             throw e;
         }
@@ -42,7 +46,7 @@ public class FetchConfigTask extends AppTask<Void> {
     }
     
     private void initConfig(){
-        log("Initialisation de la configuration par défaut si besoin");
+        LOG.info("Initialisation de la configuration par défaut si besoin");
         PropertiesCache config = PropertiesCache.getInstance();
         if(!config.containsKey(Constants.CONF_WEEK_DEFAULT)){
             config.setProperty(Constants.CONF_WEEK_DEFAULT, "normale");

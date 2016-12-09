@@ -89,7 +89,6 @@ public abstract class AbstractClasseTabsController extends PageController implem
             if(selectedClasse != null){
                 selectClasse(selectedClasse);
             }
-            log("Loading tab content for classe "+getSelectedClasse());
             loadTabsContent();
             tabPane.getSelectionModel().selectedItemProperty().addListener(selectionListener);
             

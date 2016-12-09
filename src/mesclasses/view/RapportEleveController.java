@@ -10,12 +10,8 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -39,15 +35,18 @@ import mesclasses.handlers.EventBusHandler;
 import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
 import mesclasses.model.Eleve;
-import mesclasses.model.EleveData;
 import mesclasses.model.Punition;
+import mesclasses.model.Seance;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectEleveEvent;
+import mesclasses.objects.events.SelectSeanceEvent;
 import mesclasses.util.Btns;
 import mesclasses.util.CssUtil;
 import mesclasses.util.EleveFileUtil;
 import mesclasses.util.ModalUtil;
-import org.apache.commons.lang3.StringUtils;
+import mesclasses.util.NodeUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
 
 /**
@@ -56,6 +55,8 @@ import org.smartgrid.SmartGrid;
  * @author rrrt3491
  */
 public class RapportEleveController extends PageController implements Initializable {
+    
+    private static final Logger LOG = LogManager.getLogger(JourneeController.class);
     
     @FXML Label trimestreLabel;
     
@@ -170,7 +171,6 @@ public class RapportEleveController extends PageController implements Initializa
         if(trimestres != null && !trimestres.isEmpty()){
             selectTrimestre(0);
         }
-        closePanes();
         refreshGrid();
     }
     
@@ -195,43 +195,42 @@ public class RapportEleveController extends PageController implements Initializa
         if(eleve == null){
             return;
         }
-        List<EleveData> data = modelHandler.filterByTrimestre(eleve.getData(), trimestres.get(trimestreIndex.get()), null);
-        Collections.sort(data);
-        List<EleveData> absences = data.stream().filter(d -> d.isAbsent()).collect(Collectors.toList());
-        handlePaneTitle(absencesPane, absences.size(), "absence", "absences");
-        handleBasicPaneContent(absencesBox, absences);
+        closePanes();
+        List<Seance> listeSeances = stats.getSeancesWithAbsenceOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(absencesPane, listeSeances.size(), "absence", "absences");
+        handleBasicPaneContent(absencesBox, listeSeances);
         
-        List<EleveData> retards = data.stream().filter(d -> d.getRetard() > 0).collect(Collectors.toList());
-        handlePaneTitle(retardsPane, retards.size(), "retard", "retards");
-        handleRetardPaneContent(retards);
+        listeSeances = stats.getSeancesWithRetardOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(retardsPane, listeSeances.size(), "retard", "retards");
+        handleRetardPaneContent(listeSeances);
         
-        List<EleveData> travail = data.stream().filter(d -> d.isTravailPasFait()).collect(Collectors.toList());
-        handlePaneTitle(travauxPane, travail.size(), "travail non fait", "travaux non faits");
-        handleBasicPaneContent(travauxBox, travail);
+        listeSeances = stats.getSeancesWithTravailOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(travauxPane, listeSeances.size(), "travail non fait", "travaux non faits");
+        handleBasicPaneContent(travauxBox, listeSeances);
         
-        List<EleveData> devoirs = data.stream().filter(d -> d.isDevoir()).collect(Collectors.toList());
-        handlePaneTitle(devoirsPane, devoirs.size(), "devoir non rendu", "devoirs non rendus");
-        handleBasicPaneContent(devoirsBox, devoirs);
+        listeSeances = stats.getSeancesWithDevoirOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(devoirsPane, listeSeances.size(), "devoir non rendu", "devoirs non rendus");
+        handleBasicPaneContent(devoirsBox, listeSeances);
         
         List<Punition> punitions = modelHandler.filterByTrimestre(eleve.getPunitions(), trimestres.get(trimestreIndex.get()));
         handlePaneTitle(punitionsPane, punitions.size(), "punition", "punitions");
-        handlePunitionContent(punitionsBox, punitions);
+        handlePunitionContent(punitions);
         
-        List<EleveData> mots = data.stream().filter(d -> d.isMotCarnet()).collect(Collectors.toList());
-        handlePaneTitle(motsPane, mots.size(), "mot carnet", "mots carnet");
-        handleBasicPaneContent(motsBox, mots);
+        listeSeances = stats.getSeancesWithMotOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(motsPane, listeSeances.size(), "mot carnet", "mots carnet");
+        handleBasicPaneContent(motsBox, listeSeances);
         
-        List<EleveData> motsSignes = data.stream().filter(d -> d.isMotSigne()).collect(Collectors.toList());
-        handlePaneTitle(motsPane, motsSignes.size(), "mot signé", "mots signés");
-        handleBasicPaneContent(motsBox, motsSignes);
+        listeSeances = stats.getSeancesWithMotSigneOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(motsPane, listeSeances.size(), "mot signé", "mots signés");
+        handleBasicPaneContent(motsBox, listeSeances);
         
-        List<EleveData> oublis = data.stream().filter(d -> StringUtils.isNotBlank(d.getOubliMateriel())).collect(Collectors.toList());
-        handlePaneTitle(oublisPane, oublis.size(), "oubli matériel", "oublis matériel");
-        handleOubliPaneContent(oublis);
+        listeSeances = stats.getSeancesWithOubliOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(oublisPane, listeSeances.size(), "oubli matériel", "oublis matériel");
+        handleOubliPaneContent(listeSeances);
         
-        List<EleveData> exclusions = data.stream().filter(d -> d.isExclus()).collect(Collectors.toList());
-        handlePaneTitle(exclusPane, exclusions.size(), "exclusion", "exclusions");
-        handleBasicPaneContent(exclusBox, exclusions);
+        listeSeances = stats.getSeancesWithExclusionOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
+        handlePaneTitle(exclusPane, listeSeances.size(), "exclusion", "exclusions");
+        handleBasicPaneContent(exclusBox, listeSeances);
         
     }
     
@@ -249,40 +248,51 @@ public class RapportEleveController extends PageController implements Initializa
         pane.setText(count+" "+plur);
     }
     
-    private void handleBasicPaneContent(VBox pane, List<EleveData> liste){
+    private void handleBasicPaneContent(VBox pane, List<Seance> liste){
         pane.getChildren().clear();
-        liste.forEach(eleveData -> {
-            String formattedDate = eleveData.getDateAsDate().format(Constants.LONG_DATE_FORMATTER);
-            pane.getChildren().add(new Label(formattedDate+", cours "+eleveData.getCours()));
+        liste.forEach(s -> {
+            pane.getChildren().add(buildLink(s, null));
         });
     }
     
-    private void handleRetardPaneContent(List<EleveData> liste){
+    private void handleRetardPaneContent(List<Seance> liste){
         retardsBox.getChildren().clear();
-        liste.forEach(eleveData -> {
-            String formattedDate = eleveData.getDateAsDate().format(Constants.LONG_DATE_FORMATTER);
-            retardsBox.getChildren().add(
-                    new Label(formattedDate+", cours "+eleveData.getCours()+" ("+eleveData.getRetard()+")"));
+        liste.forEach(s -> {
+            retardsBox.getChildren().add(buildLink(s, " ("+s.getDonneesAsMap().get(eleve).getRetard()+")"));
         });
     }
     
-    private void handleOubliPaneContent(List<EleveData> liste){
+    private void handleOubliPaneContent(List<Seance> liste){
         oublisBox.getChildren().clear();
-        liste.forEach(eleveData -> {
-            String formattedDate = eleveData.getDateAsDate().format(Constants.LONG_DATE_FORMATTER);
-            oublisBox.getChildren().add(
-                    new Label(formattedDate+", cours "+eleveData.getCours()+" ("+eleveData.getOubliMateriel()+")"));
+        liste.forEach(s -> {
+            oublisBox.getChildren().add(buildLink(s, " ("+s.getDonneesAsMap().get(eleve).getOubliMateriel()+")"));
         });
     }
     
-    private void handlePunitionContent(VBox pane, List<Punition> liste){
-        pane.getChildren().clear();
+    private void handlePunitionContent(List<Punition> liste){
+        punitionsBox.getChildren().clear();
         liste.forEach(punition -> {
-            String formattedDate = punition.getDateAsDate().format(Constants.LONG_DATE_FORMATTER);
-            pane.getChildren().add(new Label(formattedDate+", cours "+punition.getCours()+" ("+punition.getTexte()+")"));
+            punitionsBox.getChildren().add(buildLink(punition.getSeance(), " ("+punition.getTexte()+")"));
         });
     }
     
+    private Hyperlink buildLink(Seance seance, String suffixe){
+        String text = seance.getDateAsDate().format(Constants.LONG_DATE_FORMATTER);
+        if(suffixe != null){
+            text+=" "+suffixe;
+        }
+        text += ", cours de "+
+                    NodeUtil.formatTime(
+                            seance.getCours().getStartHour(), 
+                            seance.getCours().getStartMin());
+        
+        Hyperlink link = new Hyperlink(text);
+        link.setOnAction(e -> {
+            EventBusHandler.post(new SelectSeanceEvent(seance));
+            EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW));
+        });
+        return link;
+    }
     public void refreshGrid(){
         fileGrid.clear();
         files = EleveFileUtil.getEleveFilesOfType(eleve, selectedFileType.get());
@@ -332,7 +342,7 @@ public class RapportEleveController extends PageController implements Initializa
         try {
             Desktop.getDesktop().open(file);
         } catch (IOException ex) {
-            Logger.getLogger(RapportEleveController.class.getName()).log(Level.SEVERE, null, ex);
+            LOG.error(ex);
         }
     }
     
@@ -414,7 +424,7 @@ public class RapportEleveController extends PageController implements Initializa
         if(previousPage != null){
             EventBusHandler.post(new OpenMenuEvent(previousPage).setReload(false));
         } else {
-            EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_CONTENT_TABS_VIEW).setReload(false));
+            EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW).setReload(false));
         }
     }
     

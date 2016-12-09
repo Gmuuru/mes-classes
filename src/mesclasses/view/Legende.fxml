@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="200.0" styleClass="legende-box" BorderPane.alignment="CENTER">
+    <stylesheets>
+        <URL value="@../../resources/css/main.css" />
+        <URL value="@../../resources/css/legende.css" />
+    </stylesheets>
+        <children>
+         <Pane minWidth="75.0" prefHeight="200.0" prefWidth="75.0">
+            <children>
+               <Label styleClass="legende-title" text="Punitions" />
+            </children>
+         </Pane>
+         <FlowPane prefHeight="200.0" prefWidth="150.0">
+            <children>
+                 <Label contentDisplay="CENTER" minWidth="120.0" text="CG : Chewing-gum" />
+                 <Label contentDisplay="CENTER" minWidth="120.0" text="M : Matériel" />
+            </children>
+         </FlowPane>
+         <Pane minWidth="75.0" prefHeight="200.0" prefWidth="75.0">
+            <children>
+               <Label styleClass="legende-title" text="Matériel" />
+            </children>
+         </Pane>
+         <FlowPane prefHeight="200.0" prefWidth="280.0">
+            <children>
+                 <Label minWidth="80.0" text="C : Cahier" />
+                 <Label minWidth="80.0" text="G : Matériel de géométrie" />
+                 <Label minWidth="80.0" text="L : Livre" />
+                 <Label minWidth="80.0" text="M : Calculatrice" />
+            </children>
+         </FlowPane>
+        </children>
+      <padding>
+         <Insets left="10.0" right="10.0" />
+      </padding>
+     </HBox>

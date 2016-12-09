@@ -35,6 +35,8 @@ import mesclasses.model.Eleve;
 import mesclasses.util.AppLogger;
 import mesclasses.util.Btns;
 import mesclasses.util.CssUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
 
 /**
@@ -44,6 +46,8 @@ import org.smartgrid.SmartGrid;
  */
 public class HistoriqueController  extends PageController implements Initializable {
 
+    private static final Logger LOG = LogManager.getLogger(HistoriqueController.class);
+    
     @FXML AnchorPane anchor;
     @FXML SmartGrid grid;
     
@@ -57,7 +61,7 @@ public class HistoriqueController  extends PageController implements Initializab
     public void initialize(URL url, ResourceBundle rb) {
         name = "Historique Ctrl";
         super.initialize(url, rb);
-        log("Loading HistoriqueController");
+        LOG.info("Loading HistoriqueController");
         
         refreshGrid();
     }    

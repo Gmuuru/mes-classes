@@ -35,6 +35,8 @@ import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.util.AppLogger;
 import mesclasses.util.Btns;
 import mesclasses.util.ModalUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
 import org.smartgrid.elements.MoveButtons;
 
@@ -45,6 +47,8 @@ import org.smartgrid.elements.MoveButtons;
  */
 public class AdminClasseController extends PageController implements Initializable {
 
+    private static final Logger LOG = LogManager.getLogger(AdminClasseController.class);
+    
     @FXML AnchorPane anchor;
     @FXML SmartGrid grid;
     @FXML Button addClasseBtn;
@@ -59,7 +63,7 @@ public class AdminClasseController extends PageController implements Initializab
     public void initialize(URL url, ResourceBundle rb) {
         name = "Admin Classe Ctrl";
         super.initialize(url, rb);
-        log("Loading AdminClasseController with "+ classes.size() +" classes");
+        LOG.info("Loading AdminClasseController with "+ classes.size() +" classes");
         handleKeys();
         init();
     } 
@@ -168,14 +172,14 @@ public class AdminClasseController extends PageController implements Initializab
         if(!super.notifyExit()){
             return false;
         }
-        log("Unload of AdminClasseController");
+        LOG.info("Unload of AdminClasseController");
         this.modelHandler.cleanupClasses();
         return true;
     }
     
     @Override
     public void reload(){
-        log("reloading classes with "+classes.size()+" classes"); 
+        LOG.info("reloading classes with "+classes.size()+" classes"); 
         init();
     }
     

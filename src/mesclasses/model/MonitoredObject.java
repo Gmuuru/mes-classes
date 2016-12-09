@@ -6,6 +6,7 @@
 package mesclasses.model;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -18,6 +19,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.objects.events.ChangeEvent;
+import mesclasses.util.validation.FError;
 
 /**
  *
@@ -115,5 +117,7 @@ public abstract class MonitoredObject {
     public void resetChange() {
         this.setChanged(false);
     }
+    
+    protected abstract List<FError> validate();
     
 }

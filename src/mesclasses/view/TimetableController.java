@@ -36,6 +36,7 @@ import mesclasses.model.Constants;
 import mesclasses.model.Cours;
 import mesclasses.objects.events.CreateCoursEvent;
 import mesclasses.util.CssUtil;
+import mesclasses.util.ModalUtil;
 import mesclasses.util.NodeUtil;
 import org.apache.commons.lang3.StringUtils;
 
@@ -315,7 +316,8 @@ public class TimetableController extends PageController implements Initializable
             else {
                 //delete
                 getPane(coursToEdit).getChildren().remove(coursToEdit.getEvent());
-                modelHandler.delete(originalCours);
+                int seances = modelHandler.delete(originalCours).size();
+                ModalUtil.info("Séances modifiées", seances+" séances ont été modifiées");
                 return null;
             }
 

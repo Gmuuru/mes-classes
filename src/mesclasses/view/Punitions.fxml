@@ -22,7 +22,6 @@
    <stylesheets>
         <URL value="@../../resources/css/main.css" />
         <URL value="@../../resources/css/titledPanes.css" />
-        <URL value="@../../resources/css/legende.css" />
     </stylesheets>
     <top>
       <HBox styleClass="titlebox">
@@ -40,41 +39,11 @@
    </top>
    <bottom>
        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#openClasse" text="Retour à la classe" VBox.vgrow="ALWAYS">
+        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#openClasse" text="Séances" VBox.vgrow="ALWAYS">
             <VBox.margin>
                <Insets bottom="5.0" top="5.0" />
             </VBox.margin></Button>
-        <HBox fx:id="legendePane" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="200.0" styleClass="legende-box" BorderPane.alignment="CENTER">
-                   <children>
-                    <Pane minWidth="75.0" prefHeight="200.0" prefWidth="75.0">
-                       <children>
-                          <Label styleClass="legende-title" text="Punitions" />
-                       </children>
-                    </Pane>
-                    <FlowPane prefHeight="200.0" prefWidth="150.0">
-                       <children>
-                            <Label contentDisplay="CENTER" minWidth="120.0" text="CG : Chewing-gum" />
-                            <Label contentDisplay="CENTER" minWidth="120.0" text="M : Matériel" />
-                       </children>
-                    </FlowPane>
-                    <Pane minWidth="75.0" prefHeight="200.0" prefWidth="75.0">
-                       <children>
-                          <Label styleClass="legende-title" text="Matériel" />
-                       </children>
-                    </Pane>
-                    <FlowPane prefHeight="200.0" prefWidth="280.0">
-                       <children>
-                            <Label minWidth="80.0" text="C : Cahier" />
-                            <Label minWidth="80.0" text="G : Matériel de géométrie" />
-                            <Label minWidth="80.0" text="L : Livre" />
-                            <Label minWidth="80.0" text="M : Calculatrice" />
-                       </children>
-                    </FlowPane>
-                   </children>
-                 <padding>
-                    <Insets left="10.0" right="10.0" />
-                 </padding>
-                </HBox>
+        <fx:include source="Legende.fxml"/>
        </VBox>
    </bottom>
    <center>

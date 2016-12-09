@@ -5,7 +5,9 @@
  */
 package mesclasses.model.datamodel;
 
+import com.google.common.collect.Lists;
 import java.time.LocalDate;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -14,6 +16,7 @@ import mesclasses.model.Cours;
 import mesclasses.model.Journee;
 import mesclasses.model.MonitoredObject;
 import mesclasses.model.Trimestre;
+import mesclasses.util.validation.FError;
 
 /**
  *
@@ -48,6 +51,16 @@ public class ObservableData extends MonitoredObject {
         cours.forEach(c -> c.resetChange());
         journees.values().forEach(j -> j.resetChange());
         
+    }
+    
+    @Override
+    public List<FError> validate() {
+        List<FError> e = Lists.newArrayList();
+        classes.forEach(c -> e.addAll(c.validate()));
+        trimestres.forEach(c -> c.validate());
+        cours.forEach(c -> c.validate());
+        journees.values().forEach(j -> j.validate());
+        return e;
     }
     
     public ObservableList<Trimestre> getTrimestres() {

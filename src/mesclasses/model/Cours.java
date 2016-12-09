@@ -205,6 +205,9 @@ public class Cours extends MonitoredObject implements Serializable, Comparable<C
 
     public void setPonctuel(Boolean ponctuel) {
         this.ponctuel.set(ponctuel);
+        if(ponctuel) {
+            setWeek("ponctuel");
+        };
     }
     
     @XmlTransient

@@ -28,19 +28,22 @@
    <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
-            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <items>
-                <Button fx:id="switchNonActifsBtn" mnemonicParsing="false" onAction="#switchNonActifs" text="Button" />
-                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#openRapport" text="Rapport Classe" />
-                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#openMotDialog" styleClass="warning" text="Mots" />
-                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#openPunitions" styleClass="warning" text="Punitions" />
-                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#openPostIt" styleClass="warning" text="Post-It" />
-              </items>
-            </ToolBar>
+             <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+                <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <items>
+                    <Button fx:id="switchNonActifsBtn" mnemonicParsing="false" onAction="#switchNonActifs" text="Button" />
+                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                      <Button mnemonicParsing="false" onAction="#openRapport" text="Rapport Classe" />
+                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                      <Button mnemonicParsing="false" onAction="#openMotDialog" styleClass="warning" text="Mots" />
+                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                      <Button mnemonicParsing="false" onAction="#openPunitions" styleClass="warning" text="Punitions" />
+                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                      <Button mnemonicParsing="false" onAction="#openPostIt" styleClass="warning" text="Post-It" />
+                  </items>
+                </ToolBar>
+                <fx:include source="Legende.fxml"/>
+             </VBox>
          </bottom>
          <center>
             <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
@@ -82,7 +85,7 @@
                         </SmartGrid>
                   <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                      <content>
-                        <SmartGrid fx:id="vieScolaireGrid" alignment="CENTER" maxHeight="-Infinity" nbHeaderRows="0" maxWidth="1.7976931348623157E308" prefWidth="1280.0" styleClass="smart-grid">
+                        <SmartGrid fx:id="vieScolaireGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0" styleClass="smart-grid">
                           <columnConstraints>
                             <ColumnConstraints minWidth="5" percentWidth="2" />
                             <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
@@ -106,7 +109,7 @@
                     <content>
                    <VBox>
                        <children>
-                           <SmartGrid alignment="CENTER" nbHeaderRows="1" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="1280.0" styleClass="smart-grid">
+                           <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1280.0" styleClass="smart-grid">
                           <columnConstraints>
                             <ColumnConstraints minWidth="5" percentWidth="2" />
                             <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
@@ -143,7 +146,7 @@
                         </SmartGrid>
                   <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                      <content>
-                        <SmartGrid fx:id="travailGrid" nbHeaderRows="0" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="1280.0" styleClass="smart-grid">
+                        <SmartGrid fx:id="travailGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0" styleClass="smart-grid">
                           <columnConstraints>
                             <ColumnConstraints minWidth="5" percentWidth="2" />
                             <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
@@ -169,7 +172,7 @@
                      <content>
                    <VBox>
                        <children>
-                           <SmartGrid alignment="CENTER" nbHeaderRows="1" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="1280.0" styleClass="smart-grid">
+                           <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1280.0" styleClass="smart-grid">
                           <columnConstraints>
                             <ColumnConstraints minWidth="5" percentWidth="2" />
                             <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
@@ -204,7 +207,7 @@
                         </SmartGrid>
                   <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                      <content>
-                        <SmartGrid fx:id="sanctionsGrid" nbHeaderRows="0" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="1280.0" styleClass="smart-grid">
+                        <SmartGrid fx:id="sanctionsGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0" styleClass="smart-grid">
                           <columnConstraints>
                             <ColumnConstraints minWidth="5" percentWidth="2" />
                             <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
@@ -255,7 +258,7 @@
                   <HBox alignment="CENTER">
                      <children>
                         <Button fx:id="previousSeanceBtn" mnemonicParsing="false" onAction="#previousSeance" text="&lt;" />
-                        <Label fx:id="currentSeanceLabel" styleClass="list-element" alignment="CENTER" contentDisplay="CENTER" text="Label" HBox.hgrow="ALWAYS">
+                        <Label fx:id="currentSeanceLabel" alignment="CENTER" contentDisplay="CENTER" styleClass="list-element" text="Label" HBox.hgrow="ALWAYS">
                            <padding>
                               <Insets left="10.0" right="10.0" />
                            </padding></Label>

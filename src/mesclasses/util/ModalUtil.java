@@ -36,6 +36,13 @@ public class ModalUtil {
         alert.showAndWait();
     }
     
+    public static void info(String header, String text){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(header);
+        alert.setContentText(text);
+        alert.showAndWait();
+    }
     public static String prompt(String header, String text){
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Entrez une valeur");

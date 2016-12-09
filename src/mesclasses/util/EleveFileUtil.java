@@ -15,12 +15,16 @@ import static mesclasses.util.FileSaveUtil.FILE_DIR;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class EleveFileUtil {
+    
+    private static final Logger LOG = LogManager.getLogger(EleveFileUtil.class);
     
     public static File getEleveDir(Eleve eleve){
         return new File(FileSaveUtil.FILE_DIR + File.separator + sanitize(eleve.getId()));
@@ -31,7 +35,7 @@ public class EleveFileUtil {
     }
     
     public static List<File> getEleveFilesOfType(Eleve eleve, String type){
-        AppLogger.log("Recuperation des fichiers "+type+" pour "+eleve.getDisplayName());
+        LOG.info("Recuperation des fichiers "+type+" pour "+eleve.getDisplayName());
         File[] files = getEleveDirWithType(eleve, type).listFiles();
         if(files == null){
             return new ArrayList<>();

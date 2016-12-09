@@ -161,7 +161,7 @@ public class PunitionsController extends PageController implements Initializable
     }
     
     @FXML public void openClasse(){
-        EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_CONTENT_TABS_VIEW).setReload(false));
+        EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW).setReload(false));
     }
     
     @Override

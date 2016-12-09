@@ -6,9 +6,11 @@
 package mesclasses.handlers;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -115,11 +117,15 @@ public class ModelHandler {
     
     public void delete(Classe classe){
         // eleves
-        while(!classe.getEleves().isEmpty()){
-            delete(classe.getEleves().get(0));
-        }
+        classe.getEleves().forEach(e -> delete(e));
+        classe.getEleves().clear();
         
         //cours
+        data.getCours().forEach(c -> {
+            if(c.getClasse().getName().equals(classe.getName())){
+                delete(c);
+            }
+        });
         data.getCours().removeIf((c) -> c.getClasse().getName().equals(classe.getName()));
         
         data.getClasses().remove(classe);
@@ -229,6 +235,9 @@ public class ModelHandler {
     
     public Cours createCours(Cours newCours){
         data.getCours().add(newCours);
+        getJourneesForDay(newCours.getDay()).forEach(j -> {
+            addSeanceWithCours(j, newCours);
+        });
         newCours.startChangeDetection();
         return newCours;
     }
@@ -237,8 +246,15 @@ public class ModelHandler {
         data.getCours().removeIf(t -> t.getClasse() == null);
     }
     
-    public void delete(Cours cours){
+    /**
+     * supprime un cours et crée des cours ponctuels pour les séances existantes
+     * renvoie la liste des séances impactées
+     * @param cours
+     * @return 
+     */
+    public List<Seance> delete(Cours cours){
         data.getCours().remove(cours);
+        return handleSeanceWithDeletedCours(cours);
     }
     
     public Cours cloneCours(Cours sourceCours){
@@ -310,27 +326,23 @@ public class ModelHandler {
         return liste.stream().filter(d -> NodeUtil.isBetween(d.getDateAsDate(), trimestre.getStartAsDate(), endDate))
                 .collect(Collectors.toList());
     }
-    
-    public int countCumulTravail(List<EleveData> liste){
-        return (int)liste.stream().filter(d -> d.isTravailPasFait()).count();
-    }
-    
-    public int countCumulRetard(List<EleveData> liste){
-        return (int)liste.stream().filter(d -> d.getRetard() > 0).count();
-    }
-    
-    public int countCumulOubli(List<EleveData> liste){
-        return (int)liste.stream().filter(d -> StringUtils.isNotBlank(d.getOubliMateriel())).count();
-    }
 
     public void cleanupDataForEleve(Eleve eleve){
         eleve.getData().removeIf(eleveData -> eleveData.isEmpty());
     }
     // PUNITIONS
     
-    public Punition createPunition(Eleve eleve, LocalDate date, Cours cours, String texte) {
+    public Punition createPunition(Eleve eleve, Seance seance, String texte) {
         //TODO
-        Punition punition = new Punition(eleve, date, 0, texte);
+        Punition punition = new Punition(eleve, seance, texte);
+        eleve.getPunitions().add(punition);
+        punition.startChangeDetection();
+        return punition;
+    }
+    
+    public Punition createPunition(Eleve eleve, LocalDate date, int cours, String texte) {
+        //TODO
+        Punition punition = new Punition(eleve, date, cours, texte);
         eleve.getPunitions().add(punition);
         punition.startChangeDetection();
         return punition;
@@ -341,6 +353,11 @@ public class ModelHandler {
     }
     
     // JOURNEES
+    public List<Journee> getJourneesForDay(String day){
+        return data.getJournees().values()
+                .stream()
+                .filter(j -> day.equals(NodeUtil.getJour(j.getDateAsDate()))).collect(Collectors.toList());
+    }
     
     public Journee getJournee(LocalDate date){
         if(getJournees().containsKey(date)){
@@ -361,6 +378,24 @@ public class ModelHandler {
         return journee;
     } 
     
+    public void declareJournee(Journee journee){
+        data.getJournees().put(journee.getDateAsDate(), journee);
+    }
+    
+    public void cleanUpJournees(){
+        data.getJournees().entrySet().forEach(e -> {
+            cleanUpJournee(e.getValue());
+        });
+    }
+    public void cleanUpJournee(Journee journee){
+        journee.getSeances().forEach(s -> {
+            cleanupSeance(s);
+        });
+    }
+    
+    // SEANCES
+    
+    
     public Seance addSeanceWithCoursPonctuel(Journee journee, Classe classe){
         Cours coursPonctuel = new Cours();
         coursPonctuel.setPonctuel(true);
@@ -371,21 +406,21 @@ public class ModelHandler {
         coursPonctuel.setStartMin(00);
         coursPonctuel.setEndHour(17);
         coursPonctuel.setEndMin(00);
-        return addSeanceWithCours(journee, coursPonctuel);
+        return addSeanceWithCoursPonctuel(journee, coursPonctuel);
+    }
+    
+    
+    public Seance addSeanceWithCoursPonctuel(Journee journee, Cours cours){
+        journee.getCoursPonctuels().add(cours);
+        return addSeanceWithCours(journee, cours);
     }
     
     public Seance addSeanceWithCours(Journee journee, Cours cours){
-        journee.getCoursPonctuels().add(cours);
         Seance seance = createSeance(journee, cours);
         journee.getSeances().add(seance);
+        Collections.sort(journee.getSeances());
         return seance;
     }
-    
-    public void declareJournee(Journee journee){
-        data.getJournees().put(journee.getDateAsDate(), journee);
-    }
-    
-    // SEANCES
     
     public Seance createSeance(Journee journee, Cours cours){
         Seance seance = new Seance();
@@ -393,5 +428,24 @@ public class ModelHandler {
         seance.setJournee(journee);
         seance.setClasse(cours.getClasse());
         return seance;
+    }
+    
+    public void cleanupSeance(Seance seance){
+        seance.getDonneesAsMap().entrySet().removeIf(e -> e.getValue().isEmpty());
+    }
+    
+    public List<Seance> handleSeanceWithDeletedCours(Cours cours){
+        Stream<Seance> seances = data.getJournees().values().stream().flatMap(j -> j.getSeances().stream());
+        List<Seance> seancesModifiees = new ArrayList<>();
+        seances.forEach(s -> {
+            if(s.getCours().getId().equals(cours.getId())){
+                Cours coursPonctuel = cloneCours(cours);
+                coursPonctuel.setPonctuel(true);
+                s.setCours(coursPonctuel);
+                s.getJournee().getCoursPonctuels().add(coursPonctuel);
+                seancesModifiees.add(s);
+            }
+        });
+        return seancesModifiees;
     }
 }

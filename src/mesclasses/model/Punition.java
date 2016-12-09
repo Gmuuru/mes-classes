@@ -7,7 +7,6 @@ package mesclasses.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -40,6 +39,8 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
     private final StringProperty texte;
     
     private final BooleanProperty closed;
+    
+    private Seance seance;
 
     public Punition(){
         super();
@@ -52,6 +53,14 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
 
     @Override
     public void startChangeDetection() {
+    }
+    
+    public Punition(Eleve eleve, Seance seance, String texte){
+        this();
+        this.date = new SimpleObjectProperty<>(seance.getDateAsDate());
+        this.eleve = eleve;
+        this.texte.set(texte);
+        this.seance = seance;
     }
     
     public Punition(Eleve eleve, LocalDate date, int cours, String texte){
@@ -72,6 +81,7 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
         this.id = id;
     }
     
+    @XmlElement
     @XmlIDREF
     public Eleve getEleve() {
         return eleve;
@@ -83,7 +93,10 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
 
     @XmlElement(name="date")
     public String getDate() {
-        return date.get().format(Constants.DATE_FORMATTER);
+        if(date != null){
+            return date.get().format(Constants.DATE_FORMATTER);
+        }
+        return null;
     }
     
     public LocalDate getDateAsDate() {
@@ -105,6 +118,16 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
 
     public void setCours(int cours) {
         this.cours = cours;
+    }
+
+    @XmlElement
+    @XmlIDREF
+    public Seance getSeance() {
+        return seance;
+    }
+
+    public void setSeance(Seance seance) {
+        this.seance = seance;
     }
 
     public StringProperty texteProperty(){

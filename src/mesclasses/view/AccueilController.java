@@ -91,7 +91,7 @@ public class AccueilController extends PageController implements Initializable {
         elevesOu.setVisible(nbEleves > 0);
         
         //GESTION DES PUNITIONS
-        punitionsLabel.setText(nbPunitions+" punitions.");
+        punitionsLabel.setText(nbPunitions+(nbPunitions <=1 ? " punition.": " punitions."));
         
         //GESTION DES COURS
         Map<String, Double> seanceMap = new HashMap<>();
@@ -123,6 +123,7 @@ public class AccueilController extends PageController implements Initializable {
         }
         timetableLabel.setText("Nombre d'heures total : "+toTimeString(total)+". ");
         trimestresLabel.setText(trimestres.size()+" trimestres. ");
+        trimestresBox.getChildren().clear();
         trimestres.forEach(t -> {
             Label tDates = new Label(t.getName()+" : du "+t.getStartAsDate().format(Constants.LONG_DATE_FORMATTER)
                     +" au "+t.getEndAsDate().format(Constants.LONG_DATE_FORMATTER));
@@ -158,7 +159,7 @@ public class AccueilController extends PageController implements Initializable {
     }
     
     @FXML public void openClasses(){
-            EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_CONTENT_TABS_VIEW));
+            EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW));
     }
     @FXML public void openRapports(){
             EventBusHandler.post(new OpenMenuEvent(Constants.CLASSE_RAPPORT_TABS_VIEW));

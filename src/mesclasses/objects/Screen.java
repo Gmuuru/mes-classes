@@ -12,13 +12,16 @@ import javafx.stage.Stage;
 import mesclasses.MainApp;
 import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
-import mesclasses.util.AppLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class Screen {
+    
+    private static final Logger LOG = LogManager.getLogger(Screen.class);
     
     private String view;
     
@@ -37,7 +40,7 @@ public class Screen {
             ctrl = loader.getController();
             ctrl.setPrimaryStage(stage);
         } catch (IOException ex) {
-            AppLogger.log(ex);
+            LOG.error(ex);
         }
     }
 

@@ -24,12 +24,16 @@ import mesclasses.objects.events.IsAliveEvent;
 import mesclasses.util.AppLogger;
 import mesclasses.util.CssUtil;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public abstract class BasicController implements Initializable {
+    
+    private static final Logger LOG = LogManager.getLogger(BasicController.class);
     
     @FXML
     protected Label errorMessagesLabel = new Label();
@@ -51,7 +55,7 @@ public abstract class BasicController implements Initializable {
             name = "Basic Ctrl";
         }
         uniqueId = RandomStringUtils.randomNumeric(10);
-        log("Creating controller "+getNameAndId());
+        LOG.info("Creating controller "+getNameAndId());
     }  
     
     public final void notif(Throwable e){
@@ -62,16 +66,8 @@ public abstract class BasicController implements Initializable {
             AppLogger.notif(name, e);
     }
     
-    public final void log(Throwable e){
-            AppLogger.log(e);
-    }
-    
-    public final void log(String e){
-            AppLogger.log(e);
-    }
-    
     public final void logEvent(Event event){
-        log("MESSAGE "+event+" RECEIVED BY "+name+" ("+uniqueId+")");
+        LOG.info("MESSAGE "+event+" RECEIVED BY "+name+" ("+uniqueId+")");
     }
     
     public final void updateErrorMessages(){
@@ -159,6 +155,6 @@ public abstract class BasicController implements Initializable {
     
     @Subscribe
     public void onIsAlive(IsAliveEvent event){
-        log(getNameAndId()+" "+event);
+        LOG.info(getNameAndId()+" "+event);
     }
 }
