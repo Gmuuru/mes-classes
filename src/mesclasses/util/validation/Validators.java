@@ -10,6 +10,7 @@ import java.util.List;
 import mesclasses.model.ChangementClasse;
 import mesclasses.model.Classe;
 import mesclasses.model.Cours;
+import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
@@ -131,6 +132,23 @@ public class Validators {
         return err;
     }
     
+    /* DEVOIRS */
+    
+    public static List<FError> validate(Devoir e){
+        List<FError> err = Lists.newArrayList();
+        if(e.getId() == null){
+            err.add(new FError(NO_ID("Devoir")));
+            return err;
+        }
+        LOG.debug("validation du devoir "+e);
+        if(e.getEleve()== null){
+            err.add(new FError(MANDATORY(e, "élève")));
+        }
+        if(e.getSeance()== null){
+            err.add(new FError(MANDATORY(e, "séance")));
+        }
+        return err;
+    }
     /* CHANGEMENTS CLASSE */
     public static List<FError> validate(ChangementClasse e){
         List<FError> err = Lists.newArrayList();

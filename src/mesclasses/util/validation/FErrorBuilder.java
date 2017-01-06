@@ -9,6 +9,7 @@ import java.util.List;
 import mesclasses.model.ChangementClasse;
 import mesclasses.model.Classe;
 import mesclasses.model.Cours;
+import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
@@ -30,6 +31,7 @@ public class FErrorBuilder {
     public static final String COURS = "%COURS%";
     public static final String ELEVE = "%ELEVE%";
     public static final String PUNITION = "%PUNITION%";
+    public static final String DEVOIR = "%DEVOIR%";
     public static final String CHANGEMENT = "%CHANGEMENT%";
     public static final String DONNEE = "%DONNEE%";
     public static final String JOURNEE = "%JOURNEE%";
@@ -64,6 +66,10 @@ public class FErrorBuilder {
     private static final String PUNITIONS_NULL = ELEVE+" : Liste punitions null";
     public static final String PUNITIONS_NULL(Eleve eleve){
         return eleve(PUNITIONS_NULL, eleve);
+    }
+    private static final String DEVOIRS_NULL = ELEVE+" : Liste devoirs null";
+    public static final String DEVOIRS_NULL(Eleve eleve){
+        return eleve(DEVOIRS_NULL, eleve);
     }
     private static final String CHANGEMENTS_NULL = ELEVE+" : Liste changements null";
     public static final String CHANGEMENTS_NULL(Eleve eleve){
@@ -126,6 +132,10 @@ public class FErrorBuilder {
     public static final String PUNITION_WRONG_ELEVE(Eleve eleve, Punition punition){
         return punition(eleve(PUNITION_WRONG_ELEVE, eleve), punition);
     }
+    private static final String DEVOIR_WRONG_ELEVE = ELEVE+" : le "+DEVOIR+" n'a pas le bon élève";
+    public static final String DEVOIR_WRONG_ELEVE(Eleve eleve, Devoir devoir){
+        return devoir(eleve(DEVOIR_WRONG_ELEVE, eleve), devoir);
+    }
     private static final String DONNEE_WRONG_ELEVE = ELEVE+" : la "+DONNEE+" n'a pas le bon élève";
     public static final String DONNEE_WRONG_ELEVE(Eleve eleve, EleveData donnee){
         return donnee(eleve(DONNEE_WRONG_ELEVE, eleve), donnee);
@@ -169,6 +179,11 @@ public class FErrorBuilder {
     private static String punition(String msg, Punition p){
         String id = p == null ? "" : p.getDisplayName();
         return inject(msg, PUNITION, id);
+    }
+    
+    private static String devoir(String msg, Devoir p){
+        String id = p == null ? "" : p.getDisplayName();
+        return inject(msg, DEVOIR, id);
     }
     
     private static String changement(String msg, ChangementClasse p){

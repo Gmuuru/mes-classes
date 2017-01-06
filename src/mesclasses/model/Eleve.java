@@ -47,6 +47,8 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
     
     private ObservableList<Punition> punitions;
     
+    private ObservableList<Devoir> devoirs;
+    
     private ObservableList<ChangementClasse> changementsClasse;
     
     private final BooleanProperty actif;
@@ -59,6 +61,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         this.actif = new SimpleBooleanProperty(true);
         this.data = FXCollections.observableArrayList();
         this.punitions = FXCollections.observableArrayList();
+        this.devoirs = FXCollections.observableArrayList();
         this.changementsClasse = FXCollections.observableArrayList();
     }
     
@@ -76,6 +79,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         changementsClasse.addListener(listAddRemoveListener);
         data.forEach(d -> d.startChangeDetection());
         punitions.forEach(p -> p.startChangeDetection());
+        devoirs.forEach(d -> d.startChangeDetection());
         changementsClasse.forEach(p -> p.startChangeDetection());
     }
     
@@ -84,6 +88,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         super.resetChange();
         data.forEach(c -> c.resetChange());
         punitions.forEach(c -> c.resetChange());
+        devoirs.forEach(c -> c.resetChange());
         changementsClasse.forEach(c -> c.resetChange());
     }
     
@@ -92,6 +97,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         List<FError> err = Lists.newArrayList();
         err.addAll(Validators.validate(this));
         err.addAll(ListValidators.validatePunitionList(this));
+        err.addAll(ListValidators.validateDevoirList(this));
         err.addAll(ListValidators.validateChangementList(this));
         err.addAll(ListValidators.validateDonneeList(this));
         return err;
@@ -180,6 +186,16 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
 
     public void setPunitions(ObservableList<Punition> punitions) {
         this.punitions = punitions;
+    }
+
+    public void setDevoirs(ObservableList<Devoir> devoirs) {
+        this.devoirs = devoirs;
+    }
+    
+    @XmlElement(name="devoir")
+    @XmlElementWrapper(name="devoirs")
+    public List<Devoir> getDevoirs() {
+        return devoirs;
     }
     
     @XmlElement(name="changementClasse")

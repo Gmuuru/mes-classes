@@ -14,6 +14,7 @@ import java.util.Map;
 import mesclasses.java.builders.ChangementClasseBuilder;
 import mesclasses.java.builders.ClasseBuilder;
 import mesclasses.java.builders.CoursBuilder;
+import mesclasses.java.builders.DevoirBuilder;
 import mesclasses.java.builders.DonneeBuilder;
 import mesclasses.java.builders.EleveBuilder;
 import mesclasses.java.builders.JourneeBuilder;
@@ -24,6 +25,7 @@ import mesclasses.java.util.MyAssert;
 import mesclasses.model.ChangementClasse;
 import mesclasses.model.Classe;
 import mesclasses.model.Cours;
+import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
@@ -263,6 +265,40 @@ public class TestValidators {
         MyAssert.assertContainsError(err, "Elève <vide> <vide> : punition null");
         MyAssert.assertContainsError(err, "Punition null ou sans Id");
         MyAssert.assertContainsError(err, "Elève <vide> <vide> : la Punition junit n'a pas le bon élève");
+    }
+    
+    @Test
+    public void devoirValidatorsTest(){
+        DevoirBuilder pb = new DevoirBuilder();
+        Devoir p = pb.id(null).build();
+        List<FError> err  = Validators.validate(p);
+        MyAssert.assertContainsSingleError(err, "Devoir null ou sans Id");
+        
+        p = pb.id("junit").build();
+        err  = Validators.validate(p);
+        MyAssert.assertSize(err, 2);
+        MyAssert.assertContainsError(err, "Devoir junit : élève obligatoire");
+        MyAssert.assertContainsError(err, "Devoir junit : séance obligatoire");
+        
+        p = pb.seance().eleve().build();
+        err  = Validators.validate(p);
+        MyAssert.assertEmpty(err);
+    }
+    
+    @Test
+    public void DevoirListValidatorsTest(){
+        EleveBuilder eb = new EleveBuilder();
+        Eleve e = eb
+            .devoir(null)
+            .devoir(new DevoirBuilder().id(null).build())
+            .devoir(new DevoirBuilder().id("junit").eleve().seance().build())
+        .build();  
+        
+        List<FError> err = ListValidators.validateDevoirList(e);
+        MyAssert.assertSize(err, 3);
+        MyAssert.assertContainsError(err, "Elève <vide> <vide> : devoir null");
+        MyAssert.assertContainsError(err, "Devoir null ou sans Id");
+        MyAssert.assertContainsError(err, "Elève <vide> <vide> : le Devoir junit n'a pas le bon élève");
     }
     
     @Test

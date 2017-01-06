@@ -145,6 +145,27 @@ public class ListValidators {
         return err;
     }
     
+    /* DEVOIRS */
+    
+    public static List<FError> validateDevoirList(Eleve e){
+        List<FError> err = Lists.newArrayList();
+        if(e.getDevoirs() == null){
+            err.add(new FError(DEVOIRS_NULL(e)));
+            return err;
+        }
+        e.getDevoirs().stream().forEach(p -> {
+            if(p == null){
+                err.add(new FError(IS_NULL_WITH_SOURCE(e, "devoir")));
+            } else {
+                if(p.getEleve() != null && !p.getEleve().equals(e)){
+                    err.add(new FError(DEVOIR_WRONG_ELEVE(e,p)));
+                }
+                err.addAll(p.validate());
+            }
+        });
+        return err;
+    }
+    
     /* CHANGEMENTS CLASSE */
     
     public static List<FError> validateChangementList(Eleve e){

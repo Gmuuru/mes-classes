@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mesclasses.model.ChangementClasse;
 import mesclasses.model.Classe;
+import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Punition;
@@ -87,6 +88,19 @@ public class EleveBuilder {
             punitions(FXCollections.observableArrayList());
         }
         eleve.getPunitions().add(p);
+        return this;
+    }
+    
+    public EleveBuilder devoirs(ObservableList<Devoir> list) {
+        eleve.setDevoirs(list);
+        return this;
+    }
+    
+    public EleveBuilder devoir(Devoir p) {
+        if(eleve.getDevoirs() == null){
+            devoirs(FXCollections.observableArrayList());
+        }
+        eleve.getDevoirs().add(p);
         return this;
     }
     

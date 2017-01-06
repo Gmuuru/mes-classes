@@ -10,11 +10,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -30,27 +26,21 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @author rrrt3491
  */
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class Punition extends MonitoredObject implements Serializable, Comparable<Punition> {
+public class Devoir extends MonitoredObject implements Serializable, Comparable<Devoir> {
+    
+    public static final String STATUS_OPEN = "en cours";
     
     private String id;
     
     private Eleve eleve;
     
-    private ObjectProperty<LocalDate> date;
-    
-    private int cours;
-    
-    private final StringProperty texte;
-    
     private final BooleanProperty closed;
     
     private Seance seance;
 
-    public Punition(){
+    public Devoir(){
         super();
-        this.id = RandomStringUtils.randomAlphanumeric(5);
-        this.texte = new SimpleStringProperty();
-        this.date = new SimpleObjectProperty<>();
+        this.id = "devoir_"+RandomStringUtils.randomAlphanumeric(5);
         this.closed = new SimpleBooleanProperty(false);
     }
     
@@ -58,7 +48,6 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
     @Override
     public void startChangeDetection() {
         this.closed.addListener(booleanListener);
-        this.texte.addListener(stringListener);
     }
     
     @Override
@@ -68,20 +57,10 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
         return err;
     }
     
-    public Punition(Eleve eleve, Seance seance, String texte){
+    public Devoir(Eleve eleve, Seance seance){
         this();
-        this.date = new SimpleObjectProperty<>(seance.getDateAsDate());
         this.eleve = eleve;
-        this.texte.set(texte);
         this.seance = seance;
-    }
-    
-    public Punition(Eleve eleve, LocalDate date, int cours, String texte){
-        this();
-        this.eleve = eleve;
-        this.date = new SimpleObjectProperty<>(date);
-        this.cours = cours;
-        this.texte.set(texte);
     }
 
     @XmlAttribute
@@ -104,33 +83,11 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
         this.eleve = eleve;
     }
 
-    @XmlElement(name="date")
-    public String getDate() {
-        if(date != null){
-            return date.get().format(Constants.DATE_FORMATTER);
+    public LocalDate getDate(){
+        if(seance != null){
+            return seance.getDateAsDate();
         }
         return null;
-    }
-    
-    public LocalDate getDateAsDate() {
-        return date.get();
-    }
-
-    public void setDate(String date) {
-        this.date.set(LocalDate.parse(date, Constants.DATE_FORMATTER));
-    }
-
-    public void setDate(LocalDate date) {
-        this.date.set(date);
-    }
-    
-    @XmlElement(name="cours")
-    public int getCours() {
-        return cours;
-    }
-
-    public void setCours(int cours) {
-        this.cours = cours;
     }
 
     @XmlElement
@@ -141,19 +98,6 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
 
     public void setSeance(Seance seance) {
         this.seance = seance;
-    }
-
-    public StringProperty texteProperty(){
-        return texte;
-    }
-    
-    @XmlElement(name="texte")
-    public String getTexte() {
-        return texte.get();
-    }
-
-    public void setTexte(String texte) {
-        this.texte.set(texte);
     }
 
     public BooleanProperty closedProperty(){
@@ -170,7 +114,7 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
     }
 
     @Override
-    public int compareTo(Punition t) {
+    public int compareTo(Devoir t) {
         int compareEleve = -1;
         if(eleve != null){
             compareEleve = eleve.compareTo(t.getEleve());
@@ -178,11 +122,11 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
         if(compareEleve != 0){
             return compareEleve;
         }
-        return date.get().compareTo(t.getSeance().getDateAsDate());
+        return getDate().compareTo(t.getDate());
     }
     
     @Override
     public String getDisplayName(){
-        return new StringBuilder("Punition ").append(id).toString();
+        return new StringBuilder("Devoir ").append(id).toString();
     }
 }
