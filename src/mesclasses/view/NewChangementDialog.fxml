@@ -36,7 +36,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <Label fx:id="eleveStatusTitle" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="titled-label" text="status de l'élève">
+            <Label fx:id="eleveStatusTitle" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="titled-label" text="statut de l'élève">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Label>
@@ -83,8 +83,8 @@
       </VBox>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-          <Button mnemonicParsing="false" text="OK" onAction="#handleOk" />
-            <Button mnemonicParsing="false" text="Annuler" onAction="#handleCancel" />
+          <Button mnemonicParsing="false" onAction="#handleOk" text="OK" />
+            <Button mnemonicParsing="false" onAction="#handleCancel" text="Annuler" />
         </buttons>
       </ButtonBar>
    </children>

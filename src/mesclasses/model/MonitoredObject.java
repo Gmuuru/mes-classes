@@ -101,8 +101,10 @@ public abstract class MonitoredObject {
 
     protected ChangeListener<LocalDate> dateListener = 
             (ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) -> {
-        if(!newValue.isEqual(oldValue)){
-            setChanged(true);
+        if(newValue == null){
+            setChanged(oldValue != null);
+        } else {
+            setChanged(oldValue == null || !newValue.isEqual(oldValue));
         }
     };
     
@@ -118,6 +120,8 @@ public abstract class MonitoredObject {
         this.setChanged(false);
     }
     
-    protected abstract List<FError> validate();
+    public abstract String getDisplayName();
+    
+    public abstract List<FError> validate();
     
 }

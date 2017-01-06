@@ -14,7 +14,7 @@ import mesclasses.model.Trimestre;
  */
 public class TrimestreBuilder {
     
-    private Trimestre trimestre = new Trimestre();
+    private final Trimestre trimestre = new Trimestre();
     
     public TrimestreBuilder name(String name) {
         trimestre.setName(name);

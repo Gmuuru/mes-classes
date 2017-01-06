@@ -5,8 +5,10 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -19,6 +21,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.Validators;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
@@ -53,6 +57,13 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
 
     @Override
     public void startChangeDetection() {
+    }
+    
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        return err;
     }
     
     public Punition(Eleve eleve, Seance seance, String texte){
@@ -165,7 +176,11 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
         if(compareEleve != 0){
             return compareEleve;
         }
-        return date.get().compareTo(t.getDateAsDate());
+        return date.get().compareTo(t.getSeance().getDateAsDate());
     }
     
+    @Override
+    public String getDisplayName(){
+        return new StringBuilder("Punition ").append(id).toString();
+    }
 }

@@ -22,7 +22,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -40,9 +39,11 @@ import mesclasses.objects.events.SelectClasseEvent;
 import mesclasses.objects.events.SelectEleveEvent;
 import mesclasses.util.Btns;
 import mesclasses.util.ModalUtil;
+import mesclasses.util.validation.ListValidators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
+import org.smartselect.SmartSelect;
 
 /**
  * FXML Controller class
@@ -64,14 +65,7 @@ public class AdminEleveController extends PageController implements Initializabl
     @FXML
     private Button addEleveBtn;
     
-    @FXML
-    private Button previousClasseBtn;
-    
-    @FXML
-    private Button nextClasseBtn;
-    
-    @FXML
-    private Label currentClasseLabel;
+    @FXML private SmartSelect<Classe> smartSelect;
     
     private Classe currentClasse;
     
@@ -97,10 +91,13 @@ public class AdminEleveController extends PageController implements Initializabl
         super.initialize(url, rb);
         LOG.info("Loading AdminEleveController with "+classes.size()+" classes");
         addEleveBtn.disableProperty().bind(Bindings.size(classes).isEqualTo(0));
-        previousClasseBtn.disableProperty().bind(Bindings.size(classes).lessThanOrEqualTo(1));
-        nextClasseBtn.disableProperty().bind(Bindings.size(classes).lessThanOrEqualTo(1));
-        Btns.makeLeft(previousClasseBtn);
-        Btns.makeRight(nextClasseBtn);
+        smartSelect.setItems(classes, true);
+        Btns.makeLeft(smartSelect.getBtnLeft());
+        Btns.makeRight(smartSelect.getBtnRight());
+        smartSelect.addChangeListener((o, oldV, newV) -> {
+            changeClasse(smartSelect.getValue());
+        });
+        
         handleKeys();
         init();
     }
@@ -110,11 +107,11 @@ public class AdminEleveController extends PageController implements Initializabl
             if (ev.getCode() == KeyCode.ENTER && !addEleveBtn.isDisable()) { 
                 addEleveBtn.fire();
             }
-            else if(ev.getCode() == KeyCode.RIGHT && !nextClasseBtn.isDisable()) { 
-                nextClasseBtn.fire();
+            else if(ev.getCode() == KeyCode.RIGHT && !smartSelect.getBtnRight().isDisable()) { 
+                smartSelect.getBtnRight().fire();
             }
-            else if(ev.getCode() == KeyCode.LEFT && !previousClasseBtn.isDisable()) { 
-                previousClasseBtn.fire();
+            else if(ev.getCode() == KeyCode.LEFT && !smartSelect.getBtnLeft().isDisable()) { 
+                smartSelect.getBtnLeft().fire();
             }
             ev.consume(); 
         });
@@ -129,26 +126,6 @@ public class AdminEleveController extends PageController implements Initializabl
                     EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_CLASSE_VIEW))
             );
         }
-    }
-    
-    @FXML
-    public void previousClasse(){
-        int curId = classes.indexOf(currentClasse);
-        curId--;
-        if(curId == -1){
-            curId = classes.size() - 1 ;
-        }
-        changeClasse(classes.get(curId));
-    }
-    
-    @FXML
-    public void nextClasse(){
-        int curId = classes.indexOf(currentClasse);
-        curId++;
-        if(curId == classes.size()){
-            curId = 0;
-        }
-        changeClasse(classes.get(curId));
     }
     
     @FXML public void openClasses(){
@@ -172,7 +149,6 @@ public class AdminEleveController extends PageController implements Initializabl
             return;
         }
         this.currentClasse = classe;
-        this.currentClasseLabel.setText(classe.getName());
         LOG.info("Loading classe "+currentClasse.getName()+" avec "+currentClasse.getEleves().size()+" élèves");
         
         if(classe.getEleves().isEmpty()){
@@ -315,5 +291,9 @@ public class AdminEleveController extends PageController implements Initializabl
         } else {
             loadClasse(currentClasse);
         }
+    }
+    
+    private void openErrorDialog() {
+        ModalUtil.showErrors(ListValidators.validateEleveList(currentClasse));
     }
 }

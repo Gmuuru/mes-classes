@@ -113,8 +113,7 @@ public class FileSaveUtil {
     public static boolean saveFileExists(){
         return getSaveFile().exists();
     }
-    public static File createNewSaveFile(){
-        File file = getSaveFile();
+    public static File createNewSaveFile(File file){
         try {
             file.createNewFile();
             return file;

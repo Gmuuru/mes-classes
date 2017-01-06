@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
@@ -37,6 +38,7 @@ import mesclasses.model.Constants;
 import mesclasses.model.Eleve;
 import mesclasses.model.Punition;
 import mesclasses.model.Seance;
+import mesclasses.model.Trimestre;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectEleveEvent;
 import mesclasses.objects.events.SelectSeanceEvent;
@@ -56,7 +58,7 @@ import org.smartgrid.SmartGrid;
  */
 public class RapportEleveController extends PageController implements Initializable {
     
-    private static final Logger LOG = LogManager.getLogger(JourneeController.class);
+    private static final Logger LOG = LogManager.getLogger(RapportEleveController.class);
     
     @FXML Label trimestreLabel;
     
@@ -169,7 +171,8 @@ public class RapportEleveController extends PageController implements Initializa
         name +=" for élève "+eleve;
         rapportLabel.setText("Rapport pour "+eleve.getDisplayName());
         if(trimestres != null && !trimestres.isEmpty()){
-            selectTrimestre(0);
+            Trimestre current = modelHandler.getForDate(LocalDate.now());
+            selectTrimestre(current != null ? trimestres.indexOf(current) : 0);
         }
         refreshGrid();
     }
@@ -212,7 +215,7 @@ public class RapportEleveController extends PageController implements Initializa
         handlePaneTitle(devoirsPane, listeSeances.size(), "devoir non rendu", "devoirs non rendus");
         handleBasicPaneContent(devoirsBox, listeSeances);
         
-        List<Punition> punitions = modelHandler.filterByTrimestre(eleve.getPunitions(), trimestres.get(trimestreIndex.get()));
+        List<Punition> punitions = modelHandler.filterPunitionsByTrimestre(eleve.getPunitions(), trimestres.get(trimestreIndex.get()), null);
         handlePaneTitle(punitionsPane, punitions.size(), "punition", "punitions");
         handlePunitionContent(punitions);
         
@@ -281,10 +284,7 @@ public class RapportEleveController extends PageController implements Initializa
         if(suffixe != null){
             text+=" "+suffixe;
         }
-        text += ", cours de "+
-                    NodeUtil.formatTime(
-                            seance.getCours().getStartHour(), 
-                            seance.getCours().getStartMin());
+        text += ", cours de "+NodeUtil.getStartTime(seance.getCours());
         
         Hyperlink link = new Hyperlink(text);
         link.setOnAction(e -> {

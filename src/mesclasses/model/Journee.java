@@ -5,8 +5,10 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,6 +17,9 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlID;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.ListValidators;
+import mesclasses.util.validation.Validators;
 
 /**
  *
@@ -34,6 +39,15 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         seances.addListener(listAddRemoveListener);
         seances.forEach(c -> c.startChangeDetection());
     }
+    
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        err.addAll(ListValidators.validateCoursList(coursPonctuels));
+        err.addAll(ListValidators.validateSeanceList(this));
+        return err;
+    }
 
     @XmlID
     @XmlAttribute
@@ -48,6 +62,10 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
         return date;
     }
 
+    public void setDate(String date) {
+        this.date = LocalDate.parse(date, Constants.DATE_FORMATTER);
+    }
+    
     public void setDate(LocalDate date) {
         this.date = date;
     }
@@ -77,8 +95,19 @@ public class Journee extends MonitoredObject implements Comparable<Journee> {
     
     @Override
     public int compareTo(Journee t) {
+        if(date == null){
+            return 1;
+        }
         return date.compareTo(t.getDateAsDate());
     }
     
+    @Override
+    public String getDisplayName(){
+        StringBuilder sb = new StringBuilder("Journée");
+        if(date != null){
+            sb.append(" ").append(getDate()).toString();
+        }
+        return sb.toString();
+    }
     
 }

@@ -11,13 +11,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.util.Pair;
 import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.model.Constants;
@@ -27,6 +31,8 @@ import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.util.AppLogger;
 import mesclasses.util.Btns;
 import mesclasses.util.ModalUtil;
+import mesclasses.util.NodeUtil;
+import mesclasses.util.validation.ListValidators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
@@ -40,7 +46,7 @@ public class AdminTrimestreController extends PageController implements Initiali
     
     private static final Logger LOG = LogManager.getLogger(AdminTrimestreController.class);
     
-    @FXML SmartGrid grid;
+    @FXML SmartGrid trimestreGrid;
     
     /**
      * Initializes the controller class.
@@ -52,6 +58,9 @@ public class AdminTrimestreController extends PageController implements Initiali
         super.initialize(url, rb);
         LOG.info("Loading AdminTrimestreController with "+ trimestres.size() +" trimestres");
         
+        errorMessagesLabel.setOnAction((e) -> {
+            openErrorDialog();
+        });
         init();
     }  
     
@@ -60,11 +69,12 @@ public class AdminTrimestreController extends PageController implements Initiali
             resetErrors();
 
             int count = 1;
-            grid.clear();
+            trimestreGrid.clear();
             for(Trimestre trimestre : trimestres){
                 addTrimestreToGrid(trimestre, count);
                 count++;
             }
+            validateDates();
         } catch (Exception e){
             notif(e);
         }
@@ -90,32 +100,33 @@ public class AdminTrimestreController extends PageController implements Initiali
             checkMandatory(nameField);
             markAsUnique(nameField);
             checkUnique(nameField);
-            grid.add(nameField, 1, rowIndex, HPos.LEFT);
+            trimestreGrid.add(nameField, 1, rowIndex, HPos.LEFT);
             
             DatePicker datePickerStart = new DatePicker();
             Bindings.bindBidirectional(datePickerStart.valueProperty(), trimestre.startProperty());
             markAsMandatory(datePickerStart);
             checkMandatory(datePickerStart);
-            grid.add(datePickerStart, 2, rowIndex, null);
+            trimestreGrid.add(datePickerStart, 2, rowIndex, null);
             
             DatePicker datePickerEnd = new DatePicker();
             Bindings.bindBidirectional(datePickerEnd.valueProperty(), trimestre.endProperty());
             markAsMandatory(datePickerEnd);
             checkMandatory(datePickerEnd);
-            grid.add(datePickerEnd, 3, rowIndex, null);
+            trimestreGrid.add(datePickerEnd, 3, rowIndex, null);
             
+            addDateValidator(trimestre, datePickerStart, datePickerEnd);
             // restricteur pour que end soit égal à ou après start
             datePickerEnd.setDayCellFactory(new TunedDayCellFactory().setPreviousPicker(datePickerStart));
             
             Button close = Btns.deleteBtn();
             close.setOnAction((ActionEvent e) -> {
                 if (ModalUtil.confirm("Suppression du trimestre", "Etes vous sûr ?")) {
-                    grid.deleteRow(SmartGrid.row(close));
+                    trimestreGrid.deleteRow(SmartGrid.row(close));
                     removeErrors(nameField, datePickerStart, datePickerEnd);
                     this.modelHandler.delete(trimestre);
                 }
             });
-            grid.add(close, 4, rowIndex, null);
+            trimestreGrid.add(close, 4, rowIndex, null);
         } catch (Exception e) {
             notif(e);
         }
@@ -127,6 +138,7 @@ public class AdminTrimestreController extends PageController implements Initiali
     
     @Override
     public boolean notifyExit() {
+        ListValidators.validateTrimestreList(trimestres);
         try {
             if (!super.notifyExit()) {
                 return false;
@@ -145,9 +157,62 @@ public class AdminTrimestreController extends PageController implements Initiali
         init();
     }
     
+
+    private void addDateValidator(Trimestre t, DatePicker datePickerStart, DatePicker datePickerEnd) {
+        ChangeListener cl = (ChangeListener) (ObservableValue observable, Object oldValue, Object newValue) -> {
+            LOG.info("change !");
+            validateDates();
+        };
+        datePickerStart.valueProperty().addListener(cl);
+        datePickerEnd.valueProperty().addListener(cl);
+    }
+    
+    private void validateDates(){
+        List<List<Node>> rows = trimestreGrid.getDataRows();
+        for(int i = 0;i< rows.size(); i++){
+            if(datesAreInvalid(modelHandler.getTrimestres().get(i))){
+                LOG.info(modelHandler.getTrimestres().get(i).toString()+" : dates invalides");
+                addValidityError((DatePicker)rows.get(i).get(1));
+                addValidityError((DatePicker)rows.get(i).get(2));
+            } else {
+                LOG.info(modelHandler.getTrimestres().get(i).toString()+" : dates ok");
+                removeValidityError((DatePicker)rows.get(i).get(1));
+                removeValidityError((DatePicker)rows.get(i).get(2));
+            }
+        }
+    }
+    
+    private boolean datesAreInvalid(Trimestre t){
+    
+        if(t == null || t.getStartAsDate() == null || t.getEndAsDate() == null){
+            return false;
+        }
+        if(t.getStartAsDate().isAfter(t.getEndAsDate())){
+            return true;
+        }
+        Pair p = trimestresOverlap(trimestres);
+        return p != null && (p.getKey() == t || p.getValue() == t);
+    }
+    
+    private static Pair<Trimestre, Trimestre> trimestresOverlap(List<Trimestre> list){
+    
+        for (int i = 0; i < list.size(); i++) {
+            for (int k = i + 1; k < list.size(); k++) {
+                if (NodeUtil.datesOverlap(list.get(i), list.get(k))) {
+                    return new Pair(list.get(i), list.get(k));
+                }
+            }
+        }
+        return null;
+    }
+    
     @Override
     protected boolean isUnique(String trimestreName){
         List<String> names = trimestres.stream().map( t -> t.getName() ).collect(Collectors.toList());
         return Collections.frequency(names, trimestreName) == 1;
+    }
+    
+    private void openErrorDialog() {
+        ModalUtil.showErrors(ListValidators.validateTrimestreList(trimestres));
     }
 }

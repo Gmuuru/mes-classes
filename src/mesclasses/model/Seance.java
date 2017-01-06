@@ -5,8 +5,10 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -20,6 +22,8 @@ import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlTransient;
 import mesclasses.handlers.PropertiesCache;
 import mesclasses.util.NodeUtil;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.Validators;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -48,6 +52,13 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
     @Override
     public void startChangeDetection() {
         donnees.addListener(mapListener);
+    }
+    
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        return err;
     }
     
     @Override
@@ -96,6 +107,9 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
     
     @XmlTransient
     public LocalDate getDateAsDate() {
+        if(journee == null){
+            return null;
+        }
         return journee.getDateAsDate();
     }
 
@@ -151,12 +165,12 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
     }
     @Override
     public String toString(){
-        return "seance "+id+" : "+display();
+        return display();
     }
     
     public String display(){
         StringBuilder sb = new StringBuilder();
-        sb.append(NodeUtil.formatTime(getCours().getStartHour(), getCours().getStartMin()))
+        sb.append(NodeUtil.getStartTime(getCours()))
         .append("   ")
         .append(getClasse().getName());
         if(StringUtils.isNotBlank(getCours().getRoom())){
@@ -167,9 +181,13 @@ public class Seance extends MonitoredObject implements Comparable<Seance>{
             sb.append(" (").append(getCours().getWeek()).append(")");
         }
         sb.append("   ")
-        .append(NodeUtil.formatTime(getCours().getEndHour(), getCours().getEndMin()));
+        .append(NodeUtil.getEndTime(getCours()));
         return sb.toString();
     }
 
+    @Override
+    public String getDisplayName(){
+        return new StringBuilder("Séance ").append(id).toString();
+    }
     
 }

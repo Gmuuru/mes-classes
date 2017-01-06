@@ -5,7 +5,9 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.io.Serializable;
+import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -22,6 +24,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
 import javax.xml.bind.annotation.XmlTransient;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.Validators;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
@@ -77,6 +81,13 @@ public class Cours extends MonitoredObject implements Serializable, Comparable<C
         endHour.addListener(intListener);
         endMin.addListener(intListener);
         
+    }
+    
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        return err;
     }
     
     public StringProperty dayProperty(){
@@ -233,4 +244,8 @@ public class Cours extends MonitoredObject implements Serializable, Comparable<C
         return "Cours ("+getClasse()+", "+getDay()+", "+getStartHour()+"->"+getEndHour()+", "+getRoom()+", "+getWeek()+")";
     }
     
+    @Override
+    public String getDisplayName(){
+        return new StringBuilder("Cours ").append(id).toString();
+    }
 }

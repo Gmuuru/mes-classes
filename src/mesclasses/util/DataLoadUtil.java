@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
@@ -36,6 +37,7 @@ public class DataLoadUtil {
         ObservableData data = new ObservableData();
         XMLData xmlData = initXMLData(saveFile);
         data.getTrimestres().addAll(xmlData.getTrimestres());
+        Collections.sort(data.getTrimestres());
         data.getClasses().addAll(xmlData.getClasses());
         data.getCours().addAll(xmlData.getCours());
         xmlData.getJournees().keySet().forEach(dateStr -> {
@@ -46,8 +48,8 @@ public class DataLoadUtil {
     
     private static XMLData initXMLData(File saveFile) throws Exception{
         
-        if(!FileSaveUtil.saveFileExists()){
-            FileSaveUtil.createNewSaveFile();
+        if(!saveFile.exists()){
+            FileSaveUtil.createNewSaveFile(saveFile);
             return new XMLData();
         }
         XMLData xmlData = readData(saveFile);
@@ -81,7 +83,18 @@ public class DataLoadUtil {
         return false;
     }
     
-    public static boolean writeData(XMLData data, File file){
+    private static XMLData buildXMLData(ObservableData data){
+        XMLData xmlData = new XMLData();
+        xmlData.getTrimestres().addAll(data.getTrimestres());
+        xmlData.getClasses().addAll(data.getClasses());
+        xmlData.getCours().addAll(data.getCours());
+        data.getJournees().keySet().forEach(date -> {
+            xmlData.getJournees().put(date.format(Constants.DATE_FORMATTER), data.getJournees().get(date));
+        });
+        return xmlData;
+    }
+    
+    public static boolean writeData(ObservableData data, File file){
         
         Marshaller m;
         String error = null;
@@ -97,8 +110,10 @@ public class DataLoadUtil {
             return false;
         }
         try {
+            //transforming functional data into xml data
+            XMLData xml = buildXMLData(data);
             // Marshalling and saving XML to the file.
-            m.marshal(data, tmpFile);
+            m.marshal(xml, tmpFile);
             FileUtils.copyFile(tmpFile, file);
         
         } catch (JAXBException e) {

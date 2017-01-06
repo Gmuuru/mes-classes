@@ -28,7 +28,9 @@ public class PropertiesCache
    private final Properties configProp = new Properties();
    public static final String LAST_UPLOAD_DIR = "last.upload.dir";
    
-   private static final String PROPERTIES_FILE = FileSaveUtil.PROPERTIES_DIR+File.separator+"mesclasses.properties";
+   private static final String DEFAULT_PROPERTIES_FILE = FileSaveUtil.PROPERTIES_DIR+File.separator+"mesclasses.properties";
+   
+   private File pFile;
    
    private PropertiesCache()
    {
@@ -36,15 +38,20 @@ public class PropertiesCache
    }
 
    public void load() throws Exception {
-      LOG.info("Lecture du fichier de configuration "+PROPERTIES_FILE);
-      File pfile = new File(PROPERTIES_FILE);
-      if(!pfile.exists()){
-          LOG.error("Le fichier de configuration "+ pfile.getAbsolutePath()+" n'existe pas");
-          throw new Exception ("Le fichier de configuration "+ pfile.getAbsolutePath()+" n'existe pas");
+      load(new File(DEFAULT_PROPERTIES_FILE));
+      
+   }
+   
+   public void load(File file) throws Exception {
+      pFile = file;
+      LOG.info("Lecture du fichier de configuration "+pFile.getPath());
+      if(!pFile.exists()){
+          LOG.error("Le fichier de configuration "+ pFile.getAbsolutePath()+" n'existe pas");
+          throw new Exception ("Le fichier de configuration "+ pFile.getAbsolutePath()+" n'existe pas");
       }
       FileReader reader = null;
       try {
-          reader = new FileReader(pfile);
+          reader = new FileReader(pFile);
           LOG.info("Chargement de la configuration");
           configProp.load(reader);
           LOG.info("Chargement de la configuration effectué");
@@ -58,7 +65,7 @@ public class PropertiesCache
    
    public void save(){
       LOG.info("Sauvegarde de la configuration");
-      try (FileOutputStream out = new FileOutputStream(PROPERTIES_FILE)) {
+      try (FileOutputStream out = new FileOutputStream(pFile.getPath())) {
         configProp.store(out, null);
         } catch (IOException e) {
           AppLogger.notif("Fichier de configuration", e);

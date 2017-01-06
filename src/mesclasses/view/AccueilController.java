@@ -27,6 +27,8 @@ import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectClasseEvent;
 import mesclasses.util.CssUtil;
 import mesclasses.util.NodeUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * FXML Controller class
@@ -35,6 +37,8 @@ import mesclasses.util.NodeUtil;
  */
 public class AccueilController extends PageController implements Initializable {
 
+    private static final Logger LOG = LogManager.getLogger(AccueilController.class);
+    
     @FXML VBox classesBox;
     @FXML Label classesLabel;
     @FXML Hyperlink classesLinkToData;
@@ -56,6 +60,7 @@ public class AccueilController extends PageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         name = "Accueil ctrl";
         super.initialize(url, rb);
+        init();
     }    
     
     public void init(){

@@ -5,8 +5,10 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -21,6 +23,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.Validators;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -31,7 +35,7 @@ import org.apache.commons.lang3.StringUtils;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class EleveData extends MonitoredObject implements Serializable, Comparable<EleveData>{
     
-    private final String id;
+    private String id;
     
     private Eleve eleve;
     
@@ -57,7 +61,7 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
     
     private final BooleanProperty exclus;
     
-    private final StringProperty remarques;
+    private final StringProperty motif;
 
     public EleveData(){
         super();
@@ -72,7 +76,7 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
         motSigne = new SimpleBooleanProperty();
         exclus = new SimpleBooleanProperty();
         oubliMateriel = new SimpleStringProperty();
-        remarques = new SimpleStringProperty();
+        motif = new SimpleStringProperty();
     }
     
     @Override
@@ -87,7 +91,14 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
         motSigne.addListener(booleanListener);
         exclus.addListener(booleanListener);
         oubliMateriel.addListener(stringListener);
-        remarques.addListener(stringListener);
+        motif.addListener(stringListener);
+    }
+
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        return err;
     }
     
     public ObjectProperty<LocalDate> dateProperty(){
@@ -130,14 +141,18 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
         return oubliMateriel;
     }
     
-    public StringProperty RemarquesProperty(){
-        return remarques;
+    public StringProperty MotifProperty(){
+        return motif;
     }
     
     @XmlAttribute
     @XmlID
     public String getId(){
         return id;
+    }
+    
+    public void setId(String id){
+        this.id = id;
     }
     
     @XmlAttribute
@@ -263,12 +278,12 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
     }
 
     @XmlElement
-    public String getRemarques() {
-        return remarques.get();
+    public String getMotif() {
+        return motif.get();
     }
 
-    public void setRemarques(String remarques) {
-        this.remarques.set(remarques);
+    public void setMotif(String motif) {
+        this.motif.set(motif);
     }
     
     public boolean isEmpty(){
@@ -280,16 +295,31 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
                 && !isMotSigne()
                 && StringUtils.isBlank(getOubliMateriel())
                 && !isExclus()
-                && StringUtils.isBlank(getRemarques());
+                && StringUtils.isBlank(getMotif());
     }
 
     @Override
     public int compareTo(EleveData t) {
-        int compareDate = getDate().compareTo(t.getDate());
+        if(seance == null || getSeance().getDateAsDate() == null){
+            return 1;
+        }
+        if(t.getSeance() == null){
+            return -1;
+        }
+        int compareDate = getSeance().getDateAsDate().compareTo(t.getSeance().getDateAsDate());
         if(compareDate != 0){
             return compareDate;
         }
         return getCours() - t.getCours();
     }
 
+    @Override
+    public String getDisplayName(){
+        StringBuilder sb =  new StringBuilder("Donnée");
+        if(eleve != null){
+            sb.append(" ").append(eleve.getDisplayName());
+        }
+        sb.append(" (").append(id).append(")");
+        return sb.toString();
+    }
 }

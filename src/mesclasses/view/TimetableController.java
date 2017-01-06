@@ -126,9 +126,9 @@ public class TimetableController extends PageController implements Initializable
         //horaires
         HBox horaires = new HBox();
         CssUtil.addClass(horaires, "horaires");
-        Label start = new Label(" "+NodeUtil.formatTime(theCours.getStartHour(),theCours.getStartMin()));
+        Label start = new Label(" "+NodeUtil.getStartTime(theCours));
         CssUtil.addClass(start, "start");
-        Label end = new Label(NodeUtil.formatTime(theCours.getEndHour(),theCours.getEndMin())+" ");
+        Label end = new Label(NodeUtil.getEndTime(theCours)+" ");
         CssUtil.addClass(end, "end");
         horaires.getChildren().add(start);
         horaires.getChildren().add(end);

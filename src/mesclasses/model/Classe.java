@@ -21,8 +21,9 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlTransient;
 import mesclasses.objects.ClasseTab;
-import mesclasses.util.Validators;
 import mesclasses.util.validation.FError;
+import mesclasses.util.validation.ListValidators;
+import mesclasses.util.validation.Validators;
 
 /**
  *
@@ -70,6 +71,7 @@ public class Classe extends MonitoredObject implements Comparable<Classe> {
     public List<FError> validate() {
         List<FError> err = Lists.newArrayList();
         err.addAll(Validators.validate(this));
+        err.addAll(ListValidators.validateEleveList(this));
         return err;
     }
     
@@ -160,4 +162,8 @@ public class Classe extends MonitoredObject implements Comparable<Classe> {
         return getName();
     }
 
+    @Override
+    public String getDisplayName(){
+        return "Classe "+toString();
+    }
 }

@@ -40,7 +40,7 @@ public class Screen {
             ctrl = loader.getController();
             ctrl.setPrimaryStage(stage);
         } catch (IOException ex) {
-            LOG.error(ex);
+            LOG.error("Impossible de charger la page : ", ex);
         }
     }
 

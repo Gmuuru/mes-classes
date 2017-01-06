@@ -3,27 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/AdminEleveController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/objects/tasks/ComputeTask.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/util/FileSaveUtil.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/ClasseContentController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/ConfigSemainesController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/handlers/ModelHandler.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/RootLayoutController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/objects/LoadWindow.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/HistoriqueController.java</file>
             <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/AdminTrimestreController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/objects/tasks/FetchConfigTask.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/model/Punition.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/handlers/PropertiesCache.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/objects/tasks/AppTask.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/util/DataLoadUtil.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/RapportEleveController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/conf/log4j2.xml</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/JourneeController.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/test/mesclasses/java/util/MyFXAssert.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/test/mesclasses/java/display/pages/TestTrimestresEmpty.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/model/Trimestre.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/test/mesclasses/java/suites/EmptyDisplayTestSuite.java</file>
+            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/RootLayoutController.java</file>
             <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/MainApp.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/view/AdminClasseController.java</file>
-            <file>file:/C:/applications/javaFX/NetBeansProjects/MesClasses/src/mesclasses/util/AppLogger.java</file>
         </group>
     </open-files>
 </project-private>

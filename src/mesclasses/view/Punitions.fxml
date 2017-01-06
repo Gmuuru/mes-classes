@@ -6,10 +6,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -26,7 +26,7 @@
     <top>
       <HBox styleClass="titlebox">
         <children>
-           <Pane minWidth="500.0" styleClass="strap" HBox.hgrow="ALWAYS">
+           <Pane minWidth="250.0" prefWidth="250.0" styleClass="strap" HBox.hgrow="ALWAYS">
               <children>
                  <Label fx:id="titleLabel" styleClass="label-title">
                  </Label>
@@ -39,17 +39,32 @@
    </top>
    <bottom>
        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#openClasse" text="Séances" VBox.vgrow="ALWAYS">
+         <ToolBar VBox.vgrow="ALWAYS">
             <VBox.margin>
                <Insets bottom="5.0" top="5.0" />
-            </VBox.margin></Button>
-        <fx:include source="Legende.fxml"/>
+            </VBox.margin>
+            <items>
+               <Pane HBox.hgrow="ALWAYS">
+                  <children>
+                     <Button contentDisplay="LEFT" fx:id="displayOldBtn" 
+                             onAction="#switchInclusion" styleClass="button-action" mnemonicParsing="false" text="Inclure trimestres précédents" />
+                  </children>
+               </Pane>
+               <Pane HBox.hgrow="ALWAYS" >
+                  <children>
+                    <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#openClasse" text="Séances" />
+                  </children>
+               </Pane>
+               <Pane HBox.hgrow="ALWAYS" />
+            </items>
+         </ToolBar>
+        <fx:include source="Legende.fxml" />
        </VBox>
    </bottom>
    <center>
       <VBox prefHeight="750.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <TitledPane animated="false" minHeight="350.0" text="Punitions en cours" VBox.vgrow="SOMETIMES">
+            <TitledPane animated="false" collapsible="false" minHeight="350.0" text="Punitions en cours" VBox.vgrow="SOMETIMES">
               <content>
                   <ScrollPane fitToHeight="true" fitToWidth="true">
                      <content>
@@ -93,7 +108,7 @@
                   </ScrollPane>
               </content>
             </TitledPane>
-            <TitledPane animated="false" text="Punitions fermées" VBox.vgrow="SOMETIMES">
+            <TitledPane animated="false" collapsible="false" text="Punitions fermées" VBox.vgrow="SOMETIMES">
               <content>
                   <ScrollPane fitToWidth="true">
                      <content>

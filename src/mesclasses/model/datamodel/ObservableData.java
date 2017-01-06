@@ -17,6 +17,7 @@ import mesclasses.model.Journee;
 import mesclasses.model.MonitoredObject;
 import mesclasses.model.Trimestre;
 import mesclasses.util.validation.FError;
+import mesclasses.util.validation.ListValidators;
 
 /**
  *
@@ -56,10 +57,10 @@ public class ObservableData extends MonitoredObject {
     @Override
     public List<FError> validate() {
         List<FError> e = Lists.newArrayList();
-        classes.forEach(c -> e.addAll(c.validate()));
-        trimestres.forEach(c -> c.validate());
-        cours.forEach(c -> c.validate());
-        journees.values().forEach(j -> j.validate());
+        e.addAll(ListValidators.validateTrimestreList(trimestres));
+        e.addAll(ListValidators.validateClasseList(classes));
+        e.addAll(ListValidators.validateCoursList(cours));
+        e.addAll(ListValidators.validateJourneeMap(journees));
         return e;
     }
     
@@ -95,4 +96,8 @@ public class ObservableData extends MonitoredObject {
         this.journees = journees;
     }
     
+    @Override
+    public String getDisplayName(){
+        return new StringBuilder("Full data ").toString();
+    }
 }

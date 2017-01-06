@@ -16,6 +16,7 @@ import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
 import mesclasses.model.Cours;
 import mesclasses.model.Eleve;
+import mesclasses.model.Trimestre;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectEleveEvent;
 import org.apache.logging.log4j.LogManager;
@@ -86,6 +87,14 @@ public class NodeUtil {
         return true;
     }
     
+    public static String getStartTime(Cours cours){
+        return formatTime(cours.getStartHour(), cours.getStartMin());
+    }
+    
+    public static String getEndTime(Cours cours){
+        return formatTime(cours.getEndHour(), cours.getEndMin());
+    }
+    
     public static String formatTime(int hours, int min){
         return hours+"h"+NodeUtil.formatMinutes(min);
     }
@@ -153,8 +162,19 @@ public class NodeUtil {
      * @return 
      */
     public static boolean isBetween(LocalDate date, LocalDate start, LocalDate end){
+        if(date == null || start == null || end == null){
+            return false;
+        }
         return (date.isAfter(start) || date.isEqual(start))
             && (date.isBefore(end) || date.isEqual(end));
+    }
+    
+    public static boolean datesOverlap(Trimestre t1, Trimestre t2){
+        if(t1 == null || t2 == null){
+            return false;
+        }
+        return isBetween(t1.getEndAsDate(), t2.getStartAsDate(), t2.getEndAsDate()) || 
+            isBetween(t2.getEndAsDate(), t1.getStartAsDate(), t1.getEndAsDate());
     }
     
     public static Hyperlink buildEleveLink(Eleve eleve, StringProperty bindingProperty, String fromView){

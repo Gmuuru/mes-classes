@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -18,8 +19,10 @@ import javafx.stage.Stage;
 import mesclasses.MainApp;
 import mesclasses.controller.PageController;
 import mesclasses.model.Classe;
+import mesclasses.model.Constants;
 import mesclasses.model.Eleve;
 import mesclasses.util.CssUtil;
+import mesclasses.util.NodeUtil;
 import org.smartgrid.SmartGrid;
 
 /**
@@ -76,10 +79,8 @@ public class CumulMotDialogController extends PageController implements Initiali
         long val = motsCarnets - motsSignes;
         if(val != 0){
             int rowIndex = grid.getGridHeight();
-            Label lastName = new Label(eleve.getLastName());
-
-            Label firstName = new Label(eleve.getFirstName());
-
+            Hyperlink lastName = NodeUtil.buildEleveLink(eleve, eleve.lastNameProperty(), Constants.JOURNEE_VIEW);
+            Hyperlink firstName = NodeUtil.buildEleveLink(eleve, eleve.firstNameProperty(), Constants.JOURNEE_VIEW);
             
             Label mots = new Label(String.valueOf(val));
             if(val >=3){

@@ -49,8 +49,6 @@ public class Constants {
     public static final String NEW_ELEVE_VIEW = "view/NewEleveDialog.fxml";
     public static final String EMPLOI_DU_TEMPS_VIEW = "view/Timetable.fxml";
     public static final String CLASSE_TABS_VIEW = "view/ClasseTabs.fxml";
-    public static final String CLASSE_CONTENT_TABS_VIEW = "view/ClasseContentTabs.fxml";
-    public static final String CLASSE_CONTENT_VIEW = "view/ClasseContent.fxml";
     public static final String JOURNEE_VIEW = "view/Journee.fxml";
     public static final String CLASSE_RAPPORT_TABS_VIEW = "view/RapportClasseTabs.fxml";
     public static final String CLASSE_RAPPORT_VIEW = "view/RapportClasse.fxml";
@@ -62,6 +60,7 @@ public class Constants {
     public static final String NEW_CHANGEMENT_VIEW = "view/NewChangementDialog.fxml";
     public static final String POSTIT_DIALOG = "view/PostItDialog.fxml";
     public static final String CONFIGURATION_VIEW = "view/Configuration.fxml";
+    public static final String ERREURS_VIEW = "view/ErrorDialog.fxml";
     
     public static final String CONF_WEEK_DEFAULT = "semaines.normal.nom";
     public static final String CONF_WEEK_P1_NAME = "semaines.periodique1.nom";

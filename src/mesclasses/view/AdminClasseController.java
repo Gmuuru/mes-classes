@@ -35,6 +35,7 @@ import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.util.AppLogger;
 import mesclasses.util.Btns;
 import mesclasses.util.ModalUtil;
+import mesclasses.util.validation.ListValidators;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
@@ -65,6 +66,11 @@ public class AdminClasseController extends PageController implements Initializab
         super.initialize(url, rb);
         LOG.info("Loading AdminClasseController with "+ classes.size() +" classes");
         handleKeys();
+        
+        errorMessagesLabel.setOnAction((e) -> {
+            openErrorDialog();
+        });
+        
         init();
     } 
     
@@ -188,5 +194,9 @@ public class AdminClasseController extends PageController implements Initializab
     protected boolean isUnique(String classeName){
         List<String> names = classes.stream().map( c -> c.getName() ).collect(Collectors.toList());
         return Collections.frequency(names, classeName) == 1;
+    }
+    
+    private void openErrorDialog() {
+        ModalUtil.showErrors(ListValidators.validateClasseList(classes));
     }
 }

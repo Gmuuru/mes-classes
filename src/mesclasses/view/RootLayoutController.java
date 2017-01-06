@@ -9,8 +9,8 @@ import com.google.common.eventbus.Subscribe;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
@@ -33,7 +33,6 @@ import mesclasses.handlers.EventBusHandler;
 import mesclasses.handlers.ModelHandler;
 import mesclasses.model.Constants;
 import mesclasses.model.datamodel.ObservableData;
-import mesclasses.model.datamodel.XMLData;
 import mesclasses.objects.Screen;
 import mesclasses.objects.events.ChangeEvent;
 import mesclasses.objects.events.IsAliveEvent;
@@ -45,6 +44,7 @@ import mesclasses.util.DataLoadUtil;
 import mesclasses.util.EleveFileUtil;
 import mesclasses.util.FileSaveUtil;
 import mesclasses.util.ModalUtil;
+import mesclasses.util.validation.FError;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
@@ -67,6 +67,7 @@ public class RootLayoutController extends PageController implements Initializabl
     @FXML private Label notificationMessageLabel;
     
     private PageController currentController;
+    private String currentView;
     
     private Map<String, Screen> screenMap;
     
@@ -95,10 +96,6 @@ public class RootLayoutController extends PageController implements Initializabl
     @FXML
     public void openTimetable(ActionEvent event){
         loadView(Constants.EMPLOI_DU_TEMPS_VIEW, true);
-    }
-    @FXML
-    public void openClasses(ActionEvent event){
-        loadView(Constants.CLASSE_CONTENT_TABS_VIEW, true);
     }
     @FXML
     public void openJournees(ActionEvent event){
@@ -151,7 +148,14 @@ public class RootLayoutController extends PageController implements Initializabl
                     return false;
                 }
             }
-            LOG.debug("Loading view "+view);
+            if((view == null && reload) || 
+                    (view != null && view.equals(currentView))){
+                LOG.debug("Reloading current view");
+                currentController.reload();
+                return true;
+            }
+            LOG.info("Loading view "+view);
+            currentView = view;
             Screen screen = getScreen(view);
             if(screen == null || screen.getCtrl() == null){
 
@@ -159,9 +163,6 @@ public class RootLayoutController extends PageController implements Initializabl
                 return false;
             }
             mainPane.setCenter(screen.getRoot());
-            if(reload){
-                screen.getCtrl().reload();
-            }
             currentController = screen.getCtrl();
             return true;
         } catch(Exception e){
@@ -199,17 +200,13 @@ public class RootLayoutController extends PageController implements Initializabl
     }
     
     private boolean save(){
-        XMLData xmlData = new XMLData();
-        Collections.sort(trimestres);
         modelHandler.cleanupClasses();
         modelHandler.cleanUpJournees();
-        xmlData.getTrimestres().addAll(trimestres);
-        xmlData.getClasses().addAll(classes);
-        xmlData.getCours().addAll(cours);
-        journees.keySet().forEach(date -> {
-            xmlData.getJournees().put(date.format(Constants.DATE_FORMATTER), journees.get(date));
-        });
-        return DataLoadUtil.writeData(xmlData, FileSaveUtil.getSaveFile());
+        List<FError> err = modelHandler.getData().validate();
+        if(err.isEmpty() || ModalUtil.confirm("Données incohérentes", "Sauvegarder quand même ?")){
+            return DataLoadUtil.writeData(modelHandler.getData(), FileSaveUtil.getSaveFile());
+        }
+        return false;
     }
     
     @FXML
@@ -332,6 +329,7 @@ public class RootLayoutController extends PageController implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         name = "Root Layout Ctrl";
+        super.initialize(location, resources);
         
         notificationPane.setManaged(false);
         notificationPane.setVisible(false);
@@ -342,9 +340,6 @@ public class RootLayoutController extends PageController implements Initializabl
         });
         screenMap = new HashMap<>();
         loadData(null);
-        
-        
-        super.initialize(location, resources);
     }
     
     

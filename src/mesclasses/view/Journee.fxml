@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -19,260 +20,267 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.smartgrid.SmartGrid?>
 <?import org.smartgrid.elements.HeaderLabel?>
+<?import org.smartselect.SmartSelect?>
 
 <AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.JourneeController">
     <stylesheets>
         <URL value="@../../resources/css/main.css" />
         <URL value="@../../resources/css/tabs.css" />
     </stylesheets>
-   <children>
-      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-             <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-                <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                  <items>
-                    <Button fx:id="switchNonActifsBtn" mnemonicParsing="false" onAction="#switchNonActifs" text="Button" />
-                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                      <Button mnemonicParsing="false" onAction="#openRapport" text="Rapport Classe" />
-                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                      <Button mnemonicParsing="false" onAction="#openMotDialog" styleClass="warning" text="Mots" />
-                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                      <Button mnemonicParsing="false" onAction="#openPunitions" styleClass="warning" text="Punitions" />
-                      <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                      <Button mnemonicParsing="false" onAction="#openPostIt" styleClass="warning" text="Post-It" />
-                  </items>
-                </ToolBar>
-                <fx:include source="Legende.fxml"/>
-             </VBox>
-         </bottom>
-         <center>
-            <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
-               <tabs>
-                  <Tab fx:id="vieScolaireTab" closable="false" text="Vie scolaire">
-                     <content>
-                   <VBox>
-                       <children>
-                           <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1280.0" styleClass="smart-grid">
-                          <columnConstraints>
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="18.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="18.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="18.0" />
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
-                          </rowConstraints>
-                           <children>
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
-                              <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
-                                 <padding>
-                                    <Insets left="4.0" />
-                                 </padding>
-                                    </HeaderLabel>
-                              <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
-                                 <padding>
-                                    <Insets left="4.0" />
-                                 </padding>
-                                    </HeaderLabel>
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Absent" GridPane.columnIndex="3" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Retard" GridPane.columnIndex="4" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Cumul Retard" GridPane.columnIndex="5" />   
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="6" />
-                           </children>
-                        </SmartGrid>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
-                     <content>
-                        <SmartGrid fx:id="vieScolaireGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0" styleClass="smart-grid">
-                          <columnConstraints>
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="18.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="18.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="18.0" />
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" valignment="TOP" vgrow="ALWAYS" />
-                          </rowConstraints>
-                        </SmartGrid>
-                     </content>
-                  </ScrollPane>
-                  </children>
-                   </VBox>
-                     </content>
-                  </Tab>
-                  <Tab fx:id="travailTab" closable="false" text="Travail et matériel">
-                    <content>
-                   <VBox>
-                       <children>
-                           <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1280.0" styleClass="smart-grid">
-                          <columnConstraints>
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
-                          </rowConstraints>
-                           <children>
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
-                              <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
-                                 <padding>
-                                    <Insets left="4.0" />
-                                 </padding>
-                                    </HeaderLabel>
-                              <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
-                                 <padding>
-                                    <Insets left="4.0" />
-                                 </padding>
-                                    </HeaderLabel>
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Travail non fait" GridPane.columnIndex="3" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Cumul Travail" GridPane.columnIndex="4" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Devoir non rendu" GridPane.columnIndex="5" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Oubli matériel" GridPane.columnIndex="6" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Cumul matériel" GridPane.columnIndex="7" />            
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="8" />
-                           </children>
-                        </SmartGrid>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
-                     <content>
-                        <SmartGrid fx:id="travailGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0" styleClass="smart-grid">
-                          <columnConstraints>
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="10.8" />
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" valignment="TOP" vgrow="ALWAYS" />
-                          </rowConstraints>
-                        </SmartGrid>
-                     </content>
-                  </ScrollPane>
-                  </children>
-                   </VBox>
-                     </content>
-                  </Tab>
-                  <Tab fx:id="sanctionsTab" closable="false" text="Sanctions">
-                     <content>
-                   <VBox>
-                       <children>
-                           <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1280.0" styleClass="smart-grid">
-                          <columnConstraints>
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
-                          </rowConstraints>
-                           <children>
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
-                              <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
-                                 <padding>
-                                    <Insets left="4.0" />
-                                 </padding>
-                                    </HeaderLabel>
-                              <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
-                                 <padding>
-                                    <Insets left="4.0" />
-                                 </padding>
-                                    </HeaderLabel>
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Punition" GridPane.columnIndex="3" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Mot carnet" GridPane.columnIndex="4" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Mot signé" GridPane.columnIndex="5" />
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Exclus" GridPane.columnIndex="6" />            
-                              <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="7" />
-                           </children>
-                        </SmartGrid>
-                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
-                     <content>
-                        <SmartGrid fx:id="sanctionsGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0" styleClass="smart-grid">
-                          <columnConstraints>
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="200.0" percentWidth="21.0" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints hgrow="ALWAYS" maxWidth="100.0" percentWidth="13.5" />
-                            <ColumnConstraints minWidth="5" percentWidth="2" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints fillHeight="false" maxHeight="35.0" minHeight="35.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
-                          </rowConstraints>
-                        </SmartGrid>
-                     </content>
-                  </ScrollPane>
-                  </children>
-                   </VBox>
-                     </content>
-                  </Tab>
-               </tabs>
-            </TabPane>
-         </center>
-         <top>
-            <ToolBar prefHeight="50.0" BorderPane.alignment="CENTER">
-               <items>
-                    <HBox styleClass="titlebox">
-                       <children>
-                          <Pane maxWidth="120.0" minWidth="120.0" styleClass="strap" HBox.hgrow="ALWAYS">
-                             <children>
-                                <Label fx:id="trimestreName" styleClass="label-title">
-                                </Label>
-                             </children>
-                          </Pane>
-                          <Pane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="35.0" styleClass="pointy" HBox.hgrow="NEVER" />
+    <children>
+        <BorderPane fx:id="journees" prefHeight="750.0" prefWidth="1282.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <bottom>
+                <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+                    <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <items>
+                            <Button fx:id="switchNonActifsBtn" mnemonicParsing="false" onAction="#switchNonActifs" text="Button" />
+                            <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="rapportsBtn" mnemonicParsing="false" onAction="#openRapport" text="Rapport Classe" />
+                            <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="motsBtn" mnemonicParsing="false" onAction="#openMotDialog" styleClass="warning" text="Mots" />
+                            <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="punitionsBtn" mnemonicParsing="false" onAction="#openPunitions" styleClass="warning" text="Punitions" />
+                            <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="postItBtn" mnemonicParsing="false" onAction="#openPostIt" styleClass="warning" text="Post-It" />
+                        </items>
+                    </ToolBar>
+                    <fx:include source="Legende.fxml" />
+                </VBox>
+            </bottom>
+            <center>
+                <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
+                    <tabs>
+                        <Tab fx:id="vieScolaireTab" closable="false" styleClass="seance1" text="Vie scolaire">
+                            <content>
+                                <VBox>
+                                    <children>
+                                        <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1260.0" styleClass="smart-grid">
+                                            <columnConstraints>
+                                                <ColumnConstraints maxWidth="21" minWidth="21" prefWidth="21" />
+                                                <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints maxWidth="26" minWidth="26" prefWidth="26" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
+                                            </rowConstraints>
+                                            <children>
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
+                                                <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
+                                                    <padding>
+                                                        <Insets left="4.0" />
+                                                    </padding>
+                                                </HeaderLabel>
+                                                <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
+                                                    <padding>
+                                                        <Insets left="4.0" />
+                                                    </padding>
+                                                </HeaderLabel>
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Absent" GridPane.columnIndex="3" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Retard" GridPane.columnIndex="4" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Cumul retard" GridPane.columnIndex="5" />   
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="6" />
+                                            </children>
+                                        </SmartGrid>
+                                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+                                            <content>
+                                                <SmartGrid fx:id="vieScolaireGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1260.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints maxWidth="20" minWidth="20" prefWidth="20" />
+                                                        <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                        <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints fillHeight="false" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" valignment="TOP" vgrow="ALWAYS" />
+                                                    </rowConstraints>
+                                       <styleClass>
+                                          <String fx:value="smart-grid" />
+                                          <String fx:value="seance1" />
+                                       </styleClass>
+                                                </SmartGrid>
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="travailTab" closable="false" styleClass="seance2" text="Travail et matériel">
+                            <content>
+                                <VBox>
+                                    <children>
+                                        <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1280.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints maxWidth="21" minWidth="21" prefWidth="21" />
+                                                <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints maxWidth="26" minWidth="26" prefWidth="26" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
+                                            </rowConstraints>
+                                            <children>
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
+                                                <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
+                                                    <padding>
+                                                        <Insets left="4.0" />
+                                                    </padding>
+                                                </HeaderLabel>
+                                                <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
+                                                    <padding>
+                                                        <Insets left="4.0" />
+                                                    </padding>
+                                                </HeaderLabel>
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Travail non fait" GridPane.columnIndex="3" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Cumul travail" GridPane.columnIndex="4" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Devoir non rendu" GridPane.columnIndex="5" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Oubli matériel" GridPane.columnIndex="6" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Cumul matériel" GridPane.columnIndex="7" />            
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="8" />
+                                            </children>
+                                            <styleClass>
+                                                <String fx:value="smart-grid" />
+                                            </styleClass>
+                                        </SmartGrid>
+                                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+                                            <content>
+                                                <SmartGrid fx:id="travailGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints maxWidth="20" minWidth="20" prefWidth="20" />
+                                                        <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                        <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints fillHeight="false" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" valignment="TOP" vgrow="ALWAYS" />
+                                                    </rowConstraints>
+                                       <styleClass>
+                                          <String fx:value="smart-grid" />
+                                          <String fx:value="seance2" />
+                                       </styleClass>
+                                                </SmartGrid>
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="sanctionsTab" closable="false" styleClass="seance3" text="Sanctions">
+                            <content>
+                                <VBox>
+                                    <children>
+                                        <SmartGrid alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="1" prefWidth="1280.0" styleClass="smart-grid">
+                                            <columnConstraints>
+                                                <ColumnConstraints maxWidth="21" minWidth="21" prefWidth="21" />
+                                                <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                <ColumnConstraints maxWidth="26" minWidth="26" prefWidth="26" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
+                                            </rowConstraints>
+                                            <children>
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="0" />
+                                                <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Nom" GridPane.columnIndex="1">
+                                                    <padding>
+                                                        <Insets left="4.0" />
+                                                    </padding>
+                                                </HeaderLabel>
+                                                <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Prénom" GridPane.columnIndex="2">
+                                                    <padding>
+                                                        <Insets left="4.0" />
+                                                    </padding>
+                                                </HeaderLabel>
+                                                <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Punition" GridPane.columnIndex="3" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Mot carnet" GridPane.columnIndex="4" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Mot signé" GridPane.columnIndex="5" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Exclus" GridPane.columnIndex="6" />  
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Motif" GridPane.columnIndex="7" />            
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="8" />
+                                            </children>
+                                        </SmartGrid>
+                                        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="ALWAYS" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+                                            <content>
+                                                <SmartGrid fx:id="sanctionsGrid" alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nbHeaderRows="0" prefWidth="1280.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints maxWidth="20" minWidth="20" prefWidth="20" />
+                                                        <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                        <ColumnConstraints maxWidth="275" minWidth="275" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="275" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints fillHeight="false" maxHeight="35.0" minHeight="35.0" prefHeight="30.0" valignment="TOP" vgrow="ALWAYS" />
+                                                    </rowConstraints>
+                                       <styleClass>
+                                          <String fx:value="smart-grid" />
+                                          <String fx:value="seance3" />
+                                       </styleClass>
+                                                </SmartGrid>
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </center>
+            <top>
+                <ToolBar prefHeight="50.0" BorderPane.alignment="CENTER">
+                    <items>
+                        <HBox styleClass="titlebox">
+                            <children>
+                                <Pane maxWidth="120.0" minWidth="120.0" styleClass="strap" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label fx:id="trimestreName" styleClass="label-title">
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane maxHeight="30.0" minHeight="30.0" prefHeight="30.0" prefWidth="35.0" styleClass="pointy" HBox.hgrow="NEVER" />
                           
-                       </children>
-                    </HBox>
-                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Button fx:id="previousDayBtn" mnemonicParsing="false" onAction="#previousDay" text="&lt;" />
-                        <DatePicker fx:id="currentDate" prefHeight="25.0" prefWidth="267.0" styleClass="datepicker" HBox.hgrow="SOMETIMES" />
-                        <Button fx:id="nextDayBtn" mnemonicParsing="false" onAction="#nextDay" text="&gt;" />
-                     </children>
-                  </HBox>
-                  <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Button fx:id="previousSeanceBtn" mnemonicParsing="false" onAction="#previousSeance" text="&lt;" />
-                        <Label fx:id="currentSeanceLabel" alignment="CENTER" contentDisplay="CENTER" styleClass="list-element" text="Label" HBox.hgrow="ALWAYS">
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding></Label>
-                        <Button fx:id="nextSeanceBtn" mnemonicParsing="false" onAction="#nextSeance" text="&gt;" />
-                     </children>
-                  </HBox>
-                  <Pane maxWidth="20.0" minWidth="20.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="addCours" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#ajouterCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-arrow" text="" HBox.hgrow="ALWAYS" />
-                  <Pane maxWidth="20.0" minWidth="20.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="remCours" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#supprimerCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-delete" text="" HBox.hgrow="ALWAYS" />
-                  <Pane HBox.hgrow="ALWAYS" />
-               </items>
-            </ToolBar>
-         </top>
-      </BorderPane>
-   </children>
+                            </children>
+                        </HBox>
+                        <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Button fx:id="previousDayBtn" mnemonicParsing="false" onAction="#previousDay" text="&lt;" />
+                                <DatePicker fx:id="currentDate" prefHeight="25.0" prefWidth="267.0" styleClass="datepicker" HBox.hgrow="SOMETIMES" />
+                                <Button fx:id="nextDayBtn" mnemonicParsing="false" onAction="#nextDay" text="&gt;" />
+                            </children>
+                        </HBox>
+                        <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
+                        <SmartSelect fx:id="seanceSelect" circular="false" />
+                        <Pane maxWidth="20.0" minWidth="20.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#ajouterCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-arrow" text="" HBox.hgrow="ALWAYS" />
+                        <Pane maxWidth="20.0" minWidth="20.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="remCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#supprimerCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-delete" text="" HBox.hgrow="ALWAYS" />
+                        <Pane HBox.hgrow="ALWAYS" />
+                    </items>
+                </ToolBar>
+            </top>
+        </BorderPane>
+    </children>
 </AnchorPane>

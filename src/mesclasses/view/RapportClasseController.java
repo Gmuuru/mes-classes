@@ -6,13 +6,9 @@
 package mesclasses.view;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
@@ -24,12 +20,16 @@ import mesclasses.model.Classe;
 import mesclasses.model.Constants;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
+import mesclasses.model.Trimestre;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectClasseEvent;
 import mesclasses.util.Btns;
 import mesclasses.util.NodeUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
+import org.smartselect.SmartSelect;
 
 /**
  *
@@ -37,48 +37,31 @@ import org.smartgrid.SmartGrid;
  */
 public class RapportClasseController extends TabContentController implements Initializable {
     
+    private static final Logger LOG = LogManager.getLogger(RapportClasseController.class);
+    
     // FXML elements
     
     @FXML SmartGrid grid; 
     
-    @FXML Label trimestreLabel;
-    
     @FXML Label rapportLabel;
     
-    @FXML Button previousBtn;
-    
-    @FXML Button nextBtn;
+    @FXML SmartSelect<Trimestre> smartSelect;
     
     @FXML Button ouvrirClasseBtn;
     
     private Classe classe;
-    private IntegerProperty trimestreIndex;
-    private StringProperty selectedTrimestre;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         name = "Rapport Classe Ctrl";
         super.initialize(url ,rb);
         
-        trimestreIndex = new SimpleIntegerProperty();
-        selectedTrimestre = new SimpleStringProperty();
-        
-        trimestreLabel.textProperty().bind(selectedTrimestre);
-        
-        previousBtn.disableProperty().bind(
-                Bindings.or(
-                        Bindings.size(trimestres).lessThan(2),
-                        trimestreIndex.isEqualTo(0)
-                )
-        );
-        Btns.makeLeft(previousBtn);
-        nextBtn.disableProperty().bind(
-                Bindings.or(
-                        Bindings.size(trimestres).lessThan(2),
-                        trimestreIndex.isEqualTo(trimestres.size()-1)
-                )
-        );
-        Btns.makeRight(nextBtn);
+        smartSelect.setItems(trimestres, true);
+        Btns.makeLeft(smartSelect.getBtnLeft());
+        Btns.makeRight(smartSelect.getBtnRight());
+        smartSelect.addChangeListener((o, oldV, newV) -> {
+            refreshGrid();
+        });
         
     }
     
@@ -86,8 +69,8 @@ public class RapportClasseController extends TabContentController implements Ini
     public Classe getClasse() {
         return classe;
     }
-
     
+    @Override
     public void setClasse(Classe classe) {
         this.classe = classe;
         init();
@@ -97,23 +80,9 @@ public class RapportClasseController extends TabContentController implements Ini
         name +=" for classe "+classe;
         rapportLabel.setText("Rapport pour la "+classe);
         if(trimestres != null && !trimestres.isEmpty()){
-            selectTrimestre(0);
+            Trimestre current = modelHandler.getForDate(LocalDate.now());
+            smartSelect.select(current);
         }
-    }
-    private void selectTrimestre(int index){
-        trimestreIndex.set(index);
-        selectedTrimestre.set(trimestres.get(index).getName());
-        refreshGrid();
-    }
-    
-    @FXML
-    public void previous(){
-        selectTrimestre(trimestreIndex.get() - 1);
-    }
-    
-    @FXML
-    public void next(){
-        selectTrimestre(trimestreIndex.get() + 1);
     }
     
     private void refreshGrid(){
@@ -134,13 +103,14 @@ public class RapportClasseController extends TabContentController implements Ini
             return;
         }
         List<Eleve> elevesToDisplay = modelHandler.getOnlyActive(classe.getEleves());
+        LOG.debug("smart select rapports : "+smartSelect.getValue());
         for(int i = 0; i < elevesToDisplay.size(); i++){
             drawRow(elevesToDisplay.get(i), i+1);
         }
     }
     
     private void drawRow(Eleve eleve, int rowIndex){
-        List<EleveData> data = modelHandler.filterByTrimestre(eleve.getData(), trimestres.get(trimestreIndex.get()), null);
+        List<EleveData> data = modelHandler.filterDataByTrimestre(eleve.getData(), smartSelect.getValue(), null);
         grid.add(NodeUtil.buildEleveLink(eleve, eleve.lastNameProperty(), Constants.CLASSE_RAPPORT_TABS_VIEW), 1, rowIndex, HPos.LEFT);
         
         grid.add(NodeUtil.buildEleveLink(eleve, eleve.firstNameProperty(), Constants.CLASSE_RAPPORT_TABS_VIEW), 2, rowIndex, HPos.LEFT);
@@ -184,6 +154,7 @@ public class RapportClasseController extends TabContentController implements Ini
     @Override
     public void reload() {
         super.reload(); //To change body of generated methods, choose Tools | Templates.
+        LOG.info("rapport classe pour "+smartSelect.getValue());
         refreshGrid();
     }
 }

@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.ScrollPane?>
@@ -22,7 +23,7 @@
         <URL value="@../../resources/css/main.css" />
     </stylesheets>
     <children>
-      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="adminTrimestres" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
              <VBox BorderPane.alignment="CENTER">
                <children>
@@ -42,7 +43,7 @@
                    <items>
                        <Button fx:id="addTrimestreBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNewTrimestre" text="Ajouter trimestre" />
                        <Pane HBox.hgrow="ALWAYS" />
-                       <Label fx:id="errorMessagesLabel" alignment="CENTER_RIGHT" minWidth="130.0" styleClass="text-red" text="Chargement des trimestres" />
+                       <Hyperlink fx:id="errorMessagesLabel" alignment="CENTER_RIGHT" minWidth="130.0" styleClass="text-red" text="Chargement des trimestres" />
                    </items>
                  </ToolBar>
                </children>
@@ -51,7 +52,7 @@
          <center>
          <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="1280.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
            <content>
-           <SmartGrid fx:id="grid"  nbHeaderRows="1" styleClass="smart-grid" BorderPane.alignment="TOP_CENTER">
+           <SmartGrid fx:id="trimestreGrid"  nbHeaderRows="1" styleClass="smart-grid" BorderPane.alignment="TOP_CENTER">
              <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="5.0" minWidth="5.0" prefWidth="5.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -89,7 +90,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </BorderPane.margin>
                <children>
-                  <Button mnemonicParsing="false" onAction="#openClasses" text="Ajouter des classes" HBox.hgrow="SOMETIMES">
+                  <Button fx:id="toClasses" mnemonicParsing="false" onAction="#openClasses" text="Ajouter des classes" HBox.hgrow="SOMETIMES">
                   </Button>
                </children>
             </HBox>

@@ -7,6 +7,7 @@ package mesclasses.view;
 
 import com.google.common.eventbus.Subscribe;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -23,11 +24,14 @@ import mesclasses.handlers.EventBusHandler;
 import mesclasses.model.Classe;
 import mesclasses.model.Constants;
 import mesclasses.model.Punition;
+import mesclasses.model.Trimestre;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectClasseEvent;
 import mesclasses.util.Btns;
 import mesclasses.util.ModalUtil;
 import mesclasses.util.NodeUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
 
 /**
@@ -37,15 +41,21 @@ import org.smartgrid.SmartGrid;
  */
 public class PunitionsController extends PageController implements Initializable {
 
+    private static final Logger LOG = LogManager.getLogger(PunitionsController.class);
+    
     @FXML Label titleLabel;
     
     @FXML SmartGrid gridEnCours;
     
     @FXML SmartGrid gridFermees;
     
+    @FXML Button displayOldBtn;
+    
     private Classe classe;
-    private List<Punition> enCours;
-    private List<Punition> fermees;
+    private List<Punition> enCours = new ArrayList<>();;
+    private List<Punition> fermees = new ArrayList<>();;
+    
+    private boolean includeOldTrimestres = false;
     /**
      * Initializes the controller class.
      */
@@ -53,6 +63,7 @@ public class PunitionsController extends PageController implements Initializable
     public void initialize(URL url, ResourceBundle rb) {
         name = "Punitions Ctrl";
         super.initialize(url, rb);
+        displayOldBtn.setText(includeOldTrimestres? "Exclure trimestres précédents" : "Inclure trimestres précédents");
     }    
 
     public Classe getClasse() {
@@ -73,32 +84,62 @@ public class PunitionsController extends PageController implements Initializable
         }
     }
     public void init(){
-        
-        enCours = new ArrayList<>();
-        fermees = new ArrayList<>();
-        classe.getEleves().forEach(eleve -> {
-            eleve.getPunitions().forEach(punition -> {
-                if(punition.isClosed()){
-                    fermees.add(punition);
-                } else {
-                    enCours.add(punition);
-                }
-            });
-        });
+        populate();
         drawPunitions();
     }
     
+    private void populate(){
+        LOG.debug("remplissage des listes. includeOldTrimestres="+includeOldTrimestres);
+        enCours.clear();
+        fermees.clear();
+        
+        if(trimestres == null || trimestres.isEmpty()){
+            return;
+        }
+        Trimestre first = trimestres.get(0);
+        Trimestre current = modelHandler.getForDate(LocalDate.now());
+        if(current == null){
+            notif("Aucun trimestre pour aujourd'hui");
+            return;
+        }
+        if(includeOldTrimestres){
+            // depuis la rentrée jusqu'à la fin du trimestre en cours
+            classe.getEleves().forEach(eleve -> {
+                modelHandler.filterPunitionsByTrimestre(eleve.getPunitions(), first, current.getEndAsDate())
+                        .forEach(punition -> {
+                    if(punition.isClosed()){
+                        fermees.add(punition);
+                    } else {
+                        enCours.add(punition);
+                    }
+                });
+            });
+        } else {
+            // seulement le trimestre en cours
+            classe.getEleves().forEach(eleve -> {
+                modelHandler.filterPunitionsByTrimestre(eleve.getPunitions(), current, null)
+                        .forEach(punition -> {
+                    if(punition.isClosed()){
+                        fermees.add(punition);
+                    } else {
+                        enCours.add(punition);
+                    }
+                });
+            });
+        }
+    }
+    
     private void drawPunitions(){
+        gridEnCours.clear();
         if(enCours.isEmpty()){
             gridEnCours.drawNoDataInGrid("Aucune punition en cours");
         } else {
-            gridEnCours.clear();
             enCours.forEach(punition -> drawPunition(punition, false));
         }
+        gridFermees.clear();
         if(fermees.isEmpty()){
             gridFermees.drawNoDataInGrid("Aucune punition fermée");
         } else {
-            gridFermees.clear();
             fermees.forEach(punition -> drawPunition(punition, true));
         }
     }
@@ -110,7 +151,8 @@ public class PunitionsController extends PageController implements Initializable
         Hyperlink firstName = NodeUtil.buildEleveLink(punition.getEleve(), punition.getEleve().firstNameProperty(), Constants.CLASSE_PUNITIONS_VIEW);
         grid.add(firstName, 2, rowIndex, HPos.LEFT);
         
-        Label date = new Label(punition.getDate()+" (cours "+punition.getCours()+")");
+        Label date = new Label(punition.getSeance().getDateAsDate().format(Constants.DATE_FORMATTER_FR)
+                +" (cours de "+NodeUtil.getStartTime(punition.getSeance().getCours())+")");
         grid.add(date, 3, rowIndex, null);
         
         if(isClosed){
@@ -160,8 +202,15 @@ public class PunitionsController extends PageController implements Initializable
         }
     }
     
+    @FXML public void switchInclusion(){
+        includeOldTrimestres = !includeOldTrimestres;
+        displayOldBtn.setText(includeOldTrimestres? "Exclure trimestres précédents" : "Inclure trimestres précédents");
+        populate();
+        drawPunitions();
+    }
+    
     @FXML public void openClasse(){
-        EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW).setReload(false));
+        EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW).setReload(true));
     }
     
     @Override

@@ -127,7 +127,7 @@
       <ButtonBar prefHeight="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
           <Button fx:id="okBtn" mnemonicParsing="false" onAction="#handleOk" text="OK" />
-          <Button mnemonicParsing="false" onAction="#handleCancel" styleClass="cancel" text="Annuler" />
+          <Button mnemonicParsing="false" onAction="#handleCancel" styleClass="button-action" text="Annuler" />
           <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#handleDelete" styleClass="button-delete-large" text="Supprimer" />
         </buttons>
       </ButtonBar>

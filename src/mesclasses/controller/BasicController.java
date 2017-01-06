@@ -16,7 +16,7 @@ import javafx.collections.ObservableSet;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
+import javafx.scene.control.Hyperlink;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.handlers.PropertiesCache;
 import mesclasses.objects.events.Event;
@@ -35,16 +35,21 @@ public abstract class BasicController implements Initializable {
     
     private static final Logger LOG = LogManager.getLogger(BasicController.class);
     
-    @FXML
-    protected Label errorMessagesLabel = new Label();
+    public static final String ERROR_CLASS = "error";
+    public static final String ERROR_MSG = "La page contient des erreurs";
     
+    @FXML protected Hyperlink errorMessagesLabel = new Hyperlink();
     protected String name;
     protected String uniqueId;
+    
     protected ObservableSet<Node> fieldsMissing = FXCollections.observableSet(new HashSet<Node>());
     protected ObservableSet<Node> fieldsNotUnique = FXCollections.observableSet(new HashSet<Node>());
+    protected ObservableSet<Node> fieldsInvalid = FXCollections.observableSet(new HashSet<Node>());
     protected BooleanBinding hasErrors = Bindings.or(
             Bindings.size(fieldsMissing).isNotEqualTo(0),
-            Bindings.size(fieldsNotUnique).isNotEqualTo(0));
+            Bindings.or(
+                    Bindings.size(fieldsNotUnique).isNotEqualTo(0),
+                    Bindings.size(fieldsInvalid).isNotEqualTo(0)));
     
     protected PropertiesCache config = PropertiesCache.getInstance();
     
@@ -55,7 +60,8 @@ public abstract class BasicController implements Initializable {
             name = "Basic Ctrl";
         }
         uniqueId = RandomStringUtils.randomNumeric(10);
-        LOG.info("Creating controller "+getNameAndId());
+        LOG.debug("Creating controller "+getNameAndId());
+        
     }  
     
     public final void notif(Throwable e){
@@ -71,15 +77,11 @@ public abstract class BasicController implements Initializable {
     }
     
     public final void updateErrorMessages(){
-        String errorMessages = "";
-        if(!fieldsMissing.isEmpty()){
-            errorMessages = "Remplissez les champs obligatoires";
+        if(!fieldsMissing.isEmpty() || !fieldsNotUnique.isEmpty() || !fieldsInvalid.isEmpty()){
+            errorMessagesLabel.setText(ERROR_MSG);
+        } else {
+            errorMessagesLabel.setText("");
         }
-        if(!fieldsNotUnique.isEmpty()){
-            errorMessages += errorMessages.equals("") ? "" : "\n";
-            errorMessages += "Certaines valeurs doivent être uniques";
-        }
-        errorMessagesLabel.setText(errorMessages);
     }
     
     public final void addMissingError(Node node){
@@ -106,13 +108,25 @@ public abstract class BasicController implements Initializable {
         updateErrorMessages();
     }
     
+    public final void addValidityError(Node node){
+        fieldsInvalid.add(node);
+        addErrorCss(node);
+        updateErrorMessages();
+    }
+    
+    public final void removeValidityError(Node node){
+        fieldsInvalid.remove(node);
+        removeErrorCssIfPossible(node);
+        updateErrorMessages();
+    }
+    
     public final void addErrorCss(Node node){
-        CssUtil.addClass(node, "error");
+        CssUtil.addClass(node, ERROR_CLASS);
     }
     
     public final void removeErrorCssIfPossible(Node node){
-        if(!fieldsNotUnique.contains(node) && !fieldsMissing.contains(node)){
-            CssUtil.removeClass(node, "error");
+        if(!fieldsNotUnique.contains(node) && !fieldsMissing.contains(node) && !fieldsInvalid.contains(node)){
+            CssUtil.removeClass(node, ERROR_CLASS);
         }
     }
     
@@ -127,18 +141,22 @@ public abstract class BasicController implements Initializable {
     
     public final void resetErrors(){
         fieldsMissing.stream().forEach((node) -> {
-            CssUtil.removeClass(node, "error");
+            CssUtil.removeClass(node, ERROR_CLASS);
         });
         fieldsNotUnique.stream().forEach((node) -> {
-            CssUtil.removeClass(node, "error");
+            CssUtil.removeClass(node, ERROR_CLASS);
+        });
+        fieldsInvalid.stream().forEach((node) -> {
+            CssUtil.removeClass(node, ERROR_CLASS);
         });
         fieldsMissing.clear();
         fieldsNotUnique.clear();
+        fieldsInvalid.clear();
         updateErrorMessages();
     }
     
     protected int getNbErrors(){
-        return fieldsNotUnique.size() + fieldsMissing.size();
+        return fieldsNotUnique.size() + fieldsMissing.size() + fieldsInvalid.size();
     }
 
     public String getName() {

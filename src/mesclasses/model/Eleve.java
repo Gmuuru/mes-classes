@@ -5,6 +5,7 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -21,7 +22,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlIDREF;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.ListValidators;
+import mesclasses.util.validation.Validators;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -82,6 +87,16 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         changementsClasse.forEach(c -> c.resetChange());
     }
     
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        err.addAll(ListValidators.validatePunitionList(this));
+        err.addAll(ListValidators.validateChangementList(this));
+        err.addAll(ListValidators.validateDonneeList(this));
+        return err;
+    }
+    
     @XmlAttribute
     @XmlID
     public String getId() {
@@ -106,7 +121,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
     
     @XmlAttribute
     public String getFirstName() {
-        if(firstName == null){
+        if(firstName == null || firstName.get() == null){
             return "";
         }
         return firstName.get();
@@ -118,7 +133,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
 
     @XmlAttribute
     public String getLastName() {
-        if(lastName == null){
+        if(lastName == null || lastName.get() == null){
             return "";
         }
         return lastName.get();
@@ -178,11 +193,16 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
     }
     
     public String getFullName(){
-        return new StringBuilder(getLastName()).append(" ").append(getFirstName()).toString();
+        String fn = StringUtils.isBlank(getFirstName())?"<vide>":getFirstName();
+        String ln = StringUtils.isBlank(getLastName())?"<vide>":getLastName();
+        return new StringBuilder(ln).append(" ").append(fn).toString();
     }
 
+    @Override
     public String getDisplayName(){
-        return new StringBuilder(getFirstName()).append(" ").append(getLastName()).toString();
+        String fn = StringUtils.isBlank(getFirstName())?"<vide>":getFirstName();
+        String ln = StringUtils.isBlank(getLastName())?"<vide>":getLastName();
+        return new StringBuilder("Elève ").append(fn).append(" ").append(ln).toString();
     }
     
     @Override
@@ -194,7 +214,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
     
     @Override
     public String toString(){
-        return getFirstName()+" "+getLastName();
+        return getDisplayName();
     }
     
     public boolean isInClasse(LocalDate date){

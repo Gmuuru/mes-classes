@@ -5,18 +5,33 @@
  */
 package mesclasses.util;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import mesclasses.MainApp;
+import mesclasses.model.Constants;
+import mesclasses.util.validation.FError;
+import mesclasses.view.ErrorDialogController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author rrrt3491
  */
 public class ModalUtil {
+    
+    private static final Logger LOG = LogManager.getLogger(ModalUtil.class);
     
     public static boolean confirm(String header, String text){
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -74,6 +89,31 @@ public class ModalUtil {
             return "no";
         } else {
             return "cancel";
+        }
+    }
+    
+    public static void showErrors(List<FError> list) {
+        try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainApp.class.getResource(Constants.ERREURS_VIEW));
+        BorderPane page = (BorderPane) loader.load();
+
+        // Create the dialog Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Erreurs sur la page");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        // Set the person into the controller.
+        ErrorDialogController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setErrors(list);
+
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
+        } catch(IOException e){
+            LOG.error("Erreur d'affichage : ", e);
         }
     }
 }

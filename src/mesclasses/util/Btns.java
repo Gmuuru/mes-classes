@@ -41,6 +41,16 @@ public class Btns {
         return btn;
     }
     
+    public static Button actionBtn(){
+        return makeDelete(new Button());
+    }
+    
+    public static Button makeAction(Button btn){
+        setHeight(btn);
+        CssUtil.addClass(btn, "button-action");
+        return btn;
+    }
+    
     public static Button upBtn(){
         return makeUp(new Button());
     }

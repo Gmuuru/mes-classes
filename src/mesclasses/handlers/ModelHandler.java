@@ -26,6 +26,7 @@ import mesclasses.model.Trimestre;
 import mesclasses.model.datamodel.ObservableData;
 import mesclasses.util.EleveFileUtil;
 import mesclasses.util.NodeUtil;
+import mesclasses.util.validation.FError;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -66,6 +67,10 @@ public class ModelHandler {
     
     public ObservableMap<LocalDate, Journee> getJournees(){
         return data.getJournees();
+    }
+    
+    public List<FError> validate(){
+        return data.validate();
     }
     /* TRIMESTRES */
     
@@ -200,11 +205,11 @@ public class ModelHandler {
     public ObservableList<Cours> getCoursForDateAndClasse(LocalDate date, Classe classe){
         
         String day = NodeUtil.getJour(date);
-        return data.getCours().stream().filter(c -> 
+        return data.getCours().filtered(c -> 
                 c.getDay().equals(day) 
                 && c.getClasse().getName().equals(classe.getName())
                 && NodeUtil.coursHappensThisDay(c, date)
-        ).collect(Collectors.toCollection(FXCollections::observableArrayList));
+        );
     }
     
     public ObservableList<Cours> getCoursForDayAndClasse(String day, Classe classe){
@@ -310,7 +315,7 @@ public class ModelHandler {
         return createEleveData(eleve, cours, date);
     }
     
-    public List<EleveData> filterByTrimestre(List<EleveData> liste, Trimestre trimestre, LocalDate optionalEnDate){
+    public List<EleveData> filterDataByTrimestre(List<EleveData> liste, Trimestre trimestre, LocalDate optionalEnDate){
         LocalDate tmp = trimestre.getEndAsDate();
         if(optionalEnDate != null){
             tmp = optionalEnDate;
@@ -320,10 +325,13 @@ public class ModelHandler {
                 .collect(Collectors.toList());
     }
     
-    public List<Punition> filterByTrimestre(List<Punition> liste, Trimestre trimestre){
+    public List<Punition> filterPunitionsByTrimestre(List<Punition> liste, Trimestre trimestre, LocalDate optionalEnDate){
         LocalDate tmp = trimestre.getEndAsDate();
+        if(optionalEnDate != null){
+            tmp = optionalEnDate;
+        }
         final LocalDate endDate = tmp;
-        return liste.stream().filter(d -> NodeUtil.isBetween(d.getDateAsDate(), trimestre.getStartAsDate(), endDate))
+        return liste.stream().filter(d -> NodeUtil.isBetween(d.getSeance().getDateAsDate(), trimestre.getStartAsDate(), endDate))
                 .collect(Collectors.toList());
     }
 
@@ -431,7 +439,17 @@ public class ModelHandler {
     }
     
     public void cleanupSeance(Seance seance){
-        seance.getDonneesAsMap().entrySet().removeIf(e -> e.getValue().isEmpty());
+        seance.getDonneesAsMap().entrySet().forEach(e -> {
+            if(e.getValue().getOubliMateriel() != null){
+                e.getValue().setOubliMateriel(e.getValue().getOubliMateriel().trim());
+            }
+            if(e.getValue().getMotif() != null){
+                e.getValue().setMotif(e.getValue().getMotif().trim());
+            }
+        });
+        seance.getDonneesAsMap().entrySet().removeIf(e -> 
+                e == null || e.getKey() == null ||
+                e.getValue() == null || e.getValue().isEmpty());
     }
     
     public List<Seance> handleSeanceWithDeletedCours(Cours cours){

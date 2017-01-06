@@ -1,0 +1,3954 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmldata>
+    <classes>
+        <classe name="6°1">
+            <eleves>
+                <eleve actif="true" classe="6°1" firstName="Lyes" lastName="ABDELLI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="vaQcC" id="pi4oV">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="vaQcC" id="nCYK2">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="vaQcC" id="cm26S">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-18</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>vaQcC</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Cassandra" lastName="BENHAMOU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>91cGa</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Maëlle" lastName="BERTRAND">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="LGP3q" id="0q0cf">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>LGP3q</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Simon" lastName="BLANC-LAPIERRE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>1bLOh</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Sarah" lastName="BOROGOVAC">
+                    <changementsClasse/>
+                    <data/>
+                    <id>68Bfp</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Sarah" lastName="BOUKHALFA">
+                    <changementsClasse/>
+                    <data/>
+                    <id>sVx8m</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Juliette" lastName="BOYER">
+                    <changementsClasse/>
+                    <data/>
+                    <id>T54KR</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Tony" lastName="CAPRARA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="UFcP8" id="1lsLK">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-19</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>UFcP8</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Chiara" lastName="CARRY">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="iOHFM" id="pY7Rv">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>iOHFM</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Bilal" lastName="CHAABA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="nXToH" id="1eKjd">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-19</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="nXToH" id="3NNSi">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>nXToH</id>
+                    <punitions>
+                        <punition id="3Obxr">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <eleve>nXToH</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="B0DYs">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <eleve>nXToH</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Jeanne" lastName="CHAUVIERE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>x25jO</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Vamoro" lastName="CISSE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="u8xCz" id="rtn7a">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="u8xCz" id="1Qiyn">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="u8xCz" id="ZWU5X">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>u8xCz</id>
+                    <punitions>
+                        <punition id="9Xna9">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <eleve>u8xCz</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Clara" lastName="COTTE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>LonRQ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Malo" lastName="EMERY">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="gJpBk" id="CTvhO">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-19</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="gJpBk" id="5wCW5">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>gJpBk</id>
+                    <punitions>
+                        <punition id="bBZow">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <eleve>gJpBk</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Umit" lastName="ERDOGAN">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="m6go2" id="sQEYc">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="m6go2" id="j8I1X">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="m6go2" id="g739r">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>m6go2</id>
+                    <punitions>
+                        <punition id="lYn9D">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <eleve>m6go2</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="NiiqU">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <eleve>m6go2</eleve>
+                            <texte>60 à refaire doublée à terminer</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Akram" lastName="FEGHOUL">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="GWQCm" id="UMoUe">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="GWQCm" id="C9Of3">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-19</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="GWQCm" id="62Uf4">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>GWQCm</id>
+                    <punitions>
+                        <punition id="Tw3Qh">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <eleve>GWQCm</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Yan" lastName="GMIRA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="odXSL" id="V3wZf">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>odXSL</id>
+                    <punitions>
+                        <punition id="Hgriv">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-23</date>
+                            <eleve>odXSL</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Andréas" lastName="GOUCHON">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="ZuffE" id="U0mIX">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>ZuffE</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Léo" lastName="JASARI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="euIfi" id="WH1zp">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="euIfi" id="YLIvR">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>true</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="euIfi" id="IM80m">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="euIfi" id="HDAIL">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="euIfi" id="BS4VE">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-19</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="euIfi" id="H1CVq">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-18</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="euIfi" id="Ywpdh">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>euIfi</id>
+                    <punitions>
+                        <punition id="1hQlY">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <eleve>euIfi</eleve>
+                            <texte>30 doublée</texte>
+                        </punition>
+                        <punition id="Ofu8U">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <eleve>euIfi</eleve>
+                            <texte>60 doublée</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Badis" lastName="KERNOU">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="sr107" id="Naw2s">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="sr107" id="djqf4">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="sr107" id="TnQO3">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="sr107" id="fWYxD">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>sr107</id>
+                    <punitions>
+                        <punition id="KLvYA">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <eleve>sr107</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="qGi4E">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <eleve>sr107</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Ludivine" lastName="LIMA-DAUTREY">
+                    <changementsClasse/>
+                    <data/>
+                    <id>4FRjU</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Lou-Ann" lastName="LOPEZ-RICORDEAU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>FszdY</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Julie" lastName="LORTHIOIR">
+                    <changementsClasse/>
+                    <data/>
+                    <id>VHVHp</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Cloé" lastName="MAGNERON">
+                    <changementsClasse/>
+                    <data/>
+                    <id>rZPdc</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Nell" lastName="MERLE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="dRYfV" id="aam8R">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>dRYfV</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Lucas" lastName="MOCKERS">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="ZIg5S" id="vaQ5J">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ZIg5S" id="KrTcS">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>ZIg5S</id>
+                    <punitions>
+                        <punition id="zpYwH">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <eleve>ZIg5S</eleve>
+                            <texte>60</texte>
+                        </punition>
+                        <punition id="bvWpL">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <eleve>ZIg5S</eleve>
+                            <texte>90 à refaire</texte>
+                        </punition>
+                        <punition id="ozQPJ">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <eleve>ZIg5S</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Adam" lastName="NOHUTCU">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="42CY7" id="xVk24">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="42CY7" id="uvnsx">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>42CY7</id>
+                    <punitions>
+                        <punition id="2hqGO">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <eleve>42CY7</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°1" firstName="Ismaël" lastName="PERRON">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="27R6q" id="CWolj">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="27R6q" id="T5O67">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="27R6q" id="5X7KT">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>27R6q</id>
+                    <punitions>
+                        <punition id="ZZBOU">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <eleve>27R6q</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+            </eleves>
+            <notes>* Rentrer objectifs du DM1
+* Rentrer compétences de l'IC1
+* Imprimer cours
+* Corriger IC2</notes>
+            <principale>false</principale>
+        </classe>
+        <classe name="6°3">
+            <eleves>
+                <eleve actif="true" classe="6°3" firstName="Safwane" lastName="BABA-AHMED">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="KzVHH" id="POvjh">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="KzVHH" id="tZwbA">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>KzVHH</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Amir" lastName="BEGAG">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="eNqBJ" id="klmMZ">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel></oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eNqBJ" id="1zAmN">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eNqBJ" id="gdRUf">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eNqBJ" id="YVhH1">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-23</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eNqBJ" id="PaUkC">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eNqBJ" id="iuozf">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eNqBJ" id="FtuAt">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>eNqBJ</id>
+                    <punitions>
+                        <punition id="OEhM7">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <eleve>eNqBJ</eleve>
+                            <texte>30 à refaire -&gt; retenue</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Jonathan" lastName="BERE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="ww3Cx" id="Fbu1v">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ww3Cx" id="GnLXg">
+                            <absent>true</absent>
+                            <cours>2</cours>
+                            <date>2016-09-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ww3Cx" id="17Xpw">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>true</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ww3Cx" id="NjAtg">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ww3Cx" id="84fRV">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ww3Cx" id="kxwj2">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ww3Cx" id="Lp84H">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>ww3Cx</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Walid" lastName="BOUHOUHOU">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="KyjkC" id="Zs46r">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>true</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>KyjkC</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Justine" lastName="CAULIER">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="MVSTF" id="lPDmK">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="MVSTF" id="HC9Au">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>MVSTF</id>
+                    <punitions>
+                        <punition id="fsuCh">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <eleve>MVSTF</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Evangeline" lastName="CELLE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Zlc0q</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Léa" lastName="CHEVILLOTTE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="hYRPw" id="ML4Xz">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="hYRPw" id="VjPZY">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>hYRPw</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Rani" lastName="CHIHEB">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="50nfL" id="fKLRW">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-23</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="50nfL" id="JO3J5">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>50nfL</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Quentin" lastName="DIAGNE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="M4Tyi" id="RUZRD">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="M4Tyi" id="j0gev">
+                            <absent>false</absent>
+                            <cours>2</cours>
+                            <date>2016-09-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>10</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="M4Tyi" id="M6ajk">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="M4Tyi" id="FcU3c">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="M4Tyi" id="bsRSd">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="M4Tyi" id="M3y9w">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="M4Tyi" id="wmCEQ">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>M4Tyi</id>
+                    <punitions>
+                        <punition id="JZz7j">
+                            <closed>false</closed>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <eleve>M4Tyi</eleve>
+                            <texte>A chaque début d'heure de cours, je dois retirer mon manteau</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Kenza" lastName="DOMINGUEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>vgPfj</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Leyna" lastName="EL ALAOUI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="U3pXH" id="PI2tT">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="U3pXH" id="vXFMM">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>U3pXH</id>
+                    <punitions>
+                        <punition id="1PzMZ">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-01</date>
+                            <eleve>U3pXH</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="false" classe="6°3" firstName="Sara" lastName="EL ALLOUCHE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="NtPzz" id="uSpZu">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>NtPzz</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Adam" lastName="FEUILLET">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="xhYUI" id="878jE">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="xhYUI" id="Ueh2V">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="xhYUI" id="PqXsg">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="xhYUI" id="TujO9">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="xhYUI" id="2XNoO">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>xhYUI</id>
+                    <punitions>
+                        <punition id="HpPD8">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <eleve>xhYUI</eleve>
+                            <texte>60 doublée - refaire 60 à 79 - pas fait : retenue</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Talissa" lastName="GARCIA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="y6z2M" id="0Zk4f">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="y6z2M" id="VVTUW">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="y6z2M" id="OKYT7">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>y6z2M</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Nour" lastName="HABLANI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="zMQ37" id="aD0pH">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>zMQ37</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Lou-Anne" lastName="HASCOET">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="25Ix1" id="pJZ7K">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="25Ix1" id="X5gEf">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>25Ix1</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Amine" lastName="JEMILI">
+                    <changementsClasse/>
+                    <data/>
+                    <id>i2HkO</id>
+                    <punitions>
+                        <punition id="zTLb0">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <eleve>i2HkO</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Eymeric" lastName="LOPEZ">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="l9ln3" id="p2Pkg">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>l9ln3</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Loann" lastName="MASSARD">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="X6mlT" id="AFmbH">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>X6mlT</id>
+                    <punitions>
+                        <punition id="cPGqj">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <eleve>X6mlT</eleve>
+                            <texte>30 à refaire</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Malik" lastName="MEGUEDMI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="OLxvJ" id="basnf">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="OLxvJ" id="yYT4L">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="OLxvJ" id="eVjG3">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="OLxvJ" id="BYbp0">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>OLxvJ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Léane" lastName="NGUYEN">
+                    <changementsClasse/>
+                    <data/>
+                    <id>dQ2iJ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Andrew" lastName="RAKOTONIRINA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="EbImL" id="eS7kz">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="EbImL" id="whAAp">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>EbImL</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Jade" lastName="RAYNAUD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>oG2lX</id>
+                    <punitions>
+                        <punition id="Srd9t">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-01</date>
+                            <eleve>oG2lX</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Inès" lastName="RECHAK">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="qll5b" id="ajuKM">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>10</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>qll5b</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Ilan" lastName="RODRIGUES">
+                    <changementsClasse/>
+                    <data/>
+                    <id>2rznj</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Anis" lastName="TOUIOUAR">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="TZySI" id="fEvWO">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-23</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="TZySI" id="5xzp4">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="TZySI" id="tnyrh">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="TZySI" id="HSZx3">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>TZySI</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Emma" lastName="TOURNIGAUD">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="S7nIy" id="DRZjp">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>S7nIy</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°3" firstName="Honorvi" lastName="WEYI NZUZI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="Env1d" id="9Lfv8">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>M</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Env1d" id="C2Mlq">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Env1d" id="OG7Y8">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>Env1d</id>
+                    <punitions/>
+                </eleve>
+            </eleves>
+            <notes></notes>
+            <principale>false</principale>
+        </classe>
+        <classe name="6°4">
+            <eleves>
+                <eleve actif="true" classe="6°4" firstName="Kevin" lastName="BAROSO">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="Lz2nK" id="uz9J5">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Lz2nK" id="Gueec">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Lz2nK" id="Ola6g">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>true</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Lz2nK" id="9oths">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Lz2nK" id="1O4MO">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>Lz2nK</id>
+                    <punitions>
+                        <punition id="lwHg2">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-22</date>
+                            <eleve>Lz2nK</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="30UXt">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-04</date>
+                            <eleve>Lz2nK</eleve>
+                            <texte>60</texte>
+                        </punition>
+                        <punition id="U65Fz">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <eleve>Lz2nK</eleve>
+                            <texte>90 doublée</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Rayan" lastName="BEAUJARD">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="8DERJ" id="EMUy6">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="8DERJ" id="VoTaO">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="8DERJ" id="iG9Qo">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>8DERJ</id>
+                    <punitions>
+                        <punition id="MTEb9">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <eleve>8DERJ</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Iman" lastName="BENKADDOUR">
+                    <changementsClasse/>
+                    <data/>
+                    <id>1k0Gg</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Nazim" lastName="BENZAÏD">
+                    <changementsClasse/>
+                    <data/>
+                    <id>xJLng</id>
+                    <punitions>
+                        <punition id="yPAfT">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-04</date>
+                            <eleve>xJLng</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Lina" lastName="BOULTIF">
+                    <changementsClasse/>
+                    <data/>
+                    <id>k0X0R</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Maxime" lastName="CALABRO">
+                    <changementsClasse/>
+                    <data/>
+                    <id>5QV4X</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Lilia" lastName="CARRON">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="h4Lmm" id="X3fiZ">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>h4Lmm</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Anaïs" lastName="CASCIOLO">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="BM9qA" id="ifULw">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>BM9qA</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Sarah" lastName="CHAHBANI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="OWtLt" id="rC3pe">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>OWtLt</id>
+                    <punitions>
+                        <punition id="yDhTf">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <eleve>OWtLt</eleve>
+                            <texte>30 doublée</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Cheryne" lastName="CHENAFI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="4yYk3" id="QecEa">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="cRQ0w">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="w9y8F">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="tIQNQ">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-23</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="CdBfH">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="ypCVi">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>3</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="M5paZ">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="C8UgF">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="4yYk3" id="63ctw">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>4yYk3</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Clovis" lastName="CHEVILLOTTE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="kaGWU" id="4Q2UR">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="kaGWU" id="cEIVo">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="kaGWU" id="llGCp">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="kaGWU" id="Qqudi">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-30</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>G</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>kaGWU</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Maëva" lastName="CHORIER">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Zbu3o</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Eva" lastName="DECOCK">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="99z1O" id="e5ICk">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>99z1O</id>
+                    <punitions>
+                        <punition id="TjQSw">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <eleve>99z1O</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Feriel" lastName="DIABI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="QUn6J" id="NnAbo">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="QUn6J" id="7adq4">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>3</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>QUn6J</id>
+                    <punitions>
+                        <punition id="No5y5">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-04</date>
+                            <eleve>QUn6J</eleve>
+                            <texte>20 x "segment"</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Pablo" lastName="GONZALEZ">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="UOY5K" id="Gt7kS">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>UOY5K</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Léa-Clara" lastName="JOUANNEAU">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="I887k" id="qhzCq">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>I887k</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Khalil" lastName="KAINANE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="ySLOe" id="JR9SE">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="pm0tw">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="21RVl">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="cTzPl">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="LZChw">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-23</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="dQE08">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="KWAng">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="L9dNn">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="UMbEF">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="knLfL">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="iyIuA">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ySLOe" id="SC8z7">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>ySLOe</id>
+                    <punitions>
+                        <punition id="oiWr4">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <eleve>ySLOe</eleve>
+                            <texte>30 -&gt; 50 doublée</texte>
+                        </punition>
+                        <punition id="mcRM8">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-04</date>
+                            <eleve>ySLOe</eleve>
+                            <texte>80</texte>
+                        </punition>
+                        <punition id="obaoj">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <eleve>ySLOe</eleve>
+                            <texte>110 doublée retenue</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Shyrenne" lastName="KASSIMI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="zbyqD" id="yQCBp">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-30</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="zbyqD" id="wQbQa">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>zbyqD</id>
+                    <punitions>
+                        <punition id="mdMVQ">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <eleve>zbyqD</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Benjamin" lastName="LIVRIERI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="BP9R7" id="T78a0">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="FX4cf">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="wfSLr">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="IWjqK">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="30WNV">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-23</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="H8pnh">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-30</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="t51rq">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>true</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="GdBAW">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="uzuez">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>3</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="orbHl">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="BP9R7" id="LwUbi">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>BP9R7</id>
+                    <punitions>
+                        <punition id="dZWlU">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <eleve>BP9R7</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Timothé" lastName="MARTINEZ">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="BjPNc" id="AREMh">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>BjPNc</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Célia" lastName="MAURINO">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="aPzkF" id="RNO4a">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="aPzkF" id="ErpAB">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>aPzkF</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Julien" lastName="MIRANDE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="d9QGC" id="xf17E">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="d9QGC" id="hui1q">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="d9QGC" id="8Emta">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="d9QGC" id="4SQLL">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>true</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>d9QGC</id>
+                    <punitions>
+                        <punition id="nbtkp">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <eleve>d9QGC</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="HRfbe">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <eleve>d9QGC</eleve>
+                            <texte>60</texte>
+                        </punition>
+                        <punition id="J8cOG">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <eleve>d9QGC</eleve>
+                            <texte>90</texte>
+                        </punition>
+                        <punition id="iOaXi">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-09</date>
+                            <eleve>d9QGC</eleve>
+                            <texte>120</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Marion" lastName="MONTEIRO">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="LFrlV" id="UYxB6">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="LFrlV" id="WJCKm">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>LFrlV</id>
+                    <punitions>
+                        <punition id="OuFKJ">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <eleve>LFrlV</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="P0yOD">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <eleve>LFrlV</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Sarah" lastName="OMIR">
+                    <changementsClasse/>
+                    <data/>
+                    <id>bkNrc</id>
+                    <punitions>
+                        <punition id="xNYEf">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-12-02</date>
+                            <eleve>bkNrc</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Zoran" lastName="RAKIPOVSKI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="7dIlw" id="4yo9c">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7dIlw" id="vSEat">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7dIlw" id="crAyh">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-20</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7dIlw" id="0KSUC">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>5</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7dIlw" id="j1S8H">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-30</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7dIlw" id="2tL97">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7dIlw" id="HyoyN">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7dIlw" id="J5Grc">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>3</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>7dIlw</id>
+                    <punitions>
+                        <punition id="kg1Ph">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <eleve>7dIlw</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="46nN3">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-04</date>
+                            <eleve>7dIlw</eleve>
+                            <texte>60</texte>
+                        </punition>
+                        <punition id="fdt93">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <eleve>7dIlw</eleve>
+                            <texte>90</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Ibraïm" lastName="SAIAH">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="eyowQ" id="7FSkN">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="42BDN">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-08</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="53CQr">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="i37mX">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="4QMwJ">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-09-21</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="TFavF">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-30</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="IRqjR">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="2vTD6">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="0cduN">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="4rcjA">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="e7E4Q">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-18</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="2knoi">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-23</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="hEr0v">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="AosHy">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-30</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="dsEUT">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>true</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="JmqRd">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-09</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="no1kf">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <oubliMateriel>C</oubliMateriel>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="eyowQ" id="cNpk1">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>eyowQ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Jade" lastName="TARDY">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="ngrtn" id="shxpy">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="ngrtn" id="DEsKa">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-13</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>ngrtn</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="6°4" firstName="Eva" lastName="VIDAL">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="lK7Fd" id="GVRUK">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-09-30</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="lK7Fd" id="vSoMw">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-12-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>lK7Fd</id>
+                    <punitions/>
+                </eleve>
+            </eleves>
+            <notes>* Corriger IC2
+* Corriger CM4 et CM5</notes>
+            <principale>true</principale>
+        </classe>
+        <classe name="5°1">
+            <eleves>
+                <eleve actif="true" classe="5°1" firstName="Flavie" lastName="ADUMEAU">
+                    <changementsClasse/>
+                    <data/>
+                    <id>fu78d</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Melina" lastName="ASLAN">
+                    <changementsClasse/>
+                    <data/>
+                    <id>Lin1Y</id>
+                    <punitions>
+                        <punition id="H8l9d">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <eleve>Lin1Y</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lina" lastName="BELHADDAD">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="Bd4Nl" id="T8i5R">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Bd4Nl" id="KehXY">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Bd4Nl" id="tnupr">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>Bd4Nl</id>
+                    <punitions>
+                        <punition id="WXVb5">
+                            <closed>true</closed>
+                            <cours>2</cours>
+                            <date>2016-09-15</date>
+                            <eleve>Bd4Nl</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="t9y7c">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <eleve>Bd4Nl</eleve>
+                            <texte>60</texte>
+                        </punition>
+                        <punition id="pej95">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <eleve>Bd4Nl</eleve>
+                            <texte>90 doublée</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Délia" lastName="BEN BELGACEM">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="9ZUT8" id="6H9Lr">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>9ZUT8</id>
+                    <punitions>
+                        <punition id="A19NV">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <eleve>9ZUT8</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ugo" lastName="BOFFA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="4YwS5" id="MeKU6">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>4YwS5</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Matthys" lastName="BOREL">
+                    <changementsClasse/>
+                    <data/>
+                    <id>SPr8K</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Kenza" lastName="BOUDOUAIA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="2AxLK" id="5sCzI">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>2AxLK</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Eva" lastName="CANTERO">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="N8g60" id="oy7hM">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>N8g60</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Fatma-Nur" lastName="CEVIK">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="LGsvK" id="ZkBZ0">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>LGsvK</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Aymen" lastName="CHENNAK">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="nySPw" id="1kZir">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>nySPw</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lola" lastName="CREUX">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="hrWsy" id="BSqs4">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>hrWsy</id>
+                    <punitions>
+                        <punition id="DriEq">
+                            <closed>true</closed>
+                            <cours>2</cours>
+                            <date>2016-09-15</date>
+                            <eleve>hrWsy</eleve>
+                            <texte>30 à refaire</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lucas" lastName="DOAN">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="7HjBz" id="73VaV">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="7HjBz" id="uAlZZ">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-25</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>7HjBz</id>
+                    <punitions>
+                        <punition id="141Qw">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-11-29</date>
+                            <eleve>7HjBz</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Thomas" lastName="DUSSART">
+                    <changementsClasse/>
+                    <data/>
+                    <id>QTGe3</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Lucas" lastName="FERNANDEZ">
+                    <changementsClasse/>
+                    <data/>
+                    <id>CKDsl</id>
+                    <punitions>
+                        <punition id="QJSSd">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <eleve>CKDsl</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="JhtJO">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <eleve>CKDsl</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Simon" lastName="GIURI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="pYp46" id="GnNla">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="pYp46" id="Yc26x">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>pYp46</id>
+                    <punitions>
+                        <punition id="WVTqJ">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-13</date>
+                            <eleve>pYp46</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="chAjw">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <eleve>pYp46</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Clément" lastName="GRENNERAT">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="54I5P" id="R7YWz">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="54I5P" id="gpTTb">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-25</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>54I5P</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Icham" lastName="GUERRAICHE">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="jgrFr" id="UDyu6">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-10-14</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="jgrFr" id="Vx2bz">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="jgrFr" id="caHnd">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-25</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>jgrFr</id>
+                    <punitions>
+                        <punition id="tDn6F">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <eleve>jgrFr</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ilan" lastName="ITURZAETA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="FHG1L" id="Xa9Mf">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-12-06</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>FHG1L</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Milan" lastName="KAPETANOVIK">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="PbRrS" id="rPqhA">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-25</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>PbRrS</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Roselene" lastName="KARAOUI">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="5UIci" id="z4B2e">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="5UIci" id="MOveu">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>5UIci</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ilyes" lastName="MAANANE">
+                    <changementsClasse/>
+                    <data/>
+                    <id>ySqFa</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Anissa" lastName="RECHAK">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="Xc1Qa" id="XyjdS">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="Xc1Qa" id="yaOkY">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>Xc1Qa</id>
+                    <punitions>
+                        <punition id="nxagt">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <eleve>Xc1Qa</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="QW16J">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <eleve>Xc1Qa</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Salome" lastName="REYMOND">
+                    <changementsClasse/>
+                    <data/>
+                    <id>FWslO</id>
+                    <punitions>
+                        <punition id="azkJK">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-16</date>
+                            <eleve>FWslO</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="qyGbe">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-13</date>
+                            <eleve>FWslO</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Coline" lastName="ROCA">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="3oO2Q" id="A0EVq">
+                            <absent>true</absent>
+                            <cours>1</cours>
+                            <date>2016-11-22</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>false</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>3oO2Q</id>
+                    <punitions>
+                        <punition id="QprJh">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <eleve>3oO2Q</eleve>
+                            <texte>30</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Ludovic" lastName="SANCHEZ">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="iHyDZ" id="axlnQ">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-25</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>iHyDZ</id>
+                    <punitions/>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Amine" lastName="SID">
+                    <changementsClasse/>
+                    <data>
+                        <eleveData eleve="uSn65" id="zujZC">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-10-07</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                        <eleveData eleve="uSn65" id="YY5Cr">
+                            <absent>false</absent>
+                            <cours>1</cours>
+                            <date>2016-11-24</date>
+                            <devoir>false</devoir>
+                            <exclus>false</exclus>
+                            <motCarnet>false</motCarnet>
+                            <motSigne>false</motSigne>
+                            <retard>0</retard>
+                            <travailPasFait>true</travailPasFait>
+                        </eleveData>
+                    </data>
+                    <id>uSn65</id>
+                    <punitions>
+                        <punition id="eQbww">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-09-15</date>
+                            <eleve>uSn65</eleve>
+                            <texte>30</texte>
+                        </punition>
+                        <punition id="E5aZs">
+                            <closed>true</closed>
+                            <cours>1</cours>
+                            <date>2016-10-11</date>
+                            <eleve>uSn65</eleve>
+                            <texte>60</texte>
+                        </punition>
+                    </punitions>
+                </eleve>
+                <eleve actif="true" classe="5°1" firstName="Farah" lastName="YAHIA BEY">
+                    <changementsClasse/>
+                    <data/>
+                    <id>c9SVF</id>
+                    <punitions/>
+                </eleve>
+            </eleves>
+            <principale>false</principale>
+        </classe>
+    </classes>
+    <cours>
+        <cours classe="6°4">
+            <day>Mardi</day>
+            <endHour>8</endHour>
+            <endMin>55</endMin>
+            <room>103</room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Mardi</day>
+            <endHour>11</endHour>
+            <endMin>5</endMin>
+            <room>103</room>
+            <startHour>10</startHour>
+            <startMin>10</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Mercredi</day>
+            <endHour>8</endHour>
+            <endMin>55</endMin>
+            <room>103</room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°4">
+            <day>Mercredi</day>
+            <endHour>9</endHour>
+            <endMin>50</endMin>
+            <room>103</room>
+            <startHour>8</startHour>
+            <startMin>55</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Mercredi</day>
+            <endHour>12</endHour>
+            <endMin>0</endMin>
+            <room>103</room>
+            <startHour>11</startHour>
+            <startMin>5</startMin>
+            <week>Q2</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Mardi</day>
+            <endHour>14</endHour>
+            <endMin>25</endMin>
+            <room>105</room>
+            <startHour>13</startHour>
+            <startMin>30</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Mardi</day>
+            <endHour>15</endHour>
+            <endMin>20</endMin>
+            <room>103</room>
+            <startHour>14</startHour>
+            <startMin>25</startMin>
+            <week>Q1</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Mardi</day>
+            <endHour>16</endHour>
+            <endMin>35</endMin>
+            <room>103</room>
+            <startHour>15</startHour>
+            <startMin>40</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°4">
+            <day>Jeudi</day>
+            <endHour>14</endHour>
+            <endMin>25</endMin>
+            <room>103</room>
+            <startHour>13</startHour>
+            <startMin>30</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Jeudi</day>
+            <endHour>9</endHour>
+            <endMin>50</endMin>
+            <room>103</room>
+            <startHour>8</startHour>
+            <startMin>55</startMin>
+            <week>Q2</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Jeudi</day>
+            <endHour>12</endHour>
+            <endMin>0</endMin>
+            <room>103</room>
+            <startHour>11</startHour>
+            <startMin>5</startMin>
+            <week>Q2</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Jeudi</day>
+            <endHour>8</endHour>
+            <endMin>55</endMin>
+            <room>103</room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Jeudi</day>
+            <endHour>15</endHour>
+            <endMin>20</endMin>
+            <room>103</room>
+            <startHour>14</startHour>
+            <startMin>25</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°4">
+            <day>Vendredi</day>
+            <endHour>8</endHour>
+            <endMin>55</endMin>
+            <room>103</room>
+            <startHour>8</startHour>
+            <startMin>0</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="5°1">
+            <day>Vendredi</day>
+            <endHour>9</endHour>
+            <endMin>50</endMin>
+            <room>103</room>
+            <startHour>8</startHour>
+            <startMin>55</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°3">
+            <day>Vendredi</day>
+            <endHour>14</endHour>
+            <endMin>25</endMin>
+            <room>103</room>
+            <startHour>13</startHour>
+            <startMin>30</startMin>
+            <week>normale</week>
+        </cours>
+        <cours classe="6°1">
+            <day>Vendredi</day>
+            <endHour>15</endHour>
+            <endMin>20</endMin>
+            <room>103</room>
+            <startHour>14</startHour>
+            <startMin>25</startMin>
+            <week>normale</week>
+        </cours>
+    </cours>
+    <trimestres>
+        <trimestre name="T1">
+            <end>2016-12-09</end>
+            <start>2016-09-01</start>
+        </trimestre>
+        <trimestre name="T2">
+            <end>2017-03-10</end>
+            <start>2016-12-10</start>
+        </trimestre>
+        <trimestre name="T3">
+            <end>2017-07-08</end>
+            <start>2017-03-11</start>
+        </trimestre>
+    </trimestres>
+</xmldata>

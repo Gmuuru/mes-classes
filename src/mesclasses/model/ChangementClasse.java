@@ -7,11 +7,14 @@ package mesclasses.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.Validators;
 
 /**
  *
@@ -80,11 +83,25 @@ public class ChangementClasse extends MonitoredObject implements Serializable, C
     
     @Override
     public String toString(){
-        return "Classe "+classe+", "+type+" le "+date.format(Constants.LONG_DATE_FORMATTER);
+        String res =  "Classe "+classe+", "+type;
+        if(date != null){
+            res+=" le "+date.format(Constants.LONG_DATE_FORMATTER);
+        }
+        return res;
     }
 
     @Override
+    public String getDisplayName(){
+        return new StringBuilder("Changement ").append(toString()).toString();
+    }
+    
+    @Override
     public void startChangeDetection() {
+    }
+
+    @Override
+    public List<FError> validate() {
+        return Validators.validate(this);
     }
     
 }

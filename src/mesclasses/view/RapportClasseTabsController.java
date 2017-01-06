@@ -7,9 +7,6 @@ package mesclasses.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.scene.control.TabPane;
-import javafx.scene.layout.BorderPane;
 import mesclasses.controller.AbstractClasseTabsController;
 import mesclasses.model.Classe;
 import mesclasses.model.Constants;
@@ -21,10 +18,6 @@ import mesclasses.objects.ClasseTab;
  * @author rrrt3491
  */
 public class RapportClasseTabsController extends AbstractClasseTabsController {
-
-    @FXML BorderPane borderPane;
-    
-    @FXML TabPane tabPane;
     
     /**
      * Initializes the controller class.

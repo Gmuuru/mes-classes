@@ -5,8 +5,10 @@
  */
 package mesclasses.model;
 
+import com.google.common.collect.Lists;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,6 +18,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
+import mesclasses.util.validation.FError;
+import mesclasses.util.validation.Validators;
 
 /**
  *
@@ -47,6 +51,14 @@ public class Trimestre extends MonitoredObject implements Comparable<Trimestre> 
         end.addListener(dateListener);
     }
     
+
+    @Override
+    public List<FError> validate() {
+        List<FError> err = Lists.newArrayList();
+        err.addAll(Validators.validate(this));
+        return err;
+    }
+    
     public StringProperty nameProperty() {
         return name ;
     }
@@ -71,6 +83,9 @@ public class Trimestre extends MonitoredObject implements Comparable<Trimestre> 
 
     @XmlElement(name = "start")
     public String getStart() {
+        if(start == null || start.get() == null){
+            return null;
+        }
         return start.get().format(Constants.DATE_FORMATTER);
     }
     
@@ -111,4 +126,13 @@ public class Trimestre extends MonitoredObject implements Comparable<Trimestre> 
          (t.getStart()==null ? Integer.MAX_VALUE : getStart().compareTo(t.getStart()));
     }
     
+    @Override
+    public String getDisplayName(){
+        return new StringBuilder("Trimestre ").append(getName()).toString();
+    }
+    
+    @Override
+    public String toString(){
+        return new StringBuilder(getName()).append(" ").append(getStart()).append(" ").append(getEnd()).toString();
+    }
 }
