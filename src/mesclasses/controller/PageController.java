@@ -37,7 +37,7 @@ public abstract class PageController extends BasicController {
     
     protected Stage primaryStage;
     
-    protected ModelHandler modelHandler;
+    protected ModelHandler model;
     protected DonneesHandler donneesHandler;
     protected StatsHandler stats;
     protected ObservableList<Trimestre> trimestres;
@@ -52,13 +52,13 @@ public abstract class PageController extends BasicController {
     public void initialize(URL url, ResourceBundle rb) {
         name = name == null ? "Page Ctrl" : name;
         super.initialize(url ,rb);
-        modelHandler = ModelHandler.getInstance();
+        model = ModelHandler.getInstance();
         donneesHandler = DonneesHandler.getInstance();
         stats = StatsHandler.getInstance();
-        trimestres = modelHandler.getTrimestres();
-        classes = modelHandler.getClasses();
-        cours = modelHandler.getCours();
-        journees = modelHandler.getJournees();
+        trimestres = model.getTrimestres();
+        classes = model.getClasses();
+        cours = model.getCours();
+        journees = model.getJournees();
     }    
     
     public final void markAsMandatory(TextField field){

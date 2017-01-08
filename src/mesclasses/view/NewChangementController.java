@@ -187,7 +187,7 @@ public class NewChangementController extends PageController implements Initializ
         } else {
             cc.setType(Constants.CHANGEMENT_CLASSE_DEPART);
             if(destinationBox.getValue() != null && !"(aucune)".equalsIgnoreCase(destinationBox.getValue().getName())){
-                Eleve eleveInNewClasse = modelHandler.moveEleveToClasse(eleve, destinationBox.getValue());
+                Eleve eleveInNewClasse = model.moveEleveToClasse(eleve, destinationBox.getValue());
                 ChangementClasse cc2 = new ChangementClasse();
                 cc2.setClasse(destinationBox.getValue());
                 cc2.setDate(date.getValue().plusDays(1));

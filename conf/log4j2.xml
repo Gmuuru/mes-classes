@@ -5,7 +5,7 @@
       <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"/>
     </Console>
 
-    <RollingFile name="ROLLING" fileName="log/mesclasses.log" filePattern="log/mesclasses.log-%i.log">
+    <RollingFile name="ROLLING" fileName="${sys:logDir}/mesclasses.log" filePattern="${sys:logDir}/mesclasses.log-%i.log">
         <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"/>
         <Policies>
             <SizeBasedTriggeringPolicy size="1 MB"/>

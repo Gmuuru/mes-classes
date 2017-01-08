@@ -1,15 +1,15 @@
 
 @font-face {
-   font-family: 'FontAwesome';
-   src: url('/resources/fonts/fontawesome-webfont.ttf');
+    font-family: 'FontAwesome';
+    src: url('/resources/fonts/fontawesome-webfont.ttf');
 }
 
-.mainFxmlClass, .border-pane, .scroll-pane, .tab-content-area, .white-bg {
+.mainFxmlClass, .border-pane, .scroll-pane, .tab-content-area, .white-bg, .text-area .content {
     -fx-background-color : white;
     -fx-background : white;
 }
 
-.label, .tab-label, .combo-box, .text-field, .titled-pane, .button, .hyperlink, .datepicker {
+.label, .tab-label, .combo-box, .text-field, .titled-pane, .button, .hyperlink, .datepicker, .text-area {
     -fx-font-size: 16px;
 }
 
@@ -90,15 +90,15 @@
 /* CHECKBOX */
 
 .check-box {
-   -fx-font-size: 20px; 
+    -fx-font-size: 20px; 
 }
 .check-box, .button {
     -fx-cursor : hand;
 }
 .text-field.error, .date-picker .text-field.error {
-  -fx-text-box-border: red ;
-  -fx-focus-color: red ;
-  -fx-text-fill: red;
+    -fx-text-box-border: red ;
+    -fx-focus-color: red ;
+    -fx-text-fill: red;
 }
 
 .text-center {
@@ -132,7 +132,7 @@
         linear-gradient(#020b02, #3a3a3a),
         linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
         linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%);
-    
+
 }
 
 .smart-grid .bordered-cell {
@@ -172,11 +172,12 @@
     -fx-pref-height:35px;
     -fx-min-height:35px;
     -fx-max-height:35px;
+    -fx-min-width:40px;
     -fx-cursor:hand;
 }
 
 .button:hover, .button:pressed  {
-    
+
     -fx-effect: innershadow( three-pass-box, rgba( 255, 255, 255, 0.5 ), 5, 0.5, 0, 0 );
 }
 
@@ -201,24 +202,39 @@
     -fx-border-color : #ff8f00;
 }
 
-.button.button-arrow {
+.button.button-ok {
     -fx-text-fill: white;
     -fx-background-color : radial-gradient(focus-distance 0%, center 50% 50% , radius 150%, #43a047, #c8e6c9);
     -fx-border-color : #81c784;
 }
 
-.button.button-arrow:hover, .button.button-arrow:pressed {
+.button.button-ok:hover, .button.button-ok:pressed {
     -fx-background-color : radial-gradient(focus-distance 0%, center 50% 50% , radius 150%, #388e3c , #a5d6a7 );
     -fx-border-color : #66bb6a;
 }
 
+.button.button-done, .button.button-done:hover, .button.button-done:pressed {
+    -fx-text-fill: #43a047;
+    -fx-background-color : transparent;
+    -fx-border-color : #81c784;
+    -fx-cursor:default;
+}
+
 .button.button-delete {
-  -fx-text-fill: white;
+    -fx-text-fill: white;
     -fx-background-color : radial-gradient(focus-distance 0%, center 50% 50% , radius 150%, #e53935, #ef9a9a);
     -fx-border-color : #e57373;
 }
+
+.button.button-to-delete, .button.button-to-delete:hover, .button.button-to-delete:pressed {
+    -fx-text-fill: #e53935;
+    -fx-background-color : transparent;
+    -fx-border-color : #e57373;
+    -fx-cursor:default;
+}
+
 .button.button-delete-large {
-  -fx-text-fill: white;
+    -fx-text-fill: white;
     -fx-background-color : radial-gradient(focus-distance 0%, center 50% 50% , radius 200%, #e53935, #ef9a9a);
     -fx-border-color : #e57373;
 }
@@ -255,11 +271,11 @@
 
 .label.titled-label {
     -fx-background-color : linear-gradient(to right,
-            #5d4037 0%, #8d6e63 100%
+        #5d4037 0%, #8d6e63 100%
         ),
         -fx-inner-border,
         linear-gradient(to right,
-            #5d4037 0%, #bcaaa4 100%
+        #5d4037 0%, #bcaaa4 100%
         );
     -fx-text-fill:white;
     -fx-font-size:18px;
@@ -288,9 +304,9 @@
 
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track{
-	-fx-background-color: transparent;
-	-fx-background-radius: 2em;
-	-fx-border-radius:2em;
+    -fx-background-color: transparent;
+    -fx-background-radius: 2em;
+    -fx-border-radius:2em;
 }
 
 .scroll-bar:horizontal .thumb,
@@ -313,7 +329,7 @@
     -fx-max-height:35px;
     -fx-background-color: white;
     -fx-border-color: #0d47a1;
-    
+
 }
 
 .smart-select .combo-box .cell:selected {

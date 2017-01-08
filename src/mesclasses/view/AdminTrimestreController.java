@@ -83,7 +83,7 @@ public class AdminTrimestreController extends PageController implements Initiali
     @FXML
     public void handleNewTrimestre(){
         try {
-            Trimestre newTrimestre = this.modelHandler.createTrimestre();
+            Trimestre newTrimestre = this.model.createTrimestre();
             addTrimestreToGrid(newTrimestre, trimestres.size());
         } catch (Exception e) {
             notif(e);
@@ -123,7 +123,7 @@ public class AdminTrimestreController extends PageController implements Initiali
                 if (ModalUtil.confirm("Suppression du trimestre", "Etes vous sûr ?")) {
                     trimestreGrid.deleteRow(SmartGrid.row(close));
                     removeErrors(nameField, datePickerStart, datePickerEnd);
-                    this.modelHandler.delete(trimestre);
+                    this.model.delete(trimestre);
                 }
             });
             trimestreGrid.add(close, 4, rowIndex, null);
@@ -144,7 +144,7 @@ public class AdminTrimestreController extends PageController implements Initiali
                 return false;
             }
             LOG.info("Unload in AdminTrimestreController");
-            this.modelHandler.cleanupTrimestres();
+            this.model.cleanupTrimestres();
             return true;
         } catch (Exception e) {
             AppLogger.notif(name, e);
@@ -170,12 +170,12 @@ public class AdminTrimestreController extends PageController implements Initiali
     private void validateDates(){
         List<List<Node>> rows = trimestreGrid.getDataRows();
         for(int i = 0;i< rows.size(); i++){
-            if(datesAreInvalid(modelHandler.getTrimestres().get(i))){
-                LOG.info(modelHandler.getTrimestres().get(i).toString()+" : dates invalides");
+            if(datesAreInvalid(model.getTrimestres().get(i))){
+                LOG.info(model.getTrimestres().get(i).toString()+" : dates invalides");
                 addValidityError((DatePicker)rows.get(i).get(1));
                 addValidityError((DatePicker)rows.get(i).get(2));
             } else {
-                LOG.info(modelHandler.getTrimestres().get(i).toString()+" : dates ok");
+                LOG.info(model.getTrimestres().get(i).toString()+" : dates ok");
                 removeValidityError((DatePicker)rows.get(i).get(1));
                 removeValidityError((DatePicker)rows.get(i).get(2));
             }

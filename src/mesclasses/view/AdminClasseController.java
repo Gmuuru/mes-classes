@@ -125,7 +125,7 @@ public class AdminClasseController extends PageController implements Initializab
             dialogStage.showAndWait();
             Classe newClasse = controller.getClasse();
             if(newClasse != null){
-                modelHandler.createClasse(newClasse);
+                model.createClasse(newClasse);
                 EventBusHandler.post(new ClassesChangeEvent());
                 addClasseToGrid(newClasse);
             }
@@ -166,7 +166,7 @@ public class AdminClasseController extends PageController implements Initializab
             if (ModalUtil.confirm("Suppression de la classe", "Etes vous sûr ?")) {
                 grid.deleteRow(SmartGrid.row(delete));
                 removeErrors(nameField, box);
-                this.modelHandler.delete(classe);
+                this.model.delete(classe);
                  EventBusHandler.post(new ClassesChangeEvent());
             }
         });
@@ -179,7 +179,7 @@ public class AdminClasseController extends PageController implements Initializab
             return false;
         }
         LOG.info("Unload of AdminClasseController");
-        this.modelHandler.cleanupClasses();
+        this.model.cleanupClasses();
         return true;
     }
     

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import mesclasses.model.Eleve;
-import static mesclasses.util.FileSaveUtil.FILE_DIR;
+import mesclasses.model.FileConfigurationManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -27,11 +27,11 @@ public class EleveFileUtil {
     private static final Logger LOG = LogManager.getLogger(EleveFileUtil.class);
     
     public static File getEleveDir(Eleve eleve){
-        return new File(FileSaveUtil.FILE_DIR + File.separator + sanitize(eleve.getId()));
+        return new File(FileConfigurationManager.getInstance().getUploadDir() + File.separator + sanitize(eleve.getId()));
     }
     
     public static File getEleveDirWithType(Eleve eleve, String type){
-        return new File(FileSaveUtil.FILE_DIR + File.separator + sanitize(eleve.getId()) + File.separator + type);
+        return new File(FileConfigurationManager.getInstance().getUploadDir() + File.separator + sanitize(eleve.getId()) + File.separator + type);
     }
     
     public static List<File> getEleveFilesOfType(Eleve eleve, String type){
@@ -80,8 +80,8 @@ public class EleveFileUtil {
     }
     
     public static void purge() throws IOException {
-        File dir = new File(FILE_DIR);
+        File dir = new File(FileConfigurationManager.getInstance().getUploadDir());
         FileUtils.deleteDirectory(dir);
-        new File(FILE_DIR).mkdirs();
+        new File(FileConfigurationManager.getInstance().getUploadDir()).mkdirs();
     }
 }

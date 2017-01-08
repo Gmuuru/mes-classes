@@ -18,11 +18,14 @@ import javafx.geometry.HPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.model.Classe;
 import mesclasses.model.Constants;
+import mesclasses.model.Devoir;
 import mesclasses.model.Punition;
 import mesclasses.model.Trimestre;
 import mesclasses.objects.events.OpenMenuEvent;
@@ -42,20 +45,42 @@ import org.smartgrid.SmartGrid;
 public class PunitionsController extends PageController implements Initializable {
 
     private static final Logger LOG = LogManager.getLogger(PunitionsController.class);
-    
-    @FXML Label titleLabel;
-    
-    @FXML SmartGrid gridEnCours;
-    
-    @FXML SmartGrid gridFermees;
-    
-    @FXML Button displayOldBtn;
+
+    @FXML
+    private TabPane tabPane;
+    @FXML
+    private Tab punitionsTab;
+    @FXML
+    private Tab devoirsTab;
+
+    @FXML
+    private Label punitionsTitleLabel;
+    @FXML
+    private SmartGrid gridPunitionsEnCours;
+    @FXML
+    private SmartGrid gridPunitionsFermees;
+    @FXML
+    private Button displayOldPunitionsBtn;
+
+    @FXML
+    private Label devoirsTitleLabel;
+    @FXML
+    private SmartGrid gridDevoirsEnCours;
+    @FXML
+    private SmartGrid gridDevoirsFermes;
+    @FXML
+    private Button displayOldDevoirsBtn;
     
     private Classe classe;
-    private List<Punition> enCours = new ArrayList<>();;
-    private List<Punition> fermees = new ArrayList<>();;
+    private final List<Punition> punitionsEnCours = new ArrayList<>();
+    private final List<Punition> punitionsFermees = new ArrayList<>();
+    private final List<Devoir> devoirsEnCours = new ArrayList<>();
+    private final List<Devoir> devoirsFermes = new ArrayList<>();
+    ;
     
-    private boolean includeOldTrimestres = false;
+    private boolean includeOldTrimestresForPunition = false;
+    private boolean includeOldTrimestresForDevoir = false;
+
     /**
      * Initializes the controller class.
      */
@@ -63,8 +88,38 @@ public class PunitionsController extends PageController implements Initializable
     public void initialize(URL url, ResourceBundle rb) {
         name = "Punitions Ctrl";
         super.initialize(url, rb);
-        displayOldBtn.setText(includeOldTrimestres? "Exclure trimestres précédents" : "Inclure trimestres précédents");
-    }    
+        initTabs();
+        displayOldPunitionsBtn.setText(includeOldTrimestresForPunition ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
+        displayOldPunitionsBtn.setText(includeOldTrimestresForDevoir ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
+    }
+
+    private void initTabs() {
+        initTab(punitionsTab);
+        initTab(devoirsTab);
+        tabPane.getSelectionModel().clearAndSelect(0);
+        selectTab(punitionsTab);
+    }
+
+    private void initTab(Tab tab) {
+        unselectTab(tab);
+        tab.selectedProperty().addListener((ob, o, n) -> {
+            if (n) {
+                selectTab(tab);
+            } else {
+                unselectTab(tab);
+            }
+        });
+    }
+
+    private void selectTab(Tab tab) {
+        tab.getContent().setManaged(true);
+        tab.getContent().setVisible(true);
+    }
+
+    private void unselectTab(Tab tab) {
+        tab.getContent().setManaged(false);
+        tab.getContent().setVisible(false);
+    }
 
     public Classe getClasse() {
         return classe;
@@ -72,90 +127,146 @@ public class PunitionsController extends PageController implements Initializable
 
     public void setClasse(Classe classe) {
         this.classe = classe;
-        titleLabel.textProperty().bind(new SimpleStringProperty("Punitions pour la ").concat(this.classe.nameProperty()));
+        punitionsTitleLabel.textProperty().bind(new SimpleStringProperty("Punitions pour la ").concat(this.classe.nameProperty()));
+        devoirsTitleLabel.textProperty().bind(new SimpleStringProperty("Devois pour la ").concat(this.classe.nameProperty()));
         init();
     }
-    
+
     @Subscribe
-    public void onSelectClasse(SelectClasseEvent event){
+    public void onSelectClasse(SelectClasseEvent event) {
         logEvent(event);
-        if(event.getClasse() != null && event.getClasse() != classe){
+        if (event.getClasse() != null && event.getClasse() != classe) {
             setClasse(event.getClasse());
         }
     }
-    public void init(){
-        populate();
+
+    public void init() {
+        populatePunitions();
         drawPunitions();
     }
-    
-    private void populate(){
-        LOG.debug("remplissage des listes. includeOldTrimestres="+includeOldTrimestres);
-        enCours.clear();
-        fermees.clear();
-        
-        if(trimestres == null || trimestres.isEmpty()){
+
+    private void populatePunitions() {
+        punitionsEnCours.clear();
+        punitionsFermees.clear();
+
+        if (trimestres == null || trimestres.isEmpty()) {
             return;
         }
         Trimestre first = trimestres.get(0);
-        Trimestre current = modelHandler.getForDate(LocalDate.now());
-        if(current == null){
+        Trimestre current = model.getForDate(LocalDate.now());
+        if (current == null) {
             notif("Aucun trimestre pour aujourd'hui");
             return;
         }
-        if(includeOldTrimestres){
+        if (includeOldTrimestresForPunition) {
             // depuis la rentrée jusqu'à la fin du trimestre en cours
             classe.getEleves().forEach(eleve -> {
-                modelHandler.filterPunitionsByTrimestre(eleve.getPunitions(), first, current.getEndAsDate())
+                model.filterPunitionsByTrimestre(eleve.getPunitions(), first, current.getEndAsDate())
                         .forEach(punition -> {
-                    if(punition.isClosed()){
-                        fermees.add(punition);
-                    } else {
-                        enCours.add(punition);
-                    }
-                });
+                            if (punition.isClosed()) {
+                                punitionsFermees.add(punition);
+                            } else {
+                                punitionsEnCours.add(punition);
+                            }
+                        });
             });
         } else {
             // seulement le trimestre en cours
             classe.getEleves().forEach(eleve -> {
-                modelHandler.filterPunitionsByTrimestre(eleve.getPunitions(), current, null)
+                model.filterPunitionsByTrimestre(eleve.getPunitions(), current, null)
                         .forEach(punition -> {
-                    if(punition.isClosed()){
-                        fermees.add(punition);
-                    } else {
-                        enCours.add(punition);
-                    }
-                });
+                            if (punition.isClosed()) {
+                                punitionsFermees.add(punition);
+                            } else {
+                                punitionsEnCours.add(punition);
+                            }
+                        });
             });
         }
     }
     
-    private void drawPunitions(){
-        gridEnCours.clear();
-        if(enCours.isEmpty()){
-            gridEnCours.drawNoDataInGrid("Aucune punition en cours");
-        } else {
-            enCours.forEach(punition -> drawPunition(punition, false));
+    private void populateDevoirs() {
+        punitionsEnCours.clear();
+        punitionsFermees.clear();
+
+        if (trimestres == null || trimestres.isEmpty()) {
+            return;
         }
-        gridFermees.clear();
-        if(fermees.isEmpty()){
-            gridFermees.drawNoDataInGrid("Aucune punition fermée");
+        Trimestre first = trimestres.get(0);
+        Trimestre current = model.getForDate(LocalDate.now());
+        if (current == null) {
+            notif("Aucun trimestre pour aujourd'hui");
+            return;
+        }
+        if (includeOldTrimestresForDevoir) {
+            // depuis la rentrée jusqu'à la fin du trimestre en cours
+            classe.getEleves().forEach(eleve -> {
+                model.filterDevoirsByTrimestre(eleve.getDevoirs(), first, current.getEndAsDate())
+                        .forEach(d -> {
+                            if (d.isClosed()) {
+                                devoirsFermes.add(d);
+                            } else {
+                                devoirsEnCours.add(d);
+                            }
+                        });
+            });
         } else {
-            fermees.forEach(punition -> drawPunition(punition, true));
+            // seulement le trimestre en cours
+            classe.getEleves().forEach(eleve -> {
+                model.filterDevoirsByTrimestre(eleve.getDevoirs(), current, null)
+                        .forEach(punition -> {
+                            if (punition.isClosed()) {
+                                devoirsFermes.add(punition);
+                            } else {
+                                devoirsEnCours.add(punition);
+                            }
+                        });
+            });
+        }
+    }
+
+    private void drawPunitions() {
+        gridPunitionsEnCours.clear();
+        if (punitionsEnCours.isEmpty()) {
+            gridPunitionsEnCours.drawNoDataInGrid("Aucune punition en cours");
+        } else {
+            punitionsEnCours.forEach(punition -> drawPunition(punition, false));
+        }
+        gridPunitionsFermees.clear();
+        if (punitionsFermees.isEmpty()) {
+            gridPunitionsFermees.drawNoDataInGrid("Aucune punition fermée");
+        } else {
+            punitionsFermees.forEach(punition -> drawPunition(punition, true));
+        }
+    }
+
+    private void drawDevoirs() {
+        gridDevoirsEnCours.clear();
+        if (devoirsEnCours.isEmpty()) {
+            gridDevoirsEnCours.drawNoDataInGrid("Aucun devoir à ramasser");
+        } else {
+            punitionsEnCours.forEach(punition -> drawPunition(punition, false));
+        }
+        gridPunitionsFermees.clear();
+        if (punitionsFermees.isEmpty()) {
+            gridPunitionsFermees.drawNoDataInGrid("Aucun devoir non ramassé");
+        } else {
+            punitionsFermees.forEach(punition -> drawPunition(punition, true));
         }
     }
     
-    private void drawPunition(Punition punition, boolean isClosed){
-        SmartGrid grid = isClosed ? gridFermees : gridEnCours;
+    private void drawPunition(Punition punition, boolean isClosed) {
+        SmartGrid grid = isClosed ? gridPunitionsFermees : gridPunitionsEnCours;
         Hyperlink lastName = NodeUtil.buildEleveLink(punition.getEleve(), punition.getEleve().lastNameProperty(), Constants.CLASSE_PUNITIONS_VIEW);
         int rowIndex = grid.addOnNewLineIfNecessary(lastName, 1, HPos.LEFT);
         Hyperlink firstName = NodeUtil.buildEleveLink(punition.getEleve(), punition.getEleve().firstNameProperty(), Constants.CLASSE_PUNITIONS_VIEW);
         grid.add(firstName, 2, rowIndex, HPos.LEFT);
-        
+
         Label date = new Label(punition.getSeance().getDateAsDate().format(Constants.DATE_FORMATTER_FR)
-                +" (cours de "+NodeUtil.getStartTime(punition.getSeance().getCours())+")");
+                + " (cours de " + NodeUtil.getStartTime(punition.getSeance().getCours()) + ")");
         grid.add(date, 3, rowIndex, null);
-        
-        if(isClosed){
+
+        if (isClosed) {
             grid.add(new Label(punition.getTexte()), 4, rowIndex, null);
             Button openBtn = Btns.arrowUpBtn();
             openBtn.setOnAction((event) -> {
@@ -170,57 +281,59 @@ public class PunitionsController extends PageController implements Initializable
             checkMandatory(texte);
             texte.setMaxWidth(200);
             grid.add(texte, 4, rowIndex, null);
-            
+
             Button closeBtn = Btns.arrowDownBtn();
             closeBtn.setOnAction((event) -> {
                 closePunition(punition);
             });
             grid.add(closeBtn, 5, rowIndex, null);
         }
-        
+
         Button deleteBtn = Btns.deleteBtn();
         deleteBtn.setOnAction((event) -> {
             deletePunition(punition);
         });
         grid.add(deleteBtn, 6, rowIndex, null);
     }
-    
-    private void closePunition(Punition punition){
+
+    private void closePunition(Punition punition) {
         punition.setClosed(true);
         init();
     }
-    
-    private void openPunition(Punition punition){
+
+    private void openPunition(Punition punition) {
         punition.setClosed(false);
         init();
     }
-    
-    private void deletePunition(Punition punition){
-        if(ModalUtil.confirm("Supprimer la punition", "Etes-vous sûr(e) ?")){
-            modelHandler.deletePunition(punition);
+
+    private void deletePunition(Punition punition) {
+        if (ModalUtil.confirm("Supprimer la punition", "Etes-vous sûr(e) ?")) {
+            model.deletePunition(punition);
             init();
         }
     }
-    
-    @FXML public void switchInclusion(){
-        includeOldTrimestres = !includeOldTrimestres;
-        displayOldBtn.setText(includeOldTrimestres? "Exclure trimestres précédents" : "Inclure trimestres précédents");
-        populate();
+
+    @FXML
+    public void switchInclusion() {
+        includeOldTrimestresForPunition = !includeOldTrimestresForPunition;
+        displayOldPunitionsBtn.setText(includeOldTrimestresForPunition ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
+        populatePunitions();
         drawPunitions();
     }
-    
-    @FXML public void openClasse(){
+
+    @FXML
+    public void openClasse() {
         EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW).setReload(true));
     }
-    
+
     @Override
-    public void reload(){
+    public void reload() {
         super.reload();
-        
-        if(classe == null){
+
+        if (classe == null) {
             return;
         }
-        
+
         init();
     }
 }

@@ -35,7 +35,9 @@ import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
+import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
+import mesclasses.model.Mot;
 import mesclasses.model.Punition;
 import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
@@ -47,6 +49,7 @@ import mesclasses.util.CssUtil;
 import mesclasses.util.EleveFileUtil;
 import mesclasses.util.ModalUtil;
 import mesclasses.util.NodeUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.smartgrid.SmartGrid;
@@ -171,7 +174,7 @@ public class RapportEleveController extends PageController implements Initializa
         name +=" for élève "+eleve;
         rapportLabel.setText("Rapport pour "+eleve.getDisplayName());
         if(trimestres != null && !trimestres.isEmpty()){
-            Trimestre current = modelHandler.getForDate(LocalDate.now());
+            Trimestre current = model.getForDate(LocalDate.now());
             selectTrimestre(current != null ? trimestres.indexOf(current) : 0);
         }
         refreshGrid();
@@ -211,21 +214,17 @@ public class RapportEleveController extends PageController implements Initializa
         handlePaneTitle(travauxPane, listeSeances.size(), "travail non fait", "travaux non faits");
         handleBasicPaneContent(travauxBox, listeSeances);
         
-        listeSeances = stats.getSeancesWithDevoirOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
-        handlePaneTitle(devoirsPane, listeSeances.size(), "devoir non rendu", "devoirs non rendus");
-        handleBasicPaneContent(devoirsBox, listeSeances);
+        List<Devoir> devoirs = model.filterDevoirsByTrimestre(eleve.getDevoirs(), trimestres.get(trimestreIndex.get()), null);
+        handlePaneTitle(devoirsPane, devoirs.size(), "devoir non rendu", "devoirs non rendus");
+        handleDevoirPaneContent(devoirs);
         
-        List<Punition> punitions = modelHandler.filterPunitionsByTrimestre(eleve.getPunitions(), trimestres.get(trimestreIndex.get()), null);
+        List<Punition> punitions = model.filterPunitionsByTrimestre(eleve.getPunitions(), trimestres.get(trimestreIndex.get()), null);
         handlePaneTitle(punitionsPane, punitions.size(), "punition", "punitions");
         handlePunitionContent(punitions);
         
-        listeSeances = stats.getSeancesWithMotOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
-        handlePaneTitle(motsPane, listeSeances.size(), "mot carnet", "mots carnet");
-        handleBasicPaneContent(motsBox, listeSeances);
-        
-        listeSeances = stats.getSeancesWithMotSigneOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
-        handlePaneTitle(motsPane, listeSeances.size(), "mot signé", "mots signés");
-        handleBasicPaneContent(motsBox, listeSeances);
+        List<Mot> mots = model.filterMotsByTrimestre(eleve.getMots(), trimestres.get(trimestreIndex.get()), null);
+        handlePaneTitle(motsPane, mots.size(), "mot carnet", "mots carnet");
+        handleMotPaneContent(mots);
         
         listeSeances = stats.getSeancesWithOubliOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
         handlePaneTitle(oublisPane, listeSeances.size(), "oubli matériel", "oublis matériel");
@@ -233,7 +232,7 @@ public class RapportEleveController extends PageController implements Initializa
         
         listeSeances = stats.getSeancesWithExclusionOnTrimestre(eleve, trimestres.get(trimestreIndex.get()));
         handlePaneTitle(exclusPane, listeSeances.size(), "exclusion", "exclusions");
-        handleBasicPaneContent(exclusBox, listeSeances);
+        handleExclusPaneContent(listeSeances);
         
     }
     
@@ -261,14 +260,36 @@ public class RapportEleveController extends PageController implements Initializa
     private void handleRetardPaneContent(List<Seance> liste){
         retardsBox.getChildren().clear();
         liste.forEach(s -> {
-            retardsBox.getChildren().add(buildLink(s, " ("+s.getDonneesAsMap().get(eleve).getRetard()+")"));
+            retardsBox.getChildren().add(buildLink(s, " ("+s.getDonnees().get(eleve).getRetard()+")"));
+        });
+    }
+    
+    private void handleMotPaneContent(List<Mot> liste){
+        motsBox.getChildren().clear();
+        liste.forEach(m -> {
+            motsBox.getChildren().add(buildLink(m.getSeance(), m.getDateCloture() != null ? "":" (à vérifier)"));
+        });
+    }
+    
+    private void handleDevoirPaneContent(List<Devoir> liste){
+        devoirsBox.getChildren().clear();
+        liste.forEach(d -> {
+            devoirsBox.getChildren().add(buildLink(d.getSeance(), d.isClosed()? " (clos)":" (à ramasser)"));
         });
     }
     
     private void handleOubliPaneContent(List<Seance> liste){
         oublisBox.getChildren().clear();
         liste.forEach(s -> {
-            oublisBox.getChildren().add(buildLink(s, " ("+s.getDonneesAsMap().get(eleve).getOubliMateriel()+")"));
+            oublisBox.getChildren().add(buildLink(s, " ("+s.getDonnees().get(eleve).getOubliMateriel()+")"));
+        });
+    }
+    
+    private void handleExclusPaneContent(List<Seance> liste){
+        exclusBox.getChildren().clear();
+        liste.forEach(s -> {
+            String motif = s.getDonnees().get(eleve).getMotif();
+            exclusBox.getChildren().add(buildLink(s, StringUtils.isBlank(motif)? "" :  "("+motif+")"));
         });
     }
     

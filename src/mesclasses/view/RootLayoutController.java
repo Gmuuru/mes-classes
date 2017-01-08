@@ -31,7 +31,9 @@ import javafx.util.Duration;
 import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.handlers.ModelHandler;
+import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
+import mesclasses.model.FileConfigurationManager;
 import mesclasses.model.datamodel.ObservableData;
 import mesclasses.objects.Screen;
 import mesclasses.objects.events.ChangeEvent;
@@ -75,52 +77,52 @@ public class RootLayoutController extends PageController implements Initializabl
     
     @FXML
     public void openAccueil(ActionEvent event){
-        loadView(Constants.ACCUEIL_VIEW, true);
+        loadView(Constants.ACCUEIL_VIEW);
     }
     
     @FXML
     public void openAdminTrimestre(ActionEvent event){
-        loadView(Constants.ADMIN_TRIMESTRE_VIEW, true);
+        loadView(Constants.ADMIN_TRIMESTRE_VIEW);
     }
     
     @FXML
     public void openAdminClasse(ActionEvent event){
-        loadView(Constants.ADMIN_CLASSE_VIEW, true);
+        loadView(Constants.ADMIN_CLASSE_VIEW);
     }
     
     @FXML
     public void openAdminEleve(ActionEvent event){
-        loadView(Constants.ADMIN_ELEVE_VIEW, true);
+        loadView(Constants.ADMIN_ELEVE_VIEW);
     }
     
     @FXML
     public void openTimetable(ActionEvent event){
-        loadView(Constants.EMPLOI_DU_TEMPS_VIEW, true);
+        loadView(Constants.EMPLOI_DU_TEMPS_VIEW);
     }
     @FXML
     public void openJournees(ActionEvent event){
-        loadView(Constants.JOURNEE_VIEW, true);
+        loadView(Constants.JOURNEE_VIEW);
     }
     
     @FXML
     public void openRapports(ActionEvent event){
-        loadView(Constants.CLASSE_RAPPORT_TABS_VIEW, true);
+        loadView(Constants.CLASSE_RAPPORT_TABS_VIEW);
     }
     
     @FXML
     public void openHistorique(ActionEvent event){
-        loadView(Constants.HISTORIQUE_VIEW, true);
+        loadView(Constants.HISTORIQUE_VIEW);
     }
     
     @FXML
     public void openConfiguration(ActionEvent event){
-        loadView(Constants.CONFIGURATION_VIEW, true);
+        loadView(Constants.CONFIGURATION_VIEW);
     }
     
     @Subscribe
     public void openMenu(OpenMenuEvent event){
         logEvent(event);
-        if(loadView(event.getView(), event.isReload())){
+        if(loadView(event.getView())){
             currentController.setPreviousPage(event.getFromView());
         }
     }
@@ -128,7 +130,7 @@ public class RootLayoutController extends PageController implements Initializabl
     @Subscribe
     public void detectChange(ChangeEvent event){
         logEvent(event);
-        primaryStage.setTitle(Constants.APPLICATION_TITLE+" *");
+        primaryStage.setTitle(Constants.APPLICATION_TITLE+" * version "+PropertiesCache.version());
         saveNeeded = true;
     }
     
@@ -141,21 +143,18 @@ public class RootLayoutController extends PageController implements Initializabl
         });
     }
     
-    private boolean loadView(String view, boolean reload){
+    private boolean loadView(String view){
         try {
             if(currentController != null){
                 if(!currentController.notifyExit()){
                     return false;
                 }
             }
-            if((view == null && reload) || 
-                    (view != null && view.equals(currentView))){
-                LOG.debug("Reloading current view");
-                currentController.reload();
-                return true;
-            }
             LOG.info("Loading view "+view);
             currentView = view;
+            
+            // la page a déjà été chargée une fois, donc on doit rafraichir le controller
+            boolean reload = screenMap.containsKey(view);
             Screen screen = getScreen(view);
             if(screen == null || screen.getCtrl() == null){
 
@@ -164,6 +163,12 @@ public class RootLayoutController extends PageController implements Initializabl
             }
             mainPane.setCenter(screen.getRoot());
             currentController = screen.getCtrl();
+            
+            if(reload){
+                LOG.debug("Reloading controller");
+                currentController.reload();
+                return true;
+            }
             return true;
         } catch(Exception e){
             notif(e);
@@ -190,7 +195,7 @@ public class RootLayoutController extends PageController implements Initializabl
         }
         if(save()){
             EventBusHandler.post(MessageEvent.success("Données sauvegardées"));
-            modelHandler.getData().resetChange();
+            model.getData().resetChange();
             primaryStage.setTitle(Constants.APPLICATION_TITLE);
             saveNeeded = false;
             if(currentController != null){
@@ -200,11 +205,11 @@ public class RootLayoutController extends PageController implements Initializabl
     }
     
     private boolean save(){
-        modelHandler.cleanupClasses();
-        modelHandler.cleanUpJournees();
-        List<FError> err = modelHandler.getData().validate();
+        model.cleanupClasses();
+        model.cleanUpJournees();
+        List<FError> err = model.getData().validate();
         if(err.isEmpty() || ModalUtil.confirm("Données incohérentes", "Sauvegarder quand même ?")){
-            return DataLoadUtil.writeData(modelHandler.getData(), FileSaveUtil.getSaveFile());
+            return DataLoadUtil.writeData(model.getData(), FileSaveUtil.getSaveFile());
         }
         return false;
     }
@@ -215,7 +220,7 @@ public class RootLayoutController extends PageController implements Initializabl
         chooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Fichiers de sauvegarde", "*.xml"));
         chooser.setTitle("Sélectionnez un fichier de sauvegarde");
-        chooser.setInitialDirectory(new File(FileSaveUtil.BCK_DIR));
+        chooser.setInitialDirectory(new File(FileConfigurationManager.getInstance().getBackupDir()));
         File file = chooser.showOpenDialog(primaryStage);
         if(file == null){
             return;
@@ -404,7 +409,7 @@ public class RootLayoutController extends PageController implements Initializabl
             chooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Archive MesClasses", "*.zip"));
             chooser.setTitle("Sélectionnez une archive");
-            chooser.setInitialDirectory(new File(FileSaveUtil.ARCHIVE_DIR));
+            chooser.setInitialDirectory(new File(FileConfigurationManager.getInstance().getArchivesDir()));
             File file = chooser.showOpenDialog(primaryStage);
             if(file == null){
                 return;

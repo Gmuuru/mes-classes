@@ -21,7 +21,7 @@
                     <top>
                         <HBox prefHeight="40.0" styleClass="header" BorderPane.alignment="CENTER">
                             <children>
-                                <Button fx:id="newCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleNewCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-arrow" text="" HBox.hgrow="ALWAYS" />
+                                <Button fx:id="newCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#handleNewCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-ok" text="" HBox.hgrow="ALWAYS" />
                                 <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Lundi" HBox.hgrow="ALWAYS" />
                                 <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Mardi" HBox.hgrow="ALWAYS" />
                                 <Label alignment="BOTTOM_CENTER" maxHeight="40.0" maxWidth="180.0" minHeight="40.0" minWidth="180.0" prefHeight="40.0" prefWidth="180.0" text="Mercredi" HBox.hgrow="ALWAYS" />

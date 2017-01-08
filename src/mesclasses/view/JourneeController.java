@@ -46,9 +46,11 @@ import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.model.Constants;
 import mesclasses.model.Cours;
+import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
+import mesclasses.model.Mot;
 import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
 import mesclasses.objects.IntegerOnlyConverter;
@@ -61,6 +63,7 @@ import mesclasses.objects.events.SelectDateEvent;
 import mesclasses.objects.events.SelectSeanceEvent;
 import mesclasses.util.Btns;
 import mesclasses.util.CssUtil;
+import mesclasses.util.LogUtil;
 import mesclasses.util.ModalUtil;
 import mesclasses.util.NodeUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -102,6 +105,7 @@ public class JourneeController extends PageController implements Initializable {
     @FXML Button motsBtn;
     @FXML Button punitionsBtn;
     @FXML Button postItBtn;
+    @FXML Button ramasserBtn;
     
     // fields
     private Trimestre trimestre;
@@ -117,6 +121,7 @@ public class JourneeController extends PageController implements Initializable {
     BooleanProperty displayNonActifs;    
     
     private final ChangeListener<LocalDate> dateListener = (observable, oldValue, newValue) -> {
+            LOG.debug("Date change detected --> setting selectSeance");
             setCurrentDateAndSeance(newValue, null);
         };
     /**
@@ -124,6 +129,7 @@ public class JourneeController extends PageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        LogUtil.logStart();
         name = "Journee Ctrl";
         super.initialize(url ,rb);
         LOG.debug("Initialisation de "+name);
@@ -151,6 +157,7 @@ public class JourneeController extends PageController implements Initializable {
         });
         
         seanceSelect.addChangeListener((ob, o, n) -> {
+            LOG.debug("seanceSelect changed --> reloading");
             loadCurrentSeance();
         });
         // activation du bouton remCours si besoin
@@ -160,8 +167,13 @@ public class JourneeController extends PageController implements Initializable {
         postItBtn.disableProperty().bind(Bindings.isNull(seanceSelect.valueProperty()));
         
         // on ne change que la date, le listener sur currentDate se charge du reste
-        LOG.debug("Chargement de la journée d'aujourd'hui");
-        currentDate.setValue(LocalDate.now());
+        LocalDate today = LocalDate.now();
+        if(today.getDayOfWeek().equals(DayOfWeek.SUNDAY)){
+            today = today.minusDays(1);
+        }
+        LOG.debug("Initializing with today's date");
+        currentDate.setValue(today);
+        LogUtil.logEnd();
     }    
 
     private void initTabs(){
@@ -212,23 +224,29 @@ public class JourneeController extends PageController implements Initializable {
     }
     
     public void setCurrentDateAndSeance(LocalDate date, Seance seance){
+        LogUtil.logStart();
         // on coupe le listener sur la date pour éviter les appels en boucle
         currentDate.valueProperty().removeListener(dateListener);
+        LOG.debug("Setting the date silently");
         currentDate.setValue(date);
         // on rétablit le listener une fois la date changée
         currentDate.valueProperty().addListener(dateListener);
         
-        journee = modelHandler.getJournee(date);
+        journee = model.getJournee(date);
+        LOG.debug("Now handling the seances");
         if(seance != null){
             seanceSelect.setItems(journee.getSeances(), false);
+            // will trigger the refreshGrid
             seanceSelect.select(seance);
         } else {
+            // will trigger the refreshGrid
             seanceSelect.setItems(journee.getSeances(), true);
         }
-        LOG.debug("Setting the content date at "+date+". current seance is "+seanceSelect.getValue());
+        LogUtil.logEnd();
     }
     
     public void loadCurrentSeance(){
+        LogUtil.logStart();
         remCoursBtn.setDisable(seanceSelect.getValue() == null || !seanceSelect.getValue().getCours().isPonctuel());
         // reinitialisation du scroll vertical
         getScrollPane(tabPane.getSelectionModel().getSelectedItem()).setVvalue(0.0);
@@ -239,8 +257,11 @@ public class JourneeController extends PageController implements Initializable {
                 setPostItColor();
             });
             setPostItColor();
+            ramasserBtn.setVisible(model.hasActionsEnCours(seanceSelect.getValue().getClasse()));
         }
+        
         refreshGrid();
+        LogUtil.logEnd();
     }
     
     private void setPostItColor(){
@@ -266,8 +287,22 @@ public class JourneeController extends PageController implements Initializable {
     }
     
     private void refreshGrid(){
-        
+        LogUtil.logStart();
         LOG.debug("Refreshing the grid for "+name);
+        trimestre = model.getForDate(currentDate.getValue());
+        if(trimestre == null){
+            selectedGrid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
+                    EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_TRIMESTRE_VIEW));
+                }
+            );
+            addCoursBtn.setDisable(true);
+            trimestreName.setText("");
+            return;
+        }
+        
+        addCoursBtn.setDisable(false);
+        trimestreName.setText(trimestre.getName());
+        
         if(seanceSelect.getValue() != null){
             if(seanceSelect.getValue().getClasse().getEleves().isEmpty()){
                 selectedGrid.drawNoEleveAlert(seanceSelect.getValue().getClasse().getName(), (event) ->{
@@ -277,18 +312,7 @@ public class JourneeController extends PageController implements Initializable {
                 addCoursBtn.setDisable(true);
                 return;
             }
-            trimestre = modelHandler.getForDate(currentDate.getValue());
-            if(trimestre == null){
-                selectedGrid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
-                        EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_TRIMESTRE_VIEW));
-                    }
-                );
-                addCoursBtn.setDisable(true);
-                return;
-            }
-            addCoursBtn.setDisable(false);
-            trimestreName.setText(trimestre.getName());
-        
+            trimestre = model.getForDate(currentDate.getValue());
             drawGrid();
         } else {
             addCoursBtn.setDisable(false);
@@ -300,6 +324,7 @@ public class JourneeController extends PageController implements Initializable {
                     }
             );
         }
+        LogUtil.logEnd();
     }
     
     @FXML
@@ -338,7 +363,7 @@ public class JourneeController extends PageController implements Initializable {
         if(coursPonctuel == null){
             return;
         }
-        Seance newSeance = modelHandler.addSeanceWithCoursPonctuel(journee, coursPonctuel);
+        Seance newSeance = model.addSeanceWithCoursPonctuel(journee, coursPonctuel);
         seanceSelect.select(newSeance);
     }
     
@@ -349,10 +374,8 @@ public class JourneeController extends PageController implements Initializable {
         .append(" avec la ")
         .append(seanceSelect.getValue().getClasse().getName());
         if(ModalUtil.confirm("Suppression de séance", confirmMsg.toString())){
-            Seance seanceToDisplay = seanceSelect.getValue().previous() == null ? seanceSelect.getValue().next() : seanceSelect.getValue().previous();
             journee.getCoursPonctuels().remove(seanceSelect.getValue().getCours());
             journee.getSeances().remove(seanceSelect.getValue());
-            seanceSelect.select(seanceToDisplay);
             refreshGrid();
         }
     }
@@ -463,10 +486,39 @@ public class JourneeController extends PageController implements Initializable {
         }
     }
     
+    @FXML
+    public void openActions(){
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource(Constants.ACTIONS_DIALOG));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Actions à faire");
+            dialogStage.initModality(Modality.NONE);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            ActionsEnCoursController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setClasse(seanceSelect.getValue().getClasse());
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+        } catch (IOException e) {
+            LOG.error(e);
+        }
+    }
+    
     public boolean openPunitionDialog(Eleve eleve){
         String texte = ModalUtil.prompt("Punition pour "+eleve.getFirstName()+" "+eleve.getLastName(), "");
         if(!StringUtils.isEmpty(texte)){
-            modelHandler.createPunition(eleve, seanceSelect.getValue(), texte);
+            model.createPunition(eleve, seanceSelect.getValue(), texte);
             EventBusHandler.post(MessageEvent.success("Punition créée"));
             return true;
         }
@@ -480,9 +532,10 @@ public class JourneeController extends PageController implements Initializable {
         sanctionsGrid.clear();
         List<Eleve> elevesToDisplay = seanceSelect.getValue().getClasse().getEleves();
         if(!displayNonActifs.get()){
-            elevesToDisplay = modelHandler.getOnlyActive(elevesToDisplay);
+            elevesToDisplay = model.getOnlyActive(elevesToDisplay);
         }
         LOG.debug("drawing the grid for "+name);
+        LOG.debug("Donnees présentes : "+seanceSelect.getValue().getDonnees());
         for(int i = 0; i < elevesToDisplay.size(); i++){
             drawRow(elevesToDisplay.get(i), i);
         }
@@ -509,10 +562,7 @@ public class JourneeController extends PageController implements Initializable {
      * @param rowIndex 
      */
     private void drawVieScolaire(Eleve eleve, int rowIndex){
-        
-        LOG.debug("drawVieScolaire");
-        EleveData eleveData = donneesHandler.getOrCreateDonneeForEleve(seanceSelect.getValue(), eleve);
-        
+        EleveData eleveData = seanceSelect.getValue().getDonnees().get(eleve);
         drawEleveName(vieScolaireGrid, eleve, rowIndex);
         if(!eleve.isInClasse(currentDate.getValue())){
             return;
@@ -536,7 +586,6 @@ public class JourneeController extends PageController implements Initializable {
         
         writeAndMarkInRed(cumulRetard, stats.getNbRetardsUntil(eleve, currentDate.getValue()), 3);
         vieScolaireGrid.add(cumulRetard, 5, rowIndex, null);
-        LOG.debug("Vie scolaire OK");
     }
     
     /**
@@ -546,8 +595,7 @@ public class JourneeController extends PageController implements Initializable {
      */
     private void drawTravail(Eleve eleve, int rowIndex){
         
-        EleveData eleveData = seanceSelect.getValue().getDonneesAsMap().get(eleve);
-        
+        EleveData eleveData = seanceSelect.getValue().getDonnees().get(eleve);
         drawEleveName(travailGrid, eleve, rowIndex);
         if(!eleve.isInClasse(currentDate.getValue())){
             return;
@@ -562,10 +610,19 @@ public class JourneeController extends PageController implements Initializable {
         writeAndMarkInRed(cumulTravail, stats.getNbTravailUntil(eleve, currentDate.getValue()), 3);
         travailGrid.add(cumulTravail, 4, rowIndex, null);
         
-        CheckBox devoir = new CheckBox();
-        Bindings.bindBidirectional(devoir.selectedProperty(), eleveData.devoirProperty());
-        travailGrid.add(devoir, 5, rowIndex, null);
+        CheckBox devoirBox = new CheckBox();
+        devoirBox.setSelected(model.getDevoirForSeance(eleve, seanceSelect.getValue()) != null);
+        devoirBox.selectedProperty().addListener((ob, o, checked) -> {
+            Devoir devoir = model.getDevoirForSeance(eleve, seanceSelect.getValue());
+            if(checked && devoir == null){
+                model.createDevoir(eleve, seanceSelect.getValue());
+            } else if(devoir != null){
+                model.delete(devoir);
+            }
+        });
+        travailGrid.add(devoirBox, 5, rowIndex, null);
         
+        LOG.info("eleve data : "+eleveData.getOubliMateriel());
         TextField oubliMaterielField = new TextField();
         Bindings.bindBidirectional(oubliMaterielField.textProperty(), eleveData.oubliMaterielProperty());
         travailGrid.add(oubliMaterielField, 6, rowIndex, HPos.LEFT);
@@ -577,7 +634,6 @@ public class JourneeController extends PageController implements Initializable {
         writeAndMarkInRed(cumulOubli, stats.getNbOublisUntil(eleve, currentDate.getValue()), 3);
         travailGrid.add(cumulOubli, 7, rowIndex, null);
     
-        LOG.debug("Travail OK");
     }
     
     /**
@@ -586,8 +642,7 @@ public class JourneeController extends PageController implements Initializable {
      * @param rowIndex 
      */
     private void drawSanctions(Eleve eleve, int rowIndex){
-        
-        EleveData eleveData = seanceSelect.getValue().getDonneesAsMap().get(eleve);
+        EleveData eleveData = seanceSelect.getValue().getDonnees().get(eleve);
         
         drawEleveName(sanctionsGrid, eleve, rowIndex);
         if(!eleve.isInClasse(currentDate.getValue())){
@@ -619,17 +674,26 @@ public class JourneeController extends PageController implements Initializable {
         sanctionsGrid.add(punitionsBox, 3, rowIndex, HPos.LEFT);
         
         CheckBox motCarnet = new CheckBox();
-        Bindings.bindBidirectional(motCarnet.selectedProperty(), eleveData.motCarnetProperty());
+        motCarnet.setSelected(model.getMotForSeance(eleve, seanceSelect.getValue()) != null);
+        motCarnet.selectedProperty().addListener((ob, o, checked) -> {
+            Mot mot = model.getMotForSeance(eleve, seanceSelect.getValue());
+            if(checked && mot == null){
+                model.createMot(eleve, seanceSelect.getValue());
+            } else if(mot != null){
+                model.delete(mot);
+            }
+        });
         sanctionsGrid.add(motCarnet, 4, rowIndex, null);
         
-        CheckBox motSigne = new CheckBox();
-        Bindings.bindBidirectional(motSigne.selectedProperty(), eleveData.motSigneProperty());
-        sanctionsGrid.add(motSigne, 5, rowIndex, null);
-        
+        Label cumulMot = new Label();
+        cumulMot.textProperty().addListener((observable, oldValue, newValue) -> {
+            writeAndMarkInRed(cumulMot, stats.getMotsUntil(eleve, currentDate.getValue()).size(), 3);
+        });
+        writeAndMarkInRed(cumulMot, stats.getMotsUntil(eleve, currentDate.getValue()).size(), 3);
+        sanctionsGrid.add(cumulMot, 5, rowIndex, null);
         
         CheckBox exclus = new CheckBox();
         TextField motif = new TextField();
-        
         Bindings.bindBidirectional(exclus.selectedProperty(), eleveData.exclusProperty());
         sanctionsGrid.add(exclus, 6, rowIndex, null);
         exclus.selectedProperty().addListener((o, oldV, newV) -> {
@@ -639,7 +703,7 @@ public class JourneeController extends PageController implements Initializable {
             }
         });
         
-        Bindings.bindBidirectional(motif.textProperty(), eleveData.oubliMaterielProperty());
+        Bindings.bindBidirectional(motif.textProperty(), eleveData.MotifProperty());
         motif.textProperty().addListener((o, oldV, newV) -> {
             if(StringUtils.isNotBlank(newV)){
                 exclus.setSelected(true);
@@ -648,13 +712,15 @@ public class JourneeController extends PageController implements Initializable {
         GridPane.setMargin(motif, new Insets(0,10,0,0));
         sanctionsGrid.add(motif, 7, rowIndex, HPos.LEFT);
         
-        LOG.debug("Sanctions OK");
     }
         
     private void drawRow(Eleve eleve, int rowIndex){
+        LogUtil.logStart();
+        donneesHandler.getOrCreateDonneeForEleve(seanceSelect.getValue(), eleve);
         drawVieScolaire(eleve, rowIndex);
         drawTravail(eleve, rowIndex);
         drawSanctions(eleve, rowIndex);
+        LogUtil.logEnd();
     }
     
     private void writeAndMarkInRed(Label label, int value, int threshold){

@@ -97,7 +97,7 @@ public class ConfigSemainesController extends PageController implements Initiali
     
     @FXML void onSave(){
         //update des cours
-        modelHandler.getCours().forEach(c -> updateWeek(c));
+        model.getCours().forEach(c -> updateWeek(c));
         config.setProperty(Constants.CONF_WEEK_DEFAULT, standardNameField.getText());
         config.setProperty(Constants.CONF_WEEK_P1_NAME, p1NameField.getText());
         config.setProperty(Constants.CONF_WEEK_P2_NAME, p2NameField.getText());

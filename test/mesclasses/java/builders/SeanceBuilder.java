@@ -55,15 +55,15 @@ public class SeanceBuilder {
     }
     
     public SeanceBuilder donnees(ObservableMap<Eleve, EleveData> map) {
-        seance.setDonneesFromMap(map);
+        seance.setDonnees(map);
         return this;
     }
     
     public SeanceBuilder donnee(Eleve eleve, EleveData data) {
-        if(seance.getDonneesAsMap() == null){
+        if(seance.getDonnees() == null){
             donnees(FXCollections.observableHashMap());
         }
-        seance.getDonneesAsMap().put(eleve, data);
+        seance.getDonnees().put(eleve, data);
         return this;
     }
     

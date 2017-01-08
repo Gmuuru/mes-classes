@@ -166,7 +166,28 @@ public class ListValidators {
         return err;
     }
     
-    /* CHANGEMENTS CLASSE */
+    /* DEVOIRS */
+    
+    public static List<FError> validateMotList(Eleve e){
+        List<FError> err = Lists.newArrayList();
+        if(e.getDevoirs() == null){
+            err.add(new FError(MOTS_NULL(e)));
+            return err;
+        }
+        e.getMots().stream().forEach(p -> {
+            if(p == null){
+                err.add(new FError(IS_NULL_WITH_SOURCE(e, "mot carnet")));
+            } else {
+                if(p.getEleve() != null && !p.getEleve().equals(e)){
+                    err.add(new FError(MOT_WRONG_ELEVE(e,p)));
+                }
+                err.addAll(p.validate());
+            }
+        });
+        return err;
+    }
+    
+    /* MOTS */
     
     public static List<FError> validateChangementList(Eleve e){
         List<FError> err = Lists.newArrayList();

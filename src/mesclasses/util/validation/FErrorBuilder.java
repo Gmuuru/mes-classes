@@ -14,6 +14,7 @@ import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
 import mesclasses.model.MonitoredObject;
+import mesclasses.model.Mot;
 import mesclasses.model.Punition;
 import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
@@ -32,6 +33,7 @@ public class FErrorBuilder {
     public static final String ELEVE = "%ELEVE%";
     public static final String PUNITION = "%PUNITION%";
     public static final String DEVOIR = "%DEVOIR%";
+    public static final String MOT = "%MOT%";
     public static final String CHANGEMENT = "%CHANGEMENT%";
     public static final String DONNEE = "%DONNEE%";
     public static final String JOURNEE = "%JOURNEE%";
@@ -70,6 +72,10 @@ public class FErrorBuilder {
     private static final String DEVOIRS_NULL = ELEVE+" : Liste devoirs null";
     public static final String DEVOIRS_NULL(Eleve eleve){
         return eleve(DEVOIRS_NULL, eleve);
+    }
+    private static final String MOTS_NULL = ELEVE+" : Liste mots null";
+    public static final String MOTS_NULL(Eleve eleve){
+        return eleve(MOTS_NULL, eleve);
     }
     private static final String CHANGEMENTS_NULL = ELEVE+" : Liste changements null";
     public static final String CHANGEMENTS_NULL(Eleve eleve){
@@ -136,6 +142,10 @@ public class FErrorBuilder {
     public static final String DEVOIR_WRONG_ELEVE(Eleve eleve, Devoir devoir){
         return devoir(eleve(DEVOIR_WRONG_ELEVE, eleve), devoir);
     }
+    private static final String MOT_WRONG_ELEVE = ELEVE+" : le "+MOT+" n'a pas le bon élève";
+    public static final String MOT_WRONG_ELEVE(Eleve eleve, Mot mot){
+        return mot(eleve(MOT_WRONG_ELEVE, eleve), mot);
+    }
     private static final String DONNEE_WRONG_ELEVE = ELEVE+" : la "+DONNEE+" n'a pas le bon élève";
     public static final String DONNEE_WRONG_ELEVE(Eleve eleve, EleveData donnee){
         return donnee(eleve(DONNEE_WRONG_ELEVE, eleve), donnee);
@@ -184,6 +194,11 @@ public class FErrorBuilder {
     private static String devoir(String msg, Devoir p){
         String id = p == null ? "" : p.getDisplayName();
         return inject(msg, DEVOIR, id);
+    }
+    
+    private static String mot(String msg, Mot p){
+        String id = p == null ? "" : p.getDisplayName();
+        return inject(msg, MOT, id);
     }
     
     private static String changement(String msg, ChangementClasse p){

@@ -14,6 +14,7 @@ import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
+import mesclasses.model.Mot;
 import mesclasses.model.Punition;
 import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
@@ -149,6 +150,24 @@ public class Validators {
         }
         return err;
     }
+    
+
+    public static List<FError> validate(Mot e) {
+        List<FError> err = Lists.newArrayList();
+        if(e.getId() == null){
+            err.add(new FError(NO_ID("Mot carnet")));
+            return err;
+        }
+        LOG.debug("validation du mot "+e);
+        if(e.getEleve()== null){
+            err.add(new FError(MANDATORY(e, "élève")));
+        }
+        if(e.getSeance()== null){
+            err.add(new FError(MANDATORY(e, "séance")));
+        }
+        return err;
+    }
+    
     /* CHANGEMENTS CLASSE */
     public static List<FError> validate(ChangementClasse e){
         List<FError> err = Lists.newArrayList();
@@ -179,6 +198,11 @@ public class Validators {
         if(d.getSeance() == null){
             err.add(new FError(MANDATORY(d, "séance")));
         }
+        if(d.getSeance().getDonnees() == null ||
+                !d.getSeance().getDonnees().containsKey(d.getEleve())){
+            LOG.error("donnée {} non reliée à sa séance {}, réparation", d.getId(), d.getSeance().getId());
+            d.getSeance().getDonnees().put(d.getEleve(), d);
+        }
         return err;
     }
     
@@ -207,10 +231,10 @@ public class Validators {
         if(s.getCours()== null){
             err.add(new FError(MANDATORY(s, "cours")));
         }
-        if(s.getDonneesAsMap()== null){
+        if(s.getDonnees()== null){
             err.add(new FError(DONNEES_SEANCE_NULL(s)));
         }
-        s.getDonneesAsMap().entrySet().forEach(e -> {
+        s.getDonnees().entrySet().forEach(e -> {
             if(e == null || e.getKey() == null){
                 err.add(new FError(SEANCE_MAP_ERROR(s)));
             } else {

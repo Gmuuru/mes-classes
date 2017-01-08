@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mesclasses.java.util;
+package mesclasses.util;
 
 import org.apache.logging.log4j.LogManager;
 
@@ -16,13 +16,13 @@ public class LogUtil {
     public static void logStart(){
         String clazz = getCallerClassName();
         String method = getCallerMethodName();
-        LogManager.getLogger("").info("\n*** "+method+" START ***\n");
+        LogManager.getLogger("").debug("*** "+method+" START ***");
     }
     
     public static void logEnd(){
         String clazz = getCallerClassName();
         String method = getCallerMethodName();
-        LogManager.getLogger("").info("\n*** "+method+" FINISH ***\n");
+        LogManager.getLogger("").debug("*** "+method+" FINISH ***");
     }
     
     public static String getCallerClassName() { 

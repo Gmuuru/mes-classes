@@ -62,7 +62,6 @@ public class RapportClasseController extends TabContentController implements Ini
         smartSelect.addChangeListener((o, oldV, newV) -> {
             refreshGrid();
         });
-        
     }
     
     
@@ -80,12 +79,13 @@ public class RapportClasseController extends TabContentController implements Ini
         name +=" for classe "+classe;
         rapportLabel.setText("Rapport pour la "+classe);
         if(trimestres != null && !trimestres.isEmpty()){
-            Trimestre current = modelHandler.getForDate(LocalDate.now());
+            Trimestre current = model.getForDate(LocalDate.now());
             smartSelect.select(current);
         }
     }
     
     private void refreshGrid(){
+        LOG.debug("refreshing grid of rapport classe "+smartSelect.getValue());
         grid.clear();
         if(trimestres == null || trimestres.isEmpty()){
             grid.drawNoTrimestreAlert(null, (event) -> {
@@ -102,7 +102,7 @@ public class RapportClasseController extends TabContentController implements Ini
             );
             return;
         }
-        List<Eleve> elevesToDisplay = modelHandler.getOnlyActive(classe.getEleves());
+        List<Eleve> elevesToDisplay = model.getOnlyActive(classe.getEleves());
         LOG.debug("smart select rapports : "+smartSelect.getValue());
         for(int i = 0; i < elevesToDisplay.size(); i++){
             drawRow(elevesToDisplay.get(i), i+1);
@@ -110,7 +110,9 @@ public class RapportClasseController extends TabContentController implements Ini
     }
     
     private void drawRow(Eleve eleve, int rowIndex){
-        List<EleveData> data = modelHandler.filterDataByTrimestre(eleve.getData(), smartSelect.getValue(), null);
+        
+        LOG.debug("rapports : drawing row for "+eleve);
+        List<EleveData> data = model.filterDataByTrimestre(eleve.getData(), smartSelect.getValue(), null);
         grid.add(NodeUtil.buildEleveLink(eleve, eleve.lastNameProperty(), Constants.CLASSE_RAPPORT_TABS_VIEW), 1, rowIndex, HPos.LEFT);
         
         grid.add(NodeUtil.buildEleveLink(eleve, eleve.firstNameProperty(), Constants.CLASSE_RAPPORT_TABS_VIEW), 2, rowIndex, HPos.LEFT);
@@ -127,15 +129,13 @@ public class RapportClasseController extends TabContentController implements Ini
         Label travail = new Label(String.valueOf(tr));
         grid.add(travail, 5, rowIndex, null);
         // DEVOIR
-        long dv = data.stream().filter(d -> d.isDevoir()).count();
-        Label devoir = new Label(String.valueOf(dv));
+        Label devoir = new Label(""+model.filterDevoirsByTrimestre(eleve.getDevoirs(), smartSelect.getValue(), null).size());
         grid.add(devoir, 6, rowIndex, null);
         // PUNITION
-        Label punition = new Label(""+eleve.getPunitions().size());
+        Label punition = new Label(""+model.filterPunitionsByTrimestre(eleve.getPunitions(), smartSelect.getValue(), null).size());
         grid.add(punition, 7, rowIndex, null);
         // MOT CARNET
-        long mc = data.stream().filter(d -> d.isMotCarnet()).count();
-        Label mot = new Label(String.valueOf(mc));
+        Label mot = new Label(""+model.filterMotsByTrimestre(eleve.getMots(), smartSelect.getValue(), null).size());
         grid.add(mot, 8, rowIndex, null);
         // OUBLI MATERIEL
         long om = data.stream().filter(d -> StringUtils.isNotBlank(d.getOubliMateriel())).count();

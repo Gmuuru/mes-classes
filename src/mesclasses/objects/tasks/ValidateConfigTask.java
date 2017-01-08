@@ -5,21 +5,24 @@
  */
 package mesclasses.objects.tasks;
 
+import java.io.File;
 import mesclasses.handlers.PropertiesCache;
 import mesclasses.model.Constants;
+import mesclasses.model.FileConfigurationManager;
 import mesclasses.objects.LoadWindow;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.zeroturnaround.zip.commons.FileUtils;
 
 /**
  *
  * @author rrrt3491
  */
-public class FetchConfigTask extends AppTask<Void> {
+public class ValidateConfigTask extends AppTask<Void> {
     
     private static final Logger LOG = LogManager.getLogger(LoadWindow.class);
     
-    public FetchConfigTask(){
+    public ValidateConfigTask(){
         super();
         updateProgress(0, 100.0);
     }
@@ -32,9 +35,18 @@ public class FetchConfigTask extends AppTask<Void> {
     @Override
     protected Void call() throws Exception {
         try {
+            FileConfigurationManager conf = FileConfigurationManager.getInstance();
+            if(!new File(conf.getSaveFile()).exists()){
+                LOG.debug("Aucun fichier de données trouvé, on va voir si il en existe un dans l'ancien path");
+                File oldFile = new File("savedData/mesClassesData.xml");
+                if(oldFile.exists()){
+                    LOG.debug("Fichier de données trouvé à l'ancienne location, on le copie");
+                    FileUtils.copyFile(oldFile, new File(conf.getSaveFile()));
+                } else {
+                    LOG.debug("Création d'un nouveau fichier de sauvegaOrde");
+                }
+            }
             PropertiesCache.getInstance().load();
-            
-            LOG.info("Initialisation de la configuration par défaut si besoin");
             initConfig();
             
         } catch (Exception e) { // catches ANY exception
@@ -48,6 +60,11 @@ public class FetchConfigTask extends AppTask<Void> {
     private void initConfig(){
         LOG.info("Initialisation de la configuration par défaut si besoin");
         PropertiesCache config = PropertiesCache.getInstance();
+        if(!config.containsKey(Constants.CONF_VERSION)){
+            config.setProperty(Constants.CONF_VERSION, "1.0.0");
+        } else {
+            LOG.info("Version détectée : "+config.getProperty(Constants.CONF_VERSION));
+        }
         if(!config.containsKey(Constants.CONF_WEEK_DEFAULT)){
             config.setProperty(Constants.CONF_WEEK_DEFAULT, "normale");
         }

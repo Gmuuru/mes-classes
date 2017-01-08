@@ -98,6 +98,10 @@ public class AdminEleveController extends PageController implements Initializabl
             changeClasse(smartSelect.getValue());
         });
         
+        errorMessagesLabel.setOnAction((e) -> {
+            openErrorDialog();
+        });
+        
         handleKeys();
         init();
     }
@@ -140,7 +144,7 @@ public class AdminEleveController extends PageController implements Initializabl
         if(!notifyExit()){
             return;
         }
-        this.modelHandler.cleanupElevesForClasse(currentClasse);
+        this.model.cleanupElevesForClasse(currentClasse);
         loadClasse(classe);
     }
     
@@ -196,7 +200,7 @@ public class AdminEleveController extends PageController implements Initializabl
             dialogStage.showAndWait();
             Eleve newEleve = controller.getEleve();
             if(newEleve != null){
-                modelHandler.createEleve(newEleve);
+                model.createEleve(newEleve);
                 loadClasse(currentClasse);
             }
         } catch (IOException e) {
@@ -238,7 +242,7 @@ public class AdminEleveController extends PageController implements Initializabl
             if (ModalUtil.confirm("Suppression de l'eleve", "Etes vous sûr ?")) {
                 grid.deleteRow(SmartGrid.row(delete));
                 removeErrors(firstNameField, lastNameField, box);
-                this.modelHandler.delete(eleve);
+                this.model.delete(eleve);
             }
         });
         grid.add(delete, 5, rowIndex, null);
@@ -278,7 +282,7 @@ public class AdminEleveController extends PageController implements Initializabl
             return false;
         }
         LOG.info("Unload/ClasseLoad in AdminEleveController");
-        this.modelHandler.cleanupElevesForClasse(currentClasse);
+        this.model.cleanupElevesForClasse(currentClasse);
         resetErrors();
         return true;
     }

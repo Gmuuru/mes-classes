@@ -19,6 +19,7 @@ import mesclasses.model.Eleve;
 import mesclasses.model.Trimestre;
 import mesclasses.objects.events.OpenMenuEvent;
 import mesclasses.objects.events.SelectEleveEvent;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,7 +29,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class NodeUtil {
     
-    private static final Logger LOG = LogManager.getLogger(EleveFileUtil.class);
+    private static final Logger LOG = LogManager.getLogger(NodeUtil.class);
     
     public static final StringConverter<LocalDate> DATE_WITH_DAY_NAME = new StringConverter<LocalDate>() {
 
@@ -67,6 +68,10 @@ public class NodeUtil {
             }
         }
         return sb.toString();
+    }
+    
+    public static void console(Object obj){
+        LOG.debug("[CONSOLE] "+ReflectionToStringBuilder.toString(obj).replaceAll(",", ",\r\n"));
     }
     
     public static boolean isInteger(String str) {

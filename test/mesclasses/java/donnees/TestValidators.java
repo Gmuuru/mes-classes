@@ -6,6 +6,7 @@
 package mesclasses.java.donnees;
 
 import com.google.common.collect.Lists;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import mesclasses.java.builders.DevoirBuilder;
 import mesclasses.java.builders.DonneeBuilder;
 import mesclasses.java.builders.EleveBuilder;
 import mesclasses.java.builders.JourneeBuilder;
+import mesclasses.java.builders.MotBuilder;
 import mesclasses.java.builders.PunitionBuilder;
 import mesclasses.java.builders.SeanceBuilder;
 import mesclasses.java.builders.TrimestreBuilder;
@@ -28,7 +30,9 @@ import mesclasses.model.Cours;
 import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
+import mesclasses.model.FileConfigurationManager;
 import mesclasses.model.Journee;
+import mesclasses.model.Mot;
 import mesclasses.model.Punition;
 import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
@@ -48,6 +52,15 @@ public class TestValidators {
     private final LocalDate TEST_DATE = LocalDate.of(2016, Month.DECEMBER, 15);
     private final LocalDate TEST_DATE2 = LocalDate.of(2016, Month.DECEMBER, 16);
     private final LocalDate TEST_DATE3 = LocalDate.of(2016, Month.DECEMBER, 17);
+    
+    static {
+        try {
+            FileConfigurationManager.autoDetect();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Impossible de charger la configuration...");
+        } 
+        FileConfigurationManager.setLog4JConf();
+    }
     
     @Test
     public void trimestreValidatorsTest(){
@@ -299,6 +312,40 @@ public class TestValidators {
         MyAssert.assertContainsError(err, "Elève <vide> <vide> : devoir null");
         MyAssert.assertContainsError(err, "Devoir null ou sans Id");
         MyAssert.assertContainsError(err, "Elève <vide> <vide> : le Devoir junit n'a pas le bon élève");
+    }
+    
+    @Test
+    public void motValidatorsTest(){
+        MotBuilder pb = new MotBuilder();
+        Mot p = pb.id(null).build();
+        List<FError> err  = Validators.validate(p);
+        MyAssert.assertContainsSingleError(err, "Mot carnet null ou sans Id");
+        
+        p = pb.id("junit").build();
+        err  = Validators.validate(p);
+        MyAssert.assertSize(err, 2);
+        MyAssert.assertContainsError(err, "Mot carnet junit : élève obligatoire");
+        MyAssert.assertContainsError(err, "Mot carnet junit : séance obligatoire");
+        
+        p = pb.seance().eleve().build();
+        err  = Validators.validate(p);
+        MyAssert.assertEmpty(err);
+    }
+    
+    @Test
+    public void MotListValidatorsTest(){
+        EleveBuilder eb = new EleveBuilder();
+        Eleve e = eb
+            .mot(null)
+            .mot(new MotBuilder().id(null).build())
+            .mot(new MotBuilder().id("junit").eleve().seance().build())
+        .build();  
+        
+        List<FError> err = ListValidators.validateMotList(e);
+        MyAssert.assertSize(err, 3);
+        MyAssert.assertContainsError(err, "Elève <vide> <vide> : mot carnet null");
+        MyAssert.assertContainsError(err, "Mot carnet null ou sans Id");
+        MyAssert.assertContainsError(err, "Elève <vide> <vide> : le Mot carnet junit n'a pas le bon élève");
     }
     
     @Test

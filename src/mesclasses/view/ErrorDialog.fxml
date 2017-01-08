@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.ErrorDialogController">
+<BorderPane prefHeight="400.0" prefWidth="400.0" stylesheets="@../../resources/css/main.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mesclasses.view.ErrorDialogController">
    <top>
       <Label text="Erreurs" BorderPane.alignment="CENTER">
          <BorderPane.margin>

@@ -8,6 +8,8 @@ package mesclasses.handlers;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
 import mesclasses.model.Seance;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
@@ -15,6 +17,7 @@ import mesclasses.model.Seance;
  */
 public class DonneesHandler {
     
+    private static final Logger LOG = LogManager.getLogger(DonneesHandler.class);
     
     private final ModelHandler model;
     
@@ -39,8 +42,8 @@ public class DonneesHandler {
         if(seance == null){
             return null;
         }
-        if(seance.getDonneesAsMap().containsKey(eleve)){
-            return seance.getDonneesAsMap().get(eleve);
+        if(seance.getDonnees().containsKey(eleve)){
+            return seance.getDonnees().get(eleve);
         }
         return buildEleveData(seance, eleve);
     }
@@ -49,9 +52,10 @@ public class DonneesHandler {
         if(seance == null){
             return null;
         }
-        if(seance.getDonneesAsMap().containsKey(eleve)){
-            return seance.getDonneesAsMap().get(eleve);
+        if(seance.getDonnees().containsKey(eleve)){
+            return seance.getDonnees().get(eleve);
         }
+        LOG.debug("No data for eleve {} at seance {}", eleve, seance.getId());
         EleveData data = buildEleveData(seance, eleve);
         persistEleveData(data);
         return data;
@@ -66,7 +70,7 @@ public class DonneesHandler {
     }
     
     public void persistEleveData(EleveData data){
-        data.getSeance().getDonneesAsMap().put(data.getEleve(), data);
+        data.getSeance().getDonnees().put(data.getEleve(), data);
         data.getEleve().getData().add(data);
     }
 }

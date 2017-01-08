@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import org.smartgrid.SmartGrid?>
 <?import org.smartgrid.elements.HeaderLabel?>
@@ -42,6 +43,8 @@
                             <Button fx:id="punitionsBtn" mnemonicParsing="false" onAction="#openPunitions" styleClass="warning" text="Punitions" />
                             <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
                             <Button fx:id="postItBtn" mnemonicParsing="false" onAction="#openPostIt" styleClass="warning" text="Post-It" />
+                            <Pane HBox.hgrow="ALWAYS"  />
+                            <Button fx:id="ramasserBtn" alignment="CENTER" onAction="#openActions" styleClass="button-delete" text="Ramasser" />
                         </items>
                     </ToolBar>
                     <fx:include source="Legende.fxml" />
@@ -212,7 +215,7 @@
                                                 </HeaderLabel>
                                                 <HeaderLabel alignment="CENTER_LEFT" fixedHeight="30" styleClass="smart-grid-header" text="Punition" GridPane.columnIndex="3" />
                                                 <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Mot carnet" GridPane.columnIndex="4" />
-                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Mot signé" GridPane.columnIndex="5" />
+                                                <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Cumul mot" GridPane.columnIndex="5" />
                                                 <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Exclus" GridPane.columnIndex="6" />  
                                                 <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="Motif" GridPane.columnIndex="7" />            
                                                 <HeaderLabel fixedHeight="30" styleClass="smart-grid-header" text="" GridPane.columnIndex="8" />
@@ -274,7 +277,7 @@
                         <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
                         <SmartSelect fx:id="seanceSelect" circular="false" />
                         <Pane maxWidth="20.0" minWidth="20.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
-                        <Button fx:id="addCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#ajouterCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-arrow" text="" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#ajouterCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-ok" text="" HBox.hgrow="ALWAYS" />
                         <Pane maxWidth="20.0" minWidth="20.0" prefWidth="20.0" HBox.hgrow="ALWAYS" />
                         <Button fx:id="remCoursBtn" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#supprimerCours" prefHeight="40.0" prefWidth="40.0" styleClass="button-delete" text="" HBox.hgrow="ALWAYS" />
                         <Pane HBox.hgrow="ALWAYS" />

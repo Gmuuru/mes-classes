@@ -70,7 +70,7 @@
                         </SmartGrid>
                         <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                             <content>
-                                <SmartGrid fx:id="grid" alignment="CENTER" nbHeaderRows="0" styleClass="smart-grid">
+                                <SmartGrid fx:id="grid" nbHeaderRows="0" styleClass="smart-grid">
                                     <columnConstraints>
                                         <ColumnConstraints minWidth="5" percentWidth="0.5" />
                                         <ColumnConstraints hgrow="ALWAYS" percentWidth="10.0" />

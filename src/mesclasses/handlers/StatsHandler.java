@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
+import mesclasses.model.Mot;
 import mesclasses.model.Seance;
 import mesclasses.model.Trimestre;
 import mesclasses.util.NodeUtil;
@@ -96,45 +97,6 @@ public class StatsHandler {
     }
     
     /**
-     * retourne toutes les seances d'un élève avec devoir non rendu, sur un trimestre
-     * @param eleve
-     * @param trimestre
-     * @return 
-     */
-    public List<Seance> getSeancesWithDevoirOnTrimestre(Eleve eleve, Trimestre trimestre){
-        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
-                .filter(d -> d.isDevoir())
-                .map(d -> d.getSeance())
-                .collect(Collectors.toList());
-    }
-    
-    /**
-     * retourne toutes les seances d'un élève avec mot carnet, sur un trimestre
-     * @param eleve
-     * @param trimestre
-     * @return 
-     */
-    public List<Seance> getSeancesWithMotOnTrimestre(Eleve eleve, Trimestre trimestre){
-        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
-                .filter(d -> d.isMotCarnet())
-                .map(d -> d.getSeance())
-                .collect(Collectors.toList());
-    }
-    
-    /**
-     * retourne toutes les seances d'un élève avec mot signé, sur un trimestre
-     * @param eleve
-     * @param trimestre
-     * @return 
-     */
-    public List<Seance> getSeancesWithMotSigneOnTrimestre(Eleve eleve, Trimestre trimestre){
-        return getDonneesForPeriode(eleve, trimestre.getStartAsDate(), trimestre.getEndAsDate())
-                .filter(d -> d.isMotSigne())
-                .map(d -> d.getSeance())
-                .collect(Collectors.toList());
-    }
-    
-    /**
      * retourne toutes les seances d'un élève avec oubli de matériel d'un élève, sur un trimestre
      * @param eleve
      * @param trimestre
@@ -202,6 +164,20 @@ public class StatsHandler {
                 .filter(d -> StringUtils.isNotBlank(d.getOubliMateriel()))
                 .map(d -> d.getSeance())
                 .collect(Collectors.toList());
+    }
+    
+    
+    /**
+     * retourne tous les mots d'un élève, du début du trimestre à la date fournie
+     * @param eleve
+     * @param date
+     * @return 
+     */
+    public List<Mot> getMotsUntil(Eleve eleve, LocalDate date){
+        Trimestre trim = model.getForDate(date);
+        return eleve.getMots().filtered(m -> {
+            return NodeUtil.isBetween(m.getDate(), trim.getStartAsDate(), trim.getEndAsDate()); 
+        });
     }
     
     /**

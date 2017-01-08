@@ -12,6 +12,7 @@ import mesclasses.model.Classe;
 import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
+import mesclasses.model.Mot;
 import mesclasses.model.Punition;
 
 /**
@@ -101,6 +102,19 @@ public class EleveBuilder {
             devoirs(FXCollections.observableArrayList());
         }
         eleve.getDevoirs().add(p);
+        return this;
+    }
+    
+    public EleveBuilder mots(ObservableList<Mot> list) {
+        eleve.setMots(list);
+        return this;
+    }
+    
+    public EleveBuilder mot(Mot p) {
+        if(eleve.getMots() == null){
+            devoirs(FXCollections.observableArrayList());
+        }
+        eleve.getMots().add(p);
         return this;
     }
     

@@ -22,4 +22,9 @@ public class CssUtil {
     public static void removeClass(Styleable obj, String cssClass){
         obj.getStyleClass().removeIf(c -> c.equals(cssClass));
     }
+    
+    public static void switchClass(Styleable obj, String cssClassToAdd, String removeClass){
+        removeClass(obj, removeClass);
+        addClass(obj, cssClassToAdd);
+    }
 }

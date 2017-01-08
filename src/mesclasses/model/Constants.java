@@ -27,7 +27,7 @@ public class Constants {
     public static final DateTimeFormatter DATE_FORMATTER_FR = DateTimeFormatter.ofPattern(Constants.DATE_FORMAT_FR);
     public static final DateTimeFormatter LONG_DATE_FORMATTER = DateTimeFormatter.ofPattern(LONG_DATE_FORMAT);
     
-    public static final List<String> DAYS = Arrays.asList(new String[]{"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"});
+    public static final List<String> DAYS = Arrays.asList(new String[]{"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"});
     public static final List<String> OBSERVABLE_DAYS = FXCollections.observableArrayList(DAYS);
     
     public static final Map<DayOfWeek, String> DAYMAP = new HashMap<>();
@@ -39,6 +39,7 @@ public class Constants {
         DAYMAP.put(DayOfWeek.THURSDAY, DAYS.get(3));
         DAYMAP.put(DayOfWeek.FRIDAY, DAYS.get(4));
         DAYMAP.put(DayOfWeek.SATURDAY, DAYS.get(5));
+        DAYMAP.put(DayOfWeek.SUNDAY, DAYS.get(6));
     }
     
     public static final String ACCUEIL_VIEW = "view/Accueil.fxml";
@@ -61,7 +62,9 @@ public class Constants {
     public static final String POSTIT_DIALOG = "view/PostItDialog.fxml";
     public static final String CONFIGURATION_VIEW = "view/Configuration.fxml";
     public static final String ERREURS_VIEW = "view/ErrorDialog.fxml";
+    public static final String ACTIONS_DIALOG = "view/ActionsEnCours.fxml";
     
+    public static final String CONF_VERSION = "version";
     public static final String CONF_WEEK_DEFAULT = "semaines.normal.nom";
     public static final String CONF_WEEK_P1_NAME = "semaines.periodique1.nom";
     public static final String CONF_WEEK_P1_VAL = "semaines.periodique1.valeur";

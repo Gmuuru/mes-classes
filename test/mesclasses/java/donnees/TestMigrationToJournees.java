@@ -12,10 +12,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import mesclasses.handlers.ModelHandler;
 import mesclasses.handlers.PropertiesCache;
-import static mesclasses.java.util.LogUtil.*;
+import static mesclasses.util.LogUtil.*;
 import static mesclasses.java.util.MyAssert.*;
 import mesclasses.model.datamodel.ObservableData;
-import mesclasses.objects.tasks.ComputeTask;
+import mesclasses.objects.tasks.MigrationTask;
 import mesclasses.util.DataLoadUtil;
 import mesclasses.util.validation.FError;
 import mesclasses.util.validation.FErrorBuilder;
@@ -115,7 +115,7 @@ public class TestMigrationToJournees extends GenericAppTestBase {
         
         // MIGRATION
         try {
-            new ComputeTask().call();
+            new MigrationTask().call();
         } catch (Exception ex) {
             LOG.error("Erreur pendant l'exécution de la tâche de migration", ex);
             fail("Erreur pendant l'exécution de la tâche de migration");

@@ -81,7 +81,7 @@ public class TimetableController extends PageController implements Initializable
         handleClicks(saturdayPane);
         
         newCoursBtn.setText("\uf067");
-        CssUtil.addClass(newCoursBtn, "button-arrow");
+        CssUtil.addClass(newCoursBtn, "button-ok");
         cours.forEach(c -> {
             createEvent(c);
         });
@@ -235,7 +235,7 @@ public class TimetableController extends PageController implements Initializable
         
         newCours = openEditDialog(newCours, null);
         if(newCours != null){
-            modelHandler.createCours(newCours);
+            model.createCours(newCours);
             VBox event = createEvent(newCours);
             resizeEvent(newCours);
             getPane(newCours).getChildren().add(event);
@@ -255,11 +255,11 @@ public class TimetableController extends PageController implements Initializable
     }
     
     private void handleEditCours(Cours coursToEdit){
-        Cours editedCours = openEditDialog(modelHandler.cloneCours(coursToEdit), coursToEdit);
+        Cours editedCours = openEditDialog(model.cloneCours(coursToEdit), coursToEdit);
         if(editedCours != null){
             
             getPane(coursToEdit).getChildren().remove(coursToEdit.getEvent());
-            modelHandler.updateCours(coursToEdit, editedCours);
+            model.updateCours(coursToEdit, editedCours);
             createEvent(editedCours);
             resizeEvent(editedCours);
             getPane(editedCours).getChildren().add(editedCours.getEvent());
@@ -316,7 +316,7 @@ public class TimetableController extends PageController implements Initializable
             else {
                 //delete
                 getPane(coursToEdit).getChildren().remove(coursToEdit.getEvent());
-                int seances = modelHandler.delete(originalCours).size();
+                int seances = model.delete(originalCours).size();
                 ModalUtil.info("Séances modifiées", seances+" séances ont été modifiées");
                 return null;
             }

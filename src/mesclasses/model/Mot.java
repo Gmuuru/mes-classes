@@ -9,8 +9,8 @@ import com.google.common.collect.Lists;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -26,26 +26,26 @@ import org.apache.commons.lang3.RandomStringUtils;
  * @author rrrt3491
  */
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class Devoir extends MonitoredObject implements Serializable, Comparable<Devoir> {
+public class Mot extends MonitoredObject implements Serializable, Comparable<Mot> {
     
     private String id;
     
     private Eleve eleve;
     
-    private final BooleanProperty closed;
+    private final ObjectProperty<LocalDate> dateCloture;
     
     private Seance seance;
 
-    public Devoir(){
+    public Mot(){
         super();
-        this.id = "devoir_"+RandomStringUtils.randomAlphanumeric(5);
-        this.closed = new SimpleBooleanProperty(false);
+        this.id = RandomStringUtils.randomAlphanumeric(5);
+        this.dateCloture = new SimpleObjectProperty<>();
     }
     
 
     @Override
     public void startChangeDetection() {
-        this.closed.addListener(booleanListener);
+        this.dateCloture.addListener(dateListener);
     }
     
     @Override
@@ -55,7 +55,7 @@ public class Devoir extends MonitoredObject implements Serializable, Comparable<
         return err;
     }
     
-    public Devoir(Eleve eleve, Seance seance){
+    public Mot(Eleve eleve, Seance seance){
         this();
         this.eleve = eleve;
         this.seance = seance;
@@ -71,7 +71,7 @@ public class Devoir extends MonitoredObject implements Serializable, Comparable<
         this.id = id;
     }
     
-    @XmlAttribute
+    @XmlElement
     @XmlIDREF
     public Eleve getEleve() {
         return eleve;
@@ -81,14 +81,34 @@ public class Devoir extends MonitoredObject implements Serializable, Comparable<
         this.eleve = eleve;
     }
 
+    @XmlElement(name="dateCloture")
+    public String getDateCloture() {
+        if(dateCloture != null && dateCloture.get() != null){
+            return dateCloture.get().format(Constants.DATE_FORMATTER);
+        }
+        return null;
+    }
+    
+    public LocalDate getDateClotureAsDate() {
+        return dateCloture.get();
+    }
+
+    public void setDateCloture(String date) {
+        this.dateCloture.set(LocalDate.parse(date, Constants.DATE_FORMATTER));
+    }
+
+    public void setDateCloture(LocalDate date) {
+        this.dateCloture.set(date);
+    }
+
     public LocalDate getDate(){
         if(seance != null){
             return seance.getDateAsDate();
         }
         return null;
     }
-
-    @XmlAttribute
+    
+    @XmlElement
     @XmlIDREF
     public Seance getSeance() {
         return seance;
@@ -98,21 +118,8 @@ public class Devoir extends MonitoredObject implements Serializable, Comparable<
         this.seance = seance;
     }
 
-    public BooleanProperty closedProperty(){
-        return closed;
-    }
-    
-    @XmlElement(name="closed")
-    public boolean isClosed() {
-        return closed.get();
-    }
-
-    public void setClosed(boolean closed) {
-        this.closed.set(closed);
-    }
-
     @Override
-    public int compareTo(Devoir t) {
+    public int compareTo(Mot t) {
         int compareEleve = -1;
         if(t == null){
             return 1;
@@ -131,6 +138,6 @@ public class Devoir extends MonitoredObject implements Serializable, Comparable<
     
     @Override
     public String getDisplayName(){
-        return new StringBuilder("Devoir ").append(id).toString();
+        return new StringBuilder("Mot carnet ").append(id).toString();
     }
 }

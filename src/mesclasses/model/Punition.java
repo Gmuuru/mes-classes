@@ -172,13 +172,19 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
     @Override
     public int compareTo(Punition t) {
         int compareEleve = -1;
+        if(t == null){
+            return 1;
+        }
         if(eleve != null){
             compareEleve = eleve.compareTo(t.getEleve());
         }
         if(compareEleve != 0){
             return compareEleve;
         }
-        return date.get().compareTo(t.getSeance().getDateAsDate());
+        if(seance == null){
+            return t.getSeance() != null ? -1 : 0;
+        }
+        return getSeance().getDateAsDate().compareTo(t.getSeance().getDateAsDate());
     }
     
     @Override

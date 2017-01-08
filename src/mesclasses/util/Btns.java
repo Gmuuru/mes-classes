@@ -19,14 +19,24 @@ public class Btns {
         btn.setMaxHeight(30);
     }
     
-    public static Button addBtn(){
-        return makeDelete(new Button());
+    public static Button okBtn(){
+        return makeOK(new Button());
     }
     
+    public static Button makeOK(Button btn){
+        setHeight(btn);
+        btn.setText("\uf00c");
+        CssUtil.addClass(btn, "button-ok");
+        return btn;
+    }
+    
+    public static Button addBtn(){
+        return makeAdd(new Button());
+    }
     public static Button makeAdd(Button btn){
         setHeight(btn);
         btn.setText("\uf067");
-        CssUtil.addClass(btn, "button-arrow");
+        CssUtil.addClass(btn, "button-ok");
         return btn;
     }
     
@@ -89,7 +99,7 @@ public class Btns {
     public static Button makeRapport(Button btn){
         setHeight(btn);
         btn.setText("\uf03a");
-        CssUtil.addClass(btn, "button-arrow");
+        CssUtil.addClass(btn, "button-ok");
         return btn;
     }
     
@@ -121,7 +131,7 @@ public class Btns {
     
     public static Button makeArrowUp(Button btn) {
         btn.setText("\uf0aa");
-        CssUtil.addClass(btn, "button-arrow");
+        CssUtil.addClass(btn, "button-ok");
         setHeight(btn);
         return btn;
     }
@@ -132,7 +142,7 @@ public class Btns {
     
     public static Button makeArrowDown(Button btn) {
         btn.setText("\uf0ab");
-        CssUtil.addClass(btn, "button-arrow");
+        CssUtil.addClass(btn, "button-ok");
         setHeight(btn);
         return btn;
     }

@@ -49,6 +49,8 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
     
     private ObservableList<Devoir> devoirs;
     
+    private ObservableList<Mot> mots;
+    
     private ObservableList<ChangementClasse> changementsClasse;
     
     private final BooleanProperty actif;
@@ -62,6 +64,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         this.data = FXCollections.observableArrayList();
         this.punitions = FXCollections.observableArrayList();
         this.devoirs = FXCollections.observableArrayList();
+        this.mots = FXCollections.observableArrayList();
         this.changementsClasse = FXCollections.observableArrayList();
     }
     
@@ -76,10 +79,13 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         // seule la modification des data doit declencher le saveNeeded
         //data.addListener(listAddRemoveListener);
         punitions.addListener(listAddRemoveListener);
+        devoirs.addListener(listAddRemoveListener);
+        mots.addListener(listAddRemoveListener);
         changementsClasse.addListener(listAddRemoveListener);
         data.forEach(d -> d.startChangeDetection());
         punitions.forEach(p -> p.startChangeDetection());
         devoirs.forEach(d -> d.startChangeDetection());
+        mots.forEach(d -> d.startChangeDetection());
         changementsClasse.forEach(p -> p.startChangeDetection());
     }
     
@@ -89,6 +95,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         data.forEach(c -> c.resetChange());
         punitions.forEach(c -> c.resetChange());
         devoirs.forEach(c -> c.resetChange());
+        mots.forEach(c -> c.resetChange());
         changementsClasse.forEach(c -> c.resetChange());
     }
     
@@ -98,6 +105,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
         err.addAll(Validators.validate(this));
         err.addAll(ListValidators.validatePunitionList(this));
         err.addAll(ListValidators.validateDevoirList(this));
+        err.addAll(ListValidators.validateMotList(this));
         err.addAll(ListValidators.validateChangementList(this));
         err.addAll(ListValidators.validateDonneeList(this));
         return err;
@@ -180,7 +188,7 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
 
     @XmlElement(name="punition")
     @XmlElementWrapper(name="punitions")
-    public List<Punition> getPunitions() {
+    public ObservableList<Punition> getPunitions() {
         return punitions;
     }
 
@@ -194,8 +202,18 @@ public class Eleve extends MonitoredObject implements Serializable, Comparable<E
     
     @XmlElement(name="devoir")
     @XmlElementWrapper(name="devoirs")
-    public List<Devoir> getDevoirs() {
+    public ObservableList<Devoir> getDevoirs() {
         return devoirs;
+    }
+    
+    public void setMots(ObservableList<Mot> mots) {
+        this.mots = mots;
+    }
+    
+    @XmlElement(name="mot")
+    @XmlElementWrapper(name="mots")
+    public ObservableList<Mot> getMots() {
+        return mots;
     }
     
     @XmlElement(name="changementClasse")
