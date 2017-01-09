@@ -59,7 +59,7 @@ public class MainApp extends Application {
         LoadWindow loading = new LoadWindow(this.primaryStage, new ValidateConfigTask(), new FetchDataTask(), new MigrationTask());
         loading.startAndWait();
         if (loading.isSuccessful()) {
-
+            
             this.primaryStage.setTitle(Constants.APPLICATION_TITLE + " version " + PropertiesCache.version());
             this.primaryStage.getIcons().add(new Image(
                     MainApp.class.getResourceAsStream("/resources/package/windows/MesClasses.png")));

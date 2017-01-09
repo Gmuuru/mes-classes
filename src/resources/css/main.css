@@ -217,7 +217,6 @@
     -fx-text-fill: #43a047;
     -fx-background-color : transparent;
     -fx-border-color : #81c784;
-    -fx-cursor:default;
 }
 
 .button.button-delete {
@@ -230,7 +229,6 @@
     -fx-text-fill: #e53935;
     -fx-background-color : transparent;
     -fx-border-color : #e57373;
-    -fx-cursor:default;
 }
 
 .button.button-delete-large {

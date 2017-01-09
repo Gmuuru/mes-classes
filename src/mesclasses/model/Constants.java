@@ -54,7 +54,6 @@ public class Constants {
     public static final String CLASSE_RAPPORT_TABS_VIEW = "view/RapportClasseTabs.fxml";
     public static final String CLASSE_RAPPORT_VIEW = "view/RapportClasse.fxml";
     public static final String COURS_EDIT_DIALOG = "view/CoursEditDialog.fxml";
-    public static final String CLASSE_MOTS_DIALOG = "view/CumulMotDialog.fxml";
     public static final String CLASSE_PUNITIONS_VIEW = "view/Punitions.fxml";
     public static final String ELEVE_RAPPORT_VIEW = "view/RapportEleve.fxml";
     public static final String HISTORIQUE_VIEW = "view/Historique.fxml";

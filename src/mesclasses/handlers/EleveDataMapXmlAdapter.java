@@ -16,6 +16,8 @@ import javax.xml.bind.annotation.XmlValue;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import mesclasses.model.Eleve;
 import mesclasses.model.EleveData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
@@ -23,6 +25,8 @@ import mesclasses.model.EleveData;
  */
 public class EleveDataMapXmlAdapter extends XmlAdapter<EleveDataMapXmlAdapter.AdaptedProperties, Map<Eleve, EleveData>>{
 
+    private static final Logger LOG = LogManager.getLogger(EleveDataMapXmlAdapter.class);
+    
     public static class AdaptedProperties {
         public List<Property> property = new ArrayList<>();
     }
@@ -46,6 +50,7 @@ public class EleveDataMapXmlAdapter extends XmlAdapter<EleveDataMapXmlAdapter.Ad
         adaptedProperties.property.forEach((property) -> {
             map.put(property.eleve, property.data);
         });
+        //LOG.debug("Unarshalling map of {} properties to {} élèves", adaptedProperties.property.size(), map.size());
         return map;
     }
 
@@ -63,6 +68,7 @@ public class EleveDataMapXmlAdapter extends XmlAdapter<EleveDataMapXmlAdapter.Ad
         }).forEach((property) -> {
             adaptedProperties.property.add(property);
         });
+        //LOG.debug("Marshalling map of {} élèves to {} properties", map.size(), adaptedProperties.property.size());
         return adaptedProperties;
     }
 

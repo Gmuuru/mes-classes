@@ -56,7 +56,7 @@
                                         <items>
                                             <Pane HBox.hgrow="ALWAYS">
                                                 <children>
-                                                    <Button fx:id="displayOldPunitionsBtn" contentDisplay="LEFT" mnemonicParsing="false" onAction="#switchInclusion" styleClass="button-action" text="Inclure trimestres précédents" />
+                                                    <Button fx:id="displayOldPunitionsBtn" contentDisplay="LEFT" mnemonicParsing="false" onAction="#switchPunitionInclusion" styleClass="button-action" text="Inclure trimestres précédents" />
                                                 </children>
                                             </Pane>
                                             <Pane HBox.hgrow="ALWAYS">
@@ -185,7 +185,7 @@
                                             <items>
                                                 <Pane HBox.hgrow="ALWAYS">
                                                     <children>
-                                                        <Button fx:id="displayOldDevoirsBtn" contentDisplay="LEFT" mnemonicParsing="false" onAction="#switchInclusion" styleClass="button-action" text="Inclure trimestres précédents" />
+                                                        <Button fx:id="displayOldDevoirsBtn" contentDisplay="LEFT" mnemonicParsing="false" styleClass="button-action" />
                                                     </children>
                                                 </Pane>
                                                 <Pane HBox.hgrow="ALWAYS">

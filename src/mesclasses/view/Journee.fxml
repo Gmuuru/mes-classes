@@ -38,8 +38,6 @@
                             <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
                             <Button fx:id="rapportsBtn" mnemonicParsing="false" onAction="#openRapport" text="Rapport Classe" />
                             <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
-                            <Button fx:id="motsBtn" mnemonicParsing="false" onAction="#openMotDialog" styleClass="warning" text="Mots" />
-                            <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
                             <Button fx:id="punitionsBtn" mnemonicParsing="false" onAction="#openPunitions" styleClass="warning" text="Punitions" />
                             <Pane maxWidth="50.0" HBox.hgrow="ALWAYS" />
                             <Button fx:id="postItBtn" mnemonicParsing="false" onAction="#openPostIt" styleClass="warning" text="Post-It" />

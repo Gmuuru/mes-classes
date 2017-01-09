@@ -102,7 +102,6 @@ public class JourneeController extends PageController implements Initializable {
     @FXML Button nextDayBtn;
     @FXML Button switchNonActifsBtn;
     @FXML Button rapportsBtn;
-    @FXML Button motsBtn;
     @FXML Button punitionsBtn;
     @FXML Button postItBtn;
     @FXML Button ramasserBtn;
@@ -142,6 +141,18 @@ public class JourneeController extends PageController implements Initializable {
         Btns.makeAdd(addCoursBtn);
         Btns.makeDelete(remCoursBtn);
         
+        Btns.tooltip(previousDayBtn, "Jour précédent");
+        Btns.tooltip(nextDayBtn, "Jour suivant");
+        Btns.tooltip(seanceSelect.getBtnLeft(), "Séance précédente");
+        Btns.tooltip(seanceSelect.getBtnRight(), "Séance suivante");
+        Btns.tooltip(addCoursBtn, "Ajouter une séance ponctuelle");
+        Btns.tooltip(remCoursBtn, "Supprimer la séance ponctuelle");
+        Btns.tooltip(switchNonActifsBtn, "active/désactive l'affichage des élèves inactifs") ;
+        Btns.tooltip(rapportsBtn, "Ouvre la page des rapports trimestriels pour la classe");
+        Btns.tooltip(punitionsBtn, "Ouvre le suivi des punitions, devoirs et mots pour la classe");
+        Btns.tooltip(postItBtn, "ouvre le postIt de la classe");
+        Btns.tooltip(ramasserBtn, "ouvre la fenêtre des actions à faire pour la classe");
+        
         currentDate.setDayCellFactory(new TunedDayCellFactory().setAllowSundays(false));
         currentDate.setConverter(NodeUtil.DATE_WITH_DAY_NAME);
         
@@ -162,7 +173,6 @@ public class JourneeController extends PageController implements Initializable {
         });
         // activation du bouton remCours si besoin
         rapportsBtn.disableProperty().bind(Bindings.isNull(seanceSelect.valueProperty()));
-        motsBtn.disableProperty().bind(Bindings.isNull(seanceSelect.valueProperty()));
         punitionsBtn.disableProperty().bind(Bindings.isNull(seanceSelect.valueProperty()));
         postItBtn.disableProperty().bind(Bindings.isNull(seanceSelect.valueProperty()));
         
@@ -233,14 +243,19 @@ public class JourneeController extends PageController implements Initializable {
         currentDate.valueProperty().addListener(dateListener);
         
         journee = model.getJournee(date);
-        LOG.debug("Now handling the seances");
         if(seance != null){
+            LOG.debug("Chargement des séances et sélection de la séance "+seance);
             seanceSelect.setItems(journee.getSeances(), false);
             // will trigger the refreshGrid
             seanceSelect.select(seance);
         } else {
+            LOG.debug("Chargement des séances. nb de séances = "+journee.getSeances().size());
             // will trigger the refreshGrid
             seanceSelect.setItems(journee.getSeances(), true);
+            if(journee.getSeances().isEmpty()){
+                // on force le refresh de la grid
+                loadCurrentSeance();
+            }
         }
         LogUtil.logEnd();
     }
@@ -258,6 +273,8 @@ public class JourneeController extends PageController implements Initializable {
             });
             setPostItColor();
             ramasserBtn.setVisible(model.hasActionsEnCours(seanceSelect.getValue().getClasse()));
+        } else {
+            ramasserBtn.setVisible(false);
         }
         
         refreshGrid();
@@ -447,34 +464,6 @@ public class JourneeController extends PageController implements Initializable {
 
             // Set the person into the controller.
             PostItDialogController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
-            controller.setClasse(seanceSelect.getValue().getClasse());
-
-            // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
-
-        } catch (IOException e) {
-            LOG.error(e);
-        }
-    }
-    @FXML
-    public void openMotDialog(){
-        try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource(Constants.CLASSE_MOTS_DIALOG));
-            AnchorPane page = (AnchorPane) loader.load();
-
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Cumul des mots non signés");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-
-            // Set the person into the controller.
-            CumulMotDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setClasse(seanceSelect.getValue().getClasse());
 

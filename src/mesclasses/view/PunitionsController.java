@@ -25,7 +25,6 @@ import mesclasses.controller.PageController;
 import mesclasses.handlers.EventBusHandler;
 import mesclasses.model.Classe;
 import mesclasses.model.Constants;
-import mesclasses.model.Devoir;
 import mesclasses.model.Punition;
 import mesclasses.model.Trimestre;
 import mesclasses.objects.events.OpenMenuEvent;
@@ -74,12 +73,9 @@ public class PunitionsController extends PageController implements Initializable
     private Classe classe;
     private final List<Punition> punitionsEnCours = new ArrayList<>();
     private final List<Punition> punitionsFermees = new ArrayList<>();
-    private final List<Devoir> devoirsEnCours = new ArrayList<>();
-    private final List<Devoir> devoirsFermes = new ArrayList<>();
-    ;
+    private DevoirManager devoirManager;
     
     private boolean includeOldTrimestresForPunition = false;
-    private boolean includeOldTrimestresForDevoir = false;
 
     /**
      * Initializes the controller class.
@@ -90,7 +86,6 @@ public class PunitionsController extends PageController implements Initializable
         super.initialize(url, rb);
         initTabs();
         displayOldPunitionsBtn.setText(includeOldTrimestresForPunition ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
-        displayOldPunitionsBtn.setText(includeOldTrimestresForDevoir ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
     }
 
     private void initTabs() {
@@ -128,10 +123,23 @@ public class PunitionsController extends PageController implements Initializable
     public void setClasse(Classe classe) {
         this.classe = classe;
         punitionsTitleLabel.textProperty().bind(new SimpleStringProperty("Punitions pour la ").concat(this.classe.nameProperty()));
-        devoirsTitleLabel.textProperty().bind(new SimpleStringProperty("Devois pour la ").concat(this.classe.nameProperty()));
-        init();
+        devoirsTitleLabel.textProperty().bind(new SimpleStringProperty("Devoirs pour la ").concat(this.classe.nameProperty()));
+        initPunitions();
+        initDevoirManager();
+        
     }
 
+    private void initDevoirManager(){
+        devoirManager = new DevoirManager(classe, "devoir", false, gridDevoirsEnCours, gridDevoirsFermes);
+        displayOldDevoirsBtn.setText(devoirManager.getIncludeOldTrimestres() ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
+        displayOldDevoirsBtn.setOnAction(e -> {
+            devoirManager.switchInclusion();
+            displayOldDevoirsBtn.setText(devoirManager.getIncludeOldTrimestres() 
+                    ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
+        });
+        devoirManager.init();
+    }
+    
     @Subscribe
     public void onSelectClasse(SelectClasseEvent event) {
         logEvent(event);
@@ -140,11 +148,11 @@ public class PunitionsController extends PageController implements Initializable
         }
     }
 
-    public void init() {
+    public void initPunitions() {
         populatePunitions();
         drawPunitions();
     }
-
+    
     private void populatePunitions() {
         punitionsEnCours.clear();
         punitionsFermees.clear();
@@ -184,46 +192,6 @@ public class PunitionsController extends PageController implements Initializable
             });
         }
     }
-    
-    private void populateDevoirs() {
-        punitionsEnCours.clear();
-        punitionsFermees.clear();
-
-        if (trimestres == null || trimestres.isEmpty()) {
-            return;
-        }
-        Trimestre first = trimestres.get(0);
-        Trimestre current = model.getForDate(LocalDate.now());
-        if (current == null) {
-            notif("Aucun trimestre pour aujourd'hui");
-            return;
-        }
-        if (includeOldTrimestresForDevoir) {
-            // depuis la rentrée jusqu'à la fin du trimestre en cours
-            classe.getEleves().forEach(eleve -> {
-                model.filterDevoirsByTrimestre(eleve.getDevoirs(), first, current.getEndAsDate())
-                        .forEach(d -> {
-                            if (d.isClosed()) {
-                                devoirsFermes.add(d);
-                            } else {
-                                devoirsEnCours.add(d);
-                            }
-                        });
-            });
-        } else {
-            // seulement le trimestre en cours
-            classe.getEleves().forEach(eleve -> {
-                model.filterDevoirsByTrimestre(eleve.getDevoirs(), current, null)
-                        .forEach(punition -> {
-                            if (punition.isClosed()) {
-                                devoirsFermes.add(punition);
-                            } else {
-                                devoirsEnCours.add(punition);
-                            }
-                        });
-            });
-        }
-    }
 
     private void drawPunitions() {
         gridPunitionsEnCours.clear();
@@ -235,21 +203,6 @@ public class PunitionsController extends PageController implements Initializable
         gridPunitionsFermees.clear();
         if (punitionsFermees.isEmpty()) {
             gridPunitionsFermees.drawNoDataInGrid("Aucune punition fermée");
-        } else {
-            punitionsFermees.forEach(punition -> drawPunition(punition, true));
-        }
-    }
-
-    private void drawDevoirs() {
-        gridDevoirsEnCours.clear();
-        if (devoirsEnCours.isEmpty()) {
-            gridDevoirsEnCours.drawNoDataInGrid("Aucun devoir à ramasser");
-        } else {
-            punitionsEnCours.forEach(punition -> drawPunition(punition, false));
-        }
-        gridPunitionsFermees.clear();
-        if (punitionsFermees.isEmpty()) {
-            gridPunitionsFermees.drawNoDataInGrid("Aucun devoir non ramassé");
         } else {
             punitionsFermees.forEach(punition -> drawPunition(punition, true));
         }
@@ -298,29 +251,29 @@ public class PunitionsController extends PageController implements Initializable
 
     private void closePunition(Punition punition) {
         punition.setClosed(true);
-        init();
+        initPunitions();
     }
 
     private void openPunition(Punition punition) {
         punition.setClosed(false);
-        init();
+        initPunitions();
     }
 
     private void deletePunition(Punition punition) {
         if (ModalUtil.confirm("Supprimer la punition", "Etes-vous sûr(e) ?")) {
-            model.deletePunition(punition);
-            init();
+            model.delete(punition);
+            initPunitions();
         }
     }
-
+    
     @FXML
-    public void switchInclusion() {
+    public void switchPunitionInclusion() {
         includeOldTrimestresForPunition = !includeOldTrimestresForPunition;
         displayOldPunitionsBtn.setText(includeOldTrimestresForPunition ? "Exclure trimestres précédents" : "Inclure trimestres précédents");
         populatePunitions();
         drawPunitions();
     }
-
+    
     @FXML
     public void openClasse() {
         EventBusHandler.post(new OpenMenuEvent(Constants.JOURNEE_VIEW).setReload(true));
@@ -334,6 +287,6 @@ public class PunitionsController extends PageController implements Initializable
             return;
         }
 
-        init();
+        initPunitions();
     }
 }

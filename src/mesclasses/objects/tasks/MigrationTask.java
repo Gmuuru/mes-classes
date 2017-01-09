@@ -23,6 +23,8 @@ import mesclasses.model.EleveData;
 import mesclasses.model.Journee;
 import mesclasses.model.Mot;
 import mesclasses.model.Seance;
+import mesclasses.util.DataLoadUtil;
+import mesclasses.util.FileSaveUtil;
 import mesclasses.util.NodeUtil;
 import mesclasses.util.validation.FError;
 import org.apache.commons.lang3.StringUtils;
@@ -59,7 +61,7 @@ public class MigrationTask extends AppTask<Object> {
     public Object call() throws Exception {
         handler = ModelHandler.getInstance();
         currentVersion = PropertiesCache.version();
-        LOG.info("Current version is "+currentVersion+", migrating to "+patchVersion);
+        LOG.info("Current version is " + currentVersion + ", migrating to " + patchVersion);
         process();
         return null;
     }
@@ -74,34 +76,30 @@ public class MigrationTask extends AppTask<Object> {
             LocalDate day = handler.getTrimestres().get(0).getStartAsDate();
             long nbDays = ChronoUnit.DAYS.between(day, LocalDate.now());
             while (day.isBefore(LocalDate.now().plusDays(1))) {
-                
-                if(currentVersion.compareTo("1.0.0") == 0){
+
+                if (currentVersion.compareTo("1.0.0") == 0) {
                     Journee journee = createJournee(day);
                     handler.declareJournee(journee);
-                } else {
-                    if(!handler.getJournees().containsKey(day)){
-                        Journee journee = createJournee(day);
-                        handler.declareJournee(journee);
-                    }
+                } else if (!handler.getJournees().containsKey(day)) {
+                    Journee journee = createJournee(day);
+                    handler.declareJournee(journee);
                 }
                 nbJournees++;
                 day = day.plusDays(1);
                 updateProgress(nbJournees, nbDays);
             }
-            
-            if(currentVersion.compareTo("1.0.0") == 0){
+
+            if (currentVersion.compareTo("1.0.0") == 0) {
                 updatePunitions();
                 updateDevoirsEtMots();
             }
 
-            if(!checkData()){
+            if (!checkData()) {
                 LOG.error("Certaines données sont incohérentes");
                 throw new Exception("Certaines données sont incohérentes");
             } else {
-                PropertiesCache.getInstance().setProperty(Constants.CONF_VERSION, patchVersion);
-                PropertiesCache.getInstance().save();
-                //DataLoadUtil.writeData(handler.getData(), FileSaveUtil.getSaveFile());
-                
+                saveConfAndData();
+
             }
         } catch (Exception e) {
             LOG.error("MigrationException", e);
@@ -111,6 +109,15 @@ public class MigrationTask extends AppTask<Object> {
         LOG.info("nbDonneesInitiales : " + nbDonneesInitiales + ", nbPunitionsInitiales : " + nbPunitionsInitiales);
         LOG.info("journees : " + nbJournees + ", seances " + nbSeances + ", cours additionnels : "
                 + nbCoursPonctuels + ", donnees traitées : " + nbDonnees + ", punitions traitées : " + nbPunitions);
+    }
+
+    private void saveConfAndData() {
+        //sauvegarde de la nouvelle version
+        PropertiesCache.getInstance().setProperty(Constants.CONF_VERSION, patchVersion);
+        PropertiesCache.getInstance().save();
+        
+        //sauvegarde des données dans le fichier de sauvegarde
+        DataLoadUtil.writeData(handler.getData(), FileSaveUtil.getSaveFile());
     }
 
     public Journee createJournee(LocalDate date) {
@@ -225,19 +232,18 @@ public class MigrationTask extends AppTask<Object> {
         });
     }
 
-    
-    private void updatePunitions(){
+    private void updatePunitions() {
         handler.getClasses().forEach(c -> {
             c.getEleves().forEach(e -> {
                 e.getPunitions().forEach(p -> {
                     Journee journee = handler.getJournee(p.getDateAsDate());
-                    if(journee == null){
-                        LOG.error("erreur : punition "+p.getId()+" n'a pas de journée associée...");
+                    if (journee == null) {
+                        LOG.error("erreur : punition " + p.getId() + " n'a pas de journée associée...");
                         return;
                     }
                     List<Seance> seances = journee.getSeances().filtered(s -> s.getClasse().getName().equals(p.getEleve().getClasse().getName()));
-                    if(seances == null || seances.isEmpty()){
-                        LOG.error("erreur : punition "+p.getId()+" n'a pas de séance associée...");
+                    if (seances == null || seances.isEmpty()) {
+                        LOG.error("erreur : punition " + p.getId() + " n'a pas de séance associée...");
                         return;
                     }
                     p.setSeance(seances.get(0));
@@ -246,6 +252,7 @@ public class MigrationTask extends AppTask<Object> {
             });
         });
     }
+
     /**
      * inscrit l'élève associé dans chaque donnée
      */

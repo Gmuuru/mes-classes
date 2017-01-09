@@ -6,6 +6,7 @@
 package mesclasses.util;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
 
 /**
  *
@@ -147,4 +148,7 @@ public class Btns {
         return btn;
     }
 
+    public static void tooltip(Button btn, String str){
+        btn.setTooltip(new Tooltip(str));
+    }
 }

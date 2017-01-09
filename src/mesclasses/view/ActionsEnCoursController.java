@@ -131,6 +131,7 @@ public class ActionsEnCoursController extends PageController implements Initiali
             Bindings.bindBidirectional(punitionTextField.textProperty(), p.texteProperty());
             box.getChildren().add(punitionTextField);
             Button close = Btns.okBtn();
+            Btns.tooltip(close, "Ferme la punition");
             close.setOnAction(ev -> {
                 p.setClosed(!p.isClosed());
                 if (p.isClosed()) {
@@ -150,21 +151,22 @@ public class ActionsEnCoursController extends PageController implements Initiali
         devoirs.forEach(d -> {
             HBox box = new HBox(5);
             box.setAlignment(Pos.CENTER);
-            Button rendu = new Button();
+            Button rendu = Btns.okBtn();
             Button tropTard = new Button();
 
             rendu.setText("Rendu");
-            CssUtil.addClass(rendu, "button-ok");
+            Btns.tooltip(rendu, "Supprime le devoir");
             rendu.setOnAction(ev -> {
                 CssUtil.switchClass(tropTard, "button-delete", "button-to-delete");
+                Btns.tooltip(tropTard, "Marque le devoir comme 'non rendu'");
                 d.setClosed(false);
                 if (aSupprimer.contains(d)) {
-                    LOG.debug("Non rendu");
                     CssUtil.switchClass(rendu, "button-ok", "button-done");
+                    Btns.tooltip(rendu, "Supprime le devoir");
                     aSupprimer.remove(d);
                 } else {
                     CssUtil.switchClass(rendu, "button-done", "button-ok");
-                    LOG.debug("rendu");
+                    Btns.tooltip(rendu, "Rétablit le devoir");
                     aSupprimer.add(d);
                 }
             });
@@ -172,14 +174,18 @@ public class ActionsEnCoursController extends PageController implements Initiali
 
             tropTard.setText("Trop tard");
             CssUtil.addClass(tropTard, "button-delete");
+            Btns.tooltip(tropTard, "Marque le devoir comme 'non rendu'");
             tropTard.setOnAction(ev -> {
                 CssUtil.switchClass(rendu, "button-ok", "button-done");
+                    Btns.tooltip(rendu, "Supprime le devoir");
                 aSupprimer.remove(d);
                 d.setClosed(!d.isClosed());
                 if (d.isClosed()) {
                     CssUtil.switchClass(tropTard, "button-to-delete", "button-delete");
+                    Btns.tooltip(tropTard, "Marque le devoir comme 'à rendre'");
                 } else {
                     CssUtil.switchClass(tropTard, "button-delete", "button-to-delete");
+                    Btns.tooltip(tropTard, "Marque le devoir comme 'non rendu'");
                 }
             });
             box.getChildren().add(tropTard);
@@ -193,14 +199,17 @@ public class ActionsEnCoursController extends PageController implements Initiali
         motsBox.setAlignment(Pos.CENTER);
         mots.forEach(p -> {
             Button close = Btns.okBtn();
+            Btns.tooltip(close, "Marque le mot comme 'vérifié'");
             close.setOnAction(ev -> {
                 if (p.getDateCloture() == null) {
                     p.setDateCloture(LocalDate.now());
                     CssUtil.switchClass(close, "button-done", "button-ok");
+                    Btns.tooltip(close, "Marque le mot comme 'à vérifier'");
                 } else {
                     LocalDate nullDate = null;
                     p.setDateCloture(nullDate);
                     CssUtil.switchClass(close, "button-ok", "button-done");
+                    Btns.tooltip(close, "Marque le mot comme 'vérifié'");
                 }
             });
             motsBox.getChildren().add(close);

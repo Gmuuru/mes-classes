@@ -358,7 +358,7 @@ public class ModelHandler {
         return punition;
     }
 
-    public void deletePunition(Punition punition) {
+    public void delete(Punition punition) {
         punition.getEleve().getPunitions().remove(punition);
     }
 
