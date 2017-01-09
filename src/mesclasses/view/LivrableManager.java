@@ -19,11 +19,11 @@ import org.smartgrid.SmartGrid;
  * @param <T>
  */
 public abstract class LivrableManager<T> {
-    
+
     protected ModelHandler model = ModelHandler.getInstance();
     protected SmartGrid gridEnCours;
     protected SmartGrid gridFermes;
-    
+
     protected List<T> enCours = new ArrayList<>();
     protected List<T> fermes = new ArrayList<>();
     protected String name;
@@ -31,31 +31,26 @@ public abstract class LivrableManager<T> {
     protected Trimestre first;
     protected Trimestre current;
     protected Classe classe;
-    
-    protected Boolean includeOldTrimestres = false;
 
-    public LivrableManager(Classe classe, String name, boolean fem, SmartGrid gridEnCours, SmartGrid gridFermes) {
+    public LivrableManager(Classe classe, SmartGrid gridEnCours, SmartGrid gridFermes) {
         this.gridEnCours = gridEnCours;
         this.gridFermes = gridFermes;
         this.classe = classe;
-        this.name = name;
+
+        PunitionsController.INCLUDE_OLD_TRIMESTRES.addListener((ob, o, n) -> {
+            init();
+        });
     }
-    
-    public boolean init(){
+
+    public boolean init() {
         boolean ok = populate();
-        if(ok){
+        if (ok) {
             draw();
         }
         return ok;
     }
-    
-    public void switchInclusion() {
-        includeOldTrimestres = !includeOldTrimestres;
-        populate();
-        draw();
-    }
-    
-    protected boolean getTrimestres(){
+
+    protected boolean getTrimestres() {
         if (model.getTrimestres() == null || model.getTrimestres().isEmpty()) {
             return false;
         }
@@ -63,21 +58,23 @@ public abstract class LivrableManager<T> {
         current = model.getForDate(LocalDate.now());
         return current != null;
     }
-    
+
     public abstract boolean populate();
-    
-    public void draw(){
+
+    protected abstract String getEmptyTextEnCours();
+
+    protected abstract String getEmptyTextFerme();
+
+    public void draw() {
         gridEnCours.clear();
-        String nameStr = fem?"Aucune "+name:"Aucun "+name;
-        String closed = fem?" fermée":" fermé";
-        if(enCours.isEmpty()) {
-            gridEnCours.drawNoDataInGrid(nameStr+" en cours");
+        if (enCours.isEmpty()) {
+            gridEnCours.drawNoDataInGrid(getEmptyTextEnCours());
         } else {
             enCours.forEach(punition -> drawElement(punition, false));
         }
         gridFermes.clear();
         if (fermes.isEmpty()) {
-            gridFermes.drawNoDataInGrid(nameStr+closed);
+            gridFermes.drawNoDataInGrid(getEmptyTextFerme());
         } else {
             fermes.forEach(punition -> drawElement(punition, true));
         }
@@ -85,13 +82,4 @@ public abstract class LivrableManager<T> {
 
     protected abstract void drawElement(T obj, boolean closed);
 
-    public Boolean getIncludeOldTrimestres() {
-        return includeOldTrimestres;
-    }
-
-    public void setIncludeOldTrimestres(Boolean includeOldTrimestres) {
-        this.includeOldTrimestres = includeOldTrimestres;
-    }
-    
-    
 }

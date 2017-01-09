@@ -7,12 +7,9 @@ package mesclasses.model;
 
 import com.google.common.collect.Lists;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -36,10 +33,6 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
     
     private Eleve eleve;
     
-    private ObjectProperty<LocalDate> date;
-    
-    private int cours;
-    
     private final StringProperty texte;
     
     private final BooleanProperty closed;
@@ -50,7 +43,6 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
         super();
         this.id = RandomStringUtils.randomAlphanumeric(5);
         this.texte = new SimpleStringProperty();
-        this.date = new SimpleObjectProperty<>();
         this.closed = new SimpleBooleanProperty(false);
     }
     
@@ -70,18 +62,9 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
     
     public Punition(Eleve eleve, Seance seance, String texte){
         this();
-        this.date = new SimpleObjectProperty<>(seance.getDateAsDate());
         this.eleve = eleve;
         this.texte.set(texte);
         this.seance = seance;
-    }
-    
-    public Punition(Eleve eleve, LocalDate date, int cours, String texte){
-        this();
-        this.eleve = eleve;
-        this.date = new SimpleObjectProperty<>(date);
-        this.cours = cours;
-        this.texte.set(texte);
     }
 
     @XmlAttribute
@@ -102,35 +85,6 @@ public class Punition extends MonitoredObject implements Serializable, Comparabl
 
     public void setEleve(Eleve eleve) {
         this.eleve = eleve;
-    }
-
-    @XmlElement(name="date")
-    public String getDate() {
-        if(date != null){
-            return date.get().format(Constants.DATE_FORMATTER);
-        }
-        return null;
-    }
-    
-    public LocalDate getDateAsDate() {
-        return date.get();
-    }
-
-    public void setDate(String date) {
-        this.date.set(LocalDate.parse(date, Constants.DATE_FORMATTER));
-    }
-
-    public void setDate(LocalDate date) {
-        this.date.set(date);
-    }
-    
-    @XmlElement(name="cours")
-    public int getCours() {
-        return cours;
-    }
-
-    public void setCours(int cours) {
-        this.cours = cours;
     }
 
     @XmlElement

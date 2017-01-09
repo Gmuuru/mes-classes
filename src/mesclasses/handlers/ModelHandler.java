@@ -15,7 +15,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 import mesclasses.model.Classe;
-import mesclasses.model.Constants;
 import mesclasses.model.Cours;
 import mesclasses.model.Devoir;
 import mesclasses.model.Eleve;
@@ -221,26 +220,6 @@ public class ModelHandler {
         ).collect(Collectors.toCollection(FXCollections::observableArrayList));
     }
 
-    /**
-     * Utilisé par la page content
-     *
-     * @param date
-     * @param classe
-     * @return
-     */
-    public int getNbCoursForDay(LocalDate date, Classe classe) {
-        final String formattedDay = Constants.DAYMAP.get(date.getDayOfWeek());
-        int nbCoursPrevus = getCoursForDayAndClasse(formattedDay, classe).size();
-        for (Eleve eleve : classe.getEleves()) {
-            for (EleveData eleveData : eleve.getData()) {
-                if (eleveData.getDateAsDate().isEqual(date)) {
-                    nbCoursPrevus = Math.max(nbCoursPrevus, eleveData.getCours());
-                }
-            }
-        }
-        return nbCoursPrevus;
-    }
-
     public Cours createCours(Cours newCours) {
         data.getCours().add(newCours);
         getJourneesForDay(newCours.getDay()).forEach(j -> {
@@ -287,10 +266,9 @@ public class ModelHandler {
     }
 
     //DATA
-    public EleveData createEleveData(Eleve eleve, int cours, LocalDate date) {
+    public EleveData createEleveData(Eleve eleve, LocalDate date) {
         EleveData newData = new EleveData();
         newData.setEleve(eleve);
-        newData.setCours(cours);
         newData.setDate(date);
         eleve.getData().add(newData);
         newData.startChangeDetection();
@@ -304,18 +282,6 @@ public class ModelHandler {
         seance.getDonnees().put(eleve, newData);
         newData.startChangeDetection();
         return newData;
-    }
-
-    public EleveData getDataForCoursAndDate(Eleve eleve, int cours, LocalDate date) {
-        if (eleve == null || eleve.getData() == null) {
-            return null;
-        }
-        for (EleveData eleveData : eleve.getData()) {
-            if (eleveData.getDateAsDate().isEqual(date) && eleveData.getCours() == cours) {
-                return eleveData;
-            }
-        }
-        return createEleveData(eleve, cours, date);
     }
 
     public List<EleveData> filterDataByTrimestre(List<EleveData> liste, Trimestre trimestre, LocalDate optionalEnDate) {
@@ -346,13 +312,6 @@ public class ModelHandler {
     public Punition createPunition(Eleve eleve, Seance seance, String texte) {
         //TODO
         Punition punition = new Punition(eleve, seance, texte);
-        eleve.getPunitions().add(punition);
-        punition.startChangeDetection();
-        return punition;
-    }
-
-    public Punition createPunition(Eleve eleve, LocalDate date, int cours, String texte) {
-        Punition punition = new Punition(eleve, date, cours, texte);
         eleve.getPunitions().add(punition);
         punition.startChangeDetection();
         return punition;

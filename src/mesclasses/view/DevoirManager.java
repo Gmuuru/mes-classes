@@ -13,6 +13,7 @@ import mesclasses.model.Classe;
 import mesclasses.model.Constants;
 import mesclasses.model.Devoir;
 import mesclasses.util.Btns;
+import mesclasses.util.CssUtil;
 import mesclasses.util.ModalUtil;
 import mesclasses.util.NodeUtil;
 import org.smartgrid.SmartGrid;
@@ -23,8 +24,8 @@ import org.smartgrid.SmartGrid;
  */
 public class DevoirManager extends LivrableManager<Devoir> {
 
-    public DevoirManager(Classe classe, String name, boolean fem, SmartGrid gridEnCours, SmartGrid gridFermes) {
-        super(classe, name, fem, gridEnCours, gridFermes);
+    public DevoirManager(Classe classe, SmartGrid gridEnCours, SmartGrid gridFermes) {
+        super(classe, gridEnCours, gridFermes);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class DevoirManager extends LivrableManager<Devoir> {
             return false;
         }
 
-        if (includeOldTrimestres) {
+        if (PunitionsController.INCLUDE_OLD_TRIMESTRES.get()) {
             // depuis la rentrée jusqu'à la fin du trimestre en cours
             classe.getEleves().forEach(eleve -> {
                 model.filterDevoirsByTrimestre(eleve.getDevoirs(), first, current.getEndAsDate())
@@ -75,7 +76,7 @@ public class DevoirManager extends LivrableManager<Devoir> {
     }
     
     private void deleteDevoir(Devoir d) {
-        if (ModalUtil.confirm("Supprimer le devoir", "Etes-vous sûr(e) ?")) {
+        if (ModalUtil.confirm("Le devoir sera supprimé", "Etes-vous sûr(e) ?")) {
             model.delete(d);
             init();
         }
@@ -93,24 +94,43 @@ public class DevoirManager extends LivrableManager<Devoir> {
                 + " (cours de " + NodeUtil.getStartTime(devoir.getSeance().getCours()) + ")");
         grid.add(date, 3, rowIndex, null);
 
+        
         if (isClosed) {
             Button openBtn = Btns.arrowUpBtn();
+            openBtn.setText("En Cours");
+            CssUtil.switchClass(openBtn, "button-to-delete", "button-ok");
+            Btns.tooltip(openBtn, "Marque le devoir comme 'en cours'");
             openBtn.setOnAction((event) -> {
                 openDevoir(devoir);
             });
             grid.add(openBtn, 5, rowIndex, null);
         } else {
+            Button deleteBtn = Btns.okBtn();
+            deleteBtn.setText("rendu");
+            Btns.tooltip(deleteBtn, "Supprime le devoir");
+            deleteBtn.setOnAction((event) -> {
+                deleteDevoir(devoir);
+            });
+            grid.add(deleteBtn, 4, rowIndex, null);
+            
             Button closeBtn = Btns.arrowDownBtn();
+            closeBtn.setText("Non rendu");
+            CssUtil.switchClass(closeBtn, "button-delete", "button-ok");
+            Btns.tooltip(closeBtn, "Marque le devoir comme 'Non rendu'");
             closeBtn.setOnAction((event) -> {
                 closeDevoir(devoir);
             });
             grid.add(closeBtn, 5, rowIndex, null);
         }
+    }
 
-        Button deleteBtn = Btns.deleteBtn();
-        deleteBtn.setOnAction((event) -> {
-            deleteDevoir(devoir);
-        });
-        grid.add(deleteBtn, 6, rowIndex, null);
+    @Override
+    protected String getEmptyTextEnCours() {
+        return "Aucun devoir en cours";
+    }
+
+    @Override
+    protected String getEmptyTextFerme() {
+        return "Aucun devoir non rendu";
     }
 }

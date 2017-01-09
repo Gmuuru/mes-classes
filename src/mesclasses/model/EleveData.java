@@ -43,8 +43,6 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
     
     private final ObjectProperty<LocalDate> date;
     
-    private final IntegerProperty cours;
-    
     private final BooleanProperty absent;
     
     private final IntegerProperty retard;
@@ -67,7 +65,6 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
         super();
         this.id = "donnee_"+RandomStringUtils.randomAlphanumeric(10);
         date = new SimpleObjectProperty<>();
-        cours = new SimpleIntegerProperty();
         retard = new SimpleIntegerProperty();
         absent = new SimpleBooleanProperty();
         travailPasFait = new SimpleBooleanProperty();
@@ -82,7 +79,6 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
     @Override
     public void startChangeDetection() {
         date.addListener(dateListener);
-        cours.addListener(intListener);
         retard.addListener(intListener);
         absent.addListener(booleanListener);
         travailPasFait.addListener(booleanListener);
@@ -103,10 +99,6 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
     
     public ObjectProperty<LocalDate> dateProperty(){
         return date;
-    }
-    
-    public IntegerProperty coursProperty(){
-        return cours;
     }
     
     public IntegerProperty retardProperty(){
@@ -194,15 +186,6 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
 
     public void setDate(LocalDate date) {
         this.date.set(date);
-    }
-
-    @XmlElement
-    public int getCours() {
-        return cours.get();
-    }
-
-    public void setCours(int cours) {
-        this.cours.set(cours);
     }
 
     @XmlElement
@@ -306,11 +289,7 @@ public class EleveData extends MonitoredObject implements Serializable, Comparab
         if(t.getSeance() == null){
             return -1;
         }
-        int compareDate = getSeance().getDateAsDate().compareTo(t.getSeance().getDateAsDate());
-        if(compareDate != 0){
-            return compareDate;
-        }
-        return getCours() - t.getCours();
+        return getSeance().getDateAsDate().compareTo(t.getSeance().getDateAsDate());
     }
 
     @Override

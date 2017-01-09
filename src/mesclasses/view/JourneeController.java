@@ -611,7 +611,6 @@ public class JourneeController extends PageController implements Initializable {
         });
         travailGrid.add(devoirBox, 5, rowIndex, null);
         
-        LOG.info("eleve data : "+eleveData.getOubliMateriel());
         TextField oubliMaterielField = new TextField();
         Bindings.bindBidirectional(oubliMaterielField.textProperty(), eleveData.oubliMaterielProperty());
         travailGrid.add(oubliMaterielField, 6, rowIndex, HPos.LEFT);
