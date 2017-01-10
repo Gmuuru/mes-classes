@@ -502,7 +502,8 @@ public class ModelHandler {
         if (d == null) {
             return;
         }
-        d.setDateCloture("");
+        LocalDate nullDate = null;
+        d.setDateCloture(nullDate);
     }
 
     public List<Mot> filterMotsByTrimestre(List<Mot> liste, Trimestre trimestre, LocalDate optionalEnDate) {

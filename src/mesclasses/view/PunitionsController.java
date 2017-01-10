@@ -44,6 +44,8 @@ public class PunitionsController extends PageController implements Initializable
     @FXML
     private Tab devoirsTab;
     @FXML
+    private Tab motsTab;
+    @FXML
     private Label titleLabel;
     @FXML
     private SmartGrid gridPunitionsEnCours;
@@ -54,11 +56,16 @@ public class PunitionsController extends PageController implements Initializable
     @FXML
     private SmartGrid gridDevoirsFermes;
     @FXML
+    private SmartGrid gridMotsEnCours;
+    @FXML
+    private SmartGrid gridMotsFermes;
+    @FXML
     private Button displayOldDataBtn;
 
     private Classe classe;
     private DevoirManager devoirManager;
     private PunitionManager punitionManager;
+    private MotManager motManager;
 
     public static final BooleanProperty INCLUDE_OLD_TRIMESTRES = new SimpleBooleanProperty(false);
 
@@ -81,6 +88,7 @@ public class PunitionsController extends PageController implements Initializable
     private void initTabs() {
         initTab(punitionsTab);
         initTab(devoirsTab);
+        initTab(motsTab);
         tabPane.getSelectionModel().clearAndSelect(0);
         selectTab(punitionsTab);
     }
@@ -119,8 +127,10 @@ public class PunitionsController extends PageController implements Initializable
     private void init() {
         devoirManager = new DevoirManager(classe, gridDevoirsEnCours, gridDevoirsFermes);
         punitionManager = new PunitionManager(classe, gridPunitionsEnCours, gridPunitionsFermees);
+        motManager = new MotManager(classe, gridMotsEnCours, gridMotsFermes);
         devoirManager.init();
         punitionManager.init();
+        motManager.init();
     }
 
     @Subscribe
