@@ -50,16 +50,12 @@
     -fx-text-fill : #FFbb33;
 }
 
-.tab.seance1, .tab.seance1 .tab-label, .tab.seance1 .smart-grid {
-    -fx-background-color : #e8f5e9;
-}
-
 .tab.seance1, .tab.seance1 .tab-label, .smart-grid.seance1 {
     -fx-background-color : #e8f5e9;
 }
 
 .tab.seance2, .tab.seance2:selected, .smart-grid.seance2 {
-    -fx-background-color : e1f5fe;
+    -fx-background-color : #fff9c4;
 }
 .tab.seance3, .tab.seance3:selected, .smart-grid.seance3 {
     -fx-background-color : #f4e6f5;

@@ -5,7 +5,6 @@
  */
 package mesclasses.view;
 
-import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,8 +29,6 @@ import mesclasses.util.CssUtil;
 import mesclasses.util.NodeUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.Appender;
-import org.apache.logging.log4j.core.appender.RollingFileAppender;
 
 /**
  * FXML Controller class
@@ -137,15 +134,6 @@ public class AccueilController extends PageController implements Initializable {
                     +" au "+t.getEndAsDate().format(Constants.LONG_DATE_FORMATTER));
             trimestresBox.getChildren().add(textFlow(tDates));
         });
-        Label test = new Label("log file : "+getLoggerFileName());
-        trimestresBox.getChildren().add(test);
-    }
-    
-    public String getLoggerFileName() {
-      org.apache.logging.log4j.core.Logger loggerImpl = (org.apache.logging.log4j.core.Logger) LOG;
-        Appender appender = loggerImpl.getAppenders().get("ROLLING");
-      // Unfortunately, File is no longer an option to return, here.
-      return new File(((RollingFileAppender) appender).getFileName()).getAbsolutePath();
     }
 
     private TextFlow textFlow(Node... nodes){

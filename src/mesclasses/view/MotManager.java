@@ -6,6 +6,7 @@
 package mesclasses.view;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -24,6 +25,16 @@ import org.smartgrid.SmartGrid;
  */
 public class MotManager extends LivrableManager<Mot> {
 
+    private final Comparator<Mot> comparator = (Mot t, Mot t1) -> {
+        if(t == null){
+            return t1 == null ? 0 : -1;
+        }
+        if(t1 == null){        
+            return 1;
+        }
+        return t1.getSeance().getDateAsDate().compareTo(t.getSeance().getDateAsDate());
+    };
+    
     public MotManager(Classe classe, SmartGrid gridEnCours, SmartGrid gridFermes) {
         super(classe, gridEnCours, gridFermes);
     }
@@ -62,6 +73,8 @@ public class MotManager extends LivrableManager<Mot> {
                         });
             });
         }
+        enCours.sort(comparator);
+        fermes.sort(comparator);
         return true;
     }
 

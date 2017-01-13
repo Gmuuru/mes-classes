@@ -28,6 +28,9 @@ public class ConfigurationController extends PageController implements Initializ
     @FXML Tab semainesTab;
     @FXML AnchorPane configSemaines;
     @FXML ConfigSemainesController configSemainesController;
+    @FXML Tab stockageTab;
+    @FXML AnchorPane configStockage;
+    @FXML ConfigStockageController configStockageController;
     
     ChangeListener<Tab> selectionListener;
     PageController selectedController;
@@ -39,12 +42,13 @@ public class ConfigurationController extends PageController implements Initializ
         name = "Configuration ctrl";
         super.initialize(url, rb);
         initTab(semainesTab, configSemainesController);
+        initTab(stockageTab, configStockageController);
         tabPane.getSelectionModel().select(semainesTab);
         selectedController = configSemainesController;
         selectionListener = new ChangeListener<Tab>() {
             @Override
             public void changed(ObservableValue<? extends Tab> observable, Tab oldValue, Tab newValue) {
-                if(selectedController.notifyExit()){
+                if(selectedController == null || selectedController.notifyExit()){
                     selectedController = (PageController)newValue.getUserData();
                 } else {
                     //TODO

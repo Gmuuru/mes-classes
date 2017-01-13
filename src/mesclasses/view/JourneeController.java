@@ -308,7 +308,15 @@ public class JourneeController extends PageController implements Initializable {
         LOG.debug("Refreshing the grid for "+name);
         trimestre = model.getForDate(currentDate.getValue());
         if(trimestre == null){
-            selectedGrid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
+            vieScolaireGrid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
+                    EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_TRIMESTRE_VIEW));
+                }
+            );
+            travailGrid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
+                    EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_TRIMESTRE_VIEW));
+                }
+            );
+            sanctionsGrid.drawNoTrimestreAlert(currentDate.getValue(), (event) -> {
                     EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_TRIMESTRE_VIEW));
                 }
             );
@@ -322,7 +330,15 @@ public class JourneeController extends PageController implements Initializable {
         
         if(seanceSelect.getValue() != null){
             if(seanceSelect.getValue().getClasse().getEleves().isEmpty()){
-                selectedGrid.drawNoEleveAlert(seanceSelect.getValue().getClasse().getName(), (event) ->{
+                vieScolaireGrid.drawNoEleveAlert(seanceSelect.getValue().getClasse().getName(), (event) ->{
+                    EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_ELEVE_VIEW));
+                    }
+                );
+                travailGrid.drawNoEleveAlert(seanceSelect.getValue().getClasse().getName(), (event) ->{
+                    EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_ELEVE_VIEW));
+                    }
+                );
+                sanctionsGrid.drawNoEleveAlert(seanceSelect.getValue().getClasse().getName(), (event) ->{
                     EventBusHandler.post(new OpenMenuEvent(Constants.ADMIN_ELEVE_VIEW));
                     }
                 );
@@ -334,7 +350,19 @@ public class JourneeController extends PageController implements Initializable {
         } else {
             addCoursBtn.setDisable(false);
             String day = Constants.DAYMAP.get(currentDate.getValue().getDayOfWeek());
-            selectedGrid.drawNoSeanceAlert(day,
+            vieScolaireGrid.drawNoSeanceAlert(day,
+                    (event) -> {
+                        EventBusHandler.post(new OpenMenuEvent(Constants.EMPLOI_DU_TEMPS_VIEW));
+                        EventBusHandler.post(new CreateCoursEvent(day, null));
+                    }
+            );
+            travailGrid.drawNoSeanceAlert(day,
+                    (event) -> {
+                        EventBusHandler.post(new OpenMenuEvent(Constants.EMPLOI_DU_TEMPS_VIEW));
+                        EventBusHandler.post(new CreateCoursEvent(day, null));
+                    }
+            );
+            sanctionsGrid.drawNoSeanceAlert(day,
                     (event) -> {
                         EventBusHandler.post(new OpenMenuEvent(Constants.EMPLOI_DU_TEMPS_VIEW));
                         EventBusHandler.post(new CreateCoursEvent(day, null));
@@ -662,6 +690,7 @@ public class JourneeController extends PageController implements Initializable {
         sanctionsGrid.add(punitionsBox, 3, rowIndex, HPos.LEFT);
         
         CheckBox motCarnet = new CheckBox();
+        Label cumulMot = new Label();
         motCarnet.setSelected(model.getMotForSeance(eleve, seanceSelect.getValue()) != null);
         motCarnet.selectedProperty().addListener((ob, o, checked) -> {
             Mot mot = model.getMotForSeance(eleve, seanceSelect.getValue());
@@ -670,13 +699,9 @@ public class JourneeController extends PageController implements Initializable {
             } else if(mot != null){
                 model.delete(mot);
             }
-        });
-        sanctionsGrid.add(motCarnet, 4, rowIndex, null);
-        
-        Label cumulMot = new Label();
-        cumulMot.textProperty().addListener((observable, oldValue, newValue) -> {
             writeAndMarkInRed(cumulMot, stats.getMotsUntil(eleve, currentDate.getValue()).size(), 3);
         });
+        sanctionsGrid.add(motCarnet, 4, rowIndex, null);
         writeAndMarkInRed(cumulMot, stats.getMotsUntil(eleve, currentDate.getValue()).size(), 3);
         sanctionsGrid.add(cumulMot, 5, rowIndex, null);
         

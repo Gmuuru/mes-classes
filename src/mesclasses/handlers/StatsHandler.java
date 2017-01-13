@@ -176,7 +176,7 @@ public class StatsHandler {
     public List<Mot> getMotsUntil(Eleve eleve, LocalDate date){
         Trimestre trim = model.getForDate(date);
         return eleve.getMots().filtered(m -> {
-            return NodeUtil.isBetween(m.getDate(), trim.getStartAsDate(), trim.getEndAsDate()); 
+            return NodeUtil.isBetween(m.getDate(), trim.getStartAsDate(), date); 
         });
     }
     

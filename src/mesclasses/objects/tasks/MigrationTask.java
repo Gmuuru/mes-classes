@@ -63,7 +63,7 @@ public class MigrationTask extends AppTask<Object> {
             }
         } catch (Exception e) {
             LOG.error("MigrationException", e);
-            setMsg("Impossible d'effectuer la conversion en séances : " + e.getMessage());
+            setMsg("Erreur de validation des données : " + e.getMessage());
             throw e;
         }
         LOG.info("nbDonneesInitiales : " + nbDonneesInitiales + ", nbPunitionsInitiales : " + nbPunitionsInitiales);

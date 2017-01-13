@@ -5,6 +5,7 @@
  */
 package mesclasses.view;
 
+import java.util.Comparator;
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -24,6 +25,17 @@ import org.smartgrid.SmartGrid;
  */
 public class PunitionManager extends LivrableManager<Punition> {
 
+    
+    private final Comparator<Punition> comparator = (Punition t, Punition t1) -> {
+        if(t == null){
+            return t1 == null ? 0 : -1;
+        }
+        if(t1 == null){        
+            return 1;
+        }
+        return t1.getSeance().getDateAsDate().compareTo(t.getSeance().getDateAsDate());
+    };
+    
     public PunitionManager(Classe classe, SmartGrid gridEnCours, SmartGrid gridFermes) {
         super(classe, gridEnCours, gridFermes);
     }
@@ -62,9 +74,12 @@ public class PunitionManager extends LivrableManager<Punition> {
                         });
             });
         }
+        enCours.sort(comparator);
+        fermes.sort(comparator);
         return true;
     }
 
+            
     private void closePunition(Punition punition) {
         punition.setClosed(true);
         init();

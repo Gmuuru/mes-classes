@@ -21,6 +21,11 @@
                       <fx:include fx:id="configSemaines" source="ConfigSemaines.fxml"/>
                     </content>
                   </Tab>
+                  <Tab fx:id="stockageTab" text="Sauvegardes">
+                    <content>
+                      <fx:include fx:id="configStockage" source="ConfigStockage.fxml"/>
+                    </content>
+                  </Tab>
                </tabs></TabPane>
            </center>
         </BorderPane>

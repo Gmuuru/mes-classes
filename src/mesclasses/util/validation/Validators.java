@@ -198,8 +198,8 @@ public class Validators {
         if(d.getSeance() == null){
             err.add(new FError(MANDATORY(d, "séance")));
         }
-        if(d.getSeance().getDonnees() == null ||
-                !d.getSeance().getDonnees().containsKey(d.getEleve())){
+        if(d.getSeance() != null && (d.getSeance().getDonnees() == null ||
+                !d.getSeance().getDonnees().containsKey(d.getEleve()))){
             LOG.error("donnée {} non reliée à sa séance {}, réparation", d.getId(), d.getSeance().getId());
             d.getSeance().getDonnees().put(d.getEleve(), d);
         }

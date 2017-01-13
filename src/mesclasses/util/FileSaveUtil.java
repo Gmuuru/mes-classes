@@ -43,7 +43,7 @@ public class FileSaveUtil {
 
     public static void restoreArchive(File archiveFile) throws IOException {
         FileConfigurationManager conf = FileConfigurationManager.getInstance();
-        if (!ZipUtil.containsEntry(archiveFile, conf.getSaveFile())) {
+        if (!ZipUtil.containsEntry(archiveFile, FileConfigurationManager.SAVE_FILE)) {
             AppLogger.notif("Archivage : ", "Le fichier " + archiveFile.getName() + " n'est pas une archive valide");
             return;
         }
